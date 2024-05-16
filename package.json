@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Create a reusable Qwik component library implementing Flowbite",
   "module": "./lib/index.js",
   "main": "./lib/index.umd.cjs",
@@ -24,7 +24,8 @@
     "node": ">=20.0.0"
   },
   "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
-  "private": true,
+  "private": false,
+  "repository": "https://github.com/xmimiex/flowbite-qwik.git",
   "trustedDependencies": [
     "sharp"
   ],
@@ -41,7 +42,8 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "release": "np",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "test": "vitest run --coverage"
   },
   "dependencies": {
     "@qwikest/icons": "^0.0.13",
@@ -54,6 +56,7 @@
     "@types/node": "^20.12.12",
     "@typescript-eslint/eslint-plugin": "^7.9.0",
     "@typescript-eslint/parser": "^7.9.0",
+    "@vitest/coverage-v8": "^1.6.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
@@ -68,6 +71,6 @@
     "undici": "^6.16.1",
     "vite": "^5.2.11",
     "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.4.0"
+    "vitest": "^1.6.0"
   }
 }
