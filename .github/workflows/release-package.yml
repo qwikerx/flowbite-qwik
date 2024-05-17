@@ -9,11 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-#      - run: yarn test
+          cache: 'pnpm'
+      - run: pnpm install --production --frozen-lockfile
+  #      - run: yarn test
 
   publish-gpr:
     needs: build
@@ -24,11 +29,16 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'pnpm'
           registry-url: https://registry.npmjs.org
-      - run: npm ci
-      - run: npm publish --verbose --provenance --access public
+      - run: pnpm install --production --frozen-lockfile
+      - run: pnpm publish --verbose --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_TOKEN}}
