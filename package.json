@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Create a reusable Qwik component library implementing Flowbite",
   "module": "./lib/index.js",
   "main": "./lib/index.umd.cjs",
