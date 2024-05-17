@@ -12,8 +12,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-#      - run: yarn test
+      - run: pnpm install --production --frozen-lockfile
+  #      - run: yarn test
 
   publish-gpr:
     needs: build
@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org
-      - run: npm ci
-      - run: npm publish --verbose --provenance --access public
+      - run: pnpm install --production --frozen-lockfile
+      - run: pnpm publish --verbose --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_TOKEN}}

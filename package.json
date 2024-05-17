@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik",
-  "version": "0.0.8",
+  "version": "0.0.1",
   "description": "Create a reusable Qwik component library implementing Flowbite",
   "module": "./lib/index.js",
   "main": "./lib/index.umd.cjs",
@@ -31,7 +31,7 @@
   ],
   "trustedDependencies-annotation": "Needed for bun to allow running install scripts",
   "scripts": {
-    "build": "rm -rf lib && rm -rf lib-types && vite build --mode lib && pnpm run build.types",
+    "build": "rm -rf lib && rm -rf lib-types && vite build --mode lib && npm run build.types",
     "build.watch": "vite build --mode lib --watch",
     "build.types": "tsc --emitDeclarationOnly --declaration",
     "build.types.watch": "tsc --watch --emitDeclarationOnly --declaration",
