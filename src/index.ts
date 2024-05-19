@@ -1,7 +1,5 @@
 import './global.css'
 
-// Components
+export { Button } from './components/button/button'
+export { Spinner } from './components/spinner/spinner'
 export { ToastList } from './components/toast-list/toast-list'
-
-// Tailwind
-export { default as tailwind } from './tailwind/preset'
