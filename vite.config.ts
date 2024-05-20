@@ -1,11 +1,7 @@
 import { defineConfig } from 'vite'
 import { qwikVite } from '@builder.io/qwik/optimizer'
 import * as path from 'path'
-import pkg from './package.json'
-
-const { dependencies = {}, peerDependencies = {} } = pkg as any
-const makeRegex = (dep) => new RegExp(`^${dep}(/.*)?$`)
-const excludeAll = (obj) => Object.keys(obj).map(makeRegex)
+import { qwikCity } from '@builder.io/qwik-city/vite'
 
 export default defineConfig(() => {
   return {
@@ -31,6 +27,6 @@ export default defineConfig(() => {
         '~': path.resolve(__dirname, './src/'),
       },
     },
-    plugins: [qwikVite()],
+    plugins: [qwikCity({ trailingSlash: false }), qwikVite()],
   }
 })
