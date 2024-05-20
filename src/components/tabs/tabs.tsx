@@ -1,4 +1,4 @@
-import { $, component$, FunctionComponent, JSXChildren, JSXNode, PropsOf, Slot, useComputed$, useId, useStore } from '@builder.io/qwik'
+import { $, component$, FunctionComponent, JSXChildren, JSXNode, JSXOutput, PropsOf, Slot, useComputed$, useId, useStore } from '@builder.io/qwik'
 import { useTabsClasses } from '~/components/tabs/useTabsClasses'
 import { TabsVariant } from '~/components/tabs/tabs-types'
 import { useTabClasses } from '~/components/tabs/useTabClasses'
@@ -9,6 +9,7 @@ interface ComponentType {
   disabled: boolean
   tab: {
     title: string
+    icon?: JSXOutput
   }
   pane: {
     children: JSXChildren
@@ -49,6 +50,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, variant = 'defaul
           disabled: Boolean(child.props.disabled),
           tab: {
             title: child.props.title as string,
+            icon: child.props.icon as JSXOutput | undefined,
           },
           pane: {
             children: child.children,
@@ -68,6 +70,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, variant = 'defaul
 type TabProps = PropsOf<'div'> & {
   active?: boolean
   disabled?: boolean
+  icon?: JSXOutput
 }
 export const Tab = component$<TabProps>(() => {
   return <Slot />
@@ -110,7 +113,15 @@ const InnerTabs = component$<InnerTabsProps>((props) => {
                 await selectTabPane(comp.id)
               }}
             >
-              <InnerTab id={String(comp.id)} tabsId={tabsId} active={comp.active} disabled={comp.disabled} variant={props.variant}>
+              <InnerTab
+                id={String(comp.id)}
+                withIcon={!!comp.tab.icon}
+                tabsId={tabsId}
+                active={comp.active}
+                disabled={comp.disabled}
+                variant={props.variant}
+              >
+                {comp.tab.icon}
                 {comp.tab.title}
               </InnerTab>
             </li>
@@ -133,12 +144,14 @@ type InnerTabProps = PropsOf<'div'> & {
   variant: TabsVariant
   active: boolean
   disabled: boolean
+  withIcon: boolean
 }
 const InnerTab = component$<InnerTabProps>((props) => {
   const { tabClasses } = useTabClasses({
     variant: useComputed$(() => props.variant),
     active: useComputed$(() => props.active),
     disabled: useComputed$(() => props.disabled),
+    withIcon: useComputed$(() => props.withIcon),
   })
 
   return (

@@ -13,6 +13,7 @@ export type UseTabClassesProps = {
   active: Signal<boolean>
   disabled: Signal<boolean>
   variant?: Signal<TabsVariant | undefined>
+  withIcon: Signal<boolean>
 }
 
 const defaultTabClasses = {
@@ -41,18 +42,25 @@ export function useTabClasses(props: UseTabClassesProps): {
     const isActiveTheme = theme.isActive.value
 
     const tabClassType: keyof TabClassMap = props.active.value ? 'active' : props.disabled.value ? 'disabled' : 'default'
+    const withIconClasses = props.withIcon.value ? 'gap-2 inline-flex items-center' : ''
 
     if (props.variant?.value === 'default') {
-      return simplifyTailwindClasses(defaultTabClasses[tabClassType], (isActiveTheme && tabClassType) === 'active' ? theme.textClasses.value : '')
+      return simplifyTailwindClasses(
+        defaultTabClasses[tabClassType],
+        (isActiveTheme && tabClassType) === 'active' ? theme.textClasses.value : '',
+        withIconClasses,
+      )
     } else if (props.variant?.value === 'underline') {
       return simplifyTailwindClasses(
         underlineTabClasses[tabClassType],
         (isActiveTheme && tabClassType) === 'active' ? [theme.borderClasses.value, theme.textClasses.value] : '',
+        withIconClasses,
       )
     } else if (props.variant?.value === 'pills') {
       return simplifyTailwindClasses(
         pillsTabClasses[tabClassType],
         (isActiveTheme && tabClassType) === 'active' ? [theme.backgroundClasses.value, 'text-white'] : '',
+        withIconClasses,
       )
     }
 
