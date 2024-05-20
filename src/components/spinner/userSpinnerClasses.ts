@@ -42,9 +42,7 @@ export function useSpinnerClasses(props: UseSpinnerClassesProps): { spinnerClass
   const colorClasses = useComputed$(() => colors[props.color])
   const bgColorClasses = useComputed$(() => 'text-gray-200 dark:text-gray-600')
   const animateClasses = useComputed$(() => 'animate-spin')
-  const spinnerClasses = useComputed$(() =>
-    classNames(animateClasses.value, bgColorClasses.value, colorClasses.value, sizeClasses.value),
-  )
+  const spinnerClasses = useComputed$(() => classNames(animateClasses.value, bgColorClasses.value, colorClasses.value, sizeClasses.value))
 
   return { spinnerClasses }
 }

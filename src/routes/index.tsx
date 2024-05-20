@@ -1,5 +1,14 @@
 import { component$ } from '@builder.io/qwik'
 
 export default component$(() => {
-  return <a href="/button">Boutons</a>
+  return (
+    <>
+      <p>
+        <a href="/button">Boutons</a>
+      </p>
+      <p>
+        <a href="/tabs">Tabs</a>
+      </p>
+    </>
+  )
 })

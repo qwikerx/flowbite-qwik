@@ -82,31 +82,23 @@ export const Button = component$<ButtonProps>(
         onClick$={attrs.onClick$}
       >
         {!isOutlineGradient.value && (prefix || loadingPrefix.value) && (
-          <div class="mr-2">
-            {loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{prefix}</>}
-          </div>
+          <div class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{prefix}</>}</div>
         )}
 
         <span class={spanClasses.value}>
           {isOutlineGradient.value && (prefix || loadingPrefix.value) && (
-            <span class="mr-2">
-              {loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{prefix}</>}
-            </span>
+            <span class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{prefix}</>}</span>
           )}
 
           <Slot />
 
           {isOutlineGradient.value && (suffix || loadingSuffix.value) && (
-            <span class="ml-2">
-              {loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{suffix}</>}
-            </span>
+            <span class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{suffix}</>}</span>
           )}
         </span>
 
         {!isOutlineGradient.value && (suffix || loadingSuffix.value) && (
-          <div class="ml-2">
-            {loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{suffix}</>}
-          </div>
+          <div class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{suffix}</>}</div>
         )}
       </ButtonComponent>
     )
