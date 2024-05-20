@@ -1,5 +1,6 @@
 import { component$, useSignal } from '@builder.io/qwik'
 import { Button } from '~/components/button/button'
+import { LuArrowRight } from '@qwikest/icons/lucide'
 
 export default component$(() => {
   const loading = useSignal(false)
@@ -474,20 +475,7 @@ export default component$(() => {
           square
         >
           Open something
-          {/*<template #suffix>*/}
-          {/*  <svg*/}
-          {/*    class="w-5 h-5"*/}
-          {/*    fill="currentColor"*/}
-          {/*    viewBox="0 0 20 20"*/}
-          {/*    xmlns="http://www.w3.org/2000/svg"*/}
-          {/*  >*/}
-          {/*    <path*/}
-          {/*      clip-rule="evenodd"*/}
-          {/*      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"*/}
-          {/*      fill-rule="evenodd"*/}
-          {/*    />*/}
-          {/*  </svg>*/}
-          {/*</template>*/}
+          <LuArrowRight q-slot="suffix" />
         </Button>
       </div>
     </section>

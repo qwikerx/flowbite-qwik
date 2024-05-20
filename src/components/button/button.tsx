@@ -1,8 +1,7 @@
-import { component$, PropsOf, Slot, useComputed$, useSignal, useStore, useTask$ } from '@builder.io/qwik'
+import { component$, PropsOf, Slot, useComputed$ } from '@builder.io/qwik'
 import { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '~/components/button/button-types'
 import { useButtonClasses } from '~/components/button/useButtonClasses'
 import { useButtonSpinner } from '~/components/button/useButtonSpinner'
-import { useMergeClasses } from '~/composables/useMergeClasses'
 import { Spinner } from '~/components/spinner/spinner'
 
 type ButtonProps = PropsOf<'button'> &
@@ -33,26 +32,21 @@ export const Button = component$<ButtonProps>(
     loadingPosition = 'prefix',
     disabled = false,
     href = '',
-    ...props
+    ...attrs
   }) => {
-    const buttonClasses = useButtonClasses({
-      color,
-      gradient,
-      size,
-      loading,
-      disabled,
-      pill,
-      shadow,
-      square,
-      outline,
-      class: props.class,
-      target: props.target,
+    const { bindClasses, spanClasses } = useButtonClasses({
+      color: useComputed$(() => color),
+      gradient: useComputed$(() => gradient),
+      size: useComputed$(() => size),
+      loading: useComputed$(() => loading),
+      disabled: useComputed$(() => disabled),
+      pill: useComputed$(() => pill),
+      shadow: useComputed$(() => shadow),
+      square: useComputed$(() => square),
+      outline: useComputed$(() => outline),
+      class: useComputed$(() => attrs.class),
+      target: useComputed$(() => attrs.target),
     })
-    const wrapperClasses = useComputed$(() => {
-      console.log({ buttonClasses }) //FIXME: pas reactif ici
-      return useMergeClasses(buttonClasses.wrapperClasses)
-    })
-    const spanClasses = useComputed$(() => useMergeClasses(buttonClasses.spanClasses))
 
     const isOutlineGradient = useComputed$(() => outline && gradient)
 
@@ -72,11 +66,11 @@ export const Button = component$<ButtonProps>(
 
     return (
       <ButtonComponent
-        class={wrapperClasses.value}
+        class={bindClasses.value}
         href={ButtonComponent !== 'button' ? href : undefined}
-        target={ButtonComponent !== 'button' ? props.target : undefined}
+        target={ButtonComponent !== 'button' ? attrs.target : undefined}
         disabled={ButtonComponent === 'button' && disabled}
-        onClick$={props.onClick$ as any}
+        onClick$={attrs.onClick$}
       >
         {!isOutlineGradient.value && /*$slots.prefix ||*/ loadingPrefix.value && (
           <div class="mr-2">

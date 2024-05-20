@@ -6,6 +6,7 @@ import type {
   ButtonVariant,
 } from './button-types'
 import { ClassList, HTMLAttributeAnchorTarget, Signal, useComputed$ } from '@builder.io/qwik'
+import { useMergeClasses } from '~/composables/useMergeClasses'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>; default: Record<T, string> }
 
@@ -171,128 +172,133 @@ const buttonShadowClasses: Record<ButtonMonochromeGradient, string> = {
 }
 
 export type UseButtonClassesProps = {
-  class: ClassList
-  pill: boolean
-  disabled: boolean
-  loading: boolean
-  outline: boolean
-  size: ButtonSize
-  square: boolean
-  color: ButtonVariant
-  gradient?: ButtonGradient
-  shadow?: ButtonMonochromeGradient | boolean
-  target?: HTMLAttributeAnchorTarget
+  class?: Signal<ClassList>
+  pill: Signal<boolean>
+  disabled: Signal<boolean>
+  loading: Signal<boolean>
+  outline: Signal<boolean>
+  size: Signal<ButtonSize>
+  square: Signal<boolean>
+  color: Signal<ButtonVariant>
+  gradient?: Signal<ButtonGradient | undefined>
+  shadow?: Signal<ButtonMonochromeGradient | boolean>
+  target?: Signal<HTMLAttributeAnchorTarget | undefined>
 }
 
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
 const alternativeColors = ['alternative', 'light']
 
 export function useButtonClasses(props: UseButtonClassesProps): {
-  wrapperClasses: string
-  spanClasses: string
+  sizeClasses: Signal<string>
+  bindClasses: Signal<string>
+  spanClasses: Signal<string>
 } {
   const sizeClasses = useComputed$(() => {
-    if (props.square) return buttonSquareSizeClasses[props.size]
-    return buttonSizeClasses[props.size]
+    if (props.square.value) return buttonSquareSizeClasses[props.size.value]
+    return buttonSizeClasses[props.size.value]
   })
 
   const bindClasses = useComputed$(() => {
-    console.log('bindClasses', props.loading)
-    const isGradient = !!props.gradient
-    const isColor = !!props.color
-    const isOutline = props.outline
+    const isGradient = !!props.gradient?.value
+    const isColor = !!props.color.value
+    const isOutline = props.outline.value
 
     let hoverClass = ''
     let backgroundClass = ''
 
     if (isGradient && isOutline) {
       // GRADIENT AND OUTLINE
-      if (!simpleGradients.includes(props.gradient!)) {
+      if (!simpleGradients.includes(props.gradient!.value!)) {
         backgroundClass =
           buttonOutlineGradientClasses.default[
-            props.gradient as unknown as keyof typeof buttonOutlineGradientClasses.default
+            props.gradient?.value as unknown as keyof typeof buttonOutlineGradientClasses.default
           ]
 
-        if (!props.disabled)
+        if (!props.disabled.value)
           hoverClass =
             buttonOutlineGradientClasses.hover[
-              props.gradient as unknown as keyof typeof buttonOutlineGradientClasses.hover
+              props.gradient!.value as unknown as keyof typeof buttonOutlineGradientClasses.hover
             ]
       } else {
-        console.warn(`cannot use outline prop with "${props.gradient}" gradient`) // TODO: prettify
+        console.warn(`cannot use outline prop with "${props.gradient!.value}" gradient`) // TODO: prettify
       }
     } else if (isGradient) {
       // JUST GRADIENT
-      backgroundClass = buttonGradientClasses.default[props.gradient!]
+      backgroundClass = buttonGradientClasses.default[props.gradient!.value!]
 
-      if (!props.disabled) hoverClass = buttonGradientClasses.hover[props.gradient!]
+      if (!props.disabled.value) hoverClass = buttonGradientClasses.hover[props.gradient!.value!]
     } else if (isColor && isOutline) {
       // COLOR AND OUTLINE
-      if (!alternativeColors.includes(props.color)) {
-        const color = props.color
+      if (!alternativeColors.includes(props.color.value)) {
+        const color = props.color.value
 
         backgroundClass =
           buttonOutlineColorClasses.default[color as unknown as keyof typeof buttonOutlineColorClasses.default]
 
-        if (!props.disabled)
+        if (!props.disabled.value)
           hoverClass = buttonOutlineColorClasses.hover[color as unknown as keyof typeof buttonOutlineColorClasses.hover]
       } else {
-        console.warn(`cannot use outline prop with "${props.color}" color`) // TODO: prettify
+        console.warn(`cannot use outline prop with "${props.color.value}" color`) // TODO: prettify
       }
     } else {
       // JUST COLOR
-      const color = props.color
+      const color = props.color.value
 
       backgroundClass = buttonColorClasses.default[color as unknown as keyof typeof buttonColorClasses.default]
 
-      if (!props.disabled)
+      if (!props.disabled.value)
         hoverClass = buttonColorClasses.hover[color as unknown as keyof typeof buttonColorClasses.hover]
     }
 
     let shadowClass = ''
-    if (typeof props.shadow === 'boolean' && Boolean(props.shadow)) {
+    if (typeof props.shadow?.value === 'boolean' && Boolean(props.shadow.value)) {
       //if shadow prop passed without value - try to find color for shadow by gradient
-      if (props.gradient && simpleGradients.includes(props.gradient!)) {
+      if (props.gradient?.value && simpleGradients.includes(props.gradient!.value)) {
         shadowClass = buttonShadowClasses[props.gradient as unknown as keyof typeof buttonShadowClasses]
       }
-    } else if (typeof props.shadow === 'string') {
+    } else if (typeof props.shadow?.value === 'string') {
       // if provided color for shadow - use it
-      if (simpleGradients.includes(props.shadow)) {
-        shadowClass = buttonShadowClasses[props.shadow as unknown as keyof typeof buttonShadowClasses]
+      if (simpleGradients.includes(props.shadow.value)) {
+        shadowClass = buttonShadowClasses[props.shadow.value as unknown as keyof typeof buttonShadowClasses]
       }
     }
 
-    return [
-      backgroundClass,
-      hoverClass,
-      shadowClass,
-      props.pill && '!rounded-full',
-      props.disabled && 'cursor-not-allowed opacity-50',
-      isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
-      /*slots.prefix || slots.suffix ||*/ props.loading && 'inline-flex items-center', // FIXME
-      props.class,
-      props.target,
-    ]
-      .filter((str) => str)
-      .join(' ')
+    return useMergeClasses(
+      [
+        backgroundClass,
+        hoverClass,
+        shadowClass,
+        props.pill.value && '!rounded-full',
+        props.disabled.value && 'cursor-not-allowed opacity-50',
+        isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
+        /*slots.prefix || slots.suffix ||*/ props.loading.value && 'inline-flex items-center', // FIXME
+        props.class?.value,
+        props.target?.value,
+      ]
+        .filter((str) => str)
+        .join(' '),
+    )
   })
 
   const spanClasses = useComputed$(() => {
-    if (!!props.gradient && props.outline) {
+    let classes = ''
+    if (!!props.gradient?.value && props.outline.value) {
       // ONLY FOR GRADIENT OUTLINE BUTTON
-      return [
+      classes = [
         'relative bg-white dark:bg-gray-900 rounded-md inline-flex items-center',
         sizeClasses.value,
-        !props.disabled ? 'group-hover:bg-opacity-0 transition-all ease-in duration-75' : '',
+        !props.disabled.value ? 'group-hover:bg-opacity-0 transition-all ease-in duration-75' : '',
       ]
         .filter((str) => str)
         .join(' ')
     }
-    return ''
+
+    return useMergeClasses(classes)
   })
 
   return {
-    wrapperClasses: bindClasses.value,
-    spanClasses: spanClasses.value,
+    sizeClasses,
+    bindClasses,
+    spanClasses,
   }
 }
