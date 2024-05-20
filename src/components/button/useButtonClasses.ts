@@ -5,7 +5,7 @@ import type {
   ButtonSize,
   ButtonVariant,
 } from './button-types'
-import { ClassList, HTMLAttributeAnchorTarget, Signal, useComputed$ } from '@builder.io/qwik'
+import { ClassList, HTMLAttributeAnchorTarget, JSXNode, JSXOutput, Signal, useComputed$ } from '@builder.io/qwik'
 import { useMergeClasses } from '~/composables/useMergeClasses'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>; default: Record<T, string> }
@@ -183,6 +183,8 @@ export type UseButtonClassesProps = {
   gradient?: Signal<ButtonGradient | undefined>
   shadow?: Signal<ButtonMonochromeGradient | boolean>
   target?: Signal<HTMLAttributeAnchorTarget | undefined>
+  prefix?: Signal<JSXOutput | undefined>
+  suffix?: Signal<JSXOutput | undefined>
 }
 
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
@@ -220,7 +222,7 @@ export function useButtonClasses(props: UseButtonClassesProps): {
               props.gradient!.value as unknown as keyof typeof buttonOutlineGradientClasses.hover
             ]
       } else {
-        console.warn(`cannot use outline prop with "${props.gradient!.value}" gradient`) // TODO: prettify
+        console.warn(`cannot use outline prop with "${props.gradient!.value}" gradient`)
       }
     } else if (isGradient) {
       // JUST GRADIENT
@@ -238,7 +240,7 @@ export function useButtonClasses(props: UseButtonClassesProps): {
         if (!props.disabled.value)
           hoverClass = buttonOutlineColorClasses.hover[color as unknown as keyof typeof buttonOutlineColorClasses.hover]
       } else {
-        console.warn(`cannot use outline prop with "${props.color.value}" color`) // TODO: prettify
+        console.warn(`cannot use outline prop with "${props.color.value}" color`)
       }
     } else {
       // JUST COLOR
@@ -252,9 +254,9 @@ export function useButtonClasses(props: UseButtonClassesProps): {
 
     let shadowClass = ''
     if (typeof props.shadow?.value === 'boolean' && Boolean(props.shadow.value)) {
-      //if shadow prop passed without value - try to find color for shadow by gradient
+      // if shadow prop passed without value - try to find color for shadow by gradient
       if (props.gradient?.value && simpleGradients.includes(props.gradient!.value)) {
-        shadowClass = buttonShadowClasses[props.gradient as unknown as keyof typeof buttonShadowClasses]
+        shadowClass = buttonShadowClasses[props.gradient.value as unknown as keyof typeof buttonShadowClasses]
       }
     } else if (typeof props.shadow?.value === 'string') {
       // if provided color for shadow - use it
@@ -271,7 +273,7 @@ export function useButtonClasses(props: UseButtonClassesProps): {
         props.pill.value && '!rounded-full',
         props.disabled.value && 'cursor-not-allowed opacity-50',
         isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
-        /*slots.prefix || slots.suffix ||*/ props.loading.value && 'inline-flex items-center', // FIXME
+        (props.prefix || props.suffix || props.loading.value) && 'inline-flex items-center',
         props.class?.value,
         props.target?.value,
       ]

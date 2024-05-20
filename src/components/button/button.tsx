@@ -1,8 +1,9 @@
-import { component$, PropsOf, Slot, useComputed$ } from '@builder.io/qwik'
+import { Component, component$, JSXNode, JSXOutput, PropsOf, Slot, useComputed$ } from '@builder.io/qwik'
 import { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '~/components/button/button-types'
 import { useButtonClasses } from '~/components/button/useButtonClasses'
 import { useButtonSpinner } from '~/components/button/useButtonSpinner'
 import { Spinner } from '~/components/spinner/spinner'
+import { Link, LinkProps } from '@builder.io/qwik-city'
 
 type ButtonProps = PropsOf<'button'> &
   PropsOf<'a'> & {
@@ -17,6 +18,9 @@ type ButtonProps = PropsOf<'button'> &
     loadingPosition?: 'suffix' | 'prefix'
     disabled?: boolean
     href?: string
+    tag?: Component<LinkProps> | string
+    prefix?: JSXOutput
+    suffix?: JSXOutput
   }
 
 export const Button = component$<ButtonProps>(
@@ -31,7 +35,10 @@ export const Button = component$<ButtonProps>(
     loading = false,
     loadingPosition = 'prefix',
     disabled = false,
-    href = '',
+    href,
+    tag = 'a',
+    prefix,
+    suffix,
     ...attrs
   }) => {
     const { bindClasses, spanClasses } = useButtonClasses({
@@ -44,6 +51,8 @@ export const Button = component$<ButtonProps>(
       shadow: useComputed$(() => shadow),
       square: useComputed$(() => square),
       outline: useComputed$(() => outline),
+      prefix: useComputed$(() => prefix),
+      suffix: useComputed$(() => suffix),
       class: useComputed$(() => attrs.class),
       target: useComputed$(() => attrs.target),
     })
@@ -60,74 +69,43 @@ export const Button = component$<ButtonProps>(
       outline,
     })
 
-    const linkComponent = 'a'
-    const ButtonComponent = href ? linkComponent : 'button'
-    const linkAttr = 'href'
+    const LinkComponent = tag !== 'a' ? tag : 'a'
+    const ButtonComponent = href ? LinkComponent : 'button'
 
     return (
       <ButtonComponent
         class={bindClasses.value}
         href={ButtonComponent !== 'button' ? href : undefined}
         target={ButtonComponent !== 'button' ? attrs.target : undefined}
-        disabled={ButtonComponent === 'button' && disabled}
+        //@ts-ignore
+        disabled={ButtonComponent === 'button' ? disabled : undefined}
         onClick$={attrs.onClick$}
       >
-        {!isOutlineGradient.value && /*$slots.prefix ||*/ loadingPrefix.value && (
+        {!isOutlineGradient.value && (prefix || loadingPrefix.value) && (
           <div class="mr-2">
-            {loadingPrefix.value ? (
-              <Spinner
-                color={spinnerColor.value}
-                size={spinnerSize.value}
-              />
-            ) : (
-              <Slot name="prefix" />
-            )}
+            {loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{prefix}</>}
           </div>
         )}
 
         <span class={spanClasses.value}>
-          {isOutlineGradient.value && /*$slots.prefix ||*/ loadingPrefix.value && (
+          {isOutlineGradient.value && (prefix || loadingPrefix.value) && (
             <span class="mr-2">
-              {/*}<!--if outline gradient - need to place slots inside span -->*/}
-              {loadingPrefix.value ? (
-                <Spinner
-                  color={spinnerColor.value}
-                  size={spinnerSize.value}
-                />
-              ) : (
-                <Slot name="prefix" />
-              )}
+              {loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{prefix}</>}
             </span>
           )}
 
           <Slot />
 
-          {isOutlineGradient.value && /*$slots.suffix ||*/ loadingSuffix.value && (
+          {isOutlineGradient.value && (suffix || loadingSuffix.value) && (
             <span class="ml-2">
-              {/*<!--if outline gradient - need to place slots inside span -->*/}
-              {loadingSuffix.value ? (
-                <Spinner
-                  color={spinnerColor.value}
-                  size={spinnerSize.value}
-                />
-              ) : (
-                <Slot name="suffix" />
-              )}
+              {loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{suffix}</>}
             </span>
           )}
         </span>
 
-        {!isOutlineGradient.value && /*$slots.suffix ||*/ loadingSuffix.value && (
+        {!isOutlineGradient.value && (suffix || loadingSuffix.value) && (
           <div class="ml-2">
-            {/*<!--automatically add ml class if slot provided or loading -->*/}
-            {loadingSuffix.value ? (
-              <Spinner
-                color={spinnerColor.value}
-                size={spinnerSize.value}
-              />
-            ) : (
-              <Slot name="suffix" />
-            )}
+            {loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{suffix}</>}
           </div>
         )}
       </ButtonComponent>

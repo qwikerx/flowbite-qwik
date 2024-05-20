@@ -1,12 +1,4 @@
-export type ButtonMonochromeGradient =
-  | 'blue'
-  | 'green'
-  | 'cyan'
-  | 'teal'
-  | 'lime'
-  | 'red'
-  | 'pink'
-  | 'purple'
+export type ButtonMonochromeGradient = 'blue' | 'green' | 'cyan' | 'teal' | 'lime' | 'red' | 'pink' | 'purple'
 export type ButtonDuotoneGradient =
   | 'purple-blue'
   | 'cyan-blue'
