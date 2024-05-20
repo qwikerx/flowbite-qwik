@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
-      - run: pnpm install --production --frozen-lockfile
-  #      - run: yarn test
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
 
   publish-gpr:
     needs: build
@@ -38,7 +38,6 @@ jobs:
           node-version: 20
           cache: 'pnpm'
           registry-url: https://registry.npmjs.org
-      - run: pnpm install --production --frozen-lockfile
       - run: pnpm publish --verbose --provenance --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_TOKEN}}
