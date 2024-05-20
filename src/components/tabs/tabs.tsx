@@ -1,4 +1,4 @@
-import { $, component$, FunctionComponent, JSXChildren, JSXNode, PropsOf, Slot, useComputed$, useStore } from '@builder.io/qwik'
+import { $, component$, FunctionComponent, JSXChildren, JSXNode, PropsOf, Slot, useComputed$, useId, useStore } from '@builder.io/qwik'
 import { useTabsClasses } from '~/components/tabs/useTabsClasses'
 import { TabsVariant } from '~/components/tabs/tabs-types'
 import { useTabClasses } from '~/components/tabs/useTabClasses'
@@ -85,6 +85,7 @@ type InnerTabsProps = PropsOf<'div'> & {
 }
 
 const InnerTabs = component$<InnerTabsProps>((props) => {
+  const tabsId = useId()
   const { divClasses, ulClasses } = useTabsClasses({
     variant: useComputed$(() => props.variant),
   })
@@ -109,30 +110,31 @@ const InnerTabs = component$<InnerTabsProps>((props) => {
                 await selectTabPane(comp.id)
               }}
             >
-              <InnerTabPane id={String(comp.id)} active={comp.active} disabled={comp.disabled} variant={props.variant}>
+              <InnerTab id={String(comp.id)} tabsId={tabsId} active={comp.active} disabled={comp.disabled} variant={props.variant}>
                 {comp.tab.title}
-              </InnerTabPane>
+              </InnerTab>
             </li>
           ))}
         </ul>
       </div>
       <div class="p-5">
         {componentsAsSignals.map((comp) => (
-          <InnerTab key={comp.id} active={comp.active} directive={props.directive}>
+          <InnerTabPanel key={comp.id} id={String(comp.id)} tabsId={tabsId} active={comp.active} directive={props.directive}>
             {comp.pane.children}
-          </InnerTab>
+          </InnerTabPanel>
         ))}
       </div>
     </>
   )
 })
 
-type InnerTabPaneProps = PropsOf<'div'> & {
+type InnerTabProps = PropsOf<'div'> & {
+  tabsId: string
   variant: TabsVariant
   active: boolean
   disabled: boolean
 }
-const InnerTabPane = component$<InnerTabPaneProps>((props) => {
+const InnerTab = component$<InnerTabProps>((props) => {
   const { tabClasses } = useTabClasses({
     variant: useComputed$(() => props.variant),
     active: useComputed$(() => props.active),
@@ -140,23 +142,31 @@ const InnerTabPane = component$<InnerTabPaneProps>((props) => {
   })
 
   return (
-    <div class={tabClasses.value}>
+    <button
+      class={tabClasses.value}
+      role="tab"
+      tabIndex={props.active ? 0 : -1}
+      aria-selected={props.active}
+      aria-disabled={props.disabled}
+      aria-controls={`${props.tabsId}-tabpanel-${props.id}`}
+    >
       <Slot />
-    </div>
+    </button>
   )
 })
 
-type InnerTabProps = PropsOf<'div'> & {
+type InnerTabPanelProps = PropsOf<'div'> & {
+  tabsId: string
   active: boolean
   directive: 'if' | 'show'
 }
-const InnerTab = component$<InnerTabProps>((props) => {
+const InnerTabPanel = component$<InnerTabPanelProps>((props) => {
   return (
     <>
       {props.directive === 'if' && (
         <>
           {props.active && (
-            <div>
+            <div aria-labelledby={`${props.tabsId}-tab-${props.id}`} role="tabpanel" tabIndex={0}>
               <Slot />
             </div>
           )}
@@ -164,7 +174,7 @@ const InnerTab = component$<InnerTabProps>((props) => {
       )}
 
       {props.directive === 'show' && (
-        <div class={!props.active ? 'hidden' : ''}>
+        <div aria-labelledby={`${props.tabsId}-tab-${props.id}`} role="tabpanel" tabIndex={0} class={!props.active ? 'hidden' : ''}>
           <Slot />
         </div>
       )}
