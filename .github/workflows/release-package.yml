@@ -20,7 +20,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
 
-  publish-gpr:
+  publish-npm:
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -38,6 +38,8 @@ jobs:
           node-version: 20
           cache: 'pnpm'
           registry-url: https://registry.npmjs.org
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
       - run: pnpm publish --verbose --provenance --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_TOKEN}}

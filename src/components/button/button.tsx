@@ -1,9 +1,9 @@
-import { Component, component$, JSXNode, JSXOutput, PropsOf, Slot, useComputed$ } from '@builder.io/qwik'
+import { Component, component$, JSXOutput, PropsOf, Slot, useComputed$ } from '@builder.io/qwik'
 import { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '~/components/button/button-types'
 import { useButtonClasses } from '~/components/button/useButtonClasses'
 import { useButtonSpinner } from '~/components/button/useButtonSpinner'
 import { Spinner } from '~/components/spinner/spinner'
-import { Link, LinkProps } from '@builder.io/qwik-city'
+import { LinkProps } from '@builder.io/qwik-city'
 
 type ButtonProps = PropsOf<'button'> &
   PropsOf<'a'> & {
@@ -77,7 +77,7 @@ export const Button = component$<ButtonProps>(
         class={bindClasses.value}
         href={ButtonComponent !== 'button' ? href : undefined}
         target={ButtonComponent !== 'button' ? attrs.target : undefined}
-        //@ts-ignore
+        //@ts-expect-error does not exist on link
         disabled={ButtonComponent === 'button' ? disabled : undefined}
         onClick$={attrs.onClick$}
       >
