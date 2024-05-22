@@ -1,8 +1,8 @@
 import { Component, component$, JSXOutput, PropsOf, Slot, useComputed$ } from '@builder.io/qwik'
-import { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '~/components/button/button-types'
-import { useButtonClasses } from '~/components/button/useButtonClasses'
-import { useButtonSpinner } from '~/components/button/useButtonSpinner'
-import { Spinner } from '~/components/spinner/spinner'
+import { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '~/components/Button/button-types'
+import { useButtonClasses } from '~/components/Button/composables/use-button-classes'
+import { useButtonSpinner } from '~/components/Button/composables/use-button-spinner'
+import { Spinner } from '~/components/Spinner/Spinner'
 import { LinkProps } from '@builder.io/qwik-city'
 
 type ButtonProps = PropsOf<'button'> &

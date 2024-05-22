@@ -1,6 +1,12 @@
 import './global.css'
 
-export { Button } from './components/button/button'
-export { Tabs, Tab } from './components/tabs/tabs'
-export { Spinner } from './components/spinner/spinner'
-export { ToastList } from './components/toast-list/toast-list'
+// Providers
+export { FlowbiteProvider } from './components/FlowbiteProvider/FlowbiteProvider'
+
+// Components
+export { Button } from './components/Button/Button'
+export { Spinner } from './components/Spinner/Spinner'
+export { Tabs, Tab } from './components/Tabs/Tabs'
+
+// Composables
+export { useToast } from './components/ToastList/use-toast'

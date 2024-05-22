@@ -1,4 +1,4 @@
-import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from './button-types'
+import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../button-types'
 import { ClassList, HTMLAttributeAnchorTarget, JSXOutput, Signal, useComputed$ } from '@builder.io/qwik'
 import { useMergeClasses } from '~/composables/useMergeClasses'
 

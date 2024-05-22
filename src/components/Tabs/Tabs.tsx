@@ -1,7 +1,7 @@
 import { $, component$, FunctionComponent, JSXChildren, JSXNode, JSXOutput, PropsOf, Slot, useComputed$, useId, useStore } from '@builder.io/qwik'
-import { useTabsClasses } from '~/components/tabs/useTabsClasses'
-import { TabsVariant } from '~/components/tabs/tabs-types'
-import { useTabClasses } from '~/components/tabs/useTabClasses'
+import { useTabsClasses } from '~/components/Tabs/composables/use-tabs-classes'
+import { TabsVariant } from '~/components/Tabs/tabs-types'
+import { useTabClasses } from '~/components/Tabs/composables/use-tab-classes'
 
 interface ComponentType {
   id: number
