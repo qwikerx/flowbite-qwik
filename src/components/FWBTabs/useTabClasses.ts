@@ -1,7 +1,7 @@
-import { TabsVariant } from '~/components/tabs/tabs-types'
+import { TabsVariant } from '~/components/FWBTabs/tabs-types'
 import { Signal, useComputed$ } from '@builder.io/qwik'
 import { simplifyTailwindClasses } from '~/utils/simplifyTailwindClasses'
-import { useFlowbiteThemable } from '~/components/flowbite-themable/useFlowbiteThemable'
+import { useFlowbiteThemable } from '~/components/FlowbiteThemable/useFlowbiteThemable'
 
 export type TabClassMap = {
   active: string

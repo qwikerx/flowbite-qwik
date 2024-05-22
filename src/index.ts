@@ -1,12 +1,12 @@
 import './global.css'
 
 // Providers
-export { FlowbiteProvider } from './components/flowbite-provider/flowbite-provider'
+export { FlowbiteProvider } from './components/FlowbiteProvider/FlowbiteProvider'
 
 // Components
-export { Button } from './components/button/button'
-export { Spinner } from './components/spinner/spinner'
-export { Tabs, Tab } from './components/tabs/tabs'
+export { Button } from './components/FWBButton/FWBButton'
+export { Spinner } from './components/FWBSpinner/FWBSpinner'
+export { Tabs, Tab } from './components/FWBTabs/FWBTabs'
 
 // Composables
-export { useToast } from './components/toast-list/useToast'
+export { useToast } from './components/FWBtoastList/useToast'

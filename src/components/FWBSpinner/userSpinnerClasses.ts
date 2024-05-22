@@ -1,4 +1,4 @@
-import { SpinnerColor, SpinnerSize } from '~/components/spinner/spinner-types'
+import { SpinnerColor, SpinnerSize } from '~/components/FWBSpinner/spinner-types'
 import { Signal, useComputed$ } from '@builder.io/qwik'
 import clsx from 'clsx'
 

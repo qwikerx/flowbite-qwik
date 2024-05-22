@@ -1,9 +1,9 @@
 import { component$, useContext } from '@builder.io/qwik'
-import { Toast } from '~/components/toast-list/toast'
-import { Button } from '~/components/button/button'
-import { useToast } from '~/components/toast-list/useToast'
+import { Toast } from '~/components/FWBtoastList/FWBToast'
+import { Button } from '~/components/FWBButton/FWBButton'
+import { useToast } from '~/components/FWBtoastList/useToast'
 import { toastPositionContext } from '~/root'
-import { ToastPosition } from '~/components/toast-list/type'
+import { ToastPosition } from '~/components/FWBtoastList/type'
 
 export default component$(() => {
   const { add } = useToast()

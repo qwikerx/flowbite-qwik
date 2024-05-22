@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { Tabs, Tab } from '~/components/tabs/tabs'
+import { Tabs, Tab } from '~/components/FWBTabs/FWBTabs'
 
 export default component$(() => {
   return (
