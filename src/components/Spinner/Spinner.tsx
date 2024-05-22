@@ -1,10 +1,10 @@
 import { component$ } from '@builder.io/qwik'
-import { useSpinnerClasses } from '~/components/Spinner/composables/user-spinner-classes'
+import { useSpinnerClasses } from '~/components/Spinner/composables/use-spinner-classes'
 import { SpinnerColor, SpinnerSize } from '~/components/Spinner/spinner-types'
 
 interface ISpinnerProps {
-  color: SpinnerColor
-  size: SpinnerSize
+  color?: SpinnerColor
+  size?: SpinnerSize
 }
 
 export const Spinner = component$<ISpinnerProps>(({ color = 'blue', size = '4' }) => {
