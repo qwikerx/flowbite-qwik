@@ -1,5 +1,3 @@
-import './global.css'
-
 // Providers
 export { FlowbiteProvider } from './components/FlowbiteProvider/FlowbiteProvider'
 

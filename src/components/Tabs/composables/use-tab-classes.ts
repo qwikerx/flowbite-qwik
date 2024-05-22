@@ -1,7 +1,7 @@
 import { TabsVariant } from '~/components/Tabs/tabs-types'
 import { Signal, useComputed$ } from '@builder.io/qwik'
-import { simplifyTailwindClasses } from '~/utils/simplifyTailwindClasses'
 import { useFlowbiteThemable } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
+import { twMerge } from 'tailwind-merge'
 
 export type TabClassMap = {
   active: string
@@ -45,19 +45,15 @@ export function useTabClasses(props: UseTabClassesProps): {
     const withIconClasses = props.withIcon.value ? 'gap-2 inline-flex items-center' : ''
 
     if (props.variant?.value === 'default') {
-      return simplifyTailwindClasses(
-        defaultTabClasses[tabClassType],
-        (isActiveTheme && tabClassType) === 'active' ? theme.textClasses.value : '',
-        withIconClasses,
-      )
+      return twMerge(defaultTabClasses[tabClassType], (isActiveTheme && tabClassType) === 'active' ? theme.textClasses.value : '', withIconClasses)
     } else if (props.variant?.value === 'underline') {
-      return simplifyTailwindClasses(
+      return twMerge(
         underlineTabClasses[tabClassType],
         (isActiveTheme && tabClassType) === 'active' ? [theme.borderClasses.value, theme.textClasses.value] : '',
         withIconClasses,
       )
     } else if (props.variant?.value === 'pills') {
-      return simplifyTailwindClasses(
+      return twMerge(
         pillsTabClasses[tabClassType],
         (isActiveTheme && tabClassType) === 'active' ? [theme.backgroundClasses.value, 'text-white'] : '',
         withIconClasses,

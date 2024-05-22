@@ -1,7 +1,7 @@
 import { component$, JSXOutput, Slot, useComputed$, PropsOf, QRL, useTask$ } from '@builder.io/qwik'
 import { isBrowser } from '@builder.io/qwik/build'
 import { useToastClasses } from './composables/use-toast-class'
-import { FlowbiteChildThemable } from '../FlowbiteThemable/FlowbiteChildThemable'
+import { FlowbiteChildThemable } from '~/components/FlowbiteThemable/FlowbiteChildThemable'
 import { ToastAlign, ToastType } from './toast-type'
 
 type ToastProps = PropsOf<'div'> & {
