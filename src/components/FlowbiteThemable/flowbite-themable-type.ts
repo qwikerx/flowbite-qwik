@@ -1,4 +1,4 @@
-import { FlowbiteTheme } from '~/components/FlowbiteThemable/useFlowbiteThemable'
+import { FlowbiteTheme } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
 
 export type FlowbiteThemablePayload = {
   theme: FlowbiteTheme

@@ -2,7 +2,7 @@ import './global.css'
 import { component$, createContextId, useContextProvider, useSignal, Signal, useContext } from '@builder.io/qwik'
 import { QwikCityProvider, RouterOutlet } from '@builder.io/qwik-city'
 import { FlowbiteProvider } from './components/FlowbiteProvider/FlowbiteProvider'
-import { ToastPosition } from './components/FWBToastList/type'
+import { ToastPosition } from './components/ToastList/toast-type'
 
 export const toastPositionContext = createContextId<Signal<ToastPosition>>('toast-position-context')
 

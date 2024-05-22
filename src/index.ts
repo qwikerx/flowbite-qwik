@@ -9,4 +9,4 @@ export { Spinner } from './components/Spinner/Spinner'
 export { Tabs, Tab } from './components/Tabs/Tabs'
 
 // Composables
-export { useToast } from './components/FWBToastList/useToast'
+export { useToast } from './components/ToastList/use-toast'

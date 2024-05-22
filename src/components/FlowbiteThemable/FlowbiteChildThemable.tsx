@@ -1,7 +1,7 @@
 import { PropsOf, Slot, component$ } from '@builder.io/qwik'
-import { ThemableChildrenApply } from './type'
-import { FlowbiteTheme } from './useFlowbiteThemable'
-import { useFlowbiteThemableChildClasses } from './useFlowbiteThemableChildClasses'
+import { ThemableChildrenApply } from './flowbite-themable-type'
+import { FlowbiteTheme } from './composables/use-flowbite-themable'
+import { useFlowbiteThemableChildClasses } from './composables/use-flowbite-themable-child-classes'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
 

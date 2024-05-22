@@ -1,6 +1,6 @@
 import { Signal, useComputed$ } from '@builder.io/qwik'
-import { ToastAlign, ToastType } from './useToast'
 import { twMerge } from 'tailwind-merge'
+import { ToastAlign, ToastType } from '../toast-type'
 
 type UseToastClassesReturns = {
   typeClasses: Signal<string>

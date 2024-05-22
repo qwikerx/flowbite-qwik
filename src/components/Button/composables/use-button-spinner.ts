@@ -1,4 +1,4 @@
-import type { ButtonGradient, ButtonSize, ButtonVariant } from './button-types'
+import type { ButtonGradient, ButtonSize, ButtonVariant } from '../button-types'
 import type { SpinnerColor, SpinnerSize } from '../Spinner/spinner-types'
 import { Signal, useComputed$ } from '@builder.io/qwik'
 

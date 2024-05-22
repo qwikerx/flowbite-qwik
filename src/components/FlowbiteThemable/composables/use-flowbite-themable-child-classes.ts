@@ -1,6 +1,6 @@
 import { Signal, useComputed$ } from '@builder.io/qwik'
-import { FlowbiteTheme, useFlowbiteThemable } from './useFlowbiteThemable'
-import { ThemableChildrenApply } from './type'
+import { FlowbiteTheme, useFlowbiteThemable } from './use-flowbite-themable'
+import { ThemableChildrenApply } from '../flowbite-themable-type'
 
 type UseFlowbiteThemableChildReturns = {
   classes: Signal<string>

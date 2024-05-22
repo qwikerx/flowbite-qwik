@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { useSpinnerClasses } from '~/components/Spinner/userSpinnerClasses'
+import { useSpinnerClasses } from '~/components/Spinner/composables/user-spinner-classes'
 import { SpinnerColor, SpinnerSize } from '~/components/Spinner/spinner-types'
 
 interface ISpinnerProps {

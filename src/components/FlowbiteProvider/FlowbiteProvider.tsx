@@ -1,7 +1,7 @@
 import { Slot, component$, useContextProvider, useStore } from '@builder.io/qwik'
-import { toastContext } from '../FWBToastList/useToast'
-import { ToastList } from '../FWBToastList/ToastList'
-import { ToastPosition } from '../FWBToastList/type'
+import { toastContext } from '../ToastList/composables/use-toast'
+import { ToastList } from '../ToastList/ToastList'
+import { ToastPosition } from '../ToastList/toast-type'
 
 type FlowbiteProviderProps = {
   toastPosition?: ToastPosition
