@@ -1,6 +1,6 @@
 import { SpinnerColor, SpinnerSize } from '~/components/spinner/spinner-types'
 import { Signal, useComputed$ } from '@builder.io/qwik'
-import classNames from 'classnames'
+import clsx from 'clsx'
 
 const sizes: Record<SpinnerSize, string> = {
   0: 'w-0 h-0',
@@ -42,7 +42,7 @@ export function useSpinnerClasses(props: UseSpinnerClassesProps): { spinnerClass
   const colorClasses = useComputed$(() => colors[props.color])
   const bgColorClasses = useComputed$(() => 'text-gray-200 dark:text-gray-600')
   const animateClasses = useComputed$(() => 'animate-spin')
-  const spinnerClasses = useComputed$(() => classNames(animateClasses.value, bgColorClasses.value, colorClasses.value, sizeClasses.value))
+  const spinnerClasses = useComputed$(() => clsx(animateClasses.value, bgColorClasses.value, colorClasses.value, sizeClasses.value))
 
   return { spinnerClasses }
 }

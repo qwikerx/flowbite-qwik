@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Official Qwik components built for Flowbite and Tailwind CSS",
   "keywords": [
     "design-system",
@@ -59,8 +59,6 @@
   },
   "dependencies": {
     "@qwikest/icons": "^0.0.13",
-    "class-variance-authority": "^0.7.0",
-    "classnames": "^2.5.1",
     "flowbite": "^2.3.0"
   },
   "devDependencies": {
@@ -68,6 +66,8 @@
     "@types/node": "^20.12.12",
     "@vitest/coverage-v8": "^1.6.0",
     "autoprefixer": "^10.4.19",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "eslint": "^9.3.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",

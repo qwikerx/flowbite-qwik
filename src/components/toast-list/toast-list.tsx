@@ -1,39 +1,45 @@
-import { $, component$, useContext, useTask$ } from '@builder.io/qwik'
-import type { ToastEntry } from '~/composables/useToast'
-import useToastContext from '~/composables/useToast'
+import { component$ } from '@builder.io/qwik'
+import { useToast } from './useToast'
 import { Toast } from './toast'
+import { ToastPosition } from './type'
 
-export const ToastList = component$(() => {
-  const toastsContext = useContext(useToastContext)
+type ToastListProps = {
+  position?: ToastPosition
+}
 
-  const add$ = $((toast: ToastEntry) => {
-    toastsContext.toasts.push({
-      ...toast,
-      id: Date.now().toString(),
-    })
-  })
-
-  useTask$(() => {
-    toastsContext.add$ = add$
-  })
-
-  const onClose$ = $((id: string) => {
-    const toastIndex = toastsContext.toasts.findIndex(
-      (toast) => toast.id === id,
-    )
-
-    if (toastIndex > -1) toastsContext.toasts.splice(toastIndex, 1)
-  })
-
+export const ToastList = component$<ToastListProps>(({ position = 'top-right' }) => {
+  const { list, remove } = useToast()
   return (
-    <div class="fixed right-0 top-0 z-50 flex w-full flex-col gap-1 md:right-4 md:top-4 md:w-auto md:gap-3">
-      {toastsContext.toasts.map((toast) => (
-        <Toast
-          {...toast}
-          key={toast.id}
-          onClose$={onClose$}
-        />
-      ))}
-    </div>
+    <>
+      {list.value.length > 0 && (
+        <ul
+          class={[
+            'fixed flex flex-col space-y-2',
+            {
+              'top-4 left-4': position === 'top-left',
+              'top-4 right-4': position === 'top-right',
+              'bottom-4 left-4': position === 'bottom-left',
+              'bottom-4 right-4': position === 'bottom-right',
+            },
+          ]}
+        >
+          {list.value.map((toast) => {
+            return (
+              <li
+                key={toast.id}
+                class={{
+                  'animate-from-left': position === 'top-left' || position === 'bottom-left',
+                  'animate-from-right': position === 'top-right' || position === 'bottom-right',
+                }}
+              >
+                <Toast {...toast} onClose$={(id: string) => remove(id)}>
+                  {toast.text}
+                </Toast>
+              </li>
+            )
+          })}
+        </ul>
+      )}
+    </>
   )
 })
