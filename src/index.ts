@@ -4,9 +4,9 @@ import './global.css'
 export { FlowbiteProvider } from './components/FlowbiteProvider/FlowbiteProvider'
 
 // Components
-export { Button } from './components/FWBButton/FWBButton'
-export { Spinner } from './components/FWBSpinner/FWBSpinner'
-export { Tabs, Tab } from './components/FWBTabs/FWBTabs'
+export { Button } from './components/Button/Button'
+export { Spinner } from './components/Spinner/Spinner'
+export { Tabs, Tab } from './components/Tabs/Tabs'
 
 // Composables
-export { useToast } from './components/FWBtoastList/useToast'
+export { useToast } from './components/FWBToastList/useToast'

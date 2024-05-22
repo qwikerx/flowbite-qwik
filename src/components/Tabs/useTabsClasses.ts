@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge'
-import { TabsVariant } from '~/components/FWBTabs/tabs-types'
+import { TabsVariant } from '~/components/Tabs/tabs-types'
 import { Signal, useComputed$ } from '@builder.io/qwik'
 
 export type UseTabsClassesProps = {

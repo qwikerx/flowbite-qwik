@@ -1,4 +1,4 @@
-import { TabsVariant } from '~/components/FWBTabs/tabs-types'
+import { TabsVariant } from '~/components/Tabs/tabs-types'
 import { Signal, useComputed$ } from '@builder.io/qwik'
 import { simplifyTailwindClasses } from '~/utils/simplifyTailwindClasses'
 import { useFlowbiteThemable } from '~/components/FlowbiteThemable/useFlowbiteThemable'

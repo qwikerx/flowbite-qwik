@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik'
 import { useToast } from './useToast'
-import { Toast } from './FWBToast'
+import { Toast } from './Toast'
 import { ToastPosition } from './type'
 
 type ToastListProps = {

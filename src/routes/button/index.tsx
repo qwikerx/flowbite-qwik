@@ -1,5 +1,5 @@
 import { component$, useSignal } from '@builder.io/qwik'
-import { Button } from '~/components/FWBButton/FWBButton'
+import { Button } from '~/components/Button/Button'
 import { Link } from '@builder.io/qwik-city'
 
 export default component$(() => {
