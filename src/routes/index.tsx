@@ -7,7 +7,10 @@ export default component$(() => {
         <a href="/button">Button</a>
       </li>
       <li>
-        <a href="/tabs">tabs</a>
+        <a href="/spinner">Spinner</a>
+      </li>
+      <li>
+        <a href="/tabs">Tabs</a>
       </li>
       <li>
         <a href="/toast">Toast</a>
