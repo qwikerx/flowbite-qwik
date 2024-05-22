@@ -6,11 +6,11 @@ import { qwikCity } from '@builder.io/qwik-city/vite'
 export default defineConfig(() => {
   return {
     build: {
+      cssCodeSplit: true,
       target: 'esnext',
       lib: {
         entry: './src/index.ts',
         name: 'flowbite-qwik',
-        fileName: 'index',
       },
       rollupOptions: {
         output: {

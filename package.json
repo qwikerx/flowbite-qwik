@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Official Qwik components built for Flowbite and Tailwind CSS",
   "keywords": [
     "design-system",
@@ -15,19 +15,20 @@
   "bugs": "https://github.com/xmimiex/flowbite-qwik/issues",
   "repository": "https://github.com/xmimiex/flowbite-qwik.git",
   "license": "MIT",
-  "module": "./lib/index.js",
-  "main": "./lib/index.umd.cjs",
+  "module": "./lib/flowbite-qwik.js",
+  "main": "./lib/flowbite-qwik.umd.cjs",
   "types": "./lib-types/index.d.ts",
   "type": "module",
   "style": "./lib/style.css",
   "exports": {
     ".": {
-      "import": "./lib/index.js",
-      "require": "./lib/index.umd.cjs",
+      "import": "./lib/flowbite-qwik.js",
+      "require": "./lib/flowbite-qwik.umd.cjs",
       "types": "./lib-types/index.d.ts"
     },
     "./package.json": "./package.json",
-    "./lib/*": "./lib/*"
+    "./lib/*": "./lib/*",
+    "./lib-types/*": "./lib-types/*"
   },
   "files": [
     "lib",
@@ -45,7 +46,7 @@
   "scripts": {
     "build": "rm -rf lib && rm -rf lib-types && vite build --mode lib && npm run build.types",
     "build.watch": "vite build --mode lib --watch",
-    "build.types": "tsc --emitDeclarationOnly --declaration",
+    "build.types": "tsc --emitDeclarationOnly --declaration && tsc-alias -p tsconfig.json",
     "build.types.watch": "tsc --watch --emitDeclarationOnly --declaration",
     "dev": "vite --mode ssr",
     "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
@@ -59,7 +60,8 @@
   },
   "dependencies": {
     "@qwikest/icons": "^0.0.13",
-    "flowbite": "^2.3.0"
+    "flowbite": "^2.3.0",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.10",
@@ -69,13 +71,12 @@
     "clsx": "^2.1.1",
     "eslint": "^9.3.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-qwik": "1.5.5",
+    "fast-glob": "^3.3.2",
     "np": "^10.0.5",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "tailwind-merge": "^2.3.0",
+    "tsc-alias": "^1.8.10",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.0.0-alpha.14",
     "undici": "^6.18.1",
