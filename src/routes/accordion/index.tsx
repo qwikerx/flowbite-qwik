@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { AccordionPanel } from '~/components/Accordion/AccordinPanel'
+import { AccordionPanel } from '~/components/Accordion/AccordionPanel'
 import { Accordion } from '~/components/Accordion/Accordion'
 import { AccordionContent } from '~/components/Accordion/AccordionContent'
 import { AccordionHeader } from '~/components/Accordion/AccordionHeader'

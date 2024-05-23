@@ -1,8 +1,8 @@
-import { $, JSXChildren, JSXOutput, PropsOf, component$ } from '@builder.io/qwik'
+import { JSXChildren, JSXOutput, PropsOf, component$ } from '@builder.io/qwik'
 import { AccordionHeaderProps, AccordionProps } from './accordion-types'
 
 import { FunctionComponent } from '@builder.io/qwik/jsx-runtime'
-import { AccordionPanel } from './AccordinPanel'
+import { AccordionPanel } from './AccordionPanel'
 import uuid from '~/utils/uuid'
 import { AccordionHeader } from './AccordionHeader'
 import { AccordionContent } from './AccordionContent'
