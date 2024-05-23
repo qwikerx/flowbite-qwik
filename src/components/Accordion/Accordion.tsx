@@ -1,4 +1,4 @@
-import { $, JSXChildren, JSXNode, JSXOutput, PropsOf, component$, useId } from '@builder.io/qwik'
+import { $, JSXChildren, JSXOutput, PropsOf, component$ } from '@builder.io/qwik'
 import { AccordionHeaderProps, AccordionProps } from './accordion-types'
 
 import { FunctionComponent } from '@builder.io/qwik/jsx-runtime'
@@ -7,6 +7,7 @@ import uuid from '~/utils/uuid'
 import { AccordionHeader } from './AccordionHeader'
 import { AccordionContent } from './AccordionContent'
 import { useAccordionState } from './composables/use-accordion-state'
+import { getChild } from '~/utils/getChild'
 
 type ChildrenType = {
   header: {
@@ -23,8 +24,6 @@ export type ComponentType = {
 } & ChildrenType
 
 function getHeaderAndContentFromPanel({ children }: { children: JSXChildren }): ChildrenType {
-  const childrenToProcess = Array.isArray(children) ? [...children] : [children]
-
   const components: ChildrenType = {
     header: {
       children: undefined,
@@ -34,34 +33,25 @@ function getHeaderAndContentFromPanel({ children }: { children: JSXChildren }): 
     },
   }
 
-  let index = 0
-  while (childrenToProcess.length) {
-    index++
-    const child = childrenToProcess.shift() as JSXNode
-    if (!child) {
-      continue
-    }
-    if (Array.isArray(child)) {
-      childrenToProcess.unshift(...child)
-      continue
-    }
-
-    switch (child.type) {
-      case AccordionHeader: {
+  getChild(children, [
+    {
+      component: AccordionHeader,
+      foundComponentCallback: (child) => {
         components.header = {
           children: child.children as JSXOutput,
           attrs: child.props,
         }
-        break
-      }
-      case AccordionContent: {
+      },
+    },
+    {
+      component: AccordionContent,
+      foundComponentCallback: (child) => {
         components.content = {
           children: child.children as JSXOutput,
         }
-        break
-      }
-    }
-  }
+      },
+    },
+  ])
 
   return components
 }
@@ -73,34 +63,21 @@ export const Accordion: FunctionComponent<AccordionProps & PropsOf<'div'>> = ({
   flush = false,
   ...attrs
 }) => {
-  const childrenToProcess = Array.isArray(children) ? [...children] : [children]
-
   const components: ComponentType[] = []
-  let index = 0
-  while (childrenToProcess.length) {
-    index++
-    const child = childrenToProcess.shift() as JSXNode
-    if (!child) {
-      continue
-    }
-    if (Array.isArray(child)) {
-      childrenToProcess.unshift(...child)
-      continue
-    }
 
-    const id = uuid()
-    const { header, content } = getHeaderAndContentFromPanel(child)
-
-    switch (child.type) {
-      case AccordionPanel: {
+  getChild(children, [
+    {
+      component: AccordionPanel,
+      foundComponentCallback: (child) => {
+        const { header, content } = getHeaderAndContentFromPanel(child)
         components.push({
-          id,
+          id: uuid(),
           header,
           content,
         })
-      }
-    }
-  }
+      },
+    },
+  ])
 
   return <InnerAccordion components={components} {...attrs} alwaysOpen={alwaysOpen} flush={flush} openFirstItem={openFirstItem} />
 }
@@ -110,8 +87,6 @@ type InnerAccordionProps = AccordionProps & {
 }
 
 export const InnerAccordion = component$<InnerAccordionProps>(({ components, alwaysOpen = false, openFirstItem = true, flush = false, ...attrs }) => {
-  const accordionId = useId()
-
   const { toggle$, openedPanels } = useAccordionState(
     {
       alwaysOpen,
@@ -127,9 +102,8 @@ export const InnerAccordion = component$<InnerAccordionProps>(({ components, alw
         return (
           <AccordionPanel>
             <AccordionHeader
-              accordion-id={accordionId}
-              id={component.id}
               {...component.header.attrs}
+              id={component.id}
               flush={flush}
               isVisible={openedPanels.value.includes(component.id)}
               isFirst={i === 0}
@@ -138,13 +112,7 @@ export const InnerAccordion = component$<InnerAccordionProps>(({ components, alw
             >
               {component.header.children}
             </AccordionHeader>
-            <AccordionContent
-              accordion-id={accordionId}
-              isLast={i === components.length - 1}
-              id={component.id}
-              flush={flush}
-              isVisible={openedPanels.value.includes(component.id)}
-            >
+            <AccordionContent isLast={i === components.length - 1} flush={flush} isVisible={openedPanels.value.includes(component.id)}>
               {component.content.children}
             </AccordionContent>
           </AccordionPanel>

@@ -2,6 +2,7 @@ import { $, component$, FunctionComponent, JSXChildren, JSXNode, JSXOutput, Prop
 import { useTabsClasses } from '~/components/Tabs/composables/use-tabs-classes'
 import { TabsVariant } from '~/components/Tabs/tabs-types'
 import { useTabClasses } from '~/components/Tabs/composables/use-tab-classes'
+import { getChild } from '~/utils/getChild'
 
 interface ComponentType {
   id: number
@@ -30,20 +31,10 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, variant = 'defaul
 
   const components: ComponentType[] = []
 
-  let index = 0
-  while (childrenToProcess.length) {
-    index++
-    const child = childrenToProcess.shift() as JSXNode
-    if (!child) {
-      continue
-    }
-    if (Array.isArray(child)) {
-      childrenToProcess.unshift(...child)
-      continue
-    }
-
-    switch (child.type) {
-      case Tab: {
+  getChild(childrenToProcess, [
+    {
+      component: Tab,
+      foundComponentCallback: (child, index) => {
         components.push({
           id: index,
           active: Boolean(child.props.active),
@@ -56,9 +47,9 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, variant = 'defaul
             children: child.children,
           },
         })
-      }
-    }
-  }
+      },
+    },
+  ])
 
   return (
     <div>

@@ -1,11 +1,16 @@
-import { JSXChildren, JSXNode } from '@builder.io/qwik'
+import { Component, JSXChildren, JSXNode } from '@builder.io/qwik'
 
-export function getChild(children: JSXChildren, expectedComponent: any) {
+type FoundComponent = {
+  component: Component
+  foundComponentCallback: (child: JSXNode, index: number) => void
+}
+
+export function getChild(children: JSXChildren, components: FoundComponent[]) {
   const childrenToProcess = Array.isArray(children) ? [...children] : [children]
 
   let index = 0
   while (childrenToProcess.length) {
-    index++
+    index = index + 1
 
     const child = childrenToProcess.shift() as JSXNode
     if (!child) {
@@ -16,14 +21,11 @@ export function getChild(children: JSXChildren, expectedComponent: any) {
       continue
     }
 
-    switch (child.type) {
-      case expectedComponent: {
-        components.push({
-          id,
-          header,
-          content,
-        })
-      }
+    const type = child.type
+
+    const foundComponent = components.find((comp) => comp.component === type)
+    if (foundComponent) {
+      foundComponent.foundComponentCallback(child, index)
     }
   }
 }

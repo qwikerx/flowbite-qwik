@@ -35,7 +35,7 @@ export function useToastClasses(props: UseToastClassesProps): UseToastClassesRet
 
   const wrapperClasses = useComputed$(() => {
     const alignmentClass = wrapperAlignmentClasses[props.alignment.value]
-    if (props.divide) {
+    if (props.divide.value) {
       return twMerge(defaultWrapperClasses, 'dark:divide-gray-700 divide-x divide-gray-200', alignmentClass)
     }
 
@@ -43,7 +43,7 @@ export function useToastClasses(props: UseToastClassesProps): UseToastClassesRet
   })
 
   const contentClasses = useComputed$(() => {
-    if (props.type.value !== 'empty' && props.divide) {
+    if (props.type.value !== 'empty' && props.divide.value) {
       return twMerge(defaultContentClasses, 'pl-3')
     }
 
