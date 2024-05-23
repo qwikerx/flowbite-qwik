@@ -7,6 +7,9 @@ export default component$(() => {
         <a href="/accordion">Accordion</a>
       </li>
       <li>
+        <a href="/badge">Badge</a>
+      </li>
+      <li>
         <a href="/button">Button</a>
       </li>
       <li>
