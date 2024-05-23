@@ -9,9 +9,9 @@ type UseToastClassesReturns = {
 }
 
 type UseToastClassesProps = {
-  type: ToastType
-  divide: boolean
-  alignment: ToastAlign
+  type: Signal<ToastType>
+  divide: Signal<boolean>
+  alignment: Signal<ToastAlign>
 }
 
 const typeClassesMap: Record<ToastType, string> = {
@@ -31,10 +31,10 @@ const defaultWrapperClasses = 'flex w-full max-w-xs p-4 text-gray-500 bg-white r
 const defaultContentClasses = 'text-sm font-normal'
 
 export function useToastClasses(props: UseToastClassesProps): UseToastClassesReturns {
-  const typeClasses = useComputed$(() => typeClassesMap[props.type])
+  const typeClasses = useComputed$(() => typeClassesMap[props.type.value])
 
   const wrapperClasses = useComputed$(() => {
-    const alignmentClass = wrapperAlignmentClasses[props.alignment]
+    const alignmentClass = wrapperAlignmentClasses[props.alignment.value]
     if (props.divide) {
       return twMerge(defaultWrapperClasses, 'dark:divide-gray-700 divide-x divide-gray-200', alignmentClass)
     }
@@ -43,7 +43,7 @@ export function useToastClasses(props: UseToastClassesProps): UseToastClassesRet
   })
 
   const contentClasses = useComputed$(() => {
-    if (props.type !== 'empty' && props.divide) {
+    if (props.type.value !== 'empty' && props.divide) {
       return twMerge(defaultContentClasses, 'pl-3')
     }
 

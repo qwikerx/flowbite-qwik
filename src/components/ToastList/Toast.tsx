@@ -17,10 +17,14 @@ type ToastProps = PropsOf<'div'> & {
 
 export const Toast = component$<ToastProps>(
   ({ id, type = 'empty', alignment = 'center', divide = false, closable = false, onClose$, icon, time }) => {
+    const internalDivide = useComputed$(() => divide)
+    const internalAlignment = useComputed$(() => alignment)
+    const internalType = useComputed$(() => type)
+
     const { typeClasses, wrapperClasses, contentClasses } = useToastClasses({
-      type,
-      divide,
-      alignment,
+      type: internalType,
+      divide: internalDivide,
+      alignment: internalAlignment,
     })
 
     const hasIcon = useComputed$(() => Boolean(icon) || type !== 'empty')
