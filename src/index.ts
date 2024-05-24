@@ -2,6 +2,8 @@
 export { FlowbiteProvider } from './components/FlowbiteProvider/FlowbiteProvider'
 
 // Components
+export * from './components/Accordion'
+export { Badge } from './components/Badge/Badge'
 export { Button } from './components/Button/Button'
 export { Spinner } from './components/Spinner/Spinner'
 export { Tabs, Tab } from './components/Tabs/Tabs'
