@@ -6,6 +6,7 @@ export { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from './
 export { Badge } from './components/Badge/Badge'
 export { Breadcrumb, BreadcrumbItem } from './components/Breadcrumb'
 export { Button } from './components/Button/Button'
+export { Rating } from './components/Rating/Rating'
 export { Spinner } from './components/Spinner/Spinner'
 export { Tabs, Tab } from './components/Tabs/Tabs'
 

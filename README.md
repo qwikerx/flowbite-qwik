@@ -76,6 +76,7 @@ module.exports = {
 - Breadcrumbs
 - Buttons
 - Inputs
+- Ratings
 - Spinner
 - Tabs
 - Toasts
