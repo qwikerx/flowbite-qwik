@@ -29,7 +29,7 @@
 
 - [Documentation](#documentation)
 - [Getting started](#getting-started)
-    - [Require via `npm`](#require-via--npm-)
+  - [Require via `npm`](#require-via--npm-)
 - [Components](#components)
 - [Copyright and license](#copyright-and-license)
 
@@ -37,7 +37,7 @@
 
 Documentation for `flowbite-qwik` is not yet finished.
 
-[//]: # (If you want to browse the components, visit [flowbite.com]&#40;https://flowbite.com/&#41;.)
+[//]: # 'If you want to browse the components, visit [flowbite.com](https://flowbite.com/).'
 
 If you want to learn more about Flowbite, visit [Flowbite docs](https://flowbite.com/docs/getting-started/introduction/).
 
@@ -63,7 +63,7 @@ npm i flowbite flowbite-qwik
 module.exports = {
   content: [
     ...,
-    'node_modules/flowbite-qwik/**/*.{js,jsx,ts,tsx}'
+    'node_modules/flowbite-qwik/**/*.{js,.mjs,jsx,ts,tsx}'
   ],
   plugins: [..., require('flowbite/plugin')],
 };
@@ -71,38 +71,32 @@ module.exports = {
 
 ## Components
 
+- Accordions
+- Badges
 - Buttons
 - Spinner
 - Tabs
+- Toasts
 
-[//]: # (## Community)
-
-[//]: # ()
-[//]: # (If you need help or just want to discuss about the library join the community on Github:)
-
-[//]: # ()
-[//]: # (⌨️ [Discuss about Flowbite on GitHub]&#40;https://github.com/themesberg/flowbite/discussions&#41;)
-
-[//]: # ()
-[//]: # (For casual chatting with others using the library:)
-
-[//]: # ()
-[//]: # (💬 [Join the Flowbite Discord Server]&#40;https://discord.gg/4eeurUVvTy&#41;)
-
-[//]: # ()
-[//]: # (## Contributing)
-
-[//]: # ()
-[//]: # (Thank you for your interest in helping! Visit our [guide on contributing]&#40;https://github.com/themesberg/flowbite-vue/blob/main/CONTRIBUTING.md&#41; to get started.)
-
-[//]: # ()
-[//]: # (## Figma)
-
-[//]: # ()
-[//]: # (If you need the Figma files for the components you can check out our website for more information:)
-
-[//]: # ()
-[//]: # (🎨 [Get access to the Figma design files]&#40;https://flowbite.com/figma/&#41;)
+[//]: # '## Community'
+[//]: #
+[//]: # 'If you need help or just want to discuss about the library join the community on Github:'
+[//]: #
+[//]: # '⌨️ [Discuss about Flowbite on GitHub](https://github.com/themesberg/flowbite/discussions)'
+[//]: #
+[//]: # 'For casual chatting with others using the library:'
+[//]: #
+[//]: # '💬 [Join the Flowbite Discord Server](https://discord.gg/4eeurUVvTy)'
+[//]: #
+[//]: # '## Contributing'
+[//]: #
+[//]: # 'Thank you for your interest in helping! Visit our [guide on contributing](https://github.com/themesberg/flowbite-vue/blob/main/CONTRIBUTING.md) to get started.'
+[//]: #
+[//]: # '## Figma'
+[//]: #
+[//]: # 'If you need the Figma files for the components you can check out our website for more information:'
+[//]: #
+[//]: # '🎨 [Get access to the Figma design files](https://flowbite.com/figma/)'
 
 ## Copyright and license
 
