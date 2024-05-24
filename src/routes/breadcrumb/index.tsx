@@ -3,7 +3,7 @@ import { Breadcrumb, BreadcrumbItem } from '~/components/Breadcrumb'
 
 export default component$(() => {
   return (
-    <section id="badges" class="p-5">
+    <section id="breadcrumbs" class="p-5">
       <div>
         <h2 class="text-2xl font-semibold my-3">Default breadcrumb</h2>
         <Breadcrumb>
