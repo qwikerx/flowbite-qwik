@@ -13,6 +13,9 @@ export default component$(() => {
         <a href="/button">Button</a>
       </li>
       <li>
+        <a href="/breadcrumb">Breadcrumb</a>
+      </li>
+      <li>
         <a href="/spinner">Spinner</a>
       </li>
       <li>

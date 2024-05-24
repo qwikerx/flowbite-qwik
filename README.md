@@ -2,7 +2,7 @@
   <h1>flowbite-qwik</h1>
   <p>
     <a href="https://flowbite.com">
-      <img alt="Flowbite Qwik - Tailwind CSS components" width="200" style="border-radius: 100%" src="./docs/assets/logo.jpg">
+      <img alt="Flowbite Qwik - Tailwind CSS components" width="500"  src="./docs/assets/logo.png">
     </a>
   </p>
   <p>
@@ -73,6 +73,7 @@ module.exports = {
 
 - Accordions
 - Badges
+- Breadcrumbs
 - Buttons
 - Spinner
 - Tabs
@@ -90,7 +91,7 @@ module.exports = {
 [//]: #
 [//]: # '## Contributing'
 [//]: #
-[//]: # 'Thank you for your interest in helping! Visit our [guide on contributing](https://github.com/themesberg/flowbite-vue/blob/main/CONTRIBUTING.md) to get started.'
+[//]: # 'Thank you for your interest in helping! Feel free to get started.'
 [//]: #
 [//]: # '## Figma'
 [//]: #
