@@ -75,6 +75,7 @@ module.exports = {
 - Badges
 - Breadcrumbs
 - Buttons
+- Inputs
 - Spinner
 - Tabs
 - Toasts
