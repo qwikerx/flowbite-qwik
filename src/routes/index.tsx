@@ -19,6 +19,9 @@ export default component$(() => {
         <a href="/input">Input</a>
       </li>
       <li>
+        <a href="/modal">Modal</a>
+      </li>
+      <li>
         <a href="/rating">Rating</a>
       </li>
       <li>

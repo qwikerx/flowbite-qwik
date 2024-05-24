@@ -1,6 +1,6 @@
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../button-types'
 import { ClassList, HTMLAttributeAnchorTarget, JSXOutput, Signal, useComputed$ } from '@builder.io/qwik'
-import { useMergeClasses } from '~/composables/useMergeClasses'
+import { useMergeClasses } from '~/composables/use-merge-classes'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>; default: Record<T, string> }
 
