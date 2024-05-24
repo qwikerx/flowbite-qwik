@@ -4,7 +4,7 @@ import { qwikVite } from '@builder.io/qwik/optimizer'
 import * as path from 'path'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
-// import { qwikCity } from '@builder.io/qwik-city/vite'
+import { qwikCity } from '@builder.io/qwik-city/vite'
 
 const { dependencies = {}, peerDependencies = {} } = pkg as any
 const makeRegex = (dep) => new RegExp(`^${dep}(/.*)?$`)
@@ -17,14 +17,15 @@ export default defineConfig(() => {
       target: 'es2020',
       lib: {
         entry: './src/index.ts',
-        name: 'flowbite-qwik',
+        formats: ['es', 'cjs'],
+        fileName: (format) => `flowbite.qwik.${format === 'es' ? 'mjs' : 'cjs'}`,
       },
       rollupOptions: {
-        // output: {
-        //   assetFileNames: (chunkInfo) => {
-        //     return chunkInfo.name
-        //   },
-        // },
+        output: {
+          assetFileNames: (chunkInfo) => {
+            return chunkInfo.name || 'index'
+          },
+        },
         // externalize deps that shouldn't be bundled into the library
         external: [/^node:.*/, ...excludeAll(dependencies), ...excludeAll(peerDependencies)],
       },
@@ -34,7 +35,6 @@ export default defineConfig(() => {
         '~': path.resolve(__dirname, './src/'),
       },
     },
-    // plugins: [qwikCity({ trailingSlash: false }), qwikVite()],
-    plugins: [qwikVite(), tsconfigPaths()],
+    plugins: [qwikCity({ trailingSlash: false }), qwikVite(), tsconfigPaths()],
   }
 })
