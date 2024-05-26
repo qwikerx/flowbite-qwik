@@ -82,6 +82,12 @@ module.exports = {
 - Toasts
 - Toggle
 
+## composables
+
+- useDark
+- useMediaQuery
+- useOuterClick
+
 [//]: # '## Community'
 [//]: #
 [//]: # 'If you need help or just want to discuss about the library join the community on Github:'
