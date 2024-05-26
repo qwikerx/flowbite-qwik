@@ -1,7 +1,8 @@
-import { Slot, component$, useContextProvider, useStore } from '@builder.io/qwik'
+import { Slot, component$, useContextProvider, useSignal, useStore } from '@builder.io/qwik'
 import { toastContext } from '../ToastList/composables/use-toast'
 import { ToastList } from '../ToastList/ToastList'
 import { ToastPosition } from '../ToastList/toast-type'
+import { darkModeContext } from '~/composables/use-dark'
 
 type FlowbiteProviderProps = {
   toastPosition?: ToastPosition
@@ -9,6 +10,7 @@ type FlowbiteProviderProps = {
 
 export const FlowbiteProvider = component$<FlowbiteProviderProps>(({ toastPosition }) => {
   useContextProvider(toastContext, useStore([]))
+  useContextProvider(darkModeContext, useSignal(undefined))
 
   return (
     <>

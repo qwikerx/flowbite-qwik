@@ -1,5 +1,27 @@
-import { component$, Slot } from '@builder.io/qwik'
+import { component$, Slot, useSignal } from '@builder.io/qwik'
+import { Toggle } from '~/components/Toggle/Toggle'
+import { useDark } from '~/composables/use-dark'
 
 export default component$(() => {
-  return <Slot />
+  const { isDark, setDarkModeValue } = useDark()
+
+  const internalIsDark = useSignal(isDark.value)
+
+  return (
+    <>
+      <header class="w-full px-5 flex justify-between items-center h-20 border-b shadow-sm">
+        <img src={`/logo-${isDark.value ? 'dark' : 'light'}.png`} width={804} height={183} alt="logo" class="md:w-60 w-28" />
+
+        <Toggle
+          label={isDark.value ? 'Dark' : 'Light'}
+          bind:checked={internalIsDark}
+          size="sm"
+          onChange$={(value: boolean) => {
+            setDarkModeValue(value ? 'dark' : 'light')
+          }}
+        />
+      </header>
+      <Slot />
+    </>
+  )
 })
