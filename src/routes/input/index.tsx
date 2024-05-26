@@ -1,6 +1,6 @@
 import { component$, useSignal } from '@builder.io/qwik'
-import { Input } from '~/components/Input/Input'
-import { Button } from '~/components/Button/Button'
+import { Input } from '~/lib/components/Input/Input'
+import { Button } from '~/lib/components/Button/Button'
 
 export default component$(() => {
   const value = useSignal('')

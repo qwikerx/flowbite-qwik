@@ -1,7 +1,7 @@
 import { component$, Signal, useSignal, useStore } from '@builder.io/qwik'
-import { Button } from '~/components/Button/Button'
-import { Modal } from '~/components/Modal/Modal'
-import { ModalSize } from '~/components/Modal/modal-types'
+import { Button } from '~/lib/components/Button/Button'
+import { Modal } from '~/lib/components/Modal/Modal'
+import { ModalSize } from '~/lib/components/Modal/modal-types'
 
 export default component$(() => {
   const defaultModalVisible = useSignal(false)

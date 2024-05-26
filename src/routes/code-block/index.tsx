@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
+import { CodeBlock } from '~/docs/components/CodeBlock/CodeBlock'
 
 export default component$(() => {
   return (

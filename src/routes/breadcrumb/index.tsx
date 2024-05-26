@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { Breadcrumb, BreadcrumbItem } from '~/components/Breadcrumb'
+import { Breadcrumb, BreadcrumbItem } from '~/lib/components/Breadcrumb'
 
 export default component$(() => {
   return (

@@ -1,6 +1,6 @@
 import { component$, Slot, useSignal } from '@builder.io/qwik'
-import { Toggle } from '~/components/Toggle/Toggle'
-import { useDark } from '~/composables/use-dark'
+import { Toggle } from '~/lib/components/Toggle/Toggle'
+import { useDark } from '~/lib/composables/use-dark'
 
 export default component$(() => {
   const { isDark, setDarkModeValue } = useDark()

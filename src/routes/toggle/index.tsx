@@ -1,5 +1,5 @@
 import { component$, useSignal } from '@builder.io/qwik'
-import { Toggle } from '~/components/Toggle/Toggle'
+import { Toggle } from '~/lib/components/Toggle/Toggle'
 
 export default component$(() => {
   const toggleValue = useSignal(false)

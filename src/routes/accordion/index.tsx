@@ -1,8 +1,8 @@
 import { component$ } from '@builder.io/qwik'
-import { AccordionPanel } from '~/components/Accordion/AccordionPanel'
-import { Accordion } from '~/components/Accordion/Accordion'
-import { AccordionContent } from '~/components/Accordion/AccordionContent'
-import { AccordionHeader } from '~/components/Accordion/AccordionHeader'
+import { AccordionPanel } from '~/lib/components/Accordion/AccordionPanel'
+import { Accordion } from '~/lib/components/Accordion/Accordion'
+import { AccordionContent } from '~/lib/components/Accordion/AccordionContent'
+import { AccordionHeader } from '~/lib/components/Accordion/AccordionHeader'
 
 export default component$(() => {
   return (

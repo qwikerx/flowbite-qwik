@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik'
-import { Rating } from '~/components/Rating/Rating'
-import { RatingSize } from '~/components/Rating/rating-types'
+import { Rating } from '~/lib/components/Rating/Rating'
+import { RatingSize } from '~/lib/components/Rating/rating-types'
 
 export default component$(() => {
   return (

@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik'
-import { Spinner } from '~/components/Spinner/Spinner'
-import { SpinnerColor, SpinnerSize } from '~/components/Spinner/spinner-types'
+import { Spinner } from '~/lib/components/Spinner/Spinner'
+import { SpinnerColor, SpinnerSize } from '~/lib/components/Spinner/spinner-types'
 
 export default component$(() => {
   return (

@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik'
-import { Badge } from '~/components/Badge/Badge'
-import { BadgeType } from '~/components/Badge/badge-types'
+import { Badge } from '~/lib/components/Badge/Badge'
+import { BadgeType } from '~/lib/components/Badge/badge-types'
 import { LuRocket } from '@qwikest/icons/lucide'
 
 export default component$(() => {
