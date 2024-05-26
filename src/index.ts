@@ -1,5 +1,6 @@
 // Providers
 export { FlowbiteProvider } from './components/FlowbiteProvider/FlowbiteProvider'
+export { FlowbiteProviderHeader } from './components/FlowbiteProvider/FlowbiteProviderHeader'
 
 // Components
 export { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from './components/Accordion'
@@ -12,6 +13,9 @@ export { Modal } from './components/Modal/Modal'
 export { Rating } from './components/Rating/Rating'
 export { Spinner } from './components/Spinner/Spinner'
 export { Tabs, Tab } from './components/Tabs/Tabs'
+export { Toggle } from './components/Toggle/Toggle'
 
 // Composables
 export { useToast } from './components/ToastList/composables/use-toast'
+export { useDark } from './composables/use-dark'
+export { useMediaQuery } from './composables/use-media-query'

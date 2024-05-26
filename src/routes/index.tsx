@@ -33,6 +33,9 @@ export default component$(() => {
       <li>
         <a href="/toast">Toast</a>
       </li>
+      <li>
+        <a href="/toggle">Toggle</a>
+      </li>
     </ul>
   )
 })

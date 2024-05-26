@@ -3,7 +3,12 @@ import { InputSize, InputType, ValidationStatus, validationStatusMap } from './i
 import { twMerge } from 'tailwind-merge'
 import { useInputClasses } from './composables/use-input-classes'
 
-type InputProps = Omit<PropsOf<'input'>, 'size' | 'popovertargetaction' | 'popovertarget' | 'value' | 'bind:value' | 'bind:checked' | 'toggle'> & {
+export type PropsOfInput = Omit<
+  PropsOf<'input'>,
+  'size' | 'popovertargetaction' | 'popovertarget' | 'value' | 'bind:value' | 'bind:checked' | 'toggle'
+>
+
+type InputProps = PropsOfInput & {
   disabled?: boolean
   label?: string
   required?: boolean
