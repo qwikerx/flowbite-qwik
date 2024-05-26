@@ -3,6 +3,7 @@ import pkg from './package.json'
 import { qwikVite } from '@builder.io/qwik/optimizer'
 import * as path from 'path'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import dts from 'vite-plugin-dts'
 
 import { qwikCity } from '@builder.io/qwik-city/vite'
 
@@ -16,7 +17,7 @@ export default defineConfig(() => {
       cssCodeSplit: true,
       target: 'es2020',
       lib: {
-        entry: './src/index.ts',
+        entry: './src/lib/index.ts',
         formats: ['es', 'cjs'],
         fileName: (format) => `flowbite.qwik.${format === 'es' ? 'mjs' : 'cjs'}`,
       },
@@ -35,6 +36,14 @@ export default defineConfig(() => {
         '~': path.resolve(__dirname, './src/'),
       },
     },
-    plugins: [qwikCity({ trailingSlash: false, routesDir: 'src/docs/routes' }), qwikVite(), tsconfigPaths()],
+    plugins: [
+      qwikCity({ trailingSlash: false, routesDir: 'src/docs/routes' }),
+      qwikVite(),
+      tsconfigPaths(),
+      dts({
+        outDir: 'lib-types',
+        entryRoot: 'src/lib',
+      }),
+    ],
   }
 })
