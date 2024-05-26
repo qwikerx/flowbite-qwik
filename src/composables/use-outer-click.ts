@@ -2,11 +2,7 @@ import { QRL, Signal, useOn } from '@builder.io/qwik'
 import { isSignal } from '@builder.io/qwik'
 import { $ } from '@builder.io/qwik'
 
-export default function useOuterClick(
-  targets: Array<Signal<Element | undefined> | string>,
-  handler$: QRL<() => void>,
-  validCondition: Signal<boolean>,
-) {
+export function useOuterClick(targets: Array<Signal<Element | undefined> | string>, handler$: QRL<() => void>, validCondition: Signal<boolean>) {
   useOn(
     'click',
     $(async (event: Event) => {

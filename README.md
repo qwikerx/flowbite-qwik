@@ -84,6 +84,7 @@ module.exports = {
 
 ## composables
 
+- useToasts
 - useDark
 - useMediaQuery
 - useOuterClick

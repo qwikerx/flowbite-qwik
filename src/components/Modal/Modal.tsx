@@ -1,6 +1,6 @@
 import { $, component$, JSXOutput, PropsOf, Signal, Slot, useComputed$, useSignal, useTask$ } from '@builder.io/qwik'
 import { ModalSize } from '~/components/Modal/modal-types'
-import useOuterClick from '~/composables/use-outer-click'
+import { useOuterClick } from '~/composables/use-outer-click'
 import { isServer } from '@builder.io/qwik/build'
 import { useModalClasses } from '~/components/Modal/composables/use-modal-classes'
 
