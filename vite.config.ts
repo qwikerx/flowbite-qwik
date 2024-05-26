@@ -6,7 +6,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 import { qwikCity } from '@builder.io/qwik-city/vite'
 
-const { dependencies = {}, peerDependencies = {} } = pkg as any
+const { dependencies = {}, peerDependencies = {} } = pkg
 const makeRegex = (dep) => new RegExp(`^${dep}(/.*)?$`)
 const excludeAll = (obj) => Object.keys(obj).map(makeRegex)
 
@@ -35,6 +35,6 @@ export default defineConfig(() => {
         '~': path.resolve(__dirname, './src/'),
       },
     },
-    plugins: [qwikCity({ trailingSlash: false }), qwikVite(), tsconfigPaths()],
+    plugins: [qwikCity({ trailingSlash: false, routesDir: 'src/docs/routes' }), qwikVite(), tsconfigPaths()],
   }
 })
