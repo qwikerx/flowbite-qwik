@@ -74,6 +74,8 @@ module.exports = {
 - Badges
 - Breadcrumbs
 - Buttons
+- CodeBlock
+- Dropdown
 - Inputs
 - Modal
 - Ratings
