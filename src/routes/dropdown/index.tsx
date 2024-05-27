@@ -1,171 +1,262 @@
-import { component$, useStore } from '@builder.io/qwik'
-import { Dropdown, DropdownItem, DropdownSize } from '~/components/Dropdown/Dropdown'
+import { component$ } from '@builder.io/qwik'
+import { Dropdown, DropdownItem } from '~/components/Dropdown/Dropdown'
+import { IconHomeOutline, IconSearchSolid, IconTextSizeOutline } from '~/components/Icon'
+import { DropdownSize } from '~/components/Dropdown/dropdown-types'
+import { Toggle } from '~/components/Toggle/Toggle'
 
 export default component$(() => {
-  const selectedStore = useStore({ value: '' })
-
   return (
     <section id="dropdown" class="p-5">
-      <h2 class="text-2xl font-semibold my-3">Default Dropdown ({selectedStore.value})</h2>
+      <h2 class="text-2xl font-semibold my-3">Default Dropdown</h2>
       <div>
-        <Dropdown
-          label="Dropdown button"
-          whenSelect$={(value) => {
-            alert(value)
-          }}
-          bind:selected={selectedStore}
-          closeWhenSelect={false}
-        >
-          <DropdownItem value="dashboard">Dashboard</DropdownItem>
-          <DropdownItem value="settings">Settings</DropdownItem>
-          <DropdownItem value="earnings">Earnings</DropdownItem>
-          <DropdownItem value="signout">Sign out</DropdownItem>
+        <Dropdown label="Dropdown button">
+          <DropdownItem>Dashboard</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
+          <DropdownItem>Earnings</DropdownItem>
+          <DropdownItem>Sign out</DropdownItem>
         </Dropdown>
       </div>
 
       <h2 class="text-2xl font-semibold my-3">Dropdown divider</h2>
       <div>
-        <Dropdown label="Dropdown button" whenSelect$={() => null} bind:selected={selected}>
-          <DropdownItem value="dashboard">Dashboard</DropdownItem>
-          <DropdownItem value="settings">Settings</DropdownItem>
+        <Dropdown label="Dropdown button">
+          <DropdownItem>Dashboard</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
           <DropdownItem divider />
-          <DropdownItem value="separated-link">Separated link</DropdownItem>
+          <DropdownItem>Separated link</DropdownItem>
         </Dropdown>
       </div>
 
       <h2 class="text-2xl font-semibold my-3">Dropdown header</h2>
       <div>
-        <Dropdown label="Dropdown button" whenSelect$={() => null} bind:selected={selected}>
+        <Dropdown label="Dropdown button">
           <DropdownItem header>
-            <span class="block text-sm">Bonnie Green</span>
-            <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
+            {/* FIXME */}
+            <>
+              <span class="block text-sm">Bonnie Green</span>
+              <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
+            </>
           </DropdownItem>
-          <DropdownItem value="dashboard">Dashboard</DropdownItem>
-          <DropdownItem value="settings">Settings</DropdownItem>
+          <DropdownItem>Dashboard</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
           <DropdownItem divider />
-          <DropdownItem value="signout">Sign out</DropdownItem>
+          <DropdownItem>Sign out</DropdownItem>
         </Dropdown>
       </div>
 
       <h2 class="text-2xl font-semibold my-3">Dropdown items with icon</h2>
       <div>
-        <Dropdown label="Dropdown button" whenSelect$={() => null} bind:selected={selected}>
+        <Dropdown label="Dropdown button">
           <DropdownItem header>
-            <span class="block text-sm">Bonnie Green</span>
-            <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
+            <>
+              <span class="block text-sm">Bonnie Green</span>
+              <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
+            </>
           </DropdownItem>
-          <DropdownItem
-            value="dashboard"
-            icon={
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                stroke-width="0"
-                viewBox="0 0 20 20"
-                aria-hidden="true"
-                class="h-4 w-4"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-              </svg>
-            }
-          >
-            Dashboard
-          </DropdownItem>
-          <DropdownItem
-            value="settings"
-            icon={
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                stroke-width="0"
-                viewBox="0 0 20 20"
-                aria-hidden="true"
-                class="h-4 w-4"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            }
-          >
-            Settings
-          </DropdownItem>
+          <DropdownItem icon={IconHomeOutline}>Dashboard</DropdownItem>
+          <DropdownItem icon={IconSearchSolid}>Settings</DropdownItem>
           <DropdownItem divider />
-          <DropdownItem
-            value="signout"
-            icon={
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                stroke-width="0"
-                viewBox="0 0 20 20"
-                aria-hidden="true"
-                class="h-4 w-4"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            }
-          >
-            Sign out
-          </DropdownItem>
+          <DropdownItem icon={IconTextSizeOutline}>Sign out</DropdownItem>
         </Dropdown>
       </div>
 
       <h2 class="text-2xl font-semibold my-3">Inline Dropdown</h2>
       <div>
-        <Dropdown label="Dropdown button" whenSelect$={() => null} bind:selected={selected} inline>
-          <DropdownItem value="dashboard">Dashboard</DropdownItem>
-          <DropdownItem value="settings">Settings</DropdownItem>
+        <Dropdown label="Dropdown button" inline>
+          <DropdownItem>Dashboard</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
           <DropdownItem divider />
-          <DropdownItem value="separated-link">Separated link</DropdownItem>
+          <DropdownItem>Separated link</DropdownItem>
+        </Dropdown>
+      </div>
+
+      <h2 class="text-2xl font-semibold my-3">User avatar</h2>
+      <div>
+        <Dropdown class="w-48" label="" as={<img class="w-8 h-8 rounded-full" src="/public/profile-picture.jpg" alt="user photo" />}>
+          <DropdownItem header>
+            {/* FIXME */}
+            <>
+              <span class="block text-sm">Bonnie Green</span>
+              <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
+            </>
+          </DropdownItem>
+          <DropdownItem>Dashboard</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem>Sign out</DropdownItem>
         </Dropdown>
       </div>
 
       <h2 class="text-2xl font-semibold my-3">Dropdown sizes</h2>
       <div class="flex gap-5">
         {(['s', 'm', 'l'] as DropdownSize[]).map((size) => (
-          <button
-            onClick$={() => {
-              whenSelectValue.value = 'la'
-            }}
-          >
-            <DropdownItem value="dashboard">Dashboard</DropdownItem>
-            <DropdownItem value="settings">Settings</DropdownItem>
-          </button>
+          <Dropdown label="Dropdown button" size={size}>
+            <DropdownItem>Dashboard</DropdownItem>
+            <DropdownItem>Settings</DropdownItem>
+          </Dropdown>
         ))}
       </div>
       <div class="flex gap-5">
         {(['s', 'm', 'l'] as DropdownSize[]).map((size) => (
-          <Dropdown label="Dropdown button" whenSelect$={() => null} bind:selected={selected} size={size} inline iconRotate={-180}>
-            <DropdownItem value="dashboard">Dashboard</DropdownItem>
-            <DropdownItem value="settings">Settings</DropdownItem>
+          <Dropdown label="Dropdown button" size={size} inline>
+            <DropdownItem>Dashboard</DropdownItem>
+            <DropdownItem>Settings</DropdownItem>
           </Dropdown>
         ))}
       </div>
 
       <h2 class="text-2xl font-semibold my-3">Dropdown icon rotate</h2>
       <div class="flex gap-5">
-        {(['s', 'm', 'l'] as DropdownSize[]).map((size) => (
-          <Dropdown label="Dropdown button" whenSelect$={() => null} bind:selected={selected} size={size} iconRotate={90}>
-            <DropdownItem value="dashboard">Dashboard</DropdownItem>
-            <DropdownItem value="settings">Settings</DropdownItem>
+        {(['s', 'm', 'l'] as DropdownSize[]).map((size, i) => (
+          <Dropdown label="Dropdown button" size={size} iconRotate={90 * i}>
+            <DropdownItem>Dashboard</DropdownItem>
+            <DropdownItem>Settings</DropdownItem>
           </Dropdown>
         ))}
+      </div>
+
+      <h2 class="text-2xl font-semibold my-3">Click event handler</h2>
+      <div class="flex gap-5">
+        <Dropdown label="Dropdown button">
+          <DropdownItem
+            onClick$={() => {
+              alert('click dashboard')
+            }}
+          >
+            Dashboard
+          </DropdownItem>
+          <DropdownItem
+            onClick$={() => {
+              alert('click settings')
+            }}
+          >
+            Settings
+          </DropdownItem>
+          <DropdownItem
+            onClick$={() => {
+              alert('click earnings')
+            }}
+          >
+            Earnings
+          </DropdownItem>
+          <DropdownItem
+            onClick$={() => {
+              alert('click sign-out')
+            }}
+          >
+            Sign out
+          </DropdownItem>
+        </Dropdown>
+      </div>
+
+      <h2 class="text-2xl font-semibold my-3">Dropdown with checkbox</h2>
+      <div>
+        <Dropdown label="Dropdown checkbox" closeWhenSelect={false}>
+          <DropdownItem>
+            <div class="flex items-center">
+              <input
+                id="checkbox-item-1"
+                type="checkbox"
+                value="item-1"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+              />
+              <label for="checkbox-item-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Default checkbox
+              </label>
+            </div>
+          </DropdownItem>
+          <DropdownItem>
+            <div class="flex items-center">
+              <input
+                checked
+                id="checkbox-item-2"
+                type="checkbox"
+                value="item-2"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+              />
+              <label for="checkbox-item-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Checked state
+              </label>
+            </div>
+          </DropdownItem>
+          <DropdownItem>
+            <div class="flex items-center">
+              <input
+                id="checkbox-item-3"
+                type="checkbox"
+                value="item-3"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+              />
+              <label for="checkbox-item-3" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Default checkbox
+              </label>
+            </div>
+          </DropdownItem>
+        </Dropdown>
+      </div>
+
+      <h2 class="text-2xl font-semibold my-3">Dropdown with radiobox</h2>
+      <div>
+        <Dropdown class="w-48" label="Dropdown radio" closeWhenSelect={false}>
+          <DropdownItem>
+            <div class="flex items-center">
+              <input
+                id="radio-item-1"
+                type="radio"
+                name="default-radio"
+                value="item-1"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+              />
+              <label for="radio-item-1" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Default radio
+              </label>
+            </div>
+          </DropdownItem>
+          <DropdownItem>
+            <div class="flex items-center">
+              <input
+                checked
+                id="radio-item-2"
+                type="radio"
+                name="default-radio"
+                value="item-2"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+              />
+              <label for="radio-item-2" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Checked state
+              </label>
+            </div>
+          </DropdownItem>
+          <DropdownItem>
+            <div class="flex items-center">
+              <input
+                id="radio-item-3"
+                type="radio"
+                name="default-radio"
+                value="item-3"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+              />
+              <label for="radio-item-3" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                Default radio
+              </label>
+            </div>
+          </DropdownItem>
+        </Dropdown>
+      </div>
+
+      <h2 class="text-2xl font-semibold my-3">Dropdown with toggle switch</h2>
+      <div>
+        <Dropdown class="w-72" label="Dropdown toggle" closeWhenSelect={false}>
+          <DropdownItem>
+            <Toggle label="Enable notifications" />
+          </DropdownItem>
+          <DropdownItem>
+            <Toggle label="Enable 2FA authentication" />
+          </DropdownItem>
+          <DropdownItem>
+            <Toggle label="Subscribe to newsletter" />
+          </DropdownItem>
+        </Dropdown>
       </div>
     </section>
   )

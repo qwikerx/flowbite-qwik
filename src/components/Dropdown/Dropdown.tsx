@@ -1,24 +1,39 @@
-import { $, component$, FunctionComponent, JSXChildren, JSXOutput, PropsOf, Slot, useSignal, useStore } from '@builder.io/qwik'
+import {
+  $,
+  ClassList,
+  Component,
+  component$,
+  FunctionComponent,
+  JSXChildren,
+  JSXOutput,
+  PropsOf,
+  Slot,
+  useComputed$,
+  useSignal,
+  useStore,
+} from '@builder.io/qwik'
 import { getChild } from '~/utils/getChild'
 import { Button } from '~/components/Button/Button'
 import { useDocumentOuterClick } from '~/composables/use-outer-click'
 import { ButtonSize } from '~/components/Button/button-types'
+import { IconProps } from '@qwikest/icons'
+import { IconAngleDownOutline } from '~/components/Icon'
+import { DropdownSize } from '~/components/Dropdown/dropdown-types'
+import { useDropdownClasses } from '~/components/Dropdown/composables/use-dropdown-classes'
 
 interface ComponentType {
   id: number
   value?: string
   header: boolean
   divider: boolean
-  icon?: JSXOutput
+  icon?: Component<IconProps>
   content: JSXChildren
+  onClick$?: () => void
 }
 
-export type DropdownSize = 's' | 'm' | 'l'
-
 type DropdownProps = PropsOf<'div'> & {
-  'bind:selected': { v: string }
-  whenSelect$: (value: string) => void
   label: string
+  as?: JSXOutput
   closeWhenSelect?: boolean
   inline?: boolean
   size?: DropdownSize
@@ -27,12 +42,12 @@ type DropdownProps = PropsOf<'div'> & {
 export const Dropdown: FunctionComponent<DropdownProps> = ({
   children,
   label,
+  as,
   closeWhenSelect = true,
-  whenSelect$,
   inline = false,
   size = 'm',
   iconRotate,
-  ...props
+  ...attrs
 }) => {
   const childrenToProcess = Array.isArray(children) ? [...children] : [children]
 
@@ -47,8 +62,9 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
           value: child.props.value as string | undefined,
           header: Boolean(child.props.header),
           divider: Boolean(child.props.divider),
-          icon: child.props.icon as JSXOutput | undefined,
+          icon: child.props.icon as Component | undefined,
           content: child.children,
+          onClick$: child.props.onClick$ as () => void | undefined,
         })
       },
     },
@@ -59,12 +75,12 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
       <InnerDropdown
         components={components}
         label={label}
-        bind:selected={props['bind:selected']}
+        as={as}
         closeWhenSelect={closeWhenSelect}
-        whenSelect$={whenSelect$}
         inline={inline}
         size={size}
         iconRotate={iconRotate}
+        class={attrs.class}
       />
     </div>
   )
@@ -74,28 +90,31 @@ type DropdownItemProps = {
   value?: string
   header?: boolean
   divider?: boolean
-  icon?: JSXOutput
+  icon?: Component<IconProps>
+  onClick$?: () => void
 }
 export const DropdownItem = component$<DropdownItemProps>(() => {
   return <Slot />
 })
 
 /**
- * Implementation
+ * InnerDropdown
  */
 
 type InnerDropdownProps = {
-  'bind:selected': { v: string }
-  whenSelect$: (value: string) => void
   label: string
+  as?: JSXOutput
   closeWhenSelect: boolean
   components: ComponentType[]
   inline: boolean
   size: DropdownSize
   iconRotate?: string | number
+  class?: ClassList
 }
 
-const InnerDropdown = component$<InnerDropdownProps>(({ label, closeWhenSelect, components, whenSelect$, inline, size, iconRotate, ...props }) => {
+const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSelect, components, inline, size, iconRotate, class: classNames }) => {
+  const { dropdownModalClasses } = useDropdownClasses(useComputed$(() => size))
+
   const visible = useSignal(false)
   const dropdownRef = useSignal<HTMLDivElement>()
   const componentsAsSignals = useStore(() => components, { deep: true })
@@ -104,32 +123,34 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, closeWhenSelect, 
     visible.value = !visible.value
   })
   const TriggerButton = inline ? InnerTriggerInline : InnerTriggerButton
+  const TriggerButtonAs = as ? InnerTriggerAs : undefined
 
   useDocumentOuterClick([dropdownRef], toggleVisible, visible) // FIXME first double-click
 
   return (
-    <div class="inline-flex relative">
+    <div class={['inline-flex relative justify-center']}>
       <div ref={dropdownRef}>
-        <TriggerButton onClick$={toggleVisible} label={label} size={size} iconRotate={iconRotate} />
+        {TriggerButtonAs ? (
+          <TriggerButtonAs onClick$={toggleVisible} size={size} as={as} />
+        ) : (
+          <TriggerButton onClick$={toggleVisible} label={label} size={size} iconRotate={iconRotate} />
+        )}
+
         {visible.value && (
-          <div
-            role="menu"
-            class="w-full z-10 absolute top-10 left-0 divide-y divide-gray-100 rounded shadow focus:outline-none transition-opacity duration-100 border border-gray-200 bg-white text-gray-900 dark:border-none dark:bg-gray-700 dark:text-white"
-          >
+          <div role="menu" class={[classNames, dropdownModalClasses.value]}>
             <ul tabIndex={0} class="py-1 focus:outline-none">
               {componentsAsSignals.map((comp) => (
                 <li role="menuitem" key={comp.id}>
                   {comp.header ? (
-                    <InnerDropdownHeader>{comp.content}</InnerDropdownHeader>
+                    <InnerDropdownHeader size={size}>{comp.content}</InnerDropdownHeader>
                   ) : comp.divider ? (
-                    <InnerDropdownDivider />
+                    <InnerDropdownDivider size={size} />
                   ) : (
                     <InnerDropdownItem
+                      size={size}
                       icon={comp.icon}
-                      handleWhenSelect={$(async () => {
-                        // FIXME pas réactif on dirait
-                        props['bind:selected'].v = comp.value ?? ''
-                        whenSelect$(comp.value ?? '')
+                      onClick$={$(() => {
+                        comp.onClick$?.()
 
                         if (closeWhenSelect) {
                           toggleVisible()
@@ -149,67 +170,59 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, closeWhenSelect, 
   )
 })
 
-const InnerDropdownHeader = component$(() => {
+/**
+ * InnerDropdownHeader
+ */
+type InnerDropdownHeaderProps = {
+  size: DropdownSize
+}
+const InnerDropdownHeader = component$<InnerDropdownHeaderProps>(({ size }) => {
+  const { dropdownHeaderContainerClasses, dropdownHeaderSeparatorClasses } = useDropdownClasses(useComputed$(() => size))
+
   return (
     <>
-      <div class="px-4 py-2 text-sm text-gray-700 dark:text-gray-200">
+      <div class={dropdownHeaderContainerClasses.value}>
         <Slot />
       </div>
-      <div class="my-1 h-px bg-gray-100 dark:bg-gray-600" />
+      <div class={dropdownHeaderSeparatorClasses.value} />
     </>
   )
 })
 
-const InnerDropdownDivider = component$(() => {
-  return <div class="my-1 h-px bg-gray-100 dark:bg-gray-600" />
+/**
+ * InnerDropdownDivider
+ */
+type InnerDropdownDividerProps = {
+  size: DropdownSize
+}
+const InnerDropdownDivider = component$<InnerDropdownDividerProps>(({ size }) => {
+  const { dropdownDividerClasses } = useDropdownClasses(useComputed$(() => size))
+
+  return <div class={dropdownDividerClasses.value} />
 })
 
+/**
+ * InnerDropdownItem
+ */
 type InnerDropdownItemProps = PropsOf<'button'> & {
-  icon?: JSXOutput
-  handleWhenSelect?: () => void
+  icon?: Component<IconProps>
+  onClick$?: () => void
+  size: DropdownSize
 }
-const InnerDropdownItem = component$<InnerDropdownItemProps>(({ icon, handleWhenSelect, ...props }) => {
+const InnerDropdownItem = component$<InnerDropdownItemProps>(({ icon: Icon, size, onClick$, ...props }) => {
+  const { dropdownItemClasses } = useDropdownClasses(useComputed$(() => size))
+
   return (
-    <button
-      type="button"
-      class={[
-        'flex w-full cursor-pointer items-center justify-start px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:bg-gray-600 dark:focus:text-white',
-        {
-          'gap-2': !!icon,
-        },
-      ]}
-      onClick$={handleWhenSelect}
-      //tabIndex={isActive ? 0 : -1}
-      disabled={props.disabled}
-    >
-      {icon && <>{icon}</>}
+    <button type="button" class={dropdownItemClasses.value} onClick$={onClick$} disabled={props.disabled}>
+      {Icon && <Icon class="h-4 w-4 mr-2" />}
       <Slot />
     </button>
   )
 })
 
-type InnerTriggerIconProps = PropsOf<'svg'> & {
-  rotate?: string | number
-}
-const InnerTriggerIcon = component$<InnerTriggerIconProps>(({ rotate }) => {
-  return (
-    <svg
-      stroke="currentColor"
-      fill="none"
-      stroke-width="2"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      class="h-4 w-4"
-      height="1em"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
-      style={rotate ? { transform: `rotate(${rotate}deg)` } : undefined}
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
-    </svg>
-  )
-})
-
+/**
+ * InnerTriggerInline
+ */
 type InnerTriggerInlineProps = {
   label: string
   onClick$: () => void
@@ -217,20 +230,37 @@ type InnerTriggerInlineProps = {
   iconRotate?: string | number
 }
 const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, iconRotate, onClick$ }) => {
-  const buttonSizeClasses: Record<DropdownSize, string> = {
-    s: 'text-sm px-3 py-1.5',
-    m: 'text-sm px-4 py-2',
-    l: 'text-base px-5 py-2.5',
-  }
+  const { triggerInlineClasses } = useDropdownClasses(useComputed$(() => size))
 
   return (
-    <button onClick$={onClick$} class={['inline-flex gap-2 items-center', buttonSizeClasses[size]]}>
+    <button onClick$={onClick$} class={triggerInlineClasses.value}>
       {label}
-      <InnerTriggerIcon rotate={iconRotate} />
+      <IconAngleDownOutline style={iconRotate ? { transform: `rotate(${iconRotate}deg)` } : undefined} />
     </button>
   )
 })
 
+/**
+ * InnerTriggerAs
+ */
+type InnerTriggerAsProps = {
+  onClick$: () => void
+  size: DropdownSize
+  as: JSXOutput
+}
+const InnerTriggerAs = component$<InnerTriggerAsProps>(({ as, size, onClick$ }) => {
+  const { triggerInlineClasses } = useDropdownClasses(useComputed$(() => size))
+
+  return (
+    <button onClick$={onClick$} class={triggerInlineClasses.value}>
+      {as}
+    </button>
+  )
+})
+
+/**
+ * InnerTriggerButton
+ */
 type InnerTriggerButtonProps = {
   label: string
   onClick$: () => void
@@ -245,7 +275,11 @@ const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, i
   }
 
   return (
-    <Button onClick$={onClick$} size={buttonSize[size]} suffix={<InnerTriggerIcon rotate={iconRotate} />}>
+    <Button
+      onClick$={onClick$}
+      size={buttonSize[size]}
+      suffix={<IconAngleDownOutline rotate={iconRotate} style={iconRotate ? { transform: `rotate(${iconRotate}deg)` } : undefined} />}
+    >
       {label}
     </Button>
   )

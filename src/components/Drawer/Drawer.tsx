@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { useDrawerClasses } from './composables/use-drawer-classes'
 import { DrawerPosition } from './drawer-types'
-import { IconProps } from '@qwikest/icons/*'
+import { IconProps } from '@qwikest/icons'
 import { IconCloseOutline } from '../Icon'
 import { isServer } from '@builder.io/qwik/build'
 

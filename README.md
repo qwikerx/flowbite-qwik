@@ -75,6 +75,7 @@ module.exports = {
 - Breadcrumbs
 - Buttons
 - CodeBlock
+- Drawer
 - Dropdown
 - Inputs
 - Modal
