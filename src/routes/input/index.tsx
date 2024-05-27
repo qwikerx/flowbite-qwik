@@ -14,6 +14,7 @@ export default component$(() => {
 
       <div>
         <h2 class="text-2xl font-semibold my-3">Size</h2>
+
         <div class="flex gap-3">
           <Input bind:value={value} label="Small" placeholder="enter your name" size="sm" />
           <Input bind:value={value} label="Medium" placeholder="enter your name" size="md" />

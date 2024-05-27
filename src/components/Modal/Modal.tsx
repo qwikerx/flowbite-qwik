@@ -17,7 +17,7 @@ type ModalProps = PropsOf<'div'> & {
 }
 
 export const Modal = component$<ModalProps>(
-  ({ 'bind:show': show, header, footer, notEscapable = false, persistent = false, popup = false, size = '2xl', onClickOutside$, onClose$ }) => {
+  ({ header, footer, notEscapable = false, persistent = false, popup = false, size = '2xl', onClickOutside$, onClose$, ...props }) => {
     const modalRef = useSignal<HTMLDivElement>()
     const { rootClasses, footerClasses } = useModalClasses(
       useComputed$(() => size),
@@ -25,7 +25,7 @@ export const Modal = component$<ModalProps>(
     )
 
     const closeModal = $(() => {
-      show.value = false
+      props['bind:show'].value = false
       onClose$?.()
     })
 
@@ -35,10 +35,11 @@ export const Modal = component$<ModalProps>(
 
     useTask$(({ track }) => {
       track(() => modalRef.value)
+      track(() => props['bind:show'].value)
 
       if (isServer) return
 
-      if (show.value && modalRef.value) {
+      if (props['bind:show'].value && modalRef.value) {
         modalRef.value.focus()
       }
     })
@@ -51,12 +52,12 @@ export const Modal = component$<ModalProps>(
           onClickOutside$?.()
         }
       }),
-      show,
+      props['bind:show'],
     )
 
     return (
       <>
-        {show.value && (
+        {props['bind:show'].value && (
           <div>
             <div class="bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40" />
             <div

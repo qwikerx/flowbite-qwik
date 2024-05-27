@@ -8,7 +8,7 @@ export const Badge = component$<BadgeClassesProps>((props) => {
 
   return (
     <Tag {...props} class={badgeClasses.value}>
-      {props.icon && <>{props.icon}</>}
+      {Boolean(props.icon) && <>{props.icon}</>}
       {props.content}
     </Tag>
   )

@@ -173,6 +173,7 @@ export type UseButtonClassesProps = {
   size: Signal<ButtonSize>
   square: Signal<boolean>
   color: Signal<ButtonVariant>
+  full: Signal<boolean>
   gradient?: Signal<ButtonGradient | undefined>
   shadow?: Signal<ButtonMonochromeGradient | boolean>
   target?: Signal<HTMLAttributeAnchorTarget | undefined>
@@ -260,6 +261,7 @@ export function useButtonClasses(props: UseButtonClassesProps): {
         (props.prefix || props.suffix || props.loading.value) && 'inline-flex items-center',
         props.class?.value,
         props.target?.value,
+        props.full.value && 'w-full justify-center',
       ]
         .filter((str) => str)
         .join(' '),
