@@ -7,6 +7,8 @@ export function useDrawerClasses(isOpen: Signal<boolean>, isEdge: Signal<boolean
   const edgeClasses = 'rounded-t-lg border-t border-gray-200 rounded-t-lg dark:border-gray-700'
   const backdropClasses = 'fixed inset-0 z-30 bg-gray-900/50 dark:bg-gray-900/80'
   const edgeHandleClasses = 'absolute w-8 h-1 -translate-x-1/2 bg-gray-300 rounded-lg top-3 left-1/2 dark:bg-gray-600'
+  const closeButtonClasses =
+    'absolute end-2.5 top-2.5 flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-white'
 
   const positionClasses = {
     position: {
@@ -48,5 +50,5 @@ export function useDrawerClasses(isOpen: Signal<boolean>, isEdge: Signal<boolean
     )
   })
 
-  return { rootClasses, backdropClasses, headerClasses, edgeHandleClasses }
+  return { rootClasses, backdropClasses, headerClasses, edgeHandleClasses, closeButtonClasses }
 }

@@ -14,6 +14,9 @@ export { Spinner } from './components/Spinner/Spinner'
 export { Tabs, Tab } from './components/Tabs/Tabs'
 export { Toggle } from './components/Toggle/Toggle'
 
+// icons
+export * from './components/Icon'
+
 // Composables
 export { useToast } from './components/ToastList/composables/use-toast'
 export { useDark } from './composables/use-dark'
