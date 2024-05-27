@@ -7,13 +7,15 @@ export { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from './
 export { Badge } from './components/Badge/Badge'
 export { Breadcrumb, BreadcrumbItem } from './components/Breadcrumb'
 export { Button } from './components/Button/Button'
-export { CodeBlock } from './components/CodeBlock/CodeBlock'
 export { Input } from './components/Input/Input'
 export { Modal } from './components/Modal/Modal'
 export { Rating } from './components/Rating/Rating'
 export { Spinner } from './components/Spinner/Spinner'
 export { Tabs, Tab } from './components/Tabs/Tabs'
 export { Toggle } from './components/Toggle/Toggle'
+
+// icons
+export * from './components/Icon'
 
 // Composables
 export { useToast } from './components/ToastList/composables/use-toast'

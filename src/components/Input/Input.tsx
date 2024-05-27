@@ -35,8 +35,7 @@ export const Input = component$<InputProps>(
     class: classNames,
     validationMessage,
     helper,
-    'bind:value': value,
-    ...attrs
+    ...props
   }) => {
     const validationWrapperClasses = useComputed$(() =>
       twMerge(
@@ -62,8 +61,8 @@ export const Input = component$<InputProps>(
             </div>
           )}
           <input
-            {...attrs}
-            bind:value={value}
+            {...props}
+            bind:value={props['bind:value']}
             type={type}
             disabled={disabled}
             required={required}
