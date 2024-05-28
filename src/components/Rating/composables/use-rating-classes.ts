@@ -3,9 +3,9 @@ import clsx from 'clsx'
 import { Signal, useComputed$ } from '@builder.io/qwik'
 
 const ratingSizeClasses: Record<RatingSize, string> = {
-  sm: 'w-5 h-5',
-  md: 'w-7 h-7',
-  lg: 'w-10 h-10',
+  sm: 'w-4 h-4',
+  md: 'w-6 h-6',
+  lg: 'w-9 h-9',
 }
 
 export function useRatingClasses(size: Signal<RatingSize>) {

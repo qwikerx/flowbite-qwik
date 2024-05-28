@@ -121,13 +121,12 @@ const InnerTabs = component$<InnerTabsProps>((props) => {
             >
               <InnerTab
                 id={String(comp.id)}
-                withIcon={!!comp.tab.icon}
+                icon={comp.tab.icon}
                 tabsId={tabsId}
                 active={comp.active}
                 disabled={comp.disabled}
                 variant={props.variant}
               >
-                {comp.tab.icon}
                 {comp.tab.title}
               </InnerTab>
             </li>
@@ -150,14 +149,14 @@ type InnerTabProps = PropsOf<'div'> & {
   variant: TabsVariant
   active: boolean
   disabled: boolean
-  withIcon: boolean
+  icon?: JSXOutput
 }
 const InnerTab = component$<InnerTabProps>((props) => {
   const { tabClasses } = useTabClasses({
     variant: useComputed$(() => props.variant),
     active: useComputed$(() => props.active),
     disabled: useComputed$(() => props.disabled),
-    withIcon: useComputed$(() => props.withIcon),
+    withIcon: useComputed$(() => !!props.icon),
   })
 
   return (
@@ -169,6 +168,7 @@ const InnerTab = component$<InnerTabProps>((props) => {
       aria-disabled={props.disabled}
       aria-controls={`${props.tabsId}-tabpanel-${props.id}`}
     >
+      {props.icon}
       <Slot />
     </button>
   )

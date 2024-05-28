@@ -4,8 +4,6 @@ import { component$ } from '@builder.io/qwik'
 
 export const IconAngleLeftOutline = component$<IconProps>(({ class: classNames, ...props }) => {
   return (
-    <span class={classNames}>
-      <QwikestIcon {...props} />
-    </span>
+      <QwikestIcon class={classNames} {...props} />
   )
 })

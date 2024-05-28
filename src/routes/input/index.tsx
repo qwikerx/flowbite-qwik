@@ -1,6 +1,7 @@
 import { component$, useSignal } from '@builder.io/qwik'
 import { Input } from '~/components/Input/Input'
 import { Button } from '~/components/Button/Button'
+import { IconSearchOutline } from '~/components/Icon'
 
 export default component$(() => {
   const value = useSignal('')
@@ -40,7 +41,7 @@ export default component$(() => {
           placeholder="First name"
           helper={
             <>
-              We'll never share your details. Read our
+              We'll never share your details. Read our{''}
               <a href="#" class="text-blue-600 dark:text-blue-500">
                 Privacy Policy
               </a>
@@ -56,18 +57,7 @@ export default component$(() => {
           bind:value={value}
           label="First name"
           placeholder="First name"
-          prefix={
-            <svg
-              aria-hidden="true"
-              class="w-5 h-5 text-gray-500 dark:text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-            </svg>
-          }
+          prefix={<IconSearchOutline class="w-5 h-5 text-gray-500 dark:text-gray-400" />}
         />
       </div>
 
@@ -78,18 +68,7 @@ export default component$(() => {
           label="First name"
           placeholder="First name"
           size="lg"
-          prefix={
-            <svg
-              aria-hidden="true"
-              class="w-5 h-5 text-gray-500 dark:text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-            </svg>
-          }
+          prefix={<IconSearchOutline class="w-5 h-5 text-gray-500 dark:text-gray-400" />}
           suffix={<Button>Submit</Button>}
         />
       </div>
