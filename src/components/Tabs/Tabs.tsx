@@ -1,8 +1,23 @@
-import { $, component$, FunctionComponent, JSXChildren, JSXNode, JSXOutput, PropsOf, Slot, useComputed$, useId, useStore } from '@builder.io/qwik'
+import {
+  $,
+  component$,
+  createElement,
+  Fragment,
+  FunctionComponent,
+  JSXChildren,
+  JSXNode,
+  JSXOutput,
+  PropsOf,
+  Slot,
+  useComputed$,
+  useId,
+  useStore,
+} from '@builder.io/qwik'
 import { useTabsClasses } from '~/components/Tabs/composables/use-tabs-classes'
 import { TabsVariant } from '~/components/Tabs/tabs-types'
 import { useTabClasses } from '~/components/Tabs/composables/use-tab-classes'
 import { getChild } from '~/utils/getChild'
+import uuid from '~/utils/uuid'
 
 interface ComponentType {
   id: number
@@ -44,7 +59,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, variant = 'defaul
             icon: child.props.icon as JSXOutput | undefined,
           },
           pane: {
-            children: child.children,
+            children: Array.isArray(child.children) ? createElement(Fragment, { key: uuid() }, child.children) : child.children,
           },
         })
       },

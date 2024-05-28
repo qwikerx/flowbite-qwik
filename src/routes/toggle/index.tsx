@@ -25,7 +25,7 @@ export default component$(() => {
         <div>
           <h2 class="text-2xl font-semibold my-3">Disabled toggle</h2>
           <div class="flex gap-2">
-            <Toggle label="Toggle me" disabled />
+            <Toggle label="Toggle me" disabled bind:checked={checkedToggleValue} />
           </div>
         </div>
 

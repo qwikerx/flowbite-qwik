@@ -8,7 +8,9 @@ export default component$(() => {
   return (
     <>
       <header class="w-full px-5 flex justify-between items-center h-20 border-b shadow-sm">
-        <img src={`/logo-${isDark.value ? 'dark' : 'light'}.png`} width={804} height={183} alt="logo" class="md:w-60 w-28" />
+        <a href="/">
+          <img src={`/logo-${isDark.value ? 'dark' : 'light'}.png`} width={804} height={183} alt="logo" class="md:w-60 w-28" />
+        </a>
 
         {}
         <Toggle

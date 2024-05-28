@@ -10,13 +10,16 @@ export default component$(() => {
         <a href="/badge">Badge</a>
       </li>
       <li>
-        <a href="/button">Button</a>
-      </li>
-      <li>
         <a href="/breadcrumb">Breadcrumb</a>
       </li>
       <li>
+        <a href="/button">Button</a>
+      </li>
+      <li>
         <a href="/drawer">Drawer</a>
+      </li>
+      <li>
+        <a href="/dropdown">Dropdown</a>
       </li>
       <li>
         <a href="/input">Input</a>
