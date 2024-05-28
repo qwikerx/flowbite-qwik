@@ -2,6 +2,7 @@ import { component$, Signal, useSignal, useStore } from '@builder.io/qwik'
 import { Button } from '~/components/Button/Button'
 import { Modal } from '~/components/Modal/Modal'
 import { ModalSize } from '~/components/Modal/modal-types'
+import { IconBullhornSolid } from '~/components/Icon'
 
 export default component$(() => {
   const defaultModalVisible = useSignal(false)
@@ -182,21 +183,8 @@ export default component$(() => {
         </Button>
         <Modal bind:show={popupModalVisible} size="md" popup>
           <div class="text-center">
-            <svg
-              class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-              />
-            </svg>
+            <IconBullhornSolid class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" />
+
             <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>
             <div class="flex gap-2 justify-center">
               <Button color="red">Yes, I'm sure</Button>

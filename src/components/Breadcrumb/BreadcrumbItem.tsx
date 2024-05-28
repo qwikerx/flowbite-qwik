@@ -1,14 +1,16 @@
-import { JSXOutput, PropsOf, Slot, component$, useComputed$ } from '@builder.io/qwik'
+import { PropsOf, Slot, component$, useComputed$, Component } from '@builder.io/qwik'
 import { useBreadcrumbItemClasses } from './composables/use-breadcrumb-item-classes'
+import { IconProps } from '@qwikest/icons'
+import { FlArrowRightOutline, FlHomeSolid } from '@qwikest/icons/flowbite'
 
 type BreadcrumbItemProps = PropsOf<'a'> & {
   home?: boolean
   href?: string
-  homeIcon?: JSXOutput
-  arrowIcon?: JSXOutput
+  homeIcon?: Component<IconProps>
+  arrowIcon?: Component<IconProps>
 }
 
-export const BreadcrumbItem = component$<BreadcrumbItemProps>(({ href, home = false, homeIcon, arrowIcon }) => {
+export const BreadcrumbItem = component$<BreadcrumbItemProps>(({ href, home = false, homeIcon: HomeIcon, arrowIcon: ArrowIcon }) => {
   const Tag = href ? 'a' : 'span'
 
   const { breadcrumbItemClasses } = useBreadcrumbItemClasses(useComputed$(() => href))
@@ -16,24 +18,14 @@ export const BreadcrumbItem = component$<BreadcrumbItemProps>(({ href, home = fa
   return (
     <li class="inline-flex items-center">
       {!home &&
-        (Boolean(arrowIcon) ? (
-          <>{arrowIcon}</>
+        (Boolean(ArrowIcon) && ArrowIcon ? (
+          <ArrowIcon class="w-3 h-3 text-gray-400 mx-1" />
         ) : (
-          <svg class="w-6 h-6 text-gray-400 mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path
-              clip-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <FlArrowRightOutline class="w-3 h-3 text-gray-400 ml-1 mr-2" />
         ))}
       <Tag href={href} class={breadcrumbItemClasses.value}>
-        {Boolean(homeIcon) && <>{homeIcon}</>}
-        {home && !Boolean(homeIcon) && (
-          <svg v-if="home" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-          </svg>
-        )}
+        {Boolean(HomeIcon) && HomeIcon && <HomeIcon class="w-3 h-3 text-gray-400 me-2.5" />}
+        {home && !Boolean(HomeIcon) && <FlHomeSolid class="w-3 h-3 me-2.5" />}
         <Slot />
       </Tag>
     </li>
