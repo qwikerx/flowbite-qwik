@@ -1,7 +1,7 @@
 import { component$ } from '@builder.io/qwik'
 import { Badge } from '~/components/Badge/Badge'
 import { BadgeType } from '~/components/Badge/badge-types'
-import { LuRocket } from '@qwikest/icons/lucide'
+import { IconRocketOutline } from '~/components/Icon'
 
 export default component$(() => {
   return (
@@ -17,10 +17,10 @@ export default component$(() => {
       </div>
       <div>
         <h3 class="my-3">Props Size</h3>
-        <div class="flex gap-2">
-          <Badge size="sm" content="Default" />
-          <Badge size="sm" type="dark" content="Dark" />
-          <Badge size="sm" type="red" content="Red" />
+        <div class="flex gap-2 items-center">
+          <Badge size="xs" content="Default" />
+          <Badge size="xs" type="dark" content="Dark" />
+          <Badge size="xs" type="red" content="Red" />
           <Badge size="sm" type="green" content="Green" />
           <Badge size="sm" type="yellow" content="Yellow" />
           <Badge size="sm" type="indigo" content="Indigo" />
@@ -64,16 +64,93 @@ export default component$(() => {
       <div>
         <h2 class="text-2xl font-semibold my-3">Badge with icon</h2>
         <div class="flex gap-2">
-          <Badge icon={<LuRocket />} content="Icon" />
-          <Badge icon={<LuRocket />} size="sm" content="Icon" />
+          <Badge icon={IconRocketOutline} content="Icon" />
+          <Badge icon={IconRocketOutline} size="sm" content="Icon" />
         </div>
       </div>
       <div>
         <h2 class="text-2xl font-semibold my-3">Badge with icon only</h2>
         <div class="flex gap-2">
-          <Badge icon={<LuRocket />} size="sm" />
-          <Badge type="dark" icon={<LuRocket />} size="sm" />
-          <Badge type="green" icon={<LuRocket />} size="sm" />
+          <Badge icon={IconRocketOutline} size="sm" />
+          <Badge type="dark" icon={IconRocketOutline} size="sm" />
+          <Badge type="green" icon={IconRocketOutline} size="sm" />
+        </div>
+      </div>
+
+      <div>
+        <h3 class="my-3">Props chips (closeable)</h3>
+        <div class="flex gap-2 items-center">
+          <Badge
+            size="xs"
+            chips
+            onClose$={() => {
+              alert('close')
+            }}
+            content="Default"
+          />
+          <Badge
+            size="xs"
+            chips
+            onClose$={() => {
+              alert('close')
+            }}
+            type="dark"
+            content="Dark"
+          />
+          <Badge
+            size="xs"
+            chips
+            onClose$={() => {
+              alert('close')
+            }}
+            type="red"
+            content="Red"
+          />
+          <Badge
+            size="sm"
+            chips
+            onClose$={() => {
+              alert('close')
+            }}
+            type="green"
+            content="Green"
+          />
+          <Badge
+            size="sm"
+            chips
+            onClose$={() => {
+              alert('close')
+            }}
+            type="yellow"
+            content="Yellow"
+          />
+          <Badge
+            size="sm"
+            chips
+            onClose$={() => {
+              alert('close')
+            }}
+            type="indigo"
+            content="Indigo"
+          />
+          <Badge
+            size="sm"
+            chips
+            onClose$={() => {
+              alert('close')
+            }}
+            type="purple"
+            content="Purple"
+          />
+          <Badge
+            size="sm"
+            chips
+            onClose$={() => {
+              alert('close')
+            }}
+            type="pink"
+            content="Pink"
+          />
         </div>
       </div>
     </section>

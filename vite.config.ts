@@ -3,7 +3,6 @@ import pkg from './package.json'
 import { qwikVite } from '@builder.io/qwik/optimizer'
 import * as path from 'path'
 import tsconfigPaths from 'vite-tsconfig-paths'
-
 import { qwikCity } from '@builder.io/qwik-city/vite'
 
 const { dependencies = {}, peerDependencies = {} } = pkg as any

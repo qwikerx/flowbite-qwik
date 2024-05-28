@@ -2,6 +2,10 @@ import { IconProps } from '@qwikest/icons'
 import { FlFileCsvSolid as QwikestIcon } from '@qwikest/icons/flowbite'
 import { component$ } from '@builder.io/qwik'
 
-export const IconFileCsvSolid = component$((props: IconProps) => {
-  return <QwikestIcon {...props} />
+export const IconFileCsvSolid = component$<IconProps>(({ class: classNames, ...props }) => {
+  return (
+    <span class={classNames}>
+      <QwikestIcon {...props} />
+    </span>
+  )
 })
