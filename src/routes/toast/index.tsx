@@ -41,7 +41,7 @@ export default component$(() => {
         </Toast>
       </div>
       <h2 class="my-3">Message</h2>
-      <Toast id="card" alignment="start" icon={<img alt="Avatar" class="w-8 h-8 rounded-full shadow-lg" src="https://i.pravatar.cc/300" />}>
+      <Toast id="card" alignment="start" icon={<img alt="Avatar" class="w-8 h-8 rounded-full shadow-lg" src="/profile-picture.jpg" />}>
         <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">Jese Leos</span>
         <div class="mb-2 text-sm font-normal">Hi Neil, thanks for sharing your thoughts regarding Flowbite.</div>
         <Button size="xs" href="#">

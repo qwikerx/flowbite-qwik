@@ -5,7 +5,7 @@ import { DropdownSize } from '~/components/Dropdown/dropdown-types'
 export function useDropdownClasses(size: Signal<DropdownSize>) {
   const dropdownModalClasses = useComputed$(() => {
     return twMerge(
-      'w-full z-10 absolute left-0 divide-y divide-gray-100 rounded shadow focus:outline-none transition-opacity duration-100 border border-gray-200 bg-white text-gray-900 dark:border-none dark:bg-gray-700 dark:text-white',
+      'w-full min-w-max z-10 absolute left-0 divide-y divide-gray-100 rounded shadow focus:outline-none transition-opacity duration-100 border border-gray-200 bg-white text-gray-900 dark:border-none dark:bg-gray-700 dark:text-white',
       size.value === 's' ? 'top-10' : '',
       size.value === 'm' ? 'top-11' : '',
       size.value === 'l' ? 'top-[3.25rem]' : '',

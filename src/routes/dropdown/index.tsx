@@ -1,10 +1,14 @@
-import { component$ } from '@builder.io/qwik'
+import { component$, useSignal } from '@builder.io/qwik'
 import { Dropdown, DropdownItem } from '~/components/Dropdown/Dropdown'
 import { IconHomeOutline, IconSearchSolid, IconTextSizeOutline } from '~/components/Icon'
 import { DropdownSize } from '~/components/Dropdown/dropdown-types'
 import { Toggle } from '~/components/Toggle/Toggle'
 
 export default component$(() => {
+  const enableNotifications = useSignal(false)
+  const enable2faAuthentication = useSignal(true)
+  const subscribeToNewsletter = useSignal(false)
+
   return (
     <section id="dropdown" class="p-5">
       <h2 class="text-2xl font-semibold my-3">Default Dropdown</h2>
@@ -31,11 +35,8 @@ export default component$(() => {
       <div>
         <Dropdown label="Dropdown button">
           <DropdownItem header>
-            {/* FIXME */}
-            <>
-              <span class="block text-sm">Bonnie Green</span>
-              <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
-            </>
+            <span class="block text-sm">Bonnie Green</span>
+            <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
           </DropdownItem>
           <DropdownItem>Dashboard</DropdownItem>
           <DropdownItem>Settings</DropdownItem>
@@ -48,10 +49,8 @@ export default component$(() => {
       <div>
         <Dropdown label="Dropdown button">
           <DropdownItem header>
-            <>
-              <span class="block text-sm">Bonnie Green</span>
-              <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
-            </>
+            <span class="block text-sm">Bonnie Green</span>
+            <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
           </DropdownItem>
           <DropdownItem icon={IconHomeOutline}>Dashboard</DropdownItem>
           <DropdownItem icon={IconSearchSolid}>Settings</DropdownItem>
@@ -72,13 +71,10 @@ export default component$(() => {
 
       <h2 class="text-2xl font-semibold my-3">User avatar</h2>
       <div>
-        <Dropdown class="w-48" label="" as={<img class="w-8 h-8 rounded-full" src="/public/profile-picture.jpg" alt="user photo" />}>
+        <Dropdown as={<img class="w-8 h-8 rounded-full" src="/profile-picture.jpg" alt="user photo" />}>
           <DropdownItem header>
-            {/* FIXME */}
-            <>
-              <span class="block text-sm">Bonnie Green</span>
-              <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
-            </>
+            <span class="block text-sm">Bonnie Green</span>
+            <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
           </DropdownItem>
           <DropdownItem>Dashboard</DropdownItem>
           <DropdownItem>Settings</DropdownItem>
@@ -197,7 +193,7 @@ export default component$(() => {
 
       <h2 class="text-2xl font-semibold my-3">Dropdown with radiobox</h2>
       <div>
-        <Dropdown class="w-48" label="Dropdown radio" closeWhenSelect={false}>
+        <Dropdown label="Dropdown radio" closeWhenSelect={false}>
           <DropdownItem>
             <div class="flex items-center">
               <input
@@ -245,16 +241,28 @@ export default component$(() => {
       </div>
 
       <h2 class="text-2xl font-semibold my-3">Dropdown with toggle switch</h2>
-      <div>
-        <Dropdown class="w-72" label="Dropdown toggle" closeWhenSelect={false}>
+      <div class="flex gap-4">
+        <Dropdown label="Dropdown toggle" closeWhenSelect={false}>
           <DropdownItem>
-            <Toggle label="Enable notifications" />
+            <Toggle label="Enable notifications" bind:checked={enableNotifications} />
           </DropdownItem>
           <DropdownItem>
-            <Toggle label="Enable 2FA authentication" />
+            <Toggle label="Enable 2FA authentication" bind:checked={enable2faAuthentication} />
           </DropdownItem>
           <DropdownItem>
-            <Toggle label="Subscribe to newsletter" />
+            <Toggle label="Subscribe to newsletter" bind:checked={subscribeToNewsletter} />
+          </DropdownItem>
+        </Dropdown>
+
+        <Dropdown label="Dropdown toggle" closeWhenSelect={false}>
+          <DropdownItem>
+            <Toggle label="Enable notifications" bind:checked={enableNotifications} />
+          </DropdownItem>
+          <DropdownItem>
+            <Toggle label="Enable 2FA authentication" bind:checked={enable2faAuthentication} />
+          </DropdownItem>
+          <DropdownItem>
+            <Toggle label="Subscribe to newsletter" bind:checked={subscribeToNewsletter} />
           </DropdownItem>
         </Dropdown>
       </div>

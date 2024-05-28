@@ -7,7 +7,7 @@ type ToggleProps = PropsOfInput & {
   color?: string
   disabled?: boolean
   label?: string
-  'bind:checked'?: Signal<boolean>
+  'bind:checked': Signal<boolean>
   size?: InputSize
   onChange$?: QRL<(value: boolean) => void>
 }
@@ -20,10 +20,10 @@ export const Toggle = component$<ToggleProps>(
     )
 
     useTask$(({ track }) => {
-      track(() => props['bind:checked']?.value)
+      track(() => props['bind:checked'].value)
 
       if (onChange$) {
-        onChange$(props['bind:checked']?.value ?? false)
+        onChange$(props['bind:checked'].value ?? false)
       }
     })
 

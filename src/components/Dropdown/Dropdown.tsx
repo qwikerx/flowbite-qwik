@@ -11,6 +11,8 @@ import {
   useComputed$,
   useSignal,
   useStore,
+  createElement,
+  Fragment,
 } from '@builder.io/qwik'
 import { getChild } from '~/utils/getChild'
 import { Button } from '~/components/Button/Button'
@@ -20,6 +22,7 @@ import { IconProps } from '@qwikest/icons'
 import { IconAngleDownOutline } from '~/components/Icon'
 import { DropdownSize } from '~/components/Dropdown/dropdown-types'
 import { useDropdownClasses } from '~/components/Dropdown/composables/use-dropdown-classes'
+import uuid from '~/utils/uuid'
 
 interface ComponentType {
   id: number
@@ -32,7 +35,7 @@ interface ComponentType {
 }
 
 type DropdownProps = PropsOf<'div'> & {
-  label: string
+  label?: string
   as?: JSXOutput
   closeWhenSelect?: boolean
   inline?: boolean
@@ -63,7 +66,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
           header: Boolean(child.props.header),
           divider: Boolean(child.props.divider),
           icon: child.props.icon as Component | undefined,
-          content: child.children,
+          content: Array.isArray(child.children) ? createElement(Fragment, { key: uuid() }, child.children) : child.children,
           onClick$: child.props.onClick$ as () => void | undefined,
         })
       },
@@ -102,7 +105,7 @@ export const DropdownItem = component$<DropdownItemProps>(() => {
  */
 
 type InnerDropdownProps = {
-  label: string
+  label?: string
   as?: JSXOutput
   closeWhenSelect: boolean
   components: ComponentType[]
@@ -112,7 +115,7 @@ type InnerDropdownProps = {
   class?: ClassList
 }
 
-const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSelect, components, inline, size, iconRotate, class: classNames }) => {
+const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSelect, components, inline, size, iconRotate }) => {
   const { dropdownModalClasses } = useDropdownClasses(useComputed$(() => size))
 
   const visible = useSignal(false)
@@ -125,19 +128,32 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
   const TriggerButton = inline ? InnerTriggerInline : InnerTriggerButton
   const TriggerButtonAs = as ? InnerTriggerAs : undefined
 
-  useDocumentOuterClick([dropdownRef], toggleVisible, visible) // FIXME first double-click
+  useDocumentOuterClick([dropdownRef], toggleVisible, visible)
 
   return (
     <div class={['inline-flex relative justify-center']}>
       <div ref={dropdownRef}>
         {TriggerButtonAs ? (
-          <TriggerButtonAs onClick$={toggleVisible} size={size} as={as} />
+          <TriggerButtonAs
+            onClick$={() => {
+              toggleVisible()
+            }}
+            size={size}
+            as={as}
+          />
         ) : (
-          <TriggerButton onClick$={toggleVisible} label={label} size={size} iconRotate={iconRotate} />
+          <TriggerButton
+            onClick$={() => {
+              toggleVisible()
+            }}
+            label={label}
+            size={size}
+            iconRotate={iconRotate}
+          />
         )}
 
         {visible.value && (
-          <div role="menu" class={[classNames, dropdownModalClasses.value]}>
+          <div role="menu" class={[dropdownModalClasses.value]}>
             <ul tabIndex={0} class="py-1 focus:outline-none">
               {componentsAsSignals.map((comp) => (
                 <li role="menuitem" key={comp.id}>
@@ -224,7 +240,7 @@ const InnerDropdownItem = component$<InnerDropdownItemProps>(({ icon: Icon, size
  * InnerTriggerInline
  */
 type InnerTriggerInlineProps = {
-  label: string
+  label?: string
   onClick$: () => void
   size: DropdownSize
   iconRotate?: string | number
