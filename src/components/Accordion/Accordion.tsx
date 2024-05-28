@@ -1,4 +1,4 @@
-import { JSXChildren, JSXOutput, PropsOf, component$ } from '@builder.io/qwik'
+import { JSXChildren, PropsOf, component$ } from '@builder.io/qwik'
 import { AccordionHeaderProps, AccordionProps } from './accordion-types'
 
 import { FunctionComponent } from '@builder.io/qwik/jsx-runtime'
@@ -11,11 +11,11 @@ import { getChild } from '~/utils/getChild'
 
 type ChildrenType = {
   header: {
-    children?: JSXOutput
+    children?: JSXChildren
     attrs?: AccordionHeaderProps
   }
   content: {
-    children?: JSXOutput
+    children?: JSXChildren
   }
 }
 
@@ -38,7 +38,7 @@ function getHeaderAndContentFromPanel({ children }: { children: JSXChildren }): 
       component: AccordionHeader,
       foundComponentCallback: (child) => {
         components.header = {
-          children: child.children as JSXOutput,
+          children: child.children,
           attrs: child.props,
         }
       },
@@ -47,7 +47,7 @@ function getHeaderAndContentFromPanel({ children }: { children: JSXChildren }): 
       component: AccordionContent,
       foundComponentCallback: (child) => {
         components.content = {
-          children: child.children as JSXOutput,
+          children: child.children,
         }
       },
     },

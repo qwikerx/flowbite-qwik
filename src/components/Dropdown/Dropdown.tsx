@@ -52,11 +52,9 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
   iconRotate,
   ...attrs
 }) => {
-  const childrenToProcess = Array.isArray(children) ? [...children] : [children]
-
   const components: ComponentType[] = []
 
-  getChild(childrenToProcess, [
+  getChild(children, [
     {
       component: DropdownItem,
       foundComponentCallback: (child, index) => {

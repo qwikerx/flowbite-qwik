@@ -2,6 +2,10 @@ import { IconProps } from '@qwikest/icons'
 import { FlImageOutline as QwikestIcon } from '@qwikest/icons/flowbite'
 import { component$ } from '@builder.io/qwik'
 
-export const IconImageOutline = component$((props: IconProps) => {
-  return <QwikestIcon {...props} />
+export const IconImageOutline = component$<IconProps>(({ class: classNames, ...props }) => {
+  return (
+    <span class={classNames}>
+      <QwikestIcon {...props} />
+    </span>
+  )
 })

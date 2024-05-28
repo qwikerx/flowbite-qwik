@@ -213,9 +213,7 @@ export default component$(() => {
           outline
           size="xs"
           onClick$={() => {
-            console.log(loading.value)
             loading.value = !loading.value
-            console.log(loading.value)
           }}
         >
           Click me
