@@ -79,6 +79,7 @@ module.exports = {
 - Drawer
 - Dropdown
 - Inputs
+- Jumbotron
 - Modal
 - Ratings
 - Sidebar

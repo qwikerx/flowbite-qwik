@@ -18,6 +18,12 @@ export default {
           '100%': { transform: 'translateX(0)' },
         },
       },
+      colors: {
+        qwik: {
+          DEFAULT: '#19B5F6',
+          secondary: '#AC7EF4',
+        },
+      },
     },
   },
   content: [join(__dirname, 'src/**/*.{js,ts,jsx,tsx,mdx}')],

@@ -35,6 +35,58 @@ export default component$(() => {
 
             <SidebarItem icon={IconShoppingBagOutline}>Products</SidebarItem>
           </SidebarItemGroup>
+        </Sidebar>
+      </div>
+
+      <h2 class="text-2xl font-semibold my-3">Sidebar with groups</h2>
+
+      <div class="w-80 h-[600px]relative m-auto">
+        <Sidebar>
+          <SidebarItemGroup>
+            <SidebarItem icon={IconHomeOutline}>Dashboard</SidebarItem>
+
+            <SidebarItem icon={IconInboxOutline}>inbox</SidebarItem>
+
+            <SidebarItem icon={IconUserCircleOutline}>Users</SidebarItem>
+
+            <SidebarItem icon={IconShoppingBagOutline}>Products</SidebarItem>
+          </SidebarItemGroup>
+
+          <SidebarItemGroup>
+            <SidebarItem icon={IconFileEditSolid}>Documentation</SidebarItem>
+
+            <SidebarItem icon={IconAdressBookOutline}>Help</SidebarItem>
+
+            <SidebarItem icon={IconGearSolid}>Settings</SidebarItem>
+
+            <SidebarItem icon={IconAtomSolid}>Details</SidebarItem>
+
+            <SidebarCollapse label="Collapse" icon={IconAdjustmentsHorizontalSolid}>
+              <SidebarItem>Dashboard</SidebarItem>
+
+              <SidebarItem>inbox</SidebarItem>
+
+              <SidebarItem>Users</SidebarItem>
+
+              <SidebarItem>Products</SidebarItem>
+            </SidebarCollapse>
+          </SidebarItemGroup>
+        </Sidebar>
+      </div>
+
+      <h2 class="text-2xl font-semibold my-3">Sidebar with cta</h2>
+
+      <div class="w-80 h-[600px]relative m-auto">
+        <Sidebar>
+          <SidebarItemGroup>
+            <SidebarItem icon={IconHomeOutline}>Dashboard</SidebarItem>
+
+            <SidebarItem icon={IconInboxOutline}>inbox</SidebarItem>
+
+            <SidebarItem icon={IconUserCircleOutline}>Users</SidebarItem>
+
+            <SidebarItem icon={IconShoppingBagOutline}>Products</SidebarItem>
+          </SidebarItemGroup>
 
           <SidebarItemGroup>
             <SidebarItem icon={IconFileEditSolid}>Documentation</SidebarItem>

@@ -26,6 +26,8 @@ export default component$(() => {
 
           <SidebarItem href="/docs/dropdown">Dropdown</SidebarItem>
 
+          <SidebarItem href="/docs/jumbotron">Jumbotron</SidebarItem>
+
           <SidebarItem href="/docs/modal">Modal</SidebarItem>
 
           <SidebarItem href="/docs/rating">Rating</SidebarItem>
