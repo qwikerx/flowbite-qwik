@@ -105,14 +105,14 @@ export const InnerAccordion = component$<InnerAccordionProps>(({ components, alw
               {...component.header.attrs}
               id={component.id}
               flush={flush}
-              isVisible={openedPanels.value.includes(component.id)}
               isFirst={i === 0}
+              openedPanels={openedPanels.value}
               isLast={i === components.length - 1}
               onClick$={toggle$}
             >
               {component.header.children}
             </AccordionHeader>
-            <AccordionContent isLast={i === components.length - 1} flush={flush} isVisible={openedPanels.value.includes(component.id)}>
+            <AccordionContent id={component.id} isLast={i === components.length - 1} openedPanels={openedPanels.value} flush={flush}>
               {component.content.children}
             </AccordionContent>
           </AccordionPanel>

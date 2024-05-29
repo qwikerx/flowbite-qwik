@@ -1,11 +1,11 @@
 import { component$, Slot, useComputed$ } from '@builder.io/qwik'
 import { useAccordionHeaderClasses } from './composables/use-accordion-header-class'
 import { AccordionHeaderProps } from './accordion-types'
-import { FlAngleDownOutline } from '@qwikest/icons/flowbite'
+import { IconAngleDownOutline } from '../Icon'
 
 export const AccordionHeader = component$<AccordionHeaderProps>(
-  ({ id, isVisible = false, flush = false, isLast = false, isFirst = false, onClick$, ...attrs }) => {
-    const internalVisible = useComputed$(() => isVisible)
+  ({ id, openedPanels, flush = false, isLast = false, isFirst = false, onClick$, ...attrs }) => {
+    const internalVisible = useComputed$(() => Boolean(id && openedPanels?.includes(id)) ?? false)
     const internalFlush = useComputed$(() => flush)
     const internalIsFirst = useComputed$(() => isFirst)
     const internalIsLast = useComputed$(() => isLast)
@@ -19,7 +19,7 @@ export const AccordionHeader = component$<AccordionHeaderProps>(
             <Slot />
           </span>
 
-          <FlAngleDownOutline class={arrowClasses.value} />
+          <IconAngleDownOutline class={arrowClasses.value} />
         </button>
       </div>
     )
