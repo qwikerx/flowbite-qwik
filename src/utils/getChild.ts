@@ -25,7 +25,7 @@ export function getChild(children: JSXChildren, components: FoundComponent[]) {
 
     const foundComponent = components.find((comp) => comp.component === type)
     if (foundComponent) {
-      foundComponent.foundComponentCallback(child, index)
+      foundComponent.foundComponentCallback(child, index - 1)
     }
   }
 }
