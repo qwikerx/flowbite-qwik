@@ -27,7 +27,7 @@ interface ComponentType {
     title: string
     icon?: JSXOutput
   }
-  pane: {
+  panel: {
     children: JSXChildren
   }
 }
@@ -58,7 +58,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, variant = 'defaul
             title: child.props.title as string,
             icon: child.props.icon as JSXOutput | undefined,
           },
-          pane: {
+          panel: {
             children: Array.isArray(child.children) ? createElement(Fragment, { key: uuid() }, child.children) : child.children,
           },
         })
@@ -136,7 +136,7 @@ const InnerTabs = component$<InnerTabsProps>((props) => {
       <div class="p-5">
         {componentsAsSignals.map((comp) => (
           <InnerTabPanel key={comp.id} id={String(comp.id)} tabsId={tabsId} active={comp.active} directive={props.directive}>
-            {comp.pane.children}
+            {comp.panel.children}
           </InnerTabPanel>
         ))}
       </div>

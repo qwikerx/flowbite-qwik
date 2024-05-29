@@ -1,6 +1,7 @@
 <div style="text-align: center">
-  <h1>flowbite-qwik</h1>
-  <div style="width: 100%; background: #111827">
+  <h1>flowbite-qwik</h1>$
+
+  <div style="width: 100%; background-color: #111827" bgcolor="#111827">
     <a href="https://flowbite.com">
       <img alt="Flowbite Qwik - Tailwind CSS components" width="500"  src="./public/logo-dark.png">
   </div>

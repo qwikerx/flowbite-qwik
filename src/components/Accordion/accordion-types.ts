@@ -8,7 +8,7 @@ export type AccordionProps = {
 
 export type AccordionHeaderProps = {
   id?: string
-  accordionId?: string
+  openedPanels?: string[]
   onClick$?: QRL<(id: string) => void>
   isVisible?: boolean
   flush?: boolean

@@ -2,14 +2,15 @@ import { component$, Slot, useComputed$ } from '@builder.io/qwik'
 import { useAccordionContentClasses } from './composables/use-accordion-content-class'
 
 type AccordionContentProps = {
-  accordionId?: string
+  id?: string
   isVisible?: boolean
   flush?: boolean
   isLast?: boolean
+  openedPanels?: string[]
 }
 
-export const AccordionContent = component$<AccordionContentProps>(({ flush = false, isLast = false, isVisible = false }) => {
-  const internalVisible = useComputed$(() => isVisible)
+export const AccordionContent = component$<AccordionContentProps>(({ flush = false, isLast = false, openedPanels, id }) => {
+  const internalVisible = useComputed$(() => Boolean(id && openedPanels?.includes(id)) ?? false)
   const internalFlush = useComputed$(() => flush)
   const internalIsLast = useComputed$(() => isLast)
 
