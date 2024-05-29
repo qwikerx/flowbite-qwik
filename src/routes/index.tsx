@@ -36,7 +36,7 @@ export default component$(() => {
           Get started with the most popular open-source library of interactive UI components built with the utility classes from Tailwind CSS
         </JumbotronSubText>
         <div class="flex gap-2 justify-center">
-          <Button href="/docs" suffix={IconArrowRightOutline}>
+          <Button href="/docs/getting-started/introduction" suffix={IconArrowRightOutline}>
             Get started
           </Button>
           <Button color="alternative" href="https://github.com/xmimiex/flowbite-qwik">
@@ -47,8 +47,8 @@ export default component$(() => {
 
       <section>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 mx-auto max-w-6xl">
-          {boxes.map((box) => (
-            <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+          {boxes.map((box, i) => (
+            <div key={i} class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
               <h3 class="text-l font-semibold">{box.title}</h3>
               <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{box.text}</p>
             </div>

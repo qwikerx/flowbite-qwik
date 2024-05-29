@@ -34,7 +34,7 @@ export const Sidebar: FunctionComponent<PropsOf<'aside'>> = ({ children, class: 
 
   return (
     <aside class={twMerge('top-0 left-0 z-40 w-64 h-full', clsx(classNames))} aria-label="Sidebar" {...attrs}>
-      <nav class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">{children}</nav>
+      <nav class="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-900">{children}</nav>
     </aside>
   )
 }

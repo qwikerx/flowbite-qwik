@@ -1,5 +1,5 @@
 import { Signal, useComputed$ } from '@builder.io/qwik'
-import { FlowbiteTheme, useFlowbiteThemable } from './use-flowbite-themable'
+import { useFlowbiteThemable } from './use-flowbite-themable'
 import { ThemableChildrenApply } from '../flowbite-themable-type'
 
 type UseFlowbiteThemableChildReturns = {
@@ -8,17 +8,12 @@ type UseFlowbiteThemableChildReturns = {
 
 type UseFlowbiteThemableChildProps = {
   apply: ThemableChildrenApply[]
-  theme?: FlowbiteTheme | undefined
 }
 
 export function useFlowbiteThemableChildClasses(props: UseFlowbiteThemableChildProps): UseFlowbiteThemableChildReturns {
-  const { backgroundClasses, borderClasses, disabledClasses, focusClasses, hoverClasses, isActive, textClasses } = useFlowbiteThemable(props.theme)
+  const { backgroundClasses, borderClasses, disabledClasses, focusClasses, hoverClasses, textClasses } = useFlowbiteThemable()
 
   const classes = useComputed$(() => {
-    if (!isActive.value) {
-      return ''
-    }
-
     const _classes = []
     if (props.apply.includes('text')) {
       _classes.push(textClasses.value)

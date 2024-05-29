@@ -9,7 +9,7 @@ import { RouterHead } from './components/RouterHead/RouterHead'
 export const toastPositionContext = createContextId<Signal<ToastPosition>>('toast-position-context')
 
 export default component$(() => {
-  useContextProvider(toastPositionContext, useSignal<ToastPosition>('top-right'))
+  useContextProvider(toastPositionContext, useSignal('top-right'))
   const toastPosition = useContext(toastPositionContext)
 
   useStyles$(`
@@ -27,7 +27,7 @@ export default component$(() => {
         <FlowbiteProviderHeader />
       </head>
       <body lang="fr">
-        <FlowbiteProvider toastPosition={toastPosition.value} theme="pink">
+        <FlowbiteProvider toastPosition={toastPosition.value} theme="blue">
           <RouterOutlet />
         </FlowbiteProvider>
       </body>
