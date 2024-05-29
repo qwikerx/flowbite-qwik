@@ -1,5 +1,6 @@
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../button-types'
-import { ClassList, HTMLAttributeAnchorTarget, JSXOutput, Signal, useComputed$ } from '@builder.io/qwik'
+import { ClassList, Component, HTMLAttributeAnchorTarget, Signal, useComputed$ } from '@builder.io/qwik'
+import { IconProps } from '@qwikest/icons/*'
 import { useMergeClasses } from '~/composables/use-merge-classes'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>; default: Record<T, string> }
@@ -177,8 +178,8 @@ export type UseButtonClassesProps = {
   gradient?: Signal<ButtonGradient | undefined>
   shadow?: Signal<ButtonMonochromeGradient | boolean>
   target?: Signal<HTMLAttributeAnchorTarget | undefined>
-  prefix?: Signal<JSXOutput | undefined>
-  suffix?: Signal<JSXOutput | undefined>
+  prefix?: Signal<Component<IconProps> | undefined>
+  suffix?: Signal<Component<IconProps> | undefined>
 }
 
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']

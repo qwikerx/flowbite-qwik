@@ -1,9 +1,10 @@
-import { Component, component$, JSXOutput, PropsOf, Slot, useComputed$ } from '@builder.io/qwik'
+import { Component, component$, PropsOf, Slot, useComputed$ } from '@builder.io/qwik'
 import { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '~/components/Button/button-types'
 import { useButtonClasses } from '~/components/Button/composables/use-button-classes'
 import { useButtonSpinner } from '~/components/Button/composables/use-button-spinner'
 import { Spinner } from '~/components/Spinner/Spinner'
 import { LinkProps } from '@builder.io/qwik-city'
+import { IconProps } from '@qwikest/icons/*'
 
 type ButtonProps = PropsOf<'button'> &
   PropsOf<'a'> & {
@@ -20,8 +21,8 @@ type ButtonProps = PropsOf<'button'> &
     href?: string
     full?: boolean
     tag?: Component<LinkProps> | string
-    prefix?: JSXOutput
-    suffix?: JSXOutput
+    prefix?: Component<IconProps>
+    suffix?: Component<IconProps>
   }
 
 export const Button = component$<ButtonProps>(
@@ -85,23 +86,23 @@ export const Button = component$<ButtonProps>(
         onClick$={attrs.onClick$}
       >
         {!isOutlineGradient.value && (Prefix || loadingPrefix.value) && (
-          <div class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{Prefix}</>}</div>
+          <div class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Prefix && <Prefix />}</div>
         )}
 
         <span class={spanClasses.value}>
           {isOutlineGradient.value && (Prefix || loadingPrefix.value) && (
-            <span class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{Prefix}</>}</span>
+            <span class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Prefix && <Prefix />}</span>
           )}
 
           <Slot />
 
           {isOutlineGradient.value && (Suffix || loadingSuffix.value) && (
-            <span class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{Suffix}</>}</span>
+            <span class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Suffix && <Suffix />}</span>
           )}
         </span>
 
         {!isOutlineGradient.value && (Suffix || loadingSuffix.value) && (
-          <div class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : <>{Suffix}</>}</div>
+          <div class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Suffix && <Suffix />}</div>
         )}
       </ButtonComponent>
     )

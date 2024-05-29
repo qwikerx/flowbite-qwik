@@ -101,16 +101,6 @@ export default component$(() => {
         ))}
       </div>
 
-      <h2 class="text-2xl font-semibold my-3">Dropdown icon rotate</h2>
-      <div class="flex gap-5">
-        {(['s', 'm', 'l'] as DropdownSize[]).map((size, i) => (
-          <Dropdown label="Dropdown button" size={size} iconRotate={90 * i}>
-            <DropdownItem>Dashboard</DropdownItem>
-            <DropdownItem>Settings</DropdownItem>
-          </Dropdown>
-        ))}
-      </div>
-
       <h2 class="text-2xl font-semibold my-3">Click event handler</h2>
       <div class="flex gap-5">
         <Dropdown label="Dropdown button">
