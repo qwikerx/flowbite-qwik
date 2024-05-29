@@ -213,7 +213,7 @@ export default component$(() => {
           onClick$={() => {
             loading.value = !loading.value
           }}
-          suffix={<IconArrowLeftOutline />}
+          suffix={IconArrowLeftOutline}
         >
           Click me
         </Button>
@@ -280,26 +280,26 @@ export default component$(() => {
         <Button gradient="green-blue" square>
           Close something
         </Button>
-        <Button color="default" outline pill square suffix={<IconArrowRightOutline />}>
+        <Button color="default" outline pill square suffix={IconArrowRightOutline}>
           Open something
         </Button>
       </div>
 
       <h2 class="my-3">Full</h2>
       <div class="flex gap-2 items-center">
-        <Button prefix={<IconHomeOutline />} full>
+        <Button prefix={IconHomeOutline} full>
           Buy
         </Button>
       </div>
 
       <h2 class="my-3">Slot - prefix</h2>
       <div class="flex gap-2 items-center">
-        <Button prefix={<IconHomeOutline />}>Buy</Button>
+        <Button prefix={IconHomeOutline}>Buy</Button>
       </div>
 
       <h2 class="my-3">Slot - suffix</h2>
       <div class="flex gap-2 items-center">
-        <Button suffix={<IconArrowRightOutline />}>Choose plan</Button>
+        <Button suffix={IconArrowRightOutline}>Choose plan</Button>
       </div>
     </section>
   )

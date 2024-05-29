@@ -40,18 +40,8 @@ type DropdownProps = PropsOf<'div'> & {
   closeWhenSelect?: boolean
   inline?: boolean
   size?: DropdownSize
-  iconRotate?: string | number
 }
-export const Dropdown: FunctionComponent<DropdownProps> = ({
-  children,
-  label,
-  as,
-  closeWhenSelect = true,
-  inline = false,
-  size = 'm',
-  iconRotate,
-  ...attrs
-}) => {
+export const Dropdown: FunctionComponent<DropdownProps> = ({ children, label, as, closeWhenSelect = true, inline = false, size = 'm', ...attrs }) => {
   const components: ComponentType[] = []
 
   getChild(children, [
@@ -80,7 +70,6 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
         closeWhenSelect={closeWhenSelect}
         inline={inline}
         size={size}
-        iconRotate={iconRotate}
         class={attrs.class}
       />
     </div>
@@ -109,11 +98,10 @@ type InnerDropdownProps = {
   components: ComponentType[]
   inline: boolean
   size: DropdownSize
-  iconRotate?: string | number
   class?: ClassList
 }
 
-const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSelect, components, inline, size, iconRotate }) => {
+const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSelect, components, inline, size }) => {
   const { dropdownModalClasses } = useDropdownClasses(useComputed$(() => size))
 
   const visible = useSignal(false)
@@ -146,7 +134,6 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
             }}
             label={label}
             size={size}
-            iconRotate={iconRotate}
           />
         )}
 
@@ -241,15 +228,14 @@ type InnerTriggerInlineProps = {
   label?: string
   onClick$: () => void
   size: DropdownSize
-  iconRotate?: string | number
 }
-const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, iconRotate, onClick$ }) => {
+const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, onClick$ }) => {
   const { triggerInlineClasses } = useDropdownClasses(useComputed$(() => size))
 
   return (
     <button onClick$={onClick$} class={triggerInlineClasses.value}>
       {label}
-      <IconAngleDownOutline style={iconRotate ? { transform: `rotate(${iconRotate}deg)` } : undefined} />
+      <IconAngleDownOutline />
     </button>
   )
 })
@@ -279,9 +265,8 @@ type InnerTriggerButtonProps = {
   label: string
   onClick$: () => void
   size: DropdownSize
-  iconRotate?: string | number
 }
-const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, iconRotate, onClick$ }) => {
+const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, onClick$ }) => {
   const buttonSize: Record<string, ButtonSize> = {
     s: 'sm',
     m: 'md',
@@ -289,11 +274,7 @@ const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, i
   }
 
   return (
-    <Button
-      onClick$={onClick$}
-      size={buttonSize[size]}
-      suffix={<IconAngleDownOutline rotate={iconRotate} style={iconRotate ? { transform: `rotate(${iconRotate}deg)` } : undefined} />}
-    >
+    <Button onClick$={onClick$} size={buttonSize[size]} suffix={IconAngleDownOutline}>
       {label}
     </Button>
   )
