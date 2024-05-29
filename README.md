@@ -81,6 +81,7 @@ module.exports = {
 - Inputs
 - Modal
 - Ratings
+- Sidebar
 - Spinner
 - Tabs
 - Toasts

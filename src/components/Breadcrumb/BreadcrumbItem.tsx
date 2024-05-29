@@ -1,7 +1,7 @@
 import { PropsOf, Slot, component$, useComputed$, Component } from '@builder.io/qwik'
 import { useBreadcrumbItemClasses } from './composables/use-breadcrumb-item-classes'
 import { IconProps } from '@qwikest/icons'
-import { FlArrowRightOutline, FlHomeSolid } from '@qwikest/icons/flowbite'
+import { IconArrowRightOutline, IconHomeOutline } from '../Icon'
 
 type BreadcrumbItemProps = PropsOf<'a'> & {
   home?: boolean
@@ -21,11 +21,11 @@ export const BreadcrumbItem = component$<BreadcrumbItemProps>(({ href, home = fa
         (Boolean(ArrowIcon) && ArrowIcon ? (
           <ArrowIcon class="w-3 h-3 text-gray-400 mx-1" />
         ) : (
-          <FlArrowRightOutline class="w-3 h-3 text-gray-400 ml-1 mr-2" />
+          <IconArrowRightOutline class="w-3 h-3 text-gray-400 ml-1 mr-2" />
         ))}
       <Tag href={href} class={breadcrumbItemClasses.value}>
         {Boolean(HomeIcon) && HomeIcon && <HomeIcon class="w-3 h-3 text-gray-400 me-2.5" />}
-        {home && !Boolean(HomeIcon) && <FlHomeSolid class="w-3 h-3 me-2.5" />}
+        {home && !Boolean(HomeIcon) && <IconHomeOutline class="w-3 h-3 me-2.5" />}
         <Slot />
       </Tag>
     </li>

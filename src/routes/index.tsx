@@ -4,43 +4,46 @@ export default component$(() => {
   return (
     <ul>
       <li>
-        <a href="/accordion">Accordion</a>
+        <a href="/docs/accordion">Accordion</a>
       </li>
       <li>
-        <a href="/badge">Badge</a>
+        <a href="/docs/badge">Badge</a>
       </li>
       <li>
-        <a href="/breadcrumb">Breadcrumb</a>
+        <a href="/docs/breadcrumb">Breadcrumb</a>
       </li>
       <li>
-        <a href="/button">Button</a>
+        <a href="/docs/button">Button</a>
       </li>
       <li>
-        <a href="/drawer">Drawer</a>
+        <a href="/docs/drawer">Drawer</a>
       </li>
       <li>
-        <a href="/dropdown">Dropdown</a>
+        <a href="/docs/dropdown">Dropdown</a>
       </li>
       <li>
-        <a href="/input">Input</a>
+        <a href="/docs/input">Input</a>
       </li>
       <li>
-        <a href="/modal">Modal</a>
+        <a href="/docs/modal">Modal</a>
       </li>
       <li>
-        <a href="/rating">Rating</a>
+        <a href="/docs/rating">Rating</a>
       </li>
       <li>
-        <a href="/spinner">Spinner</a>
+        <a href="/docs/sidebar">Sidebar</a>
       </li>
       <li>
-        <a href="/tabs">Tabs</a>
+        <a href="/docs/spinner">Spinner</a>
       </li>
       <li>
-        <a href="/toast">Toast</a>
+        <a href="/docs/tabs">Tabs</a>
       </li>
       <li>
-        <a href="/toggle">Toggle</a>
+        <a href="/docs/toast">Toast</a>
+      </li>
+      <li>
+        <a href="/docs/toggle">Toggle</a>
       </li>
     </ul>
   )
