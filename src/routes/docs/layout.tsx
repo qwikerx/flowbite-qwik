@@ -1,12 +1,10 @@
 import { component$, Slot } from '@builder.io/qwik'
 import { Sidebar, SidebarItem, SidebarItemGroup } from '~/components/Sidebar'
-import { Footer, FooterBrand, FooterCopyright, FooterDivider, FooterIcon, FooterLink, FooterLinkGroup } from '~/components/Footer'
-import { IconGithubSolid } from '~/components/Icon'
 
 export default component$(() => {
   return (
     <div>
-      <Sidebar class="fixed top-[57px]">
+      <Sidebar class="fixed top-14 pb-14">
         <SidebarItemGroup title="Getting Started">
           <SidebarItem href="/docs/getting-started/introduction">Introduction</SidebarItem>
           <SidebarItem href="/docs/getting-started/quickstart">Quickstart</SidebarItem>
@@ -36,27 +34,8 @@ export default component$(() => {
         </SidebarItemGroup>
       </Sidebar>
 
-      <div class="ml-64 px-5">
+      <div class="ml-64 p-5">
         <Slot />
-        <Footer container class="mt-9">
-          <div class="w-full text-center">
-            <div class="w-full justify-between sm:flex sm:items-center sm:justify-between">
-              <FooterBrand src="/favicon.png" href="/" width="215" height="195" alt="Flowbite Qwik Logo" name="Flowbite Qwik" class="w-8 h-auto" />
-              <FooterLinkGroup>
-                <FooterLink href="/docs/getting-started/introduction">Docs</FooterLink>
-                <FooterLink href="/docs/getting-started/quickstart">Quickstart</FooterLink>
-                <FooterLink href="https://flowbite.com">Flowbite</FooterLink>
-              </FooterLinkGroup>
-            </div>
-            <FooterDivider />
-            <div class="w-full sm:flex sm:items-center sm:justify-between">
-              <FooterCopyright href="#" by="Flowbite™" />
-              <div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-                <FooterIcon href="#" icon={IconGithubSolid} />
-              </div>
-            </div>
-          </div>
-        </Footer>
       </div>
     </div>
   )

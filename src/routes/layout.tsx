@@ -4,13 +4,16 @@ import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from '~
 import { Link, useLocation } from '@builder.io/qwik-city'
 import { IconGithubSolid, IconMoonOutline, IconSunOutline } from '~/components/Icon'
 import { Button } from '~/components/Button/Button'
+import { Badge } from '~/components/Badge/Badge'
+import pkg from '~/../package.json'
+import { Footer, FooterCopyright, FooterIcon } from '~/components/Footer'
 
 export default component$(() => {
   const { isDark, setDarkModeValue } = useDark()
   const location = useLocation()
 
   return (
-    <div class="pt-16">
+    <div>
       <Navbar fluid rounded separator sticky>
         <NavbarBrand as={Link} href="/">
           <img src="/favicon.png" alt="Flowbite qwik logo" width="215" height="195" class="mr-3 h-6 sm:h-9 w-auto" />
@@ -30,6 +33,7 @@ export default component$(() => {
           >
             {isDark.value ? <IconSunOutline class="h-4 w-4" /> : <IconMoonOutline class="h-4 w-4" />}
           </Button>
+          <Badge size="sm" type="dark" content={'v' + pkg.version} />
 
           <NavbarToggle />
         </div>
@@ -44,9 +48,20 @@ export default component$(() => {
         </NavbarCollapse>
       </Navbar>
 
-      <main class="px-6">
+      <main class="px-6 pt-14">
         <Slot />
       </main>
+
+      <Footer container class="mt-9">
+        <div class="w-full text-center">
+          <div class="w-full sm:flex sm:items-center sm:justify-between">
+            <FooterCopyright href="#" by="Flowbite™" />
+            <div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+              <FooterIcon href="#" icon={IconGithubSolid} />
+            </div>
+          </div>
+        </div>
+      </Footer>
     </div>
   )
 })

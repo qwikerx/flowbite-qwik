@@ -2,8 +2,6 @@ import { component$ } from '@builder.io/qwik'
 import { Button } from '~/components/Button/Button'
 import { Jumbotron, JumbotronHeading, JumbotronSubText } from '~/components/Jumbotron'
 import { IconArrowRightOutline } from '..'
-import { Footer, FooterBrand, FooterCopyright, FooterDivider, FooterIcon, FooterLink, FooterLinkGroup } from '~/components/Footer'
-import { IconGithubSolid } from '~/components/Icon'
 
 export default component$(() => {
   const boxes = [
@@ -57,25 +55,6 @@ export default component$(() => {
           ))}
         </div>
       </section>
-      <Footer container class="mt-9">
-        <div class="w-full text-center">
-          <div class="w-full justify-between sm:flex sm:items-center sm:justify-between">
-            <FooterBrand src="/favicon.png" href="/" width="215" height="195" alt="Flowbite Qwik Logo" name="Flowbite Qwik" class="w-8 h-auto" />
-            <FooterLinkGroup>
-              <FooterLink href="/docs/getting-started/introduction">Docs</FooterLink>
-              <FooterLink href="/docs/getting-started/quickstart">Quickstart</FooterLink>
-              <FooterLink href="https://flowbite.com">Flowbite</FooterLink>
-            </FooterLinkGroup>
-          </div>
-          <FooterDivider />
-          <div class="w-full sm:flex sm:items-center sm:justify-between">
-            <FooterCopyright href="#" by="Flowbite™" />
-            <div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-              <FooterIcon href="#" icon={IconGithubSolid} />
-            </div>
-          </div>
-        </div>
-      </Footer>
     </>
   )
 })

@@ -25,7 +25,7 @@ export default component$(() => {
       <h2 class="text-2xl font-semibold my-3">Default sidebar</h2>
 
       <div class="w-80 h-[600px]relative m-auto">
-        <Sidebar>
+        <Sidebar highlight>
           <SidebarItemGroup>
             <SidebarItem icon={IconHomeOutline}>Dashboard</SidebarItem>
 
@@ -77,7 +77,7 @@ export default component$(() => {
       <h2 class="text-2xl font-semibold my-3">Sidebar with cta</h2>
 
       <div class="w-80 h-[600px]relative m-auto">
-        <Sidebar>
+        <Sidebar highlight>
           <SidebarItemGroup>
             <SidebarItem icon={IconHomeOutline}>Dashboard</SidebarItem>
 
