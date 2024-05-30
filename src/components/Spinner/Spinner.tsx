@@ -7,7 +7,7 @@ type SpinnerProps = {
   size?: SpinnerSize
 }
 
-export const Spinner = component$<SpinnerProps>(({ color = 'blue', size = '4' }) => {
+export const Spinner = component$<SpinnerProps>(({ color = 'default', size = '4' }) => {
   const { spinnerClasses } = useSpinnerClasses({ color, size })
 
   return (

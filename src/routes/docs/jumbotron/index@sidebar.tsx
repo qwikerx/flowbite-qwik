@@ -33,8 +33,10 @@ export default component$(() => {
 
       <h2 class="text-2xl font-semibold my-3">Jumbotron with background image</h2>
       <Jumbotron class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] dark:bg-gray-700 bg-gray-700 bg-blend-multiply">
-        <JumbotronHeading tag="h2">We invest in the world’s potential</JumbotronHeading>
-        <JumbotronSubText>
+        <JumbotronHeading tag="h2" class="text-white">
+          We invest in the world’s potential
+        </JumbotronHeading>
+        <JumbotronSubText class="text-white">
           Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.
         </JumbotronSubText>
         <div class="flex gap-2 justify-center">

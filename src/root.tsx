@@ -4,6 +4,7 @@ import { QwikCityProvider, RouterOutlet } from '@builder.io/qwik-city'
 import { FlowbiteProvider } from './components/FlowbiteProvider/FlowbiteProvider'
 import { ToastPosition } from './components/ToastList/toast-type'
 import { FlowbiteProviderHeader } from './components/FlowbiteProvider/FlowbiteProviderHeader'
+import { RouterHead } from './components/RouterHead/RouterHead'
 
 export const toastPositionContext = createContextId<Signal<ToastPosition>>('toast-position-context')
 
@@ -22,10 +23,11 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
+        <RouterHead />
         <FlowbiteProviderHeader />
       </head>
       <body lang="fr">
-        <FlowbiteProvider toastPosition={toastPosition.value}>
+        <FlowbiteProvider toastPosition={toastPosition.value} theme="pink">
           <RouterOutlet />
         </FlowbiteProvider>
       </body>
