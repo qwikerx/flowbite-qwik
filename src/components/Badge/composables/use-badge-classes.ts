@@ -3,6 +3,7 @@ import type { BadgeSize, BadgeType } from '../badge-types'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
 import { IconProps } from '@qwikest/icons'
+import { useFlowbiteThemable } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
 
 const defaultBadgeClasses = 'mr-2 px-2.5 py-0.5 rounded flex items-center justify-center gap-1'
 const badgeLinkClasses = 'bg-blue-100 hover:bg-blue-200 text-blue-800 dark:text-blue-800 dark:hover:bg-blue-300'
@@ -73,14 +74,17 @@ export type BadgeClassesProps = {
 
 export function useBadgeClasses({ content, size = 'xs', href, type = 'default', class: classNames, bordered, pills }: BadgeClassesProps) {
   const isContentEmpty = useComputed$(() => !content)
+  const { themeName } = useFlowbiteThemable()
+
+  const internalType = useComputed$<BadgeType>(() => (type === 'default' ? (themeName.value as BadgeType) : type))
 
   const badgeClasses = useComputed$(() => {
     return twMerge(
       badgeSizeClasses[size],
-      href ? '' : badgeTypeClasses[type],
-      href ? '' : badgeTextClasses[type],
+      href ? '' : badgeTypeClasses[internalType.value],
+      href ? '' : badgeTextClasses[internalType.value],
       href ? badgeLinkClasses : '',
-      bordered ? badgeBorderClasses[type] : '',
+      bordered ? badgeBorderClasses[internalType.value] : '',
       isContentEmpty.value ? onlyIconClasses : defaultBadgeClasses,
       pills ? pillsClasses : '',
       clsx(classNames),
@@ -88,7 +92,7 @@ export function useBadgeClasses({ content, size = 'xs', href, type = 'default', 
   })
 
   const badgeChipsClasses = useComputed$(() =>
-    twMerge(badgeHoverChipsClasses[type], 'inline-flex items-center p-1 ms-2 text-sm bg-transparent rounded-sm'),
+    twMerge(badgeHoverChipsClasses[internalType.value], 'inline-flex items-center p-1 ms-2 text-sm bg-transparent rounded-sm'),
   )
 
   return {

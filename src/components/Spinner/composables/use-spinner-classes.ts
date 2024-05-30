@@ -1,6 +1,7 @@
 import { SpinnerColor, SpinnerSize } from '~/components/Spinner/spinner-types'
 import { Signal, useComputed$ } from '@builder.io/qwik'
 import clsx from 'clsx'
+import { useFlowbiteThemable } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
 
 const sizes: Record<SpinnerSize, string> = {
   0: 'w-0 h-0',
@@ -21,7 +22,7 @@ const sizes: Record<SpinnerSize, string> = {
   9: 'w-9 h-9',
 }
 
-const colors: Record<SpinnerColor, string> = {
+const colors: Partial<Record<SpinnerColor, string>> = {
   blue: 'fill-blue-600',
   gray: 'fill-gray-600 dark:fill-gray-300',
   green: 'fill-green-500',
@@ -38,8 +39,12 @@ export type UseSpinnerClassesProps = {
 }
 
 export function useSpinnerClasses(props: UseSpinnerClassesProps): { spinnerClasses: Signal<string> } {
+  const { themeName } = useFlowbiteThemable()
+
+  const internalColor = useComputed$(() => (props.color === 'default' ? themeName.value : props.color))
+
   const sizeClasses = useComputed$(() => sizes[props.size])
-  const colorClasses = useComputed$(() => colors[props.color])
+  const colorClasses = useComputed$(() => colors[internalColor.value])
   const bgColorClasses = useComputed$(() => 'text-gray-200 dark:text-gray-600')
   const animateClasses = useComputed$(() => 'animate-spin')
   const spinnerClasses = useComputed$(() => clsx(animateClasses.value, bgColorClasses.value, colorClasses.value, sizeClasses.value))

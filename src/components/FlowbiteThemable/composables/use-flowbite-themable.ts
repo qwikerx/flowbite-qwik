@@ -1,17 +1,6 @@
-import { Signal, useComputed$, useSignal } from '@builder.io/qwik'
+import { createContextId, useComputed$, useContext } from '@builder.io/qwik'
 
 export type FlowbiteTheme = 'blue' | 'green' | 'red' | 'pink' | 'purple'
-
-type UseFlowbiteThemableReturns = {
-  backgroundClasses: Signal<string>
-  borderClasses: Signal<string>
-  color: Signal<FlowbiteTheme | undefined>
-  disabledClasses: Signal<string>
-  focusClasses: Signal<string>
-  hoverClasses: Signal<string>
-  isActive: Signal<boolean>
-  textClasses: Signal<string>
-}
 
 type FlowbiteThemeMap = {
   background: string
@@ -67,20 +56,24 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
   },
 }
 
-export function useFlowbiteThemable(_theme?: FlowbiteTheme): UseFlowbiteThemableReturns {
-  const theme = useSignal<FlowbiteTheme | null>(null) // TODO : injection d'un thème à la volée
+export const THEME_CONTEXT = 'FLOWBITE_THEME_CONTEXT'
+
+export const themeContext = createContextId<FlowbiteTheme>(THEME_CONTEXT)
+
+export function useFlowbiteThemable(_theme?: FlowbiteTheme) {
+  const theme = useContext<FlowbiteTheme>(themeContext)
 
   const themeName = useComputed$(() => {
-    return _theme || theme.value
+    return _theme || theme
   })
 
-  const isActive = useComputed$(() => !!theme?.value)
+  const isActive = useComputed$(() => !!theme)
 
   const backgroundClasses = useComputed$(() => (!themeName.value ? '' : flowbiteThemeClasses[themeName.value].background))
 
   const borderClasses = useComputed$(() => (!themeName.value ? '' : flowbiteThemeClasses[themeName.value].border))
 
-  const color = useComputed$(() => theme?.value || undefined)
+  const color = useComputed$(() => theme || undefined)
 
   const disabledClasses = useComputed$(() => (!themeName.value ? '' : flowbiteThemeClasses[themeName.value].disabled))
 
@@ -99,5 +92,6 @@ export function useFlowbiteThemable(_theme?: FlowbiteTheme): UseFlowbiteThemable
     hoverClasses,
     isActive,
     textClasses,
+    themeName,
   }
 }

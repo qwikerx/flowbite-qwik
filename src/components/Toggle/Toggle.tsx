@@ -1,10 +1,10 @@
 import { component$, useComputed$, Signal, QRL, useTask$ } from '@builder.io/qwik'
 import { InputSize } from '../Input/input-types'
-import { useToggleClasses } from './composables/use-toggle-classes'
+import { FlowbiteToggleColor, useToggleClasses } from './composables/use-toggle-classes'
 import { PropsOfInput } from '../Input/Input'
 
 type ToggleProps = PropsOfInput & {
-  color?: string
+  color?: FlowbiteToggleColor
   disabled?: boolean
   label?: string
   'bind:checked': Signal<boolean>
@@ -13,7 +13,7 @@ type ToggleProps = PropsOfInput & {
 }
 
 export const Toggle = component$<ToggleProps>(
-  ({ size = 'md' as InputSize, label = '', color = '', disabled = false, onChange$, class: classNames, ...props }) => {
+  ({ size = 'md' as InputSize, label = '', color = 'default' as FlowbiteToggleColor, disabled = false, onChange$, class: classNames, ...props }) => {
     const { labelClasses, toggleSize, toggleClasses, toggleColor, toggleBallClasses } = useToggleClasses(
       useComputed$(() => size),
       useComputed$(() => color),

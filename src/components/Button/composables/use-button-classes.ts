@@ -1,6 +1,7 @@
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../button-types'
 import { ClassList, Component, HTMLAttributeAnchorTarget, Signal, useComputed$ } from '@builder.io/qwik'
 import { IconProps } from '@qwikest/icons/*'
+import { useFlowbiteThemable } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
 import { useMergeClasses } from '~/composables/use-merge-classes'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>; default: Record<T, string> }
@@ -190,6 +191,8 @@ export function useButtonClasses(props: UseButtonClassesProps): {
   bindClasses: Signal<string>
   spanClasses: Signal<string>
 } {
+  const { themeName } = useFlowbiteThemable()
+
   const sizeClasses = useComputed$(() => {
     if (props.square.value) return buttonSquareSizeClasses[props.size.value]
     return buttonSizeClasses[props.size.value]
@@ -231,7 +234,7 @@ export function useButtonClasses(props: UseButtonClassesProps): {
       }
     } else {
       // JUST COLOR
-      const color = props.color.value
+      const color = props.color.value === 'default' ? themeName.value : props.color.value
 
       backgroundClass = buttonColorClasses.default[color as keyof typeof buttonColorClasses.default]
 
