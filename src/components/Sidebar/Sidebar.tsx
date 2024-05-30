@@ -6,7 +6,11 @@ import { SidebarItemGroup } from './SidebarItemGroup'
 import { SidebarItem } from './SidebarItem'
 import { SidebarCollapse } from './SidebarCollapse'
 
-export const Sidebar: FunctionComponent<PropsOf<'aside'>> = ({ children, class: classNames, ...attrs }) => {
+type SidebarProps = PropsOf<'aside'> & {
+  highlight?: boolean
+}
+
+export const Sidebar: FunctionComponent<SidebarProps> = ({ children, highlight = false, class: classNames, ...attrs }) => {
   const sidebarItemGroups = []
   getChild(children, [
     {
@@ -33,8 +37,18 @@ export const Sidebar: FunctionComponent<PropsOf<'aside'>> = ({ children, class: 
   ])
 
   return (
-    <aside class={twMerge('top-0 left-0 z-40 w-64 h-full', clsx(classNames))} aria-label="Sidebar" {...attrs}>
-      <nav class="h-full px-3 py-4 overflow-y-auto bg-white dark:bg-gray-900">{children}</nav>
+    <aside class={twMerge('top-0 left-0 w-64 h-full', clsx(classNames))} aria-label="Sidebar" {...attrs}>
+      <nav
+        class={[
+          'h-full px-3 py-4 overflow-y-auto',
+          {
+            'bg-white dark:bg-gray-900': !highlight,
+            'bg-gray-50 dark:bg-gray-800': highlight,
+          },
+        ]}
+      >
+        {children}
+      </nav>
     </aside>
   )
 }

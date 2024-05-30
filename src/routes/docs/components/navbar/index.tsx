@@ -1,16 +1,39 @@
-import { component$, useSignal } from '@builder.io/qwik'
+import { component$, useSignal, useStore, useTask$ } from '@builder.io/qwik'
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from '~/components/Navbar'
 import { Link } from '@builder.io/qwik-city'
 import { Button } from '~/components/Button/Button'
 import { Dropdown, DropdownItem } from '~/components/Dropdown/Dropdown'
 import { IconSearchOutline } from '~/components/Icon'
 import { Input } from '~/components/Input/Input'
+import { useDark } from '~/composables/use-dark'
+import { isBrowser } from '@builder.io/qwik/build'
 
 export default component$(() => {
+  const { isDark } = useDark()
+
+  const defaultNavbar = useSignal<HTMLIFrameElement>()
+  const iframes = useStore({
+    all: [defaultNavbar],
+  })
+
+  useTask$(({ track }) => {
+    track(() => isDark.value)
+
+    if (isBrowser) {
+      iframes.all.forEach((iframe) => {
+        iframe.value?.contentWindow?.location.reload()
+      })
+    }
+  })
+
   const searchValue = useSignal('')
 
   return (
     <section id="navbars">
+      <div class="mx-auto w-full bg-white bg-gradient-to-r dark:bg-gray-900 max-w-sm">
+        <iframe ref={defaultNavbar} src="/examples/navbar/default-navbar" height="300" class="w-full" />
+      </div>
+
       <div>
         <h2 class="my-3">Default navbar</h2>
         <Navbar fluid rounded separator>
