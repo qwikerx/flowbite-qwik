@@ -1,8 +1,8 @@
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../button-types'
 import { ClassList, Component, HTMLAttributeAnchorTarget, Signal, useComputed$ } from '@builder.io/qwik'
 import { IconProps } from '@qwikest/icons/*'
+import { twMerge } from 'tailwind-merge'
 import { useFlowbiteThemable } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
-import { useMergeClasses } from '~/composables/use-merge-classes'
 
 export type ButtonClassMap<T extends string> = { hover: Record<T, string>; default: Record<T, string> }
 
@@ -185,11 +185,7 @@ export type UseButtonClassesProps = {
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
 const alternativeColors = ['alternative', 'light']
 
-export function useButtonClasses(props: UseButtonClassesProps): {
-  sizeClasses: Signal<string>
-  bindClasses: Signal<string>
-  spanClasses: Signal<string>
-} {
+export function useButtonClasses(props: UseButtonClassesProps) {
   const { themeName } = useFlowbiteThemable()
 
   const sizeClasses = useComputed$(() => {
@@ -253,7 +249,7 @@ export function useButtonClasses(props: UseButtonClassesProps): {
       }
     }
 
-    return useMergeClasses(
+    return twMerge(
       [
         backgroundClass,
         hoverClass,
@@ -284,7 +280,7 @@ export function useButtonClasses(props: UseButtonClassesProps): {
         .join(' ')
     }
 
-    return useMergeClasses(classes)
+    return twMerge(classes)
   })
 
   return {
