@@ -10,8 +10,8 @@ export default component$(() => {
   const location = useLocation()
 
   return (
-    <div>
-      <Navbar fluid rounded separator>
+    <div class="pt-16">
+      <Navbar fluid rounded separator sticky>
         <NavbarBrand as={Link} href="/">
           <img src="/favicon.png" alt="Flowbite qwik logo" width="215" height="195" class="mr-3 h-6 sm:h-9 w-auto" />
           <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>

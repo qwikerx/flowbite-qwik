@@ -78,9 +78,11 @@ module.exports = {
 - CodeBlock
 - Drawer
 - Dropdown
+- Footer
 - Inputs
 - Jumbotron
 - Modal
+- Navbar
 - Ratings
 - Sidebar
 - Spinner

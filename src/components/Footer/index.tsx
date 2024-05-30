@@ -1,0 +1,8 @@
+export { Footer } from './Footer'
+export { FooterDivider } from './FooterDivider'
+export { FooterLink } from './FooterLink'
+export { FooterLinkGroup } from './FooterLinkGroup'
+export { FooterIcon } from './FooterIcon'
+export { FooterTitle } from './FooterTitle'
+export { FooterBrand } from './FooterBrand'
+export { FooterCopyright } from './FooterCopyright'
