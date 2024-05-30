@@ -102,7 +102,10 @@ type InnerDropdownProps = {
 }
 
 const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSelect, components, inline, size }) => {
-  const { dropdownModalClasses } = useDropdownClasses(useComputed$(() => size))
+  const { dropdownModalClasses } = useDropdownClasses(
+    useComputed$(() => size),
+    useComputed$(() => inline),
+  )
 
   const visible = useSignal(false)
   const dropdownRef = useSignal<HTMLDivElement>()
@@ -125,6 +128,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
               toggleVisible()
             }}
             size={size}
+            inline={inline}
             as={as}
           />
         ) : (
@@ -134,6 +138,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
             }}
             label={label}
             size={size}
+            inline={inline}
           />
         )}
 
@@ -143,12 +148,15 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
               {componentsAsSignals.map((comp) => (
                 <li role="menuitem" key={comp.id}>
                   {comp.header ? (
-                    <InnerDropdownHeader size={size}>{comp.content}</InnerDropdownHeader>
+                    <InnerDropdownHeader size={size} inline={inline}>
+                      {comp.content}
+                    </InnerDropdownHeader>
                   ) : comp.divider ? (
-                    <InnerDropdownDivider size={size} />
+                    <InnerDropdownDivider size={size} inline={inline} />
                   ) : (
                     <InnerDropdownItem
                       size={size}
+                      inline={inline}
                       icon={comp.icon}
                       onClick$={$(() => {
                         comp.onClick$?.()
@@ -176,9 +184,13 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
  */
 type InnerDropdownHeaderProps = {
   size: DropdownSize
+  inline: boolean
 }
-const InnerDropdownHeader = component$<InnerDropdownHeaderProps>(({ size }) => {
-  const { dropdownHeaderContainerClasses, dropdownHeaderSeparatorClasses } = useDropdownClasses(useComputed$(() => size))
+const InnerDropdownHeader = component$<InnerDropdownHeaderProps>(({ size, inline }) => {
+  const { dropdownHeaderContainerClasses, dropdownHeaderSeparatorClasses } = useDropdownClasses(
+    useComputed$(() => size),
+    useComputed$(() => inline),
+  )
 
   return (
     <>
@@ -195,9 +207,13 @@ const InnerDropdownHeader = component$<InnerDropdownHeaderProps>(({ size }) => {
  */
 type InnerDropdownDividerProps = {
   size: DropdownSize
+  inline: boolean
 }
-const InnerDropdownDivider = component$<InnerDropdownDividerProps>(({ size }) => {
-  const { dropdownDividerClasses } = useDropdownClasses(useComputed$(() => size))
+const InnerDropdownDivider = component$<InnerDropdownDividerProps>(({ size, inline }) => {
+  const { dropdownDividerClasses } = useDropdownClasses(
+    useComputed$(() => size),
+    useComputed$(() => inline),
+  )
 
   return <div class={dropdownDividerClasses.value} />
 })
@@ -209,9 +225,13 @@ type InnerDropdownItemProps = PropsOf<'button'> & {
   icon?: Component<IconProps>
   onClick$?: () => void
   size: DropdownSize
+  inline: boolean
 }
-const InnerDropdownItem = component$<InnerDropdownItemProps>(({ icon: Icon, size, onClick$, ...props }) => {
-  const { dropdownItemClasses } = useDropdownClasses(useComputed$(() => size))
+const InnerDropdownItem = component$<InnerDropdownItemProps>(({ icon: Icon, inline, size, onClick$, ...props }) => {
+  const { dropdownItemClasses } = useDropdownClasses(
+    useComputed$(() => size),
+    useComputed$(() => inline),
+  )
 
   return (
     <button type="button" class={dropdownItemClasses.value} onClick$={onClick$} disabled={props.disabled}>
@@ -228,9 +248,13 @@ type InnerTriggerInlineProps = {
   label?: string
   onClick$: () => void
   size: DropdownSize
+  inline: boolean
 }
-const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, onClick$ }) => {
-  const { triggerInlineClasses } = useDropdownClasses(useComputed$(() => size))
+const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, inline, onClick$ }) => {
+  const { triggerInlineClasses } = useDropdownClasses(
+    useComputed$(() => size),
+    useComputed$(() => inline),
+  )
 
   return (
     <button onClick$={onClick$} class={triggerInlineClasses.value}>
@@ -247,9 +271,13 @@ type InnerTriggerAsProps = {
   onClick$: () => void
   size: DropdownSize
   as: JSXOutput
+  inline: boolean
 }
-const InnerTriggerAs = component$<InnerTriggerAsProps>(({ as, size, onClick$ }) => {
-  const { triggerInlineClasses } = useDropdownClasses(useComputed$(() => size))
+const InnerTriggerAs = component$<InnerTriggerAsProps>(({ as, size, inline, onClick$ }) => {
+  const { triggerInlineClasses } = useDropdownClasses(
+    useComputed$(() => size),
+    useComputed$(() => inline),
+  )
 
   return (
     <button onClick$={onClick$} class={triggerInlineClasses.value}>
@@ -265,6 +293,7 @@ type InnerTriggerButtonProps = {
   label: string
   onClick$: () => void
   size: DropdownSize
+  inline: boolean
 }
 const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, onClick$ }) => {
   const buttonSize: Record<string, ButtonSize> = {

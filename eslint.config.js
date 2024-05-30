@@ -7,6 +7,6 @@ export default [
   eslintConfigPrettier,
   {
     name: 'flowbite-qwik',
-    ignores: ['lib', 'lib-types', 'coverage', 'node_modules'],
+    ignores: ['lib', 'lib-types', 'coverage', 'node_modules', 'vite.config.ts'],
   },
 ]

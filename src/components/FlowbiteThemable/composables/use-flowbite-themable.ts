@@ -60,14 +60,10 @@ export const THEME_CONTEXT = 'FLOWBITE_THEME_CONTEXT'
 
 export const themeContext = createContextId<FlowbiteTheme>(THEME_CONTEXT)
 
-export function useFlowbiteThemable(_theme?: FlowbiteTheme) {
+export function useFlowbiteThemable() {
   const theme = useContext<FlowbiteTheme>(themeContext)
 
-  const themeName = useComputed$(() => {
-    return _theme || theme
-  })
-
-  const isActive = useComputed$(() => !!theme)
+  const themeName = useComputed$(() => theme)
 
   const backgroundClasses = useComputed$(() => (!themeName.value ? '' : flowbiteThemeClasses[themeName.value].background))
 
@@ -90,7 +86,6 @@ export function useFlowbiteThemable(_theme?: FlowbiteTheme) {
     disabledClasses,
     focusClasses,
     hoverClasses,
-    isActive,
     textClasses,
     themeName,
   }

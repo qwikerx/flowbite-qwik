@@ -39,25 +39,19 @@ export function useTabClasses(props: UseTabClassesProps): {
   const theme = useFlowbiteThemable()
 
   const tabClasses = useComputed$(() => {
-    const isActiveTheme = theme.isActive.value
-
     const tabClassType: keyof TabClassMap = props.active.value ? 'active' : props.disabled.value ? 'disabled' : 'default'
     const withIconClasses = props.withIcon.value ? 'gap-2 inline-flex items-center' : ''
 
     if (props.variant?.value === 'default') {
-      return twMerge(defaultTabClasses[tabClassType], (isActiveTheme && tabClassType) === 'active' ? theme.textClasses.value : '', withIconClasses)
+      return twMerge(defaultTabClasses[tabClassType], tabClassType === 'active' ? theme.textClasses.value : '', withIconClasses)
     } else if (props.variant?.value === 'underline') {
       return twMerge(
         underlineTabClasses[tabClassType],
-        (isActiveTheme && tabClassType) === 'active' ? [theme.borderClasses.value, theme.textClasses.value] : '',
+        tabClassType === 'active' ? [theme.borderClasses.value, theme.textClasses.value] : '',
         withIconClasses,
       )
     } else if (props.variant?.value === 'pills') {
-      return twMerge(
-        pillsTabClasses[tabClassType],
-        (isActiveTheme && tabClassType) === 'active' ? [theme.backgroundClasses.value, 'text-white'] : '',
-        withIconClasses,
-      )
+      return twMerge(pillsTabClasses[tabClassType], tabClassType === 'active' ? [theme.backgroundClasses.value, 'text-white'] : '', withIconClasses)
     }
 
     return ''

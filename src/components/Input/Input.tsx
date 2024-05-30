@@ -55,11 +55,7 @@ export const Input = component$<InputProps>(
       <div class={classNames}>
         {Boolean(label) && <label class={labelClasses.value}>{required ? `${label} *` : label}</label>}
         <div class="flex relative">
-          {Boolean(prefix) && (
-            <div class="w-10 flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none overflow-hidden">
-              <>{prefix}</>
-            </div>
-          )}
+          {Boolean(prefix) && <div class="w-10 flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none overflow-hidden">{prefix}</div>}
           <input
             {...props}
             bind:value={props['bind:value']}
@@ -68,11 +64,7 @@ export const Input = component$<InputProps>(
             required={required}
             class={[inputClasses.value, prefix ? 'pl-10' : '']}
           />
-          {Boolean(suffix) && (
-            <div class="absolute right-2.5 top-1/2 -translate-y-1/2">
-              <>{suffix}</>
-            </div>
-          )}
+          {Boolean(suffix) && <div class="absolute right-2.5 top-1/2 -translate-y-1/2">{suffix}</div>}
         </div>
         {Boolean(validationMessage) && <p class={validationWrapperClasses}>{validationMessage}</p>}
 
