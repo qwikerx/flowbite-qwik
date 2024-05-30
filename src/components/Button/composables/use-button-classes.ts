@@ -8,8 +8,7 @@ export type ButtonClassMap<T extends string> = { hover: Record<T, string>; defau
 
 const buttonColorClasses: ButtonClassMap<ButtonVariant> = {
   default: {
-    default:
-      'text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800',
+    default: '',
     blue: 'text-white bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800',
     alternative:
       'font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600',
@@ -25,7 +24,7 @@ const buttonColorClasses: ButtonClassMap<ButtonVariant> = {
     pink: 'focus:outline-none text-white bg-pink-700 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg dark:bg-pink-600 dark:focus:ring-pink-900',
   },
   hover: {
-    default: 'hover:bg-blue-800 dark:hover:bg-blue-700',
+    default: '',
     blue: 'hover:bg-blue-800 dark:hover:bg-blue-700',
     alternative: 'hover:bg-gray-100 hover:text-blue-700 dark:hover:text-white dark:hover:bg-gray-700',
     dark: 'hover:bg-gray-900 dark:hover:bg-gray-700',
@@ -224,7 +223,7 @@ export function useButtonClasses(props: UseButtonClassesProps): {
     } else if (isColor && isOutline) {
       // COLOR AND OUTLINE
       if (!alternativeColors.includes(props.color.value)) {
-        const color = props.color.value
+        const color = props.color.value === 'default' ? themeName.value : props.color.value
 
         backgroundClass = buttonOutlineColorClasses.default[color as keyof typeof buttonOutlineColorClasses.default]
 
