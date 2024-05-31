@@ -17,6 +17,10 @@ export default component$(() => {
       color-scheme: dark;
       background: #111827;
     }
+    .light {
+      color-scheme: light;
+      background: #fff;
+    }
   `)
 
   return (
