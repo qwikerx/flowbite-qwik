@@ -2,6 +2,7 @@ import { component$ } from '@builder.io/qwik'
 import { Button } from '~/components/Button/Button'
 import { Jumbotron, JumbotronHeading, JumbotronSubText } from '~/components/Jumbotron'
 import { IconArrowRightOutline } from '..'
+import { DocFooter } from '~/components/__Footer/__Footer'
 
 export default component$(() => {
   const boxes = [
@@ -27,7 +28,7 @@ export default component$(() => {
   ]
 
   return (
-    <>
+    <div class="flex flex-col h-full">
       <Jumbotron>
         <JumbotronHeading tag="h2">
           <span class="text-qwik">⚡ Flowbite Qwik </span> <span class="text-qwik-secondary">component library</span> based on Tailwind CSS
@@ -45,7 +46,7 @@ export default component$(() => {
         </div>
       </Jumbotron>
 
-      <section>
+      <section class="flex-1">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 mx-auto max-w-6xl">
           {boxes.map((box, i) => (
             <div key={i} class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
@@ -55,6 +56,7 @@ export default component$(() => {
           ))}
         </div>
       </section>
-    </>
+      <DocFooter class="mt-16" />
+    </div>
   )
 })

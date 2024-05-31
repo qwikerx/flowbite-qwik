@@ -6,7 +6,6 @@ import { IconGithubSolid, IconMoonOutline, IconSunOutline } from '~/components/I
 import { Button } from '~/components/Button/Button'
 import { Badge } from '~/components/Badge/Badge'
 import pkg from '~/../package.json'
-import { Footer, FooterCopyright, FooterIcon } from '~/components/Footer'
 
 export default component$(() => {
   const { isDark, setDarkModeValue } = useDark()
@@ -20,7 +19,7 @@ export default component$(() => {
           <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
         </NavbarBrand>
         <div class="flex md:order-2 items-center gap-2">
-          <Button square href="https://github.com/xmimiex/flowbite-qwik" color="light" title="View on GitHub">
+          <Button class="hidden md:block" square href="https://github.com/xmimiex/flowbite-qwik" color="light" title="View on GitHub">
             <IconGithubSolid class="h-4 w-4" />
           </Button>
           <Button
@@ -33,7 +32,7 @@ export default component$(() => {
           >
             {isDark.value ? <IconSunOutline class="h-4 w-4" /> : <IconMoonOutline class="h-4 w-4" />}
           </Button>
-          <Badge size="sm" type="dark" content={'v' + pkg.version} />
+          <Badge class="hidden md:block" size="sm" type="dark" content={'v' + pkg.version} />
 
           <NavbarToggle />
         </div>
@@ -48,20 +47,9 @@ export default component$(() => {
         </NavbarCollapse>
       </Navbar>
 
-      <main class="px-6 pt-14">
+      <main class="pt-[61px]">
         <Slot />
       </main>
-
-      <Footer container class="mt-9">
-        <div class="w-full text-center">
-          <div class="w-full sm:flex sm:items-center sm:justify-between">
-            <FooterCopyright href="#" by="Flowbite™" />
-            <div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-              <FooterIcon href="#" icon={IconGithubSolid} />
-            </div>
-          </div>
-        </div>
-      </Footer>
     </div>
   )
 })
