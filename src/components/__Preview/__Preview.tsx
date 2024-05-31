@@ -1,13 +1,14 @@
-import { PropsOf, component$, useComputed$, useSignal, useTask$ } from '@builder.io/qwik'
+import { PropsOf, component$, useComputed$, useSignal, useTask$, useStyles$ } from '@builder.io/qwik'
 import { server$ } from '@builder.io/qwik-city'
 import fs from 'fs'
 import { CodeBlock } from '../CodeBlock/CodeBlock'
 import { Button } from '../Button/Button'
-import { IconDesktopPcOutline, IconMobilePhoneOutline, IconTabletOutline } from '../Icon'
+import { IconDesktopPcOutline, IconGithubSolid, IconMobilePhoneOutline, IconTabletOutline } from '../Icon'
 import { useDark } from '~/composables/use-dark'
 import { useMediaQuery } from '~/composables/use-media-query'
 import { Spinner } from '~/components/Spinner/Spinner'
 import { isBrowser } from '@builder.io/qwik/build'
+import styles from './preview.css?inline'
 
 type PreviewProps = PropsOf<'iframe'> & {
   url: string
@@ -15,13 +16,19 @@ type PreviewProps = PropsOf<'iframe'> & {
 
 type PreviewDisplaySize = 'mobile' | 'tablet' | 'desktop'
 
-export const getExampleCode = server$(function (url: string) {
+const getExampleFilePath = server$(function (url: string) {
+  const liveDir = 'https://github.com/xmimiex/flowbite-qwik/blob/main'
+  return `${liveDir}/src/routes${url}/index@examples.tsx`
+})
+
+const getExampleCode = server$(function (url: string) {
   const rootDir = process.cwd()
   const exampleUrl = `${rootDir}/src/routes${url}/index@examples.tsx`
   return fs.readFileSync(exampleUrl, 'utf-8')
 })
 
 export const Preview = component$<PreviewProps>(({ url, class: classNames, ...props }) => {
+  useStyles$(styles)
   const { isDark } = useDark()
 
   const desktopScreen = useMediaQuery('(min-width: 1024px)')
@@ -32,6 +39,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, ...pr
   const iframe = useSignal<HTMLIFrameElement>()
 
   const code = useComputed$(() => getExampleCode(url))
+  const fileUrl = useComputed$(() => getExampleFilePath(url))
 
   useTask$(({ track }) => {
     track(() => desktopScreen.value)
@@ -55,7 +63,14 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, ...pr
 
   return (
     <div>
-      <div class="flex justify-between p-4 bg-gray-100 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
+      <div class="flex justify-between p-4 bg-gray-50 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
+        <ul>
+          <li>
+            <Button color="light" href={fileUrl.value} prefix={IconGithubSolid} size="sm">
+              Edit on GitHub
+            </Button>
+          </li>
+        </ul>
         <ul class="hidden lg:flex gap-3 justify-center">
           <li>
             <Button color="light" square onClick$={() => (displaySize.value = 'mobile')} title="Toggle mobile view">
@@ -78,6 +93,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, ...pr
             <Button
               color="light"
               square
+              size="sm"
               onClick$={() => {
                 rtl.value = !rtl.value
               }}
@@ -88,7 +104,10 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, ...pr
           </li>
         </ul>
       </div>
-      <div class="flex p-0 bg-white border-gray-200 bg-gradient-to-r code-preview dark:bg-gray-900 border-x dark:border-gray-600">
+      <div
+        data-el="preview__viewer"
+        class="flex p-0 bg-white border-gray-200 bg-gradient-to-r code-preview dark:bg-gray-900 border-x dark:border-gray-600"
+      >
         <div
           class={[
             'w-full mx-auto p-5',

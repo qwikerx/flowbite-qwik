@@ -57,7 +57,7 @@ export default component$(() => {
       <div>
         <h2 class="text-2xl font-semibold my-3">Badge as link</h2>
         <div class="flex gap-2">
-          <Badge href="#" content="Link" />
+          <Badge href="#" content="Link" bordered />
           <Badge href="#" size="sm" content="Link" />
         </div>
       </div>

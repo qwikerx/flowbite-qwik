@@ -10,40 +10,44 @@ const badgeLinkClasses = 'bg-blue-100 hover:bg-blue-200 text-blue-800 dark:text-
 const onlyIconClasses = 'p-2 rounded-full mr-2'
 
 const badgeTextClasses: Record<BadgeType, string> = {
-  default: 'text-blue-800 dark:text-blue-800',
-  dark: 'text-gray-800 dark:bg-gray-700',
-  red: 'text-red-800 dark:text-red-900',
-  green: 'text-green-800 dark:text-green-900',
-  yellow: 'text-yellow-800 dark:text-yellow-900',
-  indigo: 'text-indigo-800 dark:text-indigo-900',
-  purple: 'text-purple-800 dark:text-purple-900',
-  pink: 'text-pink-800 dark:text-pink-900',
+  default: '',
+  blue: 'text-blue-800 dark:text-blue-300',
+  dark: 'text-gray-800 dark:text-gray-300',
+  red: 'text-red-800 dark:text-red-300',
+  green: 'text-green-800 dark:text-green-300',
+  yellow: 'text-yellow-800 dark:text-yellow-300',
+  indigo: 'text-indigo-800 dark:text-indigo-300',
+  purple: 'text-purple-800 dark:text-purple-300',
+  pink: 'text-pink-800 dark:text-pink-300',
 }
 
 const badgeBorderClasses: Record<BadgeType, string> = {
-  default: 'border border-blue-800 dark:border-blue-800',
-  dark: 'border border-gray-800 dark:border-gray-800',
-  red: 'border border-red-800 dark:border-red-900',
-  green: 'border border-green-800 dark:border-green-900',
-  yellow: 'border border-yellow-800 dark:border-yellow-900',
-  indigo: 'border border-indigo-800 dark:border-indigo-900',
-  purple: 'border border-purple-800 dark:border-purple-900',
-  pink: 'border border-pink-800 dark:border-pink-900',
+  default: '',
+  blue: 'border border-blue-400 dark:text-blue-400 dark:bg-gray-700',
+  dark: 'border border-gray-500 text-grey-400 dark:text-gray-400 dark:bg-gray-700',
+  red: 'border border-red-400 dark:text-red-400 dark:bg-gray-700',
+  green: 'border border-green-400 dark:text-green-400 dark:bg-gray-700',
+  yellow: 'border border-yellow-300 dark:text-yellow-400 dark:bg-gray-700',
+  indigo: 'border border-indigo-400 dark:text-indigo-400 dark:bg-gray-700',
+  purple: 'border border-purple-400 dark:text-purple-400 dark:bg-gray-700',
+  pink: 'border border-pink-400 dark:text-pink-400 dark:bg-gray-700',
 }
 
 const badgeTypeClasses: Record<BadgeType, string> = {
-  default: 'bg-blue-100 dark:bg-blue-200',
+  default: '',
+  blue: 'bg-blue-100 dark:bg-blue-900',
   dark: 'bg-gray-100 dark:bg-gray-700',
-  red: 'bg-red-100 dark:bg-red-200',
-  green: 'bg-green-100 dark:bg-green-200',
-  yellow: 'bg-yellow-100 dark:bg-yellow-200',
-  indigo: 'bg-indigo-100 dark:bg-indigo-200',
-  purple: 'bg-purple-100 dark:bg-purple-200',
-  pink: 'bg-pink-100 dark:bg-pink-200',
+  red: 'bg-red-100 dark:bg-red-900',
+  green: 'bg-green-100 dark:bg-green-900',
+  yellow: 'bg-yellow-100 dark:bg-yellow-900',
+  indigo: 'bg-indigo-100 dark:bg-indigo-900',
+  purple: 'bg-purple-100 dark:bg-purple-900',
+  pink: 'bg-pink-100 dark:bg-pink-900',
 }
 
 const badgeHoverChipsClasses: Record<BadgeType, string> = {
-  default: 'hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-600 dark:hover:text-blue-300',
+  default: '',
+  blue: 'hover:bg-blue-200 hover:text-blue-900 dark:hover:bg-blue-600 dark:hover:text-blue-300',
   dark: 'hover:bg-gray-200 hover:text-gray-900 dark:hover:bg-gray-600 dark:hover:text-gray-300',
   red: 'hover:bg-red-200 hover:text-red-900 dark:hover:bg-red-600 dark:hover:text-red-300',
   green: 'hover:bg-green-200 hover:text-green-900 dark:hover:bg-green-600 dark:hover:text-green-300',
