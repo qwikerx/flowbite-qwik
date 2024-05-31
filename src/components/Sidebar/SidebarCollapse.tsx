@@ -9,6 +9,7 @@ type SidebarCollapseProps = PropsOf<'div'> & {
   label: string
   border?: boolean
   icon?: Component<IconProps>
+  opened?: boolean
 }
 
 export const SidebarCollapse: FunctionComponent<SidebarCollapseProps> = ({ children, ...attrs }) => {
@@ -24,8 +25,8 @@ export const SidebarCollapse: FunctionComponent<SidebarCollapseProps> = ({ child
   return <InternalSidebarCollapse {...attrs}>{children}</InternalSidebarCollapse>
 }
 
-export const InternalSidebarCollapse = component$<SidebarCollapseProps>(({ label, icon }) => {
-  const isOpen = useSignal(false)
+export const InternalSidebarCollapse = component$<SidebarCollapseProps>(({ label, opened = false, icon }) => {
+  const isOpen = useSignal(opened)
   const id = useId()
 
   const toggle$ = $(() => {
@@ -33,8 +34,8 @@ export const InternalSidebarCollapse = component$<SidebarCollapseProps>(({ label
   })
 
   return (
-    <>
-      <SidebarItem icon={icon} tag="button" onClick$={toggle$} id={`flowbite-sidebar-collapse-${id}`}>
+    <ul>
+      <SidebarItem icon={icon} tag="button" onClick$={toggle$} id={`flowbite-sidebar-collapse-${id}`} class="font-medium">
         {label}
         <IconAngleDownSolid
           q:slot="suffix"
@@ -45,10 +46,10 @@ export const InternalSidebarCollapse = component$<SidebarCollapseProps>(({ label
       </SidebarItem>
       <SidebarItemGroup
         aria-labelledby={`flowbite-sidebar-collapse-${id}`}
-        class={['overflow-hidden transition-all duration-300', isOpen.value ? 'max-h-screen translate-y-0' : 'max-h-0 -translate-y-3']}
+        class={['py-2 space-y-2 overflow-hidden duration-300', isOpen.value ? 'block' : 'hidden']}
       >
         <Slot />
       </SidebarItemGroup>
-    </>
+    </ul>
   )
 })

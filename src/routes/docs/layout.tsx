@@ -1,13 +1,12 @@
 import { $, component$, Slot, useSignal } from '@builder.io/qwik'
 import { Button } from '~/components/Button/Button'
 import { IconDotsVerticalOutline } from '~/components/Icon'
-import { Sidebar, SidebarItem, SidebarItemGroup } from '~/components/Sidebar'
+import { Sidebar, SidebarCollapse, SidebarItem } from '~/components/Sidebar'
 import { DocFooter } from '~/components/__Footer/__Footer'
 import { useComponentOuterClick } from '~/composables/use-outer-click'
 
 export default component$(() => {
   const isSidebarOpen = useSignal(false)
-
   const sidebar = useSignal<HTMLElement>()
   const sidebarButton = useSignal<HTMLElement>()
 
@@ -28,11 +27,11 @@ export default component$(() => {
           isSidebarOpen.value ? 'translate-x-0' : '-translate-x-full',
         ]}
       >
-        <SidebarItemGroup title="Getting Started">
+        <SidebarCollapse label="Getting Started" opened>
           <SidebarItem href="/docs/getting-started/introduction">Introduction</SidebarItem>
           <SidebarItem href="/docs/getting-started/quickstart">Quickstart</SidebarItem>
-        </SidebarItemGroup>
-        <SidebarItemGroup title="Components">
+        </SidebarCollapse>
+        <SidebarCollapse label="Components" opened>
           <SidebarItem href="/docs/components/accordion">Accordion</SidebarItem>
           <SidebarItem href="/docs/components/badge">Badge</SidebarItem>
           <SidebarItem href="/docs/components/breadcrumb">Breadcrumb</SidebarItem>
@@ -48,13 +47,13 @@ export default component$(() => {
           <SidebarItem href="/docs/components/tabs">Tabs</SidebarItem>
           <SidebarItem href="/docs/components/toast">Toast</SidebarItem>
           <SidebarItem href="/docs/components/toggle">Toggle</SidebarItem>
-        </SidebarItemGroup>
-        <SidebarItemGroup title="Form">
+        </SidebarCollapse>
+        <SidebarCollapse label="Form">
           <SidebarItem href="/docs/components/input">Input</SidebarItem>
-        </SidebarItemGroup>
-        <SidebarItemGroup title="Extra">
+        </SidebarCollapse>
+        <SidebarCollapse label="Extra">
           <SidebarItem href="/docs/components/code-block">CodeBlock</SidebarItem>
-        </SidebarItemGroup>
+        </SidebarCollapse>
       </Sidebar>
 
       <div class="lg:ml-64">

@@ -8,7 +8,7 @@ pre code.hljs {
 }
 
 .hljs {
-  @apply text-gray-100;
+  @apply text-gray-500;
 }
 
 code.hljs {
