@@ -2,7 +2,7 @@ import { $, useOnDocument, useSignal, useTask$ } from '@builder.io/qwik'
 import { isBrowser } from '@builder.io/qwik/build'
 
 export function useMediaQuery(query: string) {
-  const matches = useSignal(false)
+  const matches = useSignal<boolean | null>(null)
   const mediaChange = useSignal<undefined | (() => void)>(undefined)
 
   const mediaQueryHandler = $(() => {

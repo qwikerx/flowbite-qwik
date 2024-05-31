@@ -60,13 +60,31 @@ npm i flowbite flowbite-qwik
 2. Require `flowbite` as a plugin inside the `tailwind.config.js` file:
 
 ```javascript
-module.exports = {
-  content: [
-    ...,
-    'node_modules/flowbite-qwik/**/*.{js,.mjs,jsx,ts,tsx}'
-  ],
-  plugins: [..., require('flowbite/plugin')],
-};
+import { join } from 'path'
+import flowbitePlugin from 'flowbite/plugin'
+
+export default {
+  theme: {
+    extend: {
+      animation: {
+        'from-left': 'slideFromLeft 0.2s 1',
+        'from-right': 'slideFromRight 0.2s 1',
+      },
+      keyframes: {
+        slideFromLeft: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        slideFromRight: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
+    },
+  },
+  content: ['node_modules/flowbite-qwik/**/*.{cjs,mjs}'],
+  plugins: [flowbitePlugin],
+}
 ```
 
 ## Components
