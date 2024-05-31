@@ -85,6 +85,7 @@ export const Button = component$<ButtonProps>(
         //@ts-expect-error does not exist on link
         disabled={ButtonComponent === 'button' ? disabled : undefined}
         onClick$={attrs.onClick$}
+        {...attrs}
       >
         {!isOutlineGradient.value && (Prefix || loadingPrefix.value) && (
           <div class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Prefix && <Prefix />}</div>

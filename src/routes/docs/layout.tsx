@@ -1,10 +1,33 @@
-import { component$, Slot } from '@builder.io/qwik'
+import { $, component$, Slot, useSignal } from '@builder.io/qwik'
+import { Button } from '~/components/Button/Button'
+import { IconDotsVerticalOutline } from '~/components/Icon'
 import { Sidebar, SidebarItem, SidebarItemGroup } from '~/components/Sidebar'
+import { DocFooter } from '~/components/__Footer/__Footer'
+import { useComponentOuterClick } from '~/composables/use-outer-click'
 
 export default component$(() => {
+  const isSidebarOpen = useSignal(false)
+
+  const sidebar = useSignal<HTMLElement>()
+  const sidebarButton = useSignal<HTMLElement>()
+
+  useComponentOuterClick(
+    [sidebar, sidebarButton],
+    $(() => {
+      isSidebarOpen.value = false
+    }),
+    isSidebarOpen,
+  )
+
   return (
     <div>
-      <Sidebar class="fixed top-14 pb-14">
+      <Sidebar
+        ref={sidebar}
+        class={[
+          'fixed top-14 pb-14 left-0 h-full w-full max-w-64 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 lg:translate-x-0',
+          isSidebarOpen.value ? 'translate-x-0' : '-translate-x-full',
+        ]}
+      >
         <SidebarItemGroup title="Getting Started">
           <SidebarItem href="/docs/getting-started/introduction">Introduction</SidebarItem>
           <SidebarItem href="/docs/getting-started/quickstart">Quickstart</SidebarItem>
@@ -34,8 +57,17 @@ export default component$(() => {
         </SidebarItemGroup>
       </Sidebar>
 
-      <div class="ml-64 p-5">
-        <Slot />
+      <div class="lg:ml-64">
+        <div class="bg-white px-2 py-2.5 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-600 lg:hidden">
+          <Button ref={sidebarButton} color="dark" prefix={IconDotsVerticalOutline} onClick$={() => (isSidebarOpen.value = true)}>
+            Menu
+          </Button>
+        </div>
+        <div class="p-5">
+          <Slot />
+
+          <DocFooter />
+        </div>
       </div>
     </div>
   )
