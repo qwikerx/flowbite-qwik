@@ -40,7 +40,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({ children, highlight =
     <aside class={twMerge('top-0 left-0 w-64 h-full', clsx(classNames))} aria-label="Sidebar" {...attrs}>
       <nav
         class={[
-          'h-full px-3 py-4 overflow-y-auto space-y-2',
+          'h-full px-3 py-4 overflow-y-auto',
           {
             'bg-white dark:bg-gray-900': !highlight,
             'bg-gray-50 dark:bg-gray-800': highlight,

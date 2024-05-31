@@ -27,6 +27,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, ...pr
   const desktopScreen = useMediaQuery('(min-width: 1024px)')
   const tabletScreen = useMediaQuery('(min-width: 768px)')
   const displaySize = useSignal<PreviewDisplaySize | undefined>()
+  const rtl = useSignal(false)
 
   const iframe = useSignal<HTMLIFrameElement>()
 
@@ -54,23 +55,39 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, ...pr
 
   return (
     <div>
-      <ul class="hidden lg:flex p-4 gap-3 justify-center bg-gray-100 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
-        <li>
-          <Button color="light" square onClick$={() => (displaySize.value = 'mobile')} title="Toggle mobile view">
-            <IconMobilePhoneOutline />
-          </Button>
-        </li>
-        <li>
-          <Button color="light" square onClick$={() => (displaySize.value = 'tablet')} title="Toggle tablet view">
-            <IconTabletOutline />
-          </Button>
-        </li>
-        <li>
-          <Button color="light" square onClick$={() => (displaySize.value = 'desktop')} title="Toggle desktop view">
-            <IconDesktopPcOutline />
-          </Button>
-        </li>
-      </ul>
+      <div class="flex justify-between p-4 bg-gray-100 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
+        <ul class="hidden lg:flex gap-3 justify-center">
+          <li>
+            <Button color="light" square onClick$={() => (displaySize.value = 'mobile')} title="Toggle mobile view">
+              <IconMobilePhoneOutline />
+            </Button>
+          </li>
+          <li>
+            <Button color="light" square onClick$={() => (displaySize.value = 'tablet')} title="Toggle tablet view">
+              <IconTabletOutline />
+            </Button>
+          </li>
+          <li>
+            <Button color="light" square onClick$={() => (displaySize.value = 'desktop')} title="Toggle desktop view">
+              <IconDesktopPcOutline />
+            </Button>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Button
+              color="light"
+              square
+              onClick$={() => {
+                rtl.value = !rtl.value
+              }}
+              title={`Toggle RTL mode`}
+            >
+              {rtl.value ? 'LTR' : 'RTL'}
+            </Button>
+          </li>
+        </ul>
+      </div>
       <div class="flex p-0 bg-white border-gray-200 bg-gradient-to-r code-preview dark:bg-gray-900 border-x dark:border-gray-600">
         <div
           class={[
@@ -83,7 +100,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, ...pr
           ]}
         >
           {displaySize.value ? (
-            <iframe ref={iframe} src={url} {...props} class={['w-full', classNames]} />
+            <iframe ref={iframe} src={`${url}${rtl.value ? '?rtl' : ''}`} {...props} class={['w-full', classNames]} />
           ) : (
             <div class="flex justify-center w-full">{<Spinner size="6" />}</div>
           )}

@@ -1,5 +1,5 @@
 import { $, Component, FunctionComponent, PropsOf, Slot, component$, useId, useSignal } from '@builder.io/qwik'
-import { SidebarItem } from './SidebarItem'
+import { InnerSidebarItem, SidebarItem } from './SidebarItem'
 import { IconProps } from '@qwikest/icons'
 import { IconAngleDownSolid } from '../Icon'
 import { SidebarItemGroup } from './SidebarItemGroup'
@@ -34,8 +34,8 @@ export const InternalSidebarCollapse = component$<SidebarCollapseProps>(({ label
   })
 
   return (
-    <ul>
-      <SidebarItem icon={icon} tag="button" onClick$={toggle$} id={`flowbite-sidebar-collapse-${id}`} class="font-medium">
+    <li>
+      <InnerSidebarItem icon={icon} tag="button" onClick$={toggle$} id={`flowbite-sidebar-collapse-${id}`} class="font-medium">
         {label}
         <IconAngleDownSolid
           q:slot="suffix"
@@ -43,13 +43,13 @@ export const InternalSidebarCollapse = component$<SidebarCollapseProps>(({ label
             'transform rotate-180': isOpen.value,
           }}
         />
-      </SidebarItem>
+      </InnerSidebarItem>
       <SidebarItemGroup
         aria-labelledby={`flowbite-sidebar-collapse-${id}`}
         class={['py-2 space-y-2 overflow-hidden duration-300', isOpen.value ? 'block' : 'hidden']}
       >
         <Slot />
       </SidebarItemGroup>
-    </ul>
+    </li>
   )
 })

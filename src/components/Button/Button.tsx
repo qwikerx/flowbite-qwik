@@ -79,7 +79,6 @@ export const Button = component$<ButtonProps>(
     return (
       <ButtonComponent
         class={bindClasses.value}
-        title={attrs.title}
         href={ButtonComponent !== 'button' ? href : undefined}
         target={ButtonComponent !== 'button' ? attrs.target : undefined}
         //@ts-expect-error does not exist on link
