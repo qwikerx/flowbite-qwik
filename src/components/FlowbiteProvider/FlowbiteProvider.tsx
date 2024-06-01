@@ -14,7 +14,7 @@ type FlowbiteProviderProps = {
 export const FlowbiteProvider = component$<FlowbiteProviderProps>(({ toastPosition, theme }) => {
   useContextProvider(toastContext, useStore([]))
   useContextProvider(darkModeContext, useSignal(undefined))
-  useContextProvider(themeContext, theme)
+  useContextProvider(themeContext, useSignal(theme))
 
   return (
     <FlowbiteThemable theme={theme}>

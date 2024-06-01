@@ -1,4 +1,4 @@
-import { Slot, component$, useContextProvider } from '@builder.io/qwik'
+import { Slot, component$, useContextProvider, useSignal } from '@builder.io/qwik'
 import { FlowbiteTheme, themeContext } from './composables/use-flowbite-themable'
 
 type FlowbiteChildeProps = {
@@ -6,7 +6,7 @@ type FlowbiteChildeProps = {
 }
 
 export const FlowbiteThemable = component$<FlowbiteChildeProps>(({ theme = 'blue' }) => {
-  useContextProvider(themeContext, theme)
+  useContextProvider(themeContext, useSignal(theme))
 
   return <Slot />
 })

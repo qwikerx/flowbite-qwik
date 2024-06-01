@@ -1,6 +1,5 @@
 import {
   $,
-  ClassList,
   Component,
   component$,
   FunctionComponent,
@@ -70,7 +69,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({ children, label, as
         closeWhenSelect={closeWhenSelect}
         inline={inline}
         size={size}
-        class={attrs.class}
+        title={attrs.title}
       />
     </div>
   )
@@ -98,10 +97,10 @@ type InnerDropdownProps = {
   components: ComponentType[]
   inline: boolean
   size: DropdownSize
-  class?: ClassList
+  title?: string
 }
 
-const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSelect, components, inline, size }) => {
+const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSelect, components, inline, size, title }) => {
   const { dropdownModalClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
@@ -120,7 +119,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
   useDocumentOuterClick([dropdownRef], toggleVisible, visible)
 
   return (
-    <div class={['inline-flex relative justify-center']}>
+    <div class={['inline-flex relative justify-center']} title={title}>
       <div ref={dropdownRef}>
         {TriggerButtonAs ? (
           <TriggerButtonAs

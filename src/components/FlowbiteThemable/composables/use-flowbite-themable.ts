@@ -1,6 +1,7 @@
-import { createContextId, useComputed$, useContext } from '@builder.io/qwik'
+import { $, createContextId, Signal, useComputed$, useContext } from '@builder.io/qwik'
 
-export type FlowbiteTheme = 'blue' | 'green' | 'red' | 'pink' | 'purple'
+export const FlowbiteThemeValues = ['blue', 'green', 'red', 'pink', 'purple'] as const
+export type FlowbiteTheme = (typeof FlowbiteThemeValues)[number]
 
 type FlowbiteThemeMap = {
   background: string
@@ -58,26 +59,28 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
 
 export const THEME_CONTEXT = 'FLOWBITE_THEME_CONTEXT'
 
-export const themeContext = createContextId<FlowbiteTheme>(THEME_CONTEXT)
+export const themeContext = createContextId<Signal<FlowbiteTheme>>(THEME_CONTEXT)
 
 export function useFlowbiteThemable() {
-  const theme = useContext<FlowbiteTheme>(themeContext)
+  const theme = useContext(themeContext)
 
-  const themeName = useComputed$(() => theme)
+  const setThemeName = $((name: FlowbiteTheme) => {
+    theme.value = name
+  })
 
-  const backgroundClasses = useComputed$(() => (!themeName.value ? '' : flowbiteThemeClasses[themeName.value].background))
+  const backgroundClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].background))
 
-  const borderClasses = useComputed$(() => (!themeName.value ? '' : flowbiteThemeClasses[themeName.value].border))
+  const borderClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].border))
 
   const color = useComputed$(() => theme || undefined)
 
-  const disabledClasses = useComputed$(() => (!themeName.value ? '' : flowbiteThemeClasses[themeName.value].disabled))
+  const disabledClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].disabled))
 
-  const focusClasses = useComputed$(() => (!themeName.value ? '' : flowbiteThemeClasses[themeName.value].focus))
+  const focusClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].focus))
 
-  const hoverClasses = useComputed$(() => (!themeName.value ? '' : flowbiteThemeClasses[themeName.value].hover))
+  const hoverClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].hover))
 
-  const textClasses = useComputed$(() => (!themeName.value ? '' : flowbiteThemeClasses[themeName.value].text))
+  const textClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].text))
 
   return {
     backgroundClasses,
@@ -87,6 +90,7 @@ export function useFlowbiteThemable() {
     focusClasses,
     hoverClasses,
     textClasses,
-    themeName,
+    themeName: theme,
+    setThemeName,
   }
 }
