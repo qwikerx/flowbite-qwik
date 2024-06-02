@@ -12,6 +12,8 @@ import styles from './preview.css?inline'
 
 type PreviewProps = PropsOf<'iframe'> & {
   url: string
+  title: string
+  description?: string
 }
 
 type PreviewDisplaySize = 'mobile' | 'tablet' | 'desktop'
@@ -27,7 +29,7 @@ const getExampleCode = server$(function (url: string) {
   return fs.readFileSync(exampleUrl, 'utf-8')
 })
 
-export const Preview = component$<PreviewProps>(({ url, class: classNames, ...props }) => {
+export const Preview = component$<PreviewProps>(({ url, class: classNames, title, ...props }) => {
   useStyles$(styles)
   const { isDark } = useDark()
 
@@ -63,6 +65,8 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, ...pr
 
   return (
     <div>
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">{title}</h2>
+      {props.description && <p class="text-gray-600 dark:text-gray-400 mb-4">{props.description}</p>}
       <div class="flex justify-between p-4 bg-gray-50 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
         <ul>
           <li>
