@@ -13,8 +13,12 @@ export default component$(() => {
   return (
     <section id="navbars">
       <div>
-        <h2 class="my-3">Default navbar</h2>
-        <Preview url="/examples/navbar/default-navbar" height="300" />
+        <Preview
+          title="Default navbar"
+          url="/examples/navbar/default-navbar"
+          description="Use this example of a navigation bar built with the utility classes from Tailwind CSS to enable users to navigate across the pages of your website."
+          height="300"
+        />
       </div>
 
       <div>

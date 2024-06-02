@@ -1,3 +1,8 @@
+/**
+ * title: Flush accordion
+ * description: Flush prop removes background color, side borders, and rounded corners
+ */
+
 import { component$ } from '@builder.io/qwik'
 import { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from '~/components/Accordion'
 

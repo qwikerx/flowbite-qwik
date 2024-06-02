@@ -1,3 +1,8 @@
+/**
+ * title: Styling accordion
+ * description: You can style accordion content and headers by passing tailwind classes into them.
+ */
+
 import { component$ } from '@builder.io/qwik'
 import { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from '~/components/Accordion'
 
