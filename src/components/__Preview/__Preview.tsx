@@ -26,7 +26,8 @@ const getExampleFilePath = server$(function (url: string) {
 const getExampleCode = server$(function (url: string) {
   const rootDir = process.cwd()
   const exampleUrl = `${rootDir}/src/routes${url}/index@examples.tsx`
-  return fs.readFileSync(exampleUrl, 'utf-8')
+  const codeContent = fs.readFileSync(exampleUrl, 'utf-8')
+  return codeContent.replace(/\/\*\*[\s\S]*?\*\//, '').trim()
 })
 
 export const Preview = component$<PreviewProps>(({ url, class: classNames, title, ...props }) => {

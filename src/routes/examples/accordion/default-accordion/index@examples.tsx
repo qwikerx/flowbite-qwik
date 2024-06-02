@@ -1,3 +1,8 @@
+/**
+ * title: Default accordion
+ * description: Use this example to basic accordion.
+ */
+
 import { component$ } from '@builder.io/qwik'
 import { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from '~/components/Accordion'
 

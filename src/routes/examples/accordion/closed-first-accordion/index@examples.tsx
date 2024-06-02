@@ -1,3 +1,7 @@
+/**
+ * title: Closed first accordion
+ * description: First item is not open by default
+ */
 import { component$ } from '@builder.io/qwik'
 import { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from '~/components/Accordion'
 
