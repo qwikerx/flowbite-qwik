@@ -9,7 +9,7 @@ export const Badge = component$<BadgeClassesProps>(({ icon: Icon, onClose$, ...p
 
   return (
     <Tag {...props} class={badgeClasses.value}>
-      {Boolean(Icon) && Icon && <Icon />}
+      {!!Icon && <Icon />}
       {props.content}
 
       {props.chips && (

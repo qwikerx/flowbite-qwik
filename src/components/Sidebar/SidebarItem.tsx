@@ -33,7 +33,7 @@ export const InnerSidebarItem = component$<SidebarItemProps>(({ tag: Tag = 'a', 
         isCollapse ? 'pl-11' : '',
       ]}
     >
-      {Boolean(Icon) && Icon && !isCollapse && (
+      {!!Icon && !isCollapse && (
         <Icon class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
       )}
       <span class={['flex-1 whitespace-nowrap text-left', Icon ? 'ml-3' : '']}>
