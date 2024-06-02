@@ -1,13 +1,14 @@
 /**
- * title: Closed first accordion
- * description: First item is not open by default
+ * title: Default accordion
+ * description: Use this example of the <Accordion> component and the <AccordionPanel>, <AccordionHeader> and <AccordionContent> subcomponents to create an accordion with multiple panels.
  */
+
 import { component$ } from '@builder.io/qwik'
 import { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from '~/components/Accordion'
 
 export default component$(() => {
   return (
-    <Accordion openFirstItem={false}>
+    <Accordion>
       <AccordionPanel>
         <AccordionHeader>
           <h2>Accordion 1</h2>

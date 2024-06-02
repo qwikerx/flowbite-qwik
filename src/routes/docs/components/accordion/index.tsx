@@ -1,49 +1,28 @@
 import { component$, useComputed$ } from '@builder.io/qwik'
-import { server$ } from '@builder.io/qwik-city'
 import { Preview } from '~/components/__Preview/__Preview'
-import fs from 'fs'
-
-export const getAccordionsPreview = server$(() => {
-  function getTitleAndDescription(fileContent: string) {
-    const pattern = /\/\*\*[^]*?title:\s*(.*?)\s*\*[^]*?description:\s*(.*?)\s*\*\//
-    const match = pattern.exec(fileContent)
-
-    let title = ''
-    let description = ''
-
-    if (match) {
-      title = match[1].trim()
-      description = match[2].trim()
-    }
-
-    return {
-      title,
-      description,
-    }
-  }
-
-  const accordions = fs.readdirSync('src/routes/examples/accordion').map((file) => {
-    const path = 'src/routes/examples/accordion/' + file
-    const content = fs.readFileSync(path + '/index@examples.tsx', 'utf-8')
-    const { title, description } = getTitleAndDescription(content)
-    return {
-      title,
-      description,
-      url: '/examples/accordion/' + file,
-      height: '300',
-    }
-  })
-  return accordions
-})
+import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
+import { extractExamples } from '~/routes'
 
 export default component$(() => {
-  const accordions = useComputed$(() => getAccordionsPreview())
+  const examples = useComputed$(() => extractExamples('accordion', 300))
 
   return (
-    <section class="flex flex-col gap-8">
-      {accordions.value.map((accordion) => (
-        <Preview title={accordion.title} url={accordion.url} description={accordion.description} height={accordion.height} />
-      ))}
+    <section>
+      <div class="pb-4 mb-5">
+        <h1 class="inline-block mb-2 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white">Qwik Accordion - Flowbite</h1>
+        <p class="mb-4 pb-4 text-lg text-gray-600 dark:text-gray-400 border-b border-gray-200 dark:border-gray-800">
+          Use the accordion component to show hidden information based on the collapse and expand state of the child elements using data attribute
+          options
+        </p>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">To start using the accordion component you need to import it from Flowbite Qwik :</p>
+        <CodeBlock content={`import { Accordion } from "flowbite-qwik"`} language="tsx" simple />
+      </div>
+
+      <div class="flex flex-col gap-8">
+        {examples.value.map((example) => (
+          <Preview title={example.title} url={example.url} description={example.description} height={example.height} />
+        ))}
+      </div>
     </section>
   )
 })

@@ -1,14 +1,13 @@
 /**
- * title: Default accordion
- * description: Use this example to basic accordion.
+ * title: Closed first accordion
+ * description: By default first item is opened, but you can disable this option
  */
-
 import { component$ } from '@builder.io/qwik'
 import { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from '~/components/Accordion'
 
 export default component$(() => {
   return (
-    <Accordion>
+    <Accordion openFirstItem={false}>
       <AccordionPanel>
         <AccordionHeader>
           <h2>Accordion 1</h2>

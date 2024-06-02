@@ -1,6 +1,6 @@
 /**
  * title: Always open accordion
- * description: Always open prop to makes accordion able to open multiple elements.
+ * description: Always open option to keep previously opened accordion elements unchanged.
  */
 import { component$ } from '@builder.io/qwik'
 import { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from '~/components/Accordion'

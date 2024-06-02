@@ -3,6 +3,33 @@ import { Button } from '~/components/Button/Button'
 import { Jumbotron, JumbotronHeading, JumbotronSubText } from '~/components/Jumbotron'
 import { IconArrowRightOutline } from '..'
 import { DocFooter } from '~/components/__Footer/__Footer'
+import { server$ } from '@builder.io/qwik-city'
+import fs from 'fs'
+
+export const extractExamples = server$((componentName: string, height = 50) => {
+  function getTitleAndDescription(fileContent: string) {
+    const pattern = /\/\*\*[^]*?title:\s*(.*?)\s*\*[^]*?description:\s*(.*?)\s*\*\//
+
+    const match = pattern.exec(fileContent)
+    return {
+      title: match && match[1] ? match[1].trim() : '',
+      description: match && match[2] ? match[2].trim() : '',
+    }
+  }
+
+  return fs.readdirSync(`src/routes/examples/${componentName}`).map((file) => {
+    const path = `src/routes/examples/${componentName}/` + file
+    const content = fs.readFileSync(path + '/index@examples.tsx', 'utf-8')
+    const { title, description } = getTitleAndDescription(content)
+
+    return {
+      title,
+      description,
+      url: `/examples/${componentName}/` + file,
+      height,
+    }
+  })
+})
 
 export default component$(() => {
   const boxes = [
