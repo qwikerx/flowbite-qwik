@@ -82,7 +82,7 @@ export const Drawer = component$<DrawerProps>(
               }
             }}
           >
-            {Boolean(TitleIcon) && TitleIcon && <TitleIcon class="me-2.5 h-4 w-4" />}
+            {!!TitleIcon && <TitleIcon class="me-2.5 h-4 w-4" />}
             {title}
 
             {isEdge.value ? (

@@ -1,4 +1,3 @@
-import { join } from 'path'
 import flowbitePlugin from 'flowbite/plugin'
 
 export default {
@@ -26,6 +25,6 @@ export default {
       },
     },
   },
-  content: [join(__dirname, 'src/**/*.{js,ts,jsx,tsx,mdx}')],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   plugins: [flowbitePlugin],
 }

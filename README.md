@@ -60,7 +60,6 @@ npm i flowbite flowbite-qwik
 2. Require `flowbite` as a plugin inside the `tailwind.config.js` file:
 
 ```javascript
-import { join } from 'path'
 import flowbitePlugin from 'flowbite/plugin'
 
 export default {
@@ -85,6 +84,37 @@ export default {
   content: ['node_modules/flowbite-qwik/**/*.{cjs,mjs}'],
   plugins: [flowbitePlugin],
 }
+```
+
+### Setup `flowbite-qwik` providers
+
+In your `src/root.tsx` file, import the `FlowbiteProvider` and wrap your app with it and define the theme and toast position.
+
+Default values are `theme="blue"` and `toastPosition="top-right"`.
+
+If you want to use the dark mode, you will also need to add the `FlowbiteProviderHeader` component in the head of your app.
+
+```tsx
+import { FlowbiteProvider } from 'flowbite-qwik'
+
+export default component$(() => {
+  return (
+    <QwikCityProvider>
+      <head>
+        <meta charSet="utf-8" />
+        <RouterHead />
+        // Add this line to detect user's system preference
+        <FlowbiteProviderHeader />
+      </head>
+      <body lang="fr">
+        // Add the FlowbiteProvider component to wrap your app
+        <FlowbiteProvider toastPosition="top-right" theme="blue">
+          <RouterOutlet />
+        </FlowbiteProvider>
+      </body>
+    </QwikCityProvider>
+  )
+})
 ```
 
 ## Components

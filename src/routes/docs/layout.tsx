@@ -47,10 +47,10 @@ export default component$(() => {
             <SidebarItem href="/docs/components/spinner">Spinner</SidebarItem>
             <SidebarItem href="/docs/components/tabs">Tabs</SidebarItem>
             <SidebarItem href="/docs/components/toast">Toast</SidebarItem>
-            <SidebarItem href="/docs/components/toggle">Toggle</SidebarItem>
           </SidebarCollapse>
           <SidebarCollapse label="Form">
             <SidebarItem href="/docs/components/input">Input</SidebarItem>
+            <SidebarItem href="/docs/components/toggle">Toggle</SidebarItem>
           </SidebarCollapse>
           <SidebarCollapse label="Extra">
             <SidebarItem href="/docs/components/code-block">CodeBlock</SidebarItem>

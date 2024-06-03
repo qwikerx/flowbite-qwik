@@ -1,12 +1,12 @@
 import {
   $,
+  Component,
   component$,
   createElement,
   Fragment,
   FunctionComponent,
   JSXChildren,
   JSXNode,
-  JSXOutput,
   PropsOf,
   Slot,
   useComputed$,
@@ -18,6 +18,7 @@ import { TabsVariant } from '~/components/Tabs/tabs-types'
 import { useTabClasses } from '~/components/Tabs/composables/use-tab-classes'
 import { getChild } from '~/utils/getChild'
 import uuid from '~/utils/uuid'
+import { IconProps } from '@qwikest/icons/*'
 
 interface ComponentType {
   id: number
@@ -25,7 +26,7 @@ interface ComponentType {
   disabled: boolean
   tab: {
     title: string
-    icon?: JSXOutput
+    icon?: Component<IconProps>
   }
   panel: {
     children: JSXChildren
@@ -56,7 +57,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, variant = 'defaul
           disabled: Boolean(child.props.disabled),
           tab: {
             title: child.props.title as string,
-            icon: child.props.icon as JSXOutput | undefined,
+            icon: child.props.icon as Component<IconProps> | undefined,
           },
           panel: {
             children: Array.isArray(child.children) ? createElement(Fragment, { key: uuid() }, child.children) : child.children,
@@ -76,7 +77,7 @@ export const Tabs: FunctionComponent<TabsProps> = ({ children, variant = 'defaul
 type TabProps = PropsOf<'div'> & {
   active?: boolean
   disabled?: boolean
-  icon?: JSXOutput
+  icon?: Component<IconProps>
 }
 export const Tab = component$<TabProps>(() => {
   return <Slot />
@@ -149,7 +150,7 @@ type InnerTabProps = PropsOf<'div'> & {
   variant: TabsVariant
   active: boolean
   disabled: boolean
-  icon?: JSXOutput
+  icon?: Component<IconProps>
 }
 const InnerTab = component$<InnerTabProps>((props) => {
   const { tabClasses } = useTabClasses({
@@ -168,7 +169,7 @@ const InnerTab = component$<InnerTabProps>((props) => {
       aria-disabled={props.disabled}
       aria-controls={`${props.tabsId}-tabpanel-${props.id}`}
     >
-      {props.icon}
+      {!!props.icon && <props.icon class="h4 w-4" />}
       <Slot />
     </button>
   )
