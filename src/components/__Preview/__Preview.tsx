@@ -9,6 +9,8 @@ import { useMediaQuery } from '~/composables/use-media-query'
 import { Spinner } from '~/components/Spinner/Spinner'
 import { isBrowser } from '@builder.io/qwik/build'
 import styles from './preview.css?inline'
+import { toSlug } from '~/utils/slug'
+import { useFlowbiteThemable } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
 
 type PreviewProps = PropsOf<'iframe'> & {
   url: string
@@ -33,6 +35,7 @@ const getExampleCode = server$(function (url: string) {
 export const Preview = component$<PreviewProps>(({ url, class: classNames, title, ...props }) => {
   useStyles$(styles)
   const { isDark } = useDark()
+  const { textClasses } = useFlowbiteThemable()
 
   const desktopScreen = useMediaQuery('(min-width: 1024px)')
   const tabletScreen = useMediaQuery('(min-width: 768px)')
@@ -66,7 +69,12 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, title
 
   return (
     <div>
-      <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">{title}</h2>
+      <h2 class="group scroll-mt-20 text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3" id={toSlug(title)}>
+        {title}
+        <a class={['group-hover:inline hidden pl-2', textClasses.value]} href={`#${toSlug(title)}`}>
+          #
+        </a>
+      </h2>
       {props.description && <p class="text-gray-600 dark:text-gray-400 mb-4">{props.description}</p>}
       <div class="flex justify-between p-4 bg-gray-50 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
         <ul>
@@ -126,7 +134,9 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, title
           {displaySize.value ? (
             <iframe ref={iframe} src={`${url}${rtl.value ? '?rtl' : ''}`} {...props} class={['w-full', classNames]} />
           ) : (
-            <div class="flex justify-center w-full">{<Spinner size="6" />}</div>
+            <div class="flex justify-center w-full mx-auto items-center" style={{ height: `${props.height}px` }}>
+              {<Spinner size="6" />}
+            </div>
           )}
         </div>
       </div>
