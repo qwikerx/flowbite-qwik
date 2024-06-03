@@ -12,6 +12,7 @@ import {
   useStore,
   createElement,
   Fragment,
+  useVisibleTask$,
 } from '@builder.io/qwik'
 import { getChild } from '~/utils/getChild'
 import { Button } from '~/components/Button/Button'
@@ -108,6 +109,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
 
   const visible = useSignal(false)
   const dropdownRef = useSignal<HTMLDivElement>()
+  const dropdownModalRef = useSignal<HTMLDivElement>()
   const componentsAsSignals = useStore(() => components, { deep: true })
 
   const toggleVisible = $(() => {
@@ -117,6 +119,18 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
   const TriggerButtonAs = as ? InnerTriggerAs : undefined
 
   useDocumentOuterClick([dropdownRef], toggleVisible, visible)
+
+  useVisibleTask$(() => {
+    const dropdownWidth = dropdownRef.value?.offsetWidth ?? 0
+    const dropdownModalWidth = dropdownModalRef.value?.offsetWidth ?? 0
+
+    if (dropdownWidth === dropdownModalWidth) return
+    if (dropdownWidth > dropdownModalWidth) {
+      dropdownModalRef.value!.style.left = `-${(dropdownWidth - dropdownModalWidth) / 2}px`
+    } else {
+      dropdownModalRef.value!.style.left = `-${(dropdownModalWidth - dropdownWidth) / 2}px`
+    }
+  })
 
   return (
     <div class={['inline-flex relative justify-center']} title={title}>
@@ -141,38 +155,36 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
           />
         )}
 
-        {visible.value && (
-          <div role="menu" class={[dropdownModalClasses.value]}>
-            <ul tabIndex={0} class="py-1 focus:outline-none">
-              {componentsAsSignals.map((comp) => (
-                <li role="menuitem" key={comp.id}>
-                  {comp.header ? (
-                    <InnerDropdownHeader size={size} inline={inline}>
-                      {comp.content}
-                    </InnerDropdownHeader>
-                  ) : comp.divider ? (
-                    <InnerDropdownDivider size={size} inline={inline} />
-                  ) : (
-                    <InnerDropdownItem
-                      size={size}
-                      inline={inline}
-                      icon={comp.icon}
-                      onClick$={$(() => {
-                        comp.onClick$?.()
+        <div ref={dropdownModalRef} role="menu" class={[dropdownModalClasses.value, visible.value ? 'visible' : 'invisible']}>
+          <ul tabIndex={0} class="py-1 focus:outline-none">
+            {componentsAsSignals.map((comp) => (
+              <li role="menuitem" key={comp.id}>
+                {comp.header ? (
+                  <InnerDropdownHeader size={size} inline={inline}>
+                    {comp.content}
+                  </InnerDropdownHeader>
+                ) : comp.divider ? (
+                  <InnerDropdownDivider size={size} inline={inline} />
+                ) : (
+                  <InnerDropdownItem
+                    size={size}
+                    inline={inline}
+                    icon={comp.icon}
+                    onClick$={$(() => {
+                      comp.onClick$?.()
 
-                        if (closeWhenSelect) {
-                          toggleVisible()
-                        }
-                      })}
-                    >
-                      {comp.content}
-                    </InnerDropdownItem>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+                      if (closeWhenSelect) {
+                        toggleVisible()
+                      }
+                    })}
+                  >
+                    {comp.content}
+                  </InnerDropdownItem>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   )
