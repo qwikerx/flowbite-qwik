@@ -39,6 +39,7 @@ export default component$(() => {
             <SidebarItem href="/docs/components/button">Button</SidebarItem>
             <SidebarItem href="/docs/components/drawer">Drawer</SidebarItem>
             <SidebarItem href="/docs/components/dropdown">Dropdown</SidebarItem>
+            <SidebarItem href="/docs/components/icon">Icon</SidebarItem>
             <SidebarItem href="/docs/components/jumbotron">Jumbotron</SidebarItem>
             <SidebarItem href="/docs/components/modal">Modal</SidebarItem>
             <SidebarItem href="/docs/components/navbar">Navbar</SidebarItem>

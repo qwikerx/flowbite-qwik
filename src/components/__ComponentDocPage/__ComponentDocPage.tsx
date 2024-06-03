@@ -45,6 +45,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
 
   return (
     <section class="flex flex-col gap-8">
+      <h1 class="capitalize text-4xl font-bold mb-7">{name}</h1>
       {items.value.map((item) => (
         <Preview title={item.title} url={item.url} description={item.description} height={item.height} />
       ))}

@@ -1,7 +1,7 @@
 import { Component, JSXChildren, JSXNode } from '@builder.io/qwik'
 
 type FoundComponent = {
-  component: Component
+  component: Component | string
   foundComponentCallback: (child: JSXNode, index: number) => void
 }
 
