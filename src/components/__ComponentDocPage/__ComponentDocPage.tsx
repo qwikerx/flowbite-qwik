@@ -30,7 +30,6 @@ export const getItemsPreview = server$((itemName: string) => {
       title,
       description,
       url: `/examples/${itemName}/${file}`,
-      height: '200',
     }
   })
   return items
@@ -38,16 +37,17 @@ export const getItemsPreview = server$((itemName: string) => {
 
 interface Item {
   name: string
+  height?: number
 }
 
-export const ComponentDocPage = component$<Item>(({ name }) => {
+export const ComponentDocPage = component$<Item>(({ name, height = 200 }) => {
   const items = useComputed$(() => getItemsPreview(name))
 
   return (
     <section class="flex flex-col gap-8">
       <h1 class="capitalize text-4xl font-bold mb-7">{name}</h1>
       {items.value.map((item) => (
-        <Preview title={item.title} url={item.url} description={item.description} height={item.height} />
+        <Preview title={item.title} url={item.url} description={item.description} height={height} />
       ))}
     </section>
   )
