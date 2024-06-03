@@ -62,9 +62,15 @@ export const CodeBlock = component$<CodeBlockProps>(({ content, language }) => {
           </Button>
         </div>
       </div>
-      <pre dangerouslySetInnerHTML={highlightedContent.value} class={['p-4 overflow-auto', isCollapsed.value ? 'max-h-32' : 'max-h-none']} />
+      <pre dangerouslySetInnerHTML={highlightedContent.value} class={['p-4 overflow-auto', isCollapsed.value ? 'max-h-48' : 'max-h-none']} />
 
-      <Button color="dark" size="md" full class="rounded-t-none border-t" onClick$={() => (isCollapsed.value = !isCollapsed.value)}>
+      <Button
+        color="light"
+        size="md"
+        full
+        class="rounded-t-none border-t text-gray-800 bg-gray-100 border-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600"
+        onClick$={() => (isCollapsed.value = !isCollapsed.value)}
+      >
         {isCollapsed.value ? 'Expand code' : 'Collapse code'}
       </Button>
     </div>
