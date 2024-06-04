@@ -1,99 +1,39 @@
 {
-  "name": "flowbite-qwik",
-  "version": "0.14.1",
-  "description": "Unofficial Qwik components built for Flowbite and Tailwind CSS",
-  "keywords": [
-    "design-system",
-    "component-library",
-    "flowbite",
-    "flowbite-qwik",
-    "qwik",
-    "qwikjs",
-    "tailwind",
-    "tailwindcss"
-  ],
-  "bugs": "https://github.com/xmimiex/flowbite-qwik/issues",
-  "repository": "https://github.com/xmimiex/flowbite-qwik.git",
-  "license": "MIT",
-  "module": "./lib/flowbite.qwik.mjs",
-  "main": "./lib/flowbite.qwik.cjs",
-  "types": "./lib-types/index.d.ts",
-  "qwik": "./lib/flowbite.qwik.mjs",
-  "type": "module",
-  "style": "./lib/style.css",
-  "exports": {
-    ".": {
-      "import": "./lib/flowbite.qwik.mjs",
-      "require": "./lib/flowbite.qwik.cjs",
-      "types": "./lib-types/index.d.ts"
-    },
-    "./package.json": "./package.json",
-    "./lib/*": "./lib/*",
-    "./lib-types/*": "./lib-types/*"
-  },
-  "files": [
-    "lib",
-    "lib-types"
-  ],
+  "name": "flowbite-qwik-root",
+  "version": "1.0.0",
+  "description": "",
+  "packageManager": "pnpm@9.1.1",
+  "engineStrict": true,
   "engines": {
-    "node": ">=20.0.0"
+    "pnpm": ">=9",
+    "node": ">=20"
   },
-  "engines-annotation": "Mostly required by sharp which needs a Node-API v9 compatible runtime",
-  "private": false,
-  "trustedDependencies": [
-    "sharp"
-  ],
-  "trustedDependencies-annotation": "Needed for bun to allow running install scripts",
   "scripts": {
-    "build": "rm -rf lib && rm -rf lib-types && vite build --mode lib && npm run build.types",
-    "build.watch": "vite build --mode lib --watch",
-    "build.types": "tsc --emitDeclarationOnly --declaration && tsc-alias -p tsconfig.json",
-    "build.types.watch": "tsc --watch --emitDeclarationOnly --declaration",
-    "dev": "vite --mode ssr",
-    "dev.debug": "node --inspect-brk ./node_modules/vite/bin/vite.js --mode ssr --force",
-    "fmt": "prettier --write .",
-    "fmt.check": "prettier --check .",
-    "generate:icons": "tsx ./src/scripts/generate-icons.ts",
-    "lint": "npx eslint",
-    "release": "np",
-    "start": "vite --open --mode ssr",
-    "qwik": "qwik",
-    "test": "vitest run --coverage"
+    "build": "pnpm -r build",
+    "build:watch": "run-p build:tsc:watch",
+    "build:tsc": "tsc --noEmit && tsc --build",
+    "build:tsc:watch": "tsc --build --watch",
+    "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules && pnpm -r exec rm -rf dist",
+    "prebuild": "tsc --build --clean",
+    "test": "pnpm -r test",
+    "test:coverage": "pnpm -r test:coverage",
+    "lint": "eslint \"{bootstrap,application,domain,infrastructure}/**/*.{js,ts}\"",
+    "lint:fix": "npm run lint -- --fix",
+    "migrate:create": "pnpm -r migrate:create",
+    "start:rest-api": "pnpm -r migrate:push && pnpm --filter rest-api run prod",
+    "start:graphql-api": "pnpm -r migrate:push && pnpm --filter graphql-api run prod",
+    "qwikapp": "pnpm -r migrate:push && pnpm --filter qwik-webapp run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "typescript": "^5.4.3"
   },
   "dependencies": {
-    "@qwikest/icons": "^0.0.13",
-    "flowbite": "^2.3.0",
-    "rehype-highlight": "^7.0.0",
-    "rehype-parse": "^9.0.0",
-    "rehype-sanitize": "^6.0.0",
-    "rehype-stringify": "^10.0.0",
-    "tailwind-merge": "^2.3.0",
-    "unified": "^11.0.4"
-  },
-  "devDependencies": {
-    "@types/eslint": "^8.56.10",
-    "@types/node": "^20.12.13",
-    "@vitest/coverage-v8": "^1.6.0",
-    "autoprefixer": "^10.4.19",
-    "clsx": "^2.1.1",
-    "eslint": "^9.3.0",
-    "eslint-config-prettier": "^9.1.0",
-    "np": "^10.0.5",
-    "postcss": "^8.4.38",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "tsc-alias": "^1.8.10",
-    "tsx": "^4.11.0",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^8.0.0-alpha.23",
-    "undici": "^6.18.1",
-    "vite": "^5.2.12",
-    "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^1.6.0"
-  },
-  "peerDependencies": {
-    "@builder.io/qwik": "1.5.5",
-    "@builder.io/qwik-city": "1.5.5",
-    "tailwindcss": "^3.4.3"
+    "npm-run-all": "^4.1.5",
+    "vitest": "^1.4.0"
   }
 }

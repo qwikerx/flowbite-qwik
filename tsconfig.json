@@ -1,34 +1,43 @@
 {
+  "excludeDirectories": [
+    "**/node_modules"
+  ],
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["ESNext", "DOM", "WebWorker", "DOM.Iterable"],
-    "jsx": "react-jsx",
-    "jsxImportSource": "@builder.io/qwik",
-
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-
-    "allowJs": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-
-    "strict": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "preserveSymlinks": true,
+    "composite": true /* Enable constraints that allow a TypeScript project to be used with project references. */,
     "incremental": true,
-    "skipLibCheck": true,
-
+    "resolveJsonModule": true,
+    "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */,
+    /* Language and Environment */
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+    /* Modules */
+    "module": "ESNext", /* Specify what module code is generated. */
+    "sourceMap": true /* Create source map files for emitted JavaScript files. */,
+    "declarationMap": true,
+    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    "strict": true /* Enable all strict type-checking options. */,
+    "noImplicitReturns": true /* Enable error reporting for codepaths that do not explicitly return in a function. */,
+    "noFallthroughCasesInSwitch": true /* Enable error reporting for fallthrough cases in switch statements. */,
+    "noUncheckedIndexedAccess": true /* Include 'undefined' in index signature results */,
+    "noImplicitOverride": true /* Ensure overriding members in derived classes are marked with an override modifier. */ /* Skip type checking all .d.ts files. */,
     "declaration": true,
-    "declarationDir": "lib-types",
-    "outDir": "lib-types",
-    "types": ["node", "vite/client"],
-    "paths": {
-      "~/*": ["./src/*"]
-    }
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "**/*.d.ts"],
+  "files": [],
+  "references": [
+    {
+      "path": "apps/web"
+    },
+    {
+      "path": "packages/lib"
+    },
+  ]
 }
