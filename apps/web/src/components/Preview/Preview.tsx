@@ -1,6 +1,4 @@
 import { PropsOf, component$, useComputed$, useSignal, useTask$, useStyles$ } from '@builder.io/qwik'
-import { server$ } from '@builder.io/qwik-city'
-import fs from 'fs'
 import { isBrowser } from '@builder.io/qwik/build'
 import styles from './preview.css?inline'
 import { toSlug } from '~/utils/slug'
@@ -21,23 +19,14 @@ type PreviewProps = PropsOf<'iframe'> & {
   url: string
   title: string
   description?: string
+  codeContent?: string
 }
 
 type PreviewDisplaySize = 'mobile' | 'tablet' | 'desktop'
 
-const getExampleFilePath = server$(function (url: string) {
-  const liveDir = 'https://github.com/xmimiex/flowbite-qwik/blob/main'
-  return `${liveDir}/src/routes${url}/index@examples.tsx`
-})
+const liveDir = 'https://github.com/xmimiex/flowbite-qwik/blob/main'
 
-const getExampleCode = server$(function (url: string) {
-  const rootDir = process.cwd()
-  const exampleUrl = `${rootDir}/src/routes${url}/index@examples.tsx`
-  const codeContent = fs.readFileSync(exampleUrl, 'utf-8')
-  return codeContent.replace(/\/\*\*[\s\S]*?\*\//, '').trim()
-})
-
-export const Preview = component$<PreviewProps>(({ url, class: classNames, title, ...props }) => {
+export const Preview = component$<PreviewProps>(({ url, class: classNames, title, codeContent, ...props }) => {
   useStyles$(styles)
   const { isDark } = useDark()
   const { themeName, textClasses } = useFlowbiteThemable()
@@ -49,14 +38,9 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, title
 
   const iframe = useSignal<HTMLIFrameElement>()
 
-  const code = useComputed$(() => getExampleCode(url))
-  const fileUrl = useComputed$(() => getExampleFilePath(url))
+  const fileUrl = useComputed$(() => `${liveDir}${url}`)
   const iframeSrc = useComputed$(() => {
-    let src = url + '?theme=' + themeName.value
-    if (rtl.value) {
-      src += '&rtl'
-    }
-    return src
+    return url.replace('[theme-rtl]', `${themeName.value}-${rtl.value ? 'rtl' : 'ltr'}`)
   })
 
   useTask$(({ track }) => {
@@ -155,7 +139,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, title
       </div>
 
       <div class="relative">
-        <CodeBlock content={code.value} language="tsx" />
+        <CodeBlock content={codeContent ?? ''} language="tsx" />
       </div>
     </div>
   )

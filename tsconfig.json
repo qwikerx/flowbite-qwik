@@ -1,21 +1,15 @@
 {
-  "excludeDirectories": [
-    "**/node_modules"
-  ],
+  "excludeDirectories": ["**/node_modules"],
   "compilerOptions": {
     "preserveSymlinks": true,
     "composite": true /* Enable constraints that allow a TypeScript project to be used with project references. */,
     "incremental": true,
-    "resolveJsonModule": true,
     "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables `allowSyntheticDefaultImports` for type compatibility. */,
     /* Language and Environment */
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext", "DOM"],
     "target": "ESNext" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
     /* Modules */
-    "module": "ESNext", /* Specify what module code is generated. */
+    "module": "ESNext" /* Specify what module code is generated. */,
     "sourceMap": true /* Create source map files for emitted JavaScript files. */,
     "declarationMap": true,
     "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
@@ -38,6 +32,6 @@
     },
     {
       "path": "packages/lib"
-    },
+    }
   ]
 }

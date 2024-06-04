@@ -38,6 +38,4 @@ lerna-debug.log*
 .yarn/*
 !.yarn/releases
 /coverage/
-
-# Vercel
-.vercel
+/server/
