@@ -66,12 +66,14 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({ children, label, as
       <InnerDropdown
         components={components}
         label={label}
-        as={as}
         closeWhenSelect={closeWhenSelect}
         inline={inline}
         size={size}
         title={attrs.title}
-      />
+        asTrigger={!!as}
+      >
+        {as}
+      </InnerDropdown>
     </div>
   )
 }
@@ -93,15 +95,15 @@ export const DropdownItem = component$<DropdownItemProps>(() => {
 
 type InnerDropdownProps = {
   label?: string
-  as?: JSXOutput
   closeWhenSelect: boolean
   components: ComponentType[]
   inline: boolean
   size: DropdownSize
   title?: string
+  asTrigger?: boolean
 }
 
-const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSelect, components, inline, size, title }) => {
+const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeWhenSelect, components, inline, size, title }) => {
   const { dropdownModalClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
@@ -115,8 +117,8 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
   const toggleVisible = $(() => {
     visible.value = !visible.value
   })
-  const TriggerButton = inline ? InnerTriggerInline : InnerTriggerButton
-  const TriggerButtonAs = as ? InnerTriggerAs : undefined
+  const TriggerButton = useComputed$(() => (inline ? InnerTriggerInline : InnerTriggerButton))
+  const TriggerButtonAs = useComputed$(() => (asTrigger ? InnerTriggerAs : undefined))
 
   useDocumentOuterClick([dropdownRef], toggleVisible, visible)
 
@@ -135,17 +137,18 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, as, closeWhenSele
   return (
     <div class={['inline-flex relative justify-center']} title={title}>
       <div ref={dropdownRef}>
-        {TriggerButtonAs ? (
-          <TriggerButtonAs
+        {TriggerButtonAs.value ? (
+          <TriggerButtonAs.value
             onClick$={() => {
               toggleVisible()
             }}
             size={size}
             inline={inline}
-            as={as}
-          />
+          >
+            <Slot />
+          </TriggerButtonAs.value>
         ) : (
-          <TriggerButton
+          <TriggerButton.value
             onClick$={() => {
               toggleVisible()
             }}
@@ -281,10 +284,9 @@ const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, i
 type InnerTriggerAsProps = {
   onClick$: () => void
   size: DropdownSize
-  as: JSXOutput
   inline: boolean
 }
-const InnerTriggerAs = component$<InnerTriggerAsProps>(({ as, size, inline, onClick$ }) => {
+const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, onClick$ }) => {
   const { triggerInlineClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
@@ -292,7 +294,7 @@ const InnerTriggerAs = component$<InnerTriggerAsProps>(({ as, size, inline, onCl
 
   return (
     <button onClick$={onClick$} class={triggerInlineClasses.value}>
-      {as}
+      <Slot />
     </button>
   )
 })
