@@ -119,23 +119,22 @@ export default component$(() => {
 
 ## Components
 
-- Accordions
-- Badges
-- Breadcrumbs
-- Buttons
-- CodeBlock
+- Accordion
+- Badge
+- Breadcrumb
+- Button
 - Drawer
 - Dropdown
 - Footer
-- Inputs
+- Input
 - Jumbotron
 - Modal
 - Navbar
-- Ratings
+- Rating
 - Sidebar
 - Spinner
 - Tabs
-- Toasts
+- Toast
 - Toggle
 
 ## composables
