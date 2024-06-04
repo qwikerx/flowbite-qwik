@@ -70,7 +70,29 @@ export default component$(() => {
       </div>
 
       <h2 class="text-2xl font-semibold my-3">User avatar</h2>
-      <div>
+      <div class="flex gap-5">
+        <Dropdown as={<img class="w-8 h-8 rounded-full" src="/profile-picture.jpg" alt="user photo" />}>
+          <DropdownItem header>
+            <span class="block text-sm">Bonnie Green</span>
+            <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
+          </DropdownItem>
+          <DropdownItem>Dashboard</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem>Sign out</DropdownItem>
+        </Dropdown>
+
+        <Dropdown as={<img class="w-8 h-8 rounded-full" src="/profile-picture.jpg" alt="user photo" />}>
+          <DropdownItem header>
+            <span class="block text-sm">Bonnie Green</span>
+            <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
+          </DropdownItem>
+          <DropdownItem>Dashboard</DropdownItem>
+          <DropdownItem>Settings</DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem>Sign out</DropdownItem>
+        </Dropdown>
+
         <Dropdown as={<img class="w-8 h-8 rounded-full" src="/profile-picture.jpg" alt="user photo" />}>
           <DropdownItem header>
             <span class="block text-sm">Bonnie Green</span>
