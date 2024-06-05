@@ -21,7 +21,7 @@ export default component$(() => {
       <Sidebar
         ref={sidebar}
         class={[
-          'fixed top-14 pb-14 left-0 h-full w-full max-w-64 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 lg:translate-x-0',
+          'fixed z-50 top-14 pb-14 left-0 h-full w-full max-w-64 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 lg:translate-x-0',
           isSidebarOpen.value ? 'translate-x-0' : '-translate-x-full',
         ]}
       >

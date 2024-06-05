@@ -9,7 +9,6 @@ import {
   Slot,
   useComputed$,
   useSignal,
-  useStore,
   createElement,
   Fragment,
   useVisibleTask$,
@@ -25,7 +24,7 @@ import { useDropdownClasses } from '~/components/Dropdown/composables/use-dropdo
 import uuid from '~/utils/uuid'
 
 interface ComponentType {
-  id: number
+  id: string
   value?: string
   header: boolean
   divider: boolean
@@ -49,7 +48,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({ children, label, as
       component: DropdownItem,
       foundComponentCallback: (child, index) => {
         components.push({
-          id: index,
+          id: `${index}-${uuid()}`,
           value: child.props.value as string | undefined,
           header: Boolean(child.props.header),
           divider: Boolean(child.props.divider),
@@ -112,7 +111,6 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
   const visible = useSignal(false)
   const dropdownRef = useSignal<HTMLDivElement>()
   const dropdownModalRef = useSignal<HTMLDivElement>()
-  const componentsAsSignals = useStore(() => components, { deep: true })
 
   const toggleVisible = $(() => {
     visible.value = !visible.value
@@ -160,7 +158,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
 
         <div ref={dropdownModalRef} role="menu" class={[dropdownModalClasses.value, visible.value ? 'visible' : 'invisible']}>
           <ul tabIndex={0} class="py-1 focus:outline-none">
-            {componentsAsSignals.map((comp) => (
+            {components.map((comp) => (
               <li role="menuitem" key={comp.id}>
                 {comp.header ? (
                   <InnerDropdownHeader size={size} inline={inline}>

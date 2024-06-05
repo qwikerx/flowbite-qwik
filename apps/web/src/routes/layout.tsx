@@ -6,6 +6,7 @@ import {
   Dropdown,
   DropdownItem,
   FlowbiteTheme,
+  IconCheckOutline,
   IconGithubSolid,
   IconMoonOutline,
   IconSunOutline,
@@ -71,7 +72,8 @@ export default component$(() => {
                   setThemeName(theme)
                 }}
               >
-                {themeName.value === theme && '✓'} {theme}
+                {theme}
+                {theme === themeName.value && <IconCheckOutline class="ml-2" />}
               </DropdownItem>
             ))}
           </Dropdown>
