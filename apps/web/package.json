@@ -46,6 +46,7 @@
     "@types/node": "^20.14.1",
     "@vitest/ui": "^1.6.0",
     "autoprefixer": "^10.4.19",
+    "chokidar": "^3.6.0",
     "compression": "^1.7.4",
     "dotenv": "^16.4.5",
     "eslint": "^9.4.0",
