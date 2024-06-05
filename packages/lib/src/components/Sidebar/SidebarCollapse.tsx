@@ -1,4 +1,4 @@
-import { $, Component, FunctionComponent, PropsOf, Slot, component$, useId, useSignal } from '@builder.io/qwik'
+import { Component, FunctionComponent, PropsOf, Slot, component$, useId } from '@builder.io/qwik'
 import { InnerSidebarItem, SidebarItem } from './SidebarItem'
 import { IconProps } from '@qwikest/icons'
 import { IconAngleDownSolid } from '../Icon'
