@@ -1,4 +1,4 @@
-import { $, useOnDocument, useSignal, useTask$ } from '@builder.io/qwik'
+import { $, noSerialize, useOnDocument, useSignal, useTask$ } from '@builder.io/qwik'
 import { isBrowser } from '@builder.io/qwik/build'
 
 export function useMediaQuery(query: string) {
@@ -12,15 +12,15 @@ export function useMediaQuery(query: string) {
 
     matches.value = mediaQuery.matches
 
-    function handleMediaChange(event: MediaQueryListEvent) {
+    const handleMediaChange = $((event: MediaQueryListEvent) => {
       matches.value = event.matches
-    }
+    })
 
     mediaQuery?.addEventListener('change', handleMediaChange)
 
-    return () => {
+    return noSerialize(() => {
       mediaQuery?.removeEventListener('change', handleMediaChange)
-    }
+    })
   })
 
   useOnDocument(

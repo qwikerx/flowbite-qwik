@@ -9,7 +9,6 @@ import {
   Slot,
   useComputed$,
   useSignal,
-  useStore,
   createElement,
   Fragment,
   useVisibleTask$,
@@ -23,9 +22,10 @@ import { IconAngleDownOutline } from '~/components/Icon'
 import { DropdownSize } from '~/components/Dropdown/dropdown-types'
 import { useDropdownClasses } from '~/components/Dropdown/composables/use-dropdown-classes'
 import uuid from '~/utils/uuid'
+import { useToggle } from '~/composables'
 
 interface ComponentType {
-  id: number
+  id: string
   value?: string
   header: boolean
   divider: boolean
@@ -49,7 +49,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({ children, label, as
       component: DropdownItem,
       foundComponentCallback: (child, index) => {
         components.push({
-          id: index,
+          id: `${index}-${uuid()}`,
           value: child.props.value as string | undefined,
           header: Boolean(child.props.header),
           divider: Boolean(child.props.divider),
@@ -109,18 +109,14 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
     useComputed$(() => inline),
   )
 
-  const visible = useSignal(false)
+  const { value: visible, toggle$ } = useToggle(false)
   const dropdownRef = useSignal<HTMLDivElement>()
   const dropdownModalRef = useSignal<HTMLDivElement>()
-  const componentsAsSignals = useStore(() => components, { deep: true })
 
-  const toggleVisible = $(() => {
-    visible.value = !visible.value
-  })
   const TriggerButton = useComputed$(() => (inline ? InnerTriggerInline : InnerTriggerButton))
   const TriggerButtonAs = useComputed$(() => (asTrigger ? InnerTriggerAs : undefined))
 
-  useDocumentOuterClick([dropdownRef], toggleVisible, visible)
+  useDocumentOuterClick([dropdownRef], toggle$, visible)
 
   useVisibleTask$(() => {
     const dropdownWidth = dropdownRef.value?.offsetWidth ?? 0
@@ -140,7 +136,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
         {TriggerButtonAs.value ? (
           <TriggerButtonAs.value
             onClick$={() => {
-              toggleVisible()
+              toggle$()
             }}
             size={size}
             inline={inline}
@@ -150,7 +146,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
         ) : (
           <TriggerButton.value
             onClick$={() => {
-              toggleVisible()
+              toggle$()
             }}
             label={label}
             size={size}
@@ -160,7 +156,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
 
         <div ref={dropdownModalRef} role="menu" class={[dropdownModalClasses.value, visible.value ? 'visible' : 'invisible']}>
           <ul tabIndex={0} class="py-1 focus:outline-none">
-            {componentsAsSignals.map((comp) => (
+            {components.map((comp) => (
               <li role="menuitem" key={comp.id}>
                 {comp.header ? (
                   <InnerDropdownHeader size={size} inline={inline}>
@@ -177,7 +173,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
                       comp.onClick$?.()
 
                       if (closeWhenSelect) {
-                        toggleVisible()
+                        toggle$()
                       }
                     })}
                   >

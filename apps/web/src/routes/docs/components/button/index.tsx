@@ -1,9 +1,9 @@
-import { component$, useSignal } from '@builder.io/qwik'
+import { component$ } from '@builder.io/qwik'
 import { Link } from '@builder.io/qwik-city'
-import { Button, IconArrowLeftOutline, IconArrowRightOutline, IconArrowRightSolid, IconHomeOutline } from 'flowbite-qwik'
+import { Button, IconArrowLeftOutline, IconArrowRightOutline, IconArrowRightSolid, IconHomeOutline, useToggle } from 'flowbite-qwik'
 
 export default component$(() => {
-  const loading = useSignal(false)
+  const { value: loading, toggle$ } = useToggle()
 
   return (
     <section id="buttons">
@@ -182,58 +182,19 @@ export default component$(() => {
 
       <h2 class="my-3">Prop - loading</h2>
       <div class="flex gap-2 items-center">
-        <Button
-          disabled={loading.value}
-          loading={loading.value}
-          gradient="purple-blue"
-          outline
-          size="xs"
-          onClick$={() => {
-            loading.value = !loading.value
-          }}
-        >
+        <Button disabled={loading.value} loading={loading.value} gradient="purple-blue" outline size="xs" onClick$={toggle$}>
           Click me
         </Button>
-        <Button
-          loading={loading.value}
-          gradient="red-yellow"
-          size="sm"
-          onClick$={() => {
-            loading.value = !loading.value
-          }}
-        >
+        <Button loading={loading.value} gradient="red-yellow" size="sm" onClick$={toggle$}>
           Click me
         </Button>
-        <Button
-          loading={loading.value}
-          color="default"
-          loadingPosition="suffix"
-          outline
-          onClick$={() => {
-            loading.value = !loading.value
-          }}
-          suffix={IconArrowLeftOutline}
-        >
+        <Button loading={loading.value} color="default" loadingPosition="suffix" outline onClick$={toggle$} suffix={IconArrowLeftOutline}>
           Click me
         </Button>
-        <Button
-          loading={loading.value}
-          gradient="green-blue"
-          size="lg"
-          onClick$={() => {
-            loading.value = !loading.value
-          }}
-        >
+        <Button loading={loading.value} gradient="green-blue" size="lg" onClick$={toggle$}>
           Click me
         </Button>
-        <Button
-          loading={loading.value}
-          gradient="pink"
-          size="xl"
-          onClick$={() => {
-            loading.value = !loading.value
-          }}
-        >
+        <Button loading={loading.value} gradient="pink" size="xl" onClick$={toggle$}>
           Click me
         </Button>
       </div>

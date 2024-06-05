@@ -4,6 +4,7 @@ import { IconProps } from '@qwikest/icons'
 import { IconAngleDownSolid } from '../Icon'
 import { SidebarItemGroup } from './SidebarItemGroup'
 import { getChild } from '~/utils/getChild'
+import { useToggle } from '~/composables'
 
 type SidebarCollapseProps = PropsOf<'div'> & {
   label: string
@@ -26,12 +27,8 @@ export const SidebarCollapse: FunctionComponent<SidebarCollapseProps> = ({ child
 }
 
 export const InternalSidebarCollapse = component$<SidebarCollapseProps>(({ label, opened = false, icon }) => {
-  const isOpen = useSignal(opened)
+  const { value: isOpen, toggle$ } = useToggle(opened)
   const id = useId()
-
-  const toggle$ = $(() => {
-    isOpen.value = !isOpen.value
-  })
 
   return (
     <li>

@@ -5,7 +5,7 @@ import rehypeParse from 'rehype-parse'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import styles from './code-block.css?inline'
-import { Button, IconCopySolid } from 'flowbite-qwik'
+import { Button, IconCopySolid, useToggle } from 'flowbite-qwik'
 
 type CodeBlockProps = { content: string; language: string; light?: boolean }
 
@@ -25,6 +25,7 @@ async function highlight(content: string, language: string) {
 
 export const CodeBlock = component$<CodeBlockProps>(({ content, language }) => {
   useStyles$(styles)
+  const { value: isCollapsed, toggle$ } = useToggle(true)
 
   const highlightedContent = useComputed$(async () => {
     if (!content) return ''
@@ -32,7 +33,6 @@ export const CodeBlock = component$<CodeBlockProps>(({ content, language }) => {
   })
 
   const copyLabel = useSignal('Copy')
-  const isCollapsed = useSignal(true)
 
   const copy$ = $(() => {
     navigator.clipboard.writeText(content)
@@ -68,7 +68,7 @@ export const CodeBlock = component$<CodeBlockProps>(({ content, language }) => {
         size="md"
         full
         class="rounded-t-none border-t text-gray-800 bg-gray-100 border-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600"
-        onClick$={() => (isCollapsed.value = !isCollapsed.value)}
+        onClick$={toggle$}
       >
         {isCollapsed.value ? 'Expand code' : 'Collapse code'}
       </Button>
