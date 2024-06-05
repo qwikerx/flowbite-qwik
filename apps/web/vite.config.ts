@@ -7,6 +7,7 @@ import { qwikVite } from '@builder.io/qwik/optimizer'
 import { qwikCity } from '@builder.io/qwik-city/vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import pkg from './package.json'
+import watchExamplesRoutes from './vite-plugin'
 
 type PkgDep = Record<string, string>
 const { dependencies = {}, devDependencies = {} } = pkg as any as {
@@ -21,7 +22,7 @@ errorOnDuplicatesPkgDeps(devDependencies, dependencies)
  */
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
-    plugins: [qwikCity(), qwikVite(), tsconfigPaths()],
+    plugins: [qwikCity(), qwikVite(), tsconfigPaths(), watchExamplesRoutes()],
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
       // Put problematic deps that break bundling here, mostly those with binaries.

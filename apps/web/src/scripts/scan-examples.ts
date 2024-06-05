@@ -30,8 +30,9 @@ function JsonToTs(json: Record<string, Example[]>) {
   return JSON.stringify(json, null, 2)
 }
 
-const examples: Record<string, Example[]> = {}
-function getExamplesRoutes() {
+export function getExamplesRoutes() {
+  const examples: Record<string, Example[]> = {}
+  console.log('Scanning examples routes...')
   return fs.readdirSync(`src/routes/examples/[theme-rtl]`).map((component) => {
     const path = `src/routes/examples/[theme-rtl]/${component}`
 
