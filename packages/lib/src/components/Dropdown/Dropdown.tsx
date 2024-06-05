@@ -22,6 +22,7 @@ import { IconAngleDownOutline } from '~/components/Icon'
 import { DropdownSize } from '~/components/Dropdown/dropdown-types'
 import { useDropdownClasses } from '~/components/Dropdown/composables/use-dropdown-classes'
 import uuid from '~/utils/uuid'
+import { useToggle } from '~/composables'
 
 interface ComponentType {
   id: string
@@ -108,17 +109,14 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
     useComputed$(() => inline),
   )
 
-  const visible = useSignal(false)
+  const { value: visible, toggle$ } = useToggle(false)
   const dropdownRef = useSignal<HTMLDivElement>()
   const dropdownModalRef = useSignal<HTMLDivElement>()
 
-  const toggleVisible = $(() => {
-    visible.value = !visible.value
-  })
   const TriggerButton = useComputed$(() => (inline ? InnerTriggerInline : InnerTriggerButton))
   const TriggerButtonAs = useComputed$(() => (asTrigger ? InnerTriggerAs : undefined))
 
-  useDocumentOuterClick([dropdownRef], toggleVisible, visible)
+  useDocumentOuterClick([dropdownRef], toggle$, visible)
 
   useVisibleTask$(() => {
     const dropdownWidth = dropdownRef.value?.offsetWidth ?? 0
@@ -138,7 +136,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
         {TriggerButtonAs.value ? (
           <TriggerButtonAs.value
             onClick$={() => {
-              toggleVisible()
+              toggle$()
             }}
             size={size}
             inline={inline}
@@ -148,7 +146,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
         ) : (
           <TriggerButton.value
             onClick$={() => {
-              toggleVisible()
+              toggle$()
             }}
             label={label}
             size={size}
@@ -175,7 +173,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
                       comp.onClick$?.()
 
                       if (closeWhenSelect) {
-                        toggleVisible()
+                        toggle$()
                       }
                     })}
                   >

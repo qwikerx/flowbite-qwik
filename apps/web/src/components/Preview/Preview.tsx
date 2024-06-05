@@ -12,6 +12,7 @@ import {
   useDark,
   useMediaQuery,
   useFlowbiteThemable,
+  useToggle,
 } from 'flowbite-qwik'
 import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
 
@@ -34,7 +35,8 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, title
   const desktopScreen = useMediaQuery('(min-width: 1024px)')
   const tabletScreen = useMediaQuery('(min-width: 768px)')
   const displaySize = useSignal<PreviewDisplaySize | undefined>()
-  const rtl = useSignal(false)
+
+  const { value: rtl, toggle$ } = useToggle()
 
   const iframe = useSignal<HTMLIFrameElement>()
 
@@ -100,15 +102,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, title
         </ul>
         <ul>
           <li>
-            <Button
-              color="light"
-              square
-              size="sm"
-              onClick$={() => {
-                rtl.value = !rtl.value
-              }}
-              title={`Toggle RTL mode`}
-            >
+            <Button color="light" square size="sm" onClick$={toggle$} title={`Toggle RTL mode`}>
               {rtl.value ? 'LTR' : 'RTL'}
             </Button>
           </li>
