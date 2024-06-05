@@ -1,40 +1,9 @@
 import { component$, useComputed$, useVisibleTask$ } from '@builder.io/qwik'
-import { server$ } from '@builder.io/qwik-city'
 import { Preview } from '~/components/Preview/Preview'
-import fs from 'fs'
 import { TableOfContents } from '~/components/TableOfContents/TableOfContents'
 import { scrollTo } from '~/utils/scroll-to'
+import { examples } from '~/examples'
 
-export const getItemsPreview = server$((itemName: string) => {
-  function getTitleAndDescription(fileContent: string) {
-    const pattern = /\/\*\*[^]*?title:\s*(.*?)\s*\*[^]*?description:\s*(.*?)\s*\*\//
-    const match = pattern.exec(fileContent)
-
-    let title = ''
-    let description = ''
-
-    if (match) {
-      title = match[1].trim()
-      description = match[2].trim()
-    }
-
-    return {
-      title,
-      description,
-    }
-  }
-
-  return fs.readdirSync(`src/routes/examples/${itemName}`).map((file) => {
-    const path = `src/routes/examples/${itemName}/${file}`
-    const content = fs.readFileSync(path + '/index@examples.tsx', 'utf-8')
-    const { title, description } = getTitleAndDescription(content)
-    return {
-      title,
-      description,
-      url: `/examples/${itemName}/${file}`,
-    }
-  })
-})
 
 interface Item {
   name: string
@@ -42,7 +11,7 @@ interface Item {
 }
 
 export const ComponentDocPage = component$<Item>(({ name, height = 200 }) => {
-  const previewItems = useComputed$(() => getItemsPreview(name))
+  const previewItems = useComputed$(() => examples[name])
   const tableOfContentItems = useComputed$(() => previewItems.value.map((item) => item.title))
 
   useVisibleTask$(() => {
@@ -59,7 +28,7 @@ export const ComponentDocPage = component$<Item>(({ name, height = 200 }) => {
         <section class="flex flex-col gap-8">
           <h1 class="capitalize text-4xl font-bold mb-7">{name}</h1>
           {previewItems.value.map((item) => (
-            <Preview title={item.title} url={item.url} description={item.description} height={height} />
+            <Preview title={item.title} url={item.url} description={item.description}  codeContent={item.content} height={height} />
           ))}
         </section>
       </div>

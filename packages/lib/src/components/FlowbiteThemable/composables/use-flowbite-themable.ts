@@ -68,19 +68,19 @@ export function useFlowbiteThemable() {
     theme.value = name
   })
 
-  const backgroundClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].background))
+  const backgroundClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.background ?? ''))
 
-  const borderClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].border))
+  const borderClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.border ?? ''))
 
   const color = useComputed$(() => theme || undefined)
 
-  const disabledClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].disabled))
+  const disabledClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.disabled ?? ''))
 
-  const focusClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].focus))
+  const focusClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.focus ?? ''))
 
-  const hoverClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].hover))
+  const hoverClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.hover ?? ''))
 
-  const textClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value].text))
+  const textClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.text ?? ''))
 
   return {
     backgroundClasses,

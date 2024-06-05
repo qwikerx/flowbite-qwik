@@ -3,7 +3,7 @@ import { toastContext } from '../ToastList/composables/use-toast'
 import { ToastList } from '../ToastList/ToastList'
 import { ToastPosition } from '~/components/ToastList'
 import { darkModeContext } from '~/composables/use-dark'
-import { FlowbiteTheme, themeContext } from '../FlowbiteThemable/composables/use-flowbite-themable'
+import { FlowbiteTheme } from '../FlowbiteThemable/composables/use-flowbite-themable'
 import { FlowbiteThemable } from '../FlowbiteThemable/FlowbiteThemable'
 
 type FlowbiteProviderProps = {
@@ -14,7 +14,6 @@ type FlowbiteProviderProps = {
 export const FlowbiteProvider = component$<FlowbiteProviderProps>(({ toastPosition, theme }) => {
   useContextProvider(toastContext, useStore([]))
   useContextProvider(darkModeContext, useSignal(undefined))
-  useContextProvider(themeContext, useSignal(theme))
 
   return (
     <FlowbiteThemable theme={theme}>
