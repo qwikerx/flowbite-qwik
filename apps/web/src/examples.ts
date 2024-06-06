@@ -341,6 +341,29 @@ export const examples: Record<string, Example[]> = {
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\nimport { staticGenerateHandler } from \'../../layout\'\nimport { StaticGenerateHandler } from \'@builder.io/qwik-city\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <div class="p-3">\n      <h2 class="text-2xl font-semibold my-3">Validation</h2>\n      <Input bind:value={val} label="First name" placeholder="First name" validationStatus="success" />\n      <hr class="mt-4 border-0"></hr>\n      <Input bind:value={val} label="First name" placeholder="First name" validationStatus="error" validationMessage="This field is not valid" />\n    </div>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
     },
   ],
+  jumbotron: [
+    {
+      title: 'Default jumbotron',
+      description: 'Use this default example to show a title, description, and two CTA buttons for the jumbotron component.',
+      url: '/examples/[theme-rtl]/jumbotron/01-default',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Jumbotron, JumbotronHeading, JumbotronSubText, Button } from 'flowbite-qwik'\nimport { staticGenerateHandler } from '../../layout'\nimport { StaticGenerateHandler } from '@builder.io/qwik-city'\n\nexport default component$(() => {\n  return (\n    <Jumbotron>\n      <JumbotronHeading tag=\"h2\">We invest in the world’s potential</JumbotronHeading>\n      <JumbotronSubText>\n        Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.\n      </JumbotronSubText>\n      <div class=\"flex gap-2 justify-center\">\n        <Button>Get started</Button>\n        <Button color=\"alternative\">Learn more</Button>\n      </div>\n    </Jumbotron>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}",
+    },
+    {
+      title: '',
+      description: '',
+      url: '/examples/[theme-rtl]/jumbotron/02-align-left',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Jumbotron, JumbotronHeading, JumbotronSubText, Button } from \'flowbite-qwik\'\nimport { staticGenerateHandler } from \'../../layout\'\nimport { StaticGenerateHandler } from \'@builder.io/qwik-city\'\n\nexport default component$(() => {\n  return (\n    <Jumbotron align="left">\n      <JumbotronHeading tag="h2">We invest in the world’s potential</JumbotronHeading>\n      <JumbotronSubText>\n        Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.\n      </JumbotronSubText>\n      <div class="flex gap-2">\n        <Button>Get started</Button>\n        <Button color="alternative">Learn more</Button>\n      </div>\n    </Jumbotron>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
+    },
+    {
+      title: 'Background image',
+      description: 'Use this jumbotron to apply a background image with a darkening opacity effect to improve readability.',
+      url: '/examples/[theme-rtl]/jumbotron/03-background-image',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Jumbotron, JumbotronHeading, JumbotronSubText, Button } from \'flowbite-qwik\'\nimport { staticGenerateHandler } from \'../../layout\'\nimport { StaticGenerateHandler } from \'@builder.io/qwik-city\'\n\nexport default component$(() => {\n  return (\n    <Jumbotron class="bg-center bg-no-repeat bg-[url(\'https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg\')] dark:bg-gray-700 bg-gray-700 bg-blend-multiply">\n      <JumbotronHeading tag="h2" class="text-white">\n        We invest in the world’s potential\n      </JumbotronHeading>\n      <JumbotronSubText class="text-white">\n        Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.\n      </JumbotronSubText>\n      <div class="flex gap-2 justify-center">\n        <Button>Get started</Button>\n        <Button color="alternative">Learn more</Button>\n      </div>\n    </Jumbotron>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
+    },
+  ],
   navbar: [
     {
       title: 'Default Navbar',
