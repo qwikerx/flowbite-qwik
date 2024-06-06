@@ -1,12 +1,7 @@
 import { Signal, useComputed$ } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import { ToastAlign, ToastType } from '../toast-type'
-
-type UseToastClassesReturns = {
-  typeClasses: Signal<string>
-  wrapperClasses: Signal<string>
-  contentClasses: Signal<string>
-}
+import { useFlowbiteThemable } from '~/components/FlowbiteThemable'
 
 type UseToastClassesProps = {
   type: Signal<ToastType>
@@ -30,7 +25,8 @@ const defaultWrapperClasses = 'flex w-full max-w-xs p-4 text-gray-500 bg-white r
 
 const defaultContentClasses = 'text-sm font-normal'
 
-export function useToastClasses(props: UseToastClassesProps): UseToastClassesReturns {
+export function useToastClasses(props: UseToastClassesProps) {
+  const { backgroundClasses, textClasses } = useFlowbiteThemable()
   const typeClasses = useComputed$(() => typeClassesMap[props.type.value])
 
   const wrapperClasses = useComputed$(() => {
@@ -40,6 +36,15 @@ export function useToastClasses(props: UseToastClassesProps): UseToastClassesRet
     }
 
     return twMerge(defaultWrapperClasses, alignmentClass)
+  })
+
+  const iconClasses = useComputed$(() => {
+    return twMerge(
+      'inline-flex flex-shrink-0 justify-center items-center w-8 h-8 rounded-lg',
+      backgroundClasses.value,
+      textClasses.value,
+      typeClasses.value,
+    )
   })
 
   const contentClasses = useComputed$(() => {
@@ -54,5 +59,6 @@ export function useToastClasses(props: UseToastClassesProps): UseToastClassesRet
     typeClasses,
     wrapperClasses,
     contentClasses,
+    iconClasses,
   }
 }

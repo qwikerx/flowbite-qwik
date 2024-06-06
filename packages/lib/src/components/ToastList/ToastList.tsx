@@ -9,15 +9,16 @@ type ToastListProps = {
 
 export const ToastList = component$<ToastListProps>(({ position = 'top-right' }) => {
   const { list, remove } = useToast()
+
   return (
     <>
       {list.value.length > 0 && (
         <ul
           class={[
-            'fixed flex flex-col space-y-2',
+            'fixed flex flex-col space-y-2 z-20',
             {
-              'top-4 left-4': position === 'top-left',
-              'top-4 right-4': position === 'top-right',
+              'top-16 left-4': position === 'top-left',
+              'top-16 right-4': position === 'top-right',
               'bottom-4 left-4': position === 'bottom-left',
               'bottom-4 right-4': position === 'bottom-right',
             },

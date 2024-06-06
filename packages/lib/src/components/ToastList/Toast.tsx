@@ -1,7 +1,6 @@
 import { component$, JSXOutput, Slot, useComputed$, PropsOf, QRL, useTask$ } from '@builder.io/qwik'
 import { isBrowser } from '@builder.io/qwik/build'
 import { useToastClasses } from './composables/use-toast-class'
-import { FlowbiteChildThemable } from '~/components/FlowbiteThemable/FlowbiteChildThemable'
 import { ToastAlign, ToastType } from './toast-type'
 import { FlCloseOutline } from '@qwikest/icons/flowbite'
 
@@ -22,7 +21,7 @@ export const Toast = component$<ToastProps>(
     const internalAlignment = useComputed$(() => alignment)
     const internalType = useComputed$(() => type)
 
-    const { typeClasses, wrapperClasses, contentClasses } = useToastClasses({
+    const { iconClasses, wrapperClasses, contentClasses } = useToastClasses({
       type: internalType,
       divide: internalDivide,
       alignment: internalAlignment,
@@ -41,10 +40,7 @@ export const Toast = component$<ToastProps>(
     return (
       <div id="toast-default" role="alert" class={wrapperClasses.value}>
         {hasIcon.value && (
-          <FlowbiteChildThemable
-            apply={['background', 'text']}
-            class={['inline-flex flex-shrink-0 justify-center items-center w-8 h-8 rounded-lg', typeClasses.value]}
-          >
+          <div class={iconClasses.value}>
             {Boolean(icon) ? (
               <>{icon}</>
             ) : (
@@ -78,7 +74,7 @@ export const Toast = component$<ToastProps>(
                 )}
               </>
             )}
-          </FlowbiteChildThemable>
+          </div>
         )}
 
         <div class={[contentClasses.value, { 'ml-3': hasIcon.value, 'mr-3': closable }]}>

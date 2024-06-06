@@ -1,5 +1,5 @@
 import { component$, Slot, useComputed$ } from '@builder.io/qwik'
-import { useLocation } from '@builder.io/qwik-city'
+import { Link, useLocation } from '@builder.io/qwik-city'
 import { FlowbiteProvider } from 'flowbite-qwik'
 import type { FlowbiteTheme } from 'flowbite-qwik'
 

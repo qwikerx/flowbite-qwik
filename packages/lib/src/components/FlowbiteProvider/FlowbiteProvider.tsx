@@ -18,7 +18,6 @@ export const FlowbiteProvider = component$<FlowbiteProviderProps>(({ toastPositi
   return (
     <FlowbiteThemable theme={theme}>
       <ToastList position={toastPosition} />
-
       <Slot />
     </FlowbiteThemable>
   )
