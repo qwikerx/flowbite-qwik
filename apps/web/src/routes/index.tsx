@@ -35,7 +35,7 @@ export default component$(() => {
           <Button href="/docs/getting-started/introduction" suffix={IconArrowRightOutline}>
             Get started
           </Button>
-          <Button color="alternative" href="https://github.com/xmimiex/flowbite-qwik">
+          <Button color="alternative" href="https://github.com/qwikerx/flowbite-qwik">
             View on GitHub
           </Button>
         </div>
