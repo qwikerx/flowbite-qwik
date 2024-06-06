@@ -1,6 +1,7 @@
 import { component$, Slot, useComputed$ } from '@builder.io/qwik'
 import { useLocation } from '@builder.io/qwik-city'
-import { FlowbiteProvider, FlowbiteTheme } from 'flowbite-qwik'
+import { FlowbiteProvider } from 'flowbite-qwik'
+import type { FlowbiteTheme } from 'flowbite-qwik'
 
 export default component$(() => {
   const location = useLocation()

@@ -5,6 +5,7 @@
 import { component$ } from '@builder.io/qwik'
 import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'flowbite-qwik'
 import { Link, StaticGenerateHandler } from '@builder.io/qwik-city'
+import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   return (
@@ -31,10 +32,5 @@ export default component$(() => {
 })
 
 export const onStaticGenerate: StaticGenerateHandler = async () => {
-  const themes = ['blue', 'green', 'red', 'yellow', 'purple', 'pink']
-  const rtls = ['rtl', 'ltr']
-
-  return {
-    params: themes.flatMap((theme) => rtls.map((rtl) => ({ 'theme-rtl': `${theme}-${rtl}` }))),
-  }
+  return staticGenerateHandler()
 }
