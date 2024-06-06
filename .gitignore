@@ -2,6 +2,7 @@
 dist
 /packages/lib/lib
 /packages/lib/lib-types
+/apps/web/lib-types
 server
 
 # Development

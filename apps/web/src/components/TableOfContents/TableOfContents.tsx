@@ -33,7 +33,7 @@ export const TableOfContents = component$<TableOfContentsProps>((props) => {
   })
 
   return (
-    <div class="fixed top-18 flex flex-col justify-between overflow-y-auto">
+    <div class="fixed top-18 flex flex-col pb-10 h-full overflow-y-auto">
       <h4 class="my-3 pl-2.5 text-sm font-semibold uppercase tracking-wide text-gray-900 dark:text-white">On this page</h4>
       <nav id="visible-table-of-contents">
         <ul class="list-outside list-none">
