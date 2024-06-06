@@ -15,7 +15,7 @@ export default component$(() => {
       <div class="p-3">
         <h2 class="text-2xl font-semibold my-3">Sizes</h2>
         <p class="text-xl">Value : {val.value}</p>
-        <div class="flex gap-3">
+        <div class="flex flex-col gap-3">
           <Input bind:value={val} label="Small" placeholder="enter your name" size="sm" />
           <Input bind:value={val} label="Medium" placeholder="enter your name" size="md" />
           <Input bind:value={val} label="Large" placeholder="enter your name" size="lg" />

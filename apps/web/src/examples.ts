@@ -296,7 +296,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use the following examples to apply a small, default or large size for the input fields.',
       url: '/examples/[theme-rtl]/input/02-sizes',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\nimport { staticGenerateHandler } from \'../../layout\'\nimport { StaticGenerateHandler } from \'@builder.io/qwik-city\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <h2 class="text-2xl font-semibold my-3">Sizes</h2>\n        <p class="text-xl">Value : {val.value}</p>\n        <div class="flex gap-3">\n          <Input bind:value={val} label="Small" placeholder="enter your name" size="sm" />\n          <Input bind:value={val} label="Medium" placeholder="enter your name" size="md" />\n          <Input bind:value={val} label="Large" placeholder="enter your name" size="lg" />\n        </div>\n      </div>\n    </>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\nimport { staticGenerateHandler } from \'../../layout\'\nimport { StaticGenerateHandler } from \'@builder.io/qwik-city\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <h2 class="text-2xl font-semibold my-3">Sizes</h2>\n        <p class="text-xl">Value : {val.value}</p>\n        <div class="flex flex-col gap-3">\n          <Input bind:value={val} label="Small" placeholder="enter your name" size="sm" />\n          <Input bind:value={val} label="Medium" placeholder="enter your name" size="md" />\n          <Input bind:value={val} label="Large" placeholder="enter your name" size="lg" />\n        </div>\n      </div>\n    </>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
     },
     {
       title: 'Required',
@@ -393,6 +393,36 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/navbar/04-with-search',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { IconSearchOutline, Input, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from \'flowbite-qwik\'\nimport { Link, StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { staticGenerateHandler } from \'~/routes/examples/[theme-rtl]/layout\'\n\nexport default component$(() => {\n  const searchValue = useSignal(\'\')\n\n  return (\n    <Navbar fluid rounded>\n      <NavbarBrand as={Link} href="https://flowbite-qwik.com/">\n        <img src="/favicon.png" alt="Flowbite qwik logo" width="215" height="195" class="mr-3 h-6 sm:h-9 w-auto" />\n        <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>\n      </NavbarBrand>\n      <div class="flex md:order-2">\n        <Input bind:value={searchValue} placeholder="Search ..." prefix={<IconSearchOutline class="w-5 h-5 text-gray-500 dark:text-gray-400" />} />\n        <NavbarToggle />\n      </div>\n      <NavbarCollapse>\n        <NavbarLink href="/navbars" active>\n          Home\n        </NavbarLink>\n        <NavbarLink href="/navbars">About</NavbarLink>\n        <NavbarLink href="/navbars">Services</NavbarLink>\n      </NavbarCollapse>\n    </Navbar>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
+    },
+  ],
+  rating: [
+    {
+      title: 'Default rating',
+      description: 'Use this simple example of a star rating component for showing review results.',
+      url: '/examples/[theme-rtl]/rating/01-default',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Rating } from 'flowbite-qwik'\nimport { staticGenerateHandler } from '../../layout'\nimport { StaticGenerateHandler } from '@builder.io/qwik-city'\n\nexport default component$(() => {\n  return (\n    <div class=\"p-3\">\n      <Rating rating={4} />\n    </div>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}",
+    },
+    {
+      title: 'Rating with text',
+      description: 'If you also want to show a text near the stars you can use this example as a reference.',
+      url: '/examples/[theme-rtl]/rating/02-with-text',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Rating } from 'flowbite-qwik'\nimport { staticGenerateHandler } from '../../layout'\nimport { StaticGenerateHandler } from '@builder.io/qwik-city'\n\nexport default component$(() => {\n  return (\n    <div class=\"p-3\">\n      <Rating rating={4}>\n        <p q:slot=\"besideText\" class=\"ml-2 text-sm font-medium text-gray-500 dark:text-gray-400\">\n          4.75 out of 5\n        </p>\n      </Rating>\n    </div>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}",
+    },
+    {
+      title: 'Rating with review link',
+      description: 'Aggregate more results by using this example to show the amount of reviews and the average score.',
+      url: '/examples/[theme-rtl]/rating/03-with-review-link',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Rating } from 'flowbite-qwik'\nimport { staticGenerateHandler } from '../../layout'\nimport { StaticGenerateHandler } from '@builder.io/qwik-city'\n\nexport default component$(() => {\n  return (\n    <div class=\"p-3\">\n      <Rating rating={4} reviewLink={{ href: '#', text: '73 reviews' }} />\n    </div>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}",
+    },
+    {
+      title: 'Star sizes',
+      description: 'Check out the different sizing options for the star review component from small, medium, and large.',
+      url: '/examples/[theme-rtl]/rating/04-with-sizes',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Rating, RatingSize } from 'flowbite-qwik'\nimport { staticGenerateHandler } from '../../layout'\nimport { StaticGenerateHandler } from '@builder.io/qwik-city'\n\nexport default component$(() => {\n  return (\n    <div class=\"p-3 flex flex-col gap-3\">\n      {(['sm', 'md', 'lg'] as RatingSize[]).map((size) => (\n        <Rating rating={4} size={size} />\n      ))}\n    </div>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}",
     },
   ],
   tabs: [
