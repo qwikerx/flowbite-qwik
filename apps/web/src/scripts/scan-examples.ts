@@ -33,44 +33,48 @@ function JsonToTs(json: Record<string, Example[]>) {
 export function getExamplesRoutes() {
   const examples: Record<string, Example[]> = {}
   console.log('Scanning examples routes...')
-  return fs.readdirSync(`src/routes/examples/[theme-rtl]`).map((component) => {
-    const path = `src/routes/examples/[theme-rtl]/${component}`
 
-    fs.readdirSync(path).map((example) => {
-      const path = `src/routes/examples/[theme-rtl]/${component}/${example}`
-      const content = fs.readFileSync(path + '/index@examples.tsx', 'utf-8')
-      const { title, description } = getTitleAndDescription(content)
-      const codeContent = content.replace(/\/\*\*[\s\S]*?\*\//, '').trim()
-      if (!examples[component]) {
-        examples[component] = []
-      }
+  return fs
+    .readdirSync(`src/routes/examples/[theme-rtl]`)
+    .filter((component) => fs.lstatSync(`src/routes/examples/[theme-rtl]/${component}`).isDirectory())
+    .map((component) => {
+      const path = `src/routes/examples/[theme-rtl]/${component}`
 
-      examples[component].push({
-        title,
-        description,
-        url: `/examples/[theme-rtl]/${component}/${example}`,
-        content: codeContent,
+      fs.readdirSync(path).map((example) => {
+        const path = `src/routes/examples/[theme-rtl]/${component}/${example}`
+        const content = fs.readFileSync(path + '/index@examples.tsx', 'utf-8')
+        const { title, description } = getTitleAndDescription(content)
+        const codeContent = content.replace(/\/\*\*[\s\S]*?\*\//, '').trim()
+        if (!examples[component]) {
+          examples[component] = []
+        }
+
+        examples[component].push({
+          title,
+          description,
+          url: `/examples/[theme-rtl]/${component}/${example}`,
+          content: codeContent,
+        })
       })
+
+      prettier
+        .format(
+          [
+            'type Example = {',
+            '  title: string',
+            '  description: string',
+            '  url: string',
+            '  content: string',
+            '}',
+            '',
+            `export const examples: Record<string, Example[]> = ${JsonToTs(examples)}`,
+          ].join('\n'),
+          { semi: false, singleQuote: true, trailingComma: 'all', printWidth: 150, parser: 'typescript' },
+        )
+        .then((content) => {
+          fs.writeFileSync('./src/examples.ts', content)
+        })
     })
-
-    prettier
-      .format(
-        [
-          'type Example = {',
-          '  title: string',
-          '  description: string',
-          '  url: string',
-          '  content: string',
-          '}',
-          '',
-          `export const examples: Record<string, Example[]> = ${JsonToTs(examples)}`,
-        ].join('\n'),
-        { semi: false, singleQuote: true, trailingComma: 'all', printWidth: 150, parser: 'typescript' },
-      )
-      .then((content) => {
-        fs.writeFileSync('./src/examples.ts', content)
-      })
-  })
 }
 
 getExamplesRoutes()

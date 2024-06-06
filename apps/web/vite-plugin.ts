@@ -1,6 +1,6 @@
 import { getExamplesRoutes } from './src/scripts/scan-examples'
 import type { Plugin } from 'vite'
-import chokidar from 'chokidar'
+import { watch } from 'chokidar'
 
 const path = './src/routes/examples'
 
@@ -15,7 +15,7 @@ export default function watchExamplesRoutes(): Plugin {
         return
       }
 
-      const watcher = chokidar.watch(path, {
+      const watcher = watch(path, {
         persistent: true,
         ignoreInitial: true,
       })

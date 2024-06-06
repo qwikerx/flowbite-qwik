@@ -5,6 +5,7 @@
 import { component$, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 import { Toggle } from 'flowbite-qwik'
+import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   const checkedToggleValue = useSignal(true)
@@ -19,10 +20,5 @@ export default component$(() => {
 })
 
 export const onStaticGenerate: StaticGenerateHandler = async () => {
-  const themes = ['blue', 'green', 'red', 'yellow', 'purple', 'pink']
-  const rtls = ['rtl', 'ltr']
-
-  return {
-    params: themes.flatMap((theme) => rtls.map((rtl) => ({ 'theme-rtl': `${theme}-${rtl}` }))),
-  }
+  return staticGenerateHandler()
 }
