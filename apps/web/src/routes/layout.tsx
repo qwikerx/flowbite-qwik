@@ -33,7 +33,7 @@ export default component$(() => {
           <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
         </NavbarBrand>
         <div class="flex md:order-2 items-center gap-2">
-          <Button class="hidden md:block" square href="https://github.com/xmimiex/flowbite-qwik" color="light" title="View on GitHub">
+          <Button class="hidden md:block" square href="https://github.com/qwikerx/flowbite-qwik" color="light" title="View on GitHub">
             <IconGithubSolid class="h-4 w-4" />
           </Button>
           <Button

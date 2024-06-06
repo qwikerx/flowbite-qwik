@@ -12,8 +12,8 @@
     "tailwind",
     "tailwindcss"
   ],
-  "bugs": "https://github.com/xmimiex/flowbite-qwik/issues",
-  "repository": "https://github.com/xmimiex/flowbite-qwik.git",
+  "bugs": "https://github.com/qwikerx/flowbite-qwik/issues",
+  "repository": "https://github.com/qwikerx/flowbite-qwik.git",
   "license": "MIT",
   "module": "./lib/flowbite.qwik.mjs",
   "main": "./lib/flowbite.qwik.cjs",
