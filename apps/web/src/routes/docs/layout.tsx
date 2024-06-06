@@ -53,6 +53,9 @@ export default component$(() => {
             <SidebarItem tag={Link} href="/docs/components/dropdown">
               Dropdown
             </SidebarItem>
+            <SidebarItem tag={Link} href="/docs/components/footer">
+              Footer
+            </SidebarItem>
             <SidebarItem tag={Link} href="/docs/components/icon">
               Icon
             </SidebarItem>

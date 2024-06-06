@@ -20,7 +20,7 @@ export default component$(() => {
   }
 
   return (
-    <section id="drawer">
+    <section class="p-2">
       <div>
         <h2 class="text-2xl font-semibold my-3">Default Drawer</h2>
         <div class="flex gap-2">
@@ -34,7 +34,15 @@ export default component$(() => {
                 {position}
               </Button>
 
-              <Drawer bind:open={isDrawerOpen[position]} position={position} title={`Drawer ${position}`} titleIcon={IconHomeOutline}>
+              <Drawer
+                class={{
+                  hidden: position === 'bottom-edge' && isDrawerOpen.bottom.value,
+                }}
+                bind:open={isDrawerOpen[position]}
+                position={position}
+                title={`Drawer ${position}`}
+                titleIcon={IconHomeOutline}
+              >
                 <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">
                   Supercharge your hiring by taking advantage of our&nbsp;
                   <a href="#" class="text-cyan-600 underline hover:no-underline dark:text-cyan-500">
