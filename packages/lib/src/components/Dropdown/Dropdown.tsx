@@ -140,6 +140,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
             }}
             size={size}
             inline={inline}
+            visible={visible.value}
           >
             <Slot />
           </TriggerButtonAs.value>
@@ -151,6 +152,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
             label={label}
             size={size}
             inline={inline}
+            visible={visible.value}
           />
         )}
 
@@ -259,15 +261,16 @@ type InnerTriggerInlineProps = {
   onClick$: () => void
   size: DropdownSize
   inline: boolean
+  visible: boolean
 }
-const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, inline, onClick$ }) => {
+const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, inline, visible, onClick$ }) => {
   const { triggerInlineClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
   )
 
   return (
-    <button onClick$={onClick$} class={triggerInlineClasses.value}>
+    <button onClick$={onClick$} class={triggerInlineClasses.value} aria-expanded={visible}>
       {label}
       <IconAngleDownOutline />
     </button>
@@ -281,15 +284,16 @@ type InnerTriggerAsProps = {
   onClick$: () => void
   size: DropdownSize
   inline: boolean
+  visible: boolean
 }
-const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, onClick$ }) => {
+const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, visible, onClick$ }) => {
   const { triggerInlineClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
   )
 
   return (
-    <button onClick$={onClick$} class={triggerInlineClasses.value}>
+    <button onClick$={onClick$} class={triggerInlineClasses.value} aria-expanded={visible} aria-label="Dropdown">
       <Slot />
     </button>
   )
@@ -303,8 +307,9 @@ type InnerTriggerButtonProps = {
   onClick$: () => void
   size: DropdownSize
   inline: boolean
+  visible: boolean
 }
-const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, onClick$ }) => {
+const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, visible, onClick$ }) => {
   const buttonSize: Record<string, ButtonSize> = {
     s: 'sm',
     m: 'md',
@@ -312,7 +317,7 @@ const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, o
   }
 
   return (
-    <Button onClick$={onClick$} size={buttonSize[size]} suffix={IconAngleDownOutline}>
+    <Button onClick$={onClick$} size={buttonSize[size]} suffix={IconAngleDownOutline} aria-expanded={visible}>
       {label}
     </Button>
   )

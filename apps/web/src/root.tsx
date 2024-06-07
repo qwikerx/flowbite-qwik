@@ -25,11 +25,10 @@ export default component$(() => {
   return (
     <QwikCityProvider>
       <head>
-        <meta charSet="utf-8" />
         <RouterHead />
         <FlowbiteProviderHeader />
       </head>
-      <body lang="fr">
+      <body>
         <FlowbiteProvider toastPosition={toastPosition.value} theme="blue">
           <RouterOutlet />
         </FlowbiteProvider>

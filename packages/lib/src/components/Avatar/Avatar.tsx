@@ -4,6 +4,7 @@
 // import { Spinner } from '~/components/Spinner/Spinner'
 // import { twMerge } from 'tailwind-merge'
 // import { FlowbiteTheme } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
+// import clsx from 'clsx'
 //
 // type AvatarProps = PropsOf<'div'> & {
 //   alt?: string
@@ -62,60 +63,57 @@
 //     statusPosition = 'top-left',
 //     ...attrs
 //   }) => {
-//     const imgClassName = useComputed$(() =>
-//       twMerge(
-//         'rounded',
-//         bordered && 'p-1 ring-2',
-//         bordered && AvatarImgColors[color],
-//         rounded && 'rounded-full',
-//         stacked && 'ring-2 ring-gray-300 dark:ring-gray-500',
-//         AvatarImgSizes[size],
-//       ),
+//     const imgClassName = twMerge(
+//       'rounded',
+//       bordered && 'p-1 ring-2',
+//       bordered && AvatarImgColors[color],
+//       rounded && 'rounded-full',
+//       stacked && 'ring-2 ring-gray-300 dark:ring-gray-500',
+//       AvatarImgSizes[size],
 //     )
 //
-//     const loadingPrefix = useComputed$(() => loading && loadingPosition === 'prefix')
-//     const loadingSuffix = useComputed$(() => loading && loadingPosition === 'suffix')
-//
-//     const { color: spinnerColor, size: spinnerSize } = useButtonSpinner({
-//       color,
-//       gradient,
-//       size,
-//       outline,
-//     })
-//
-//     const LinkComponent = tag !== 'a' ? tag : 'a'
-//     const ButtonComponent = href ? LinkComponent : 'button'
-//
 //     return (
-//       <ButtonComponent
-//         class={bindClasses.value}
-//         href={ButtonComponent !== 'button' ? href : undefined}
-//         target={ButtonComponent !== 'button' ? attrs.target : undefined}
-//         //@ts-expect-error does not exist on link
-//         disabled={ButtonComponent === 'button' ? disabled : undefined}
-//         onClick$={attrs.onClick$}
-//         {...attrs}
-//       >
-//         {!isOutlineGradient.value && (Prefix || loadingPrefix.value) && (
-//           <div class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Prefix && <Prefix />}</div>
-//         )}
-//
-//         <span class={spanClasses.value}>
-//           {isOutlineGradient.value && (Prefix || loadingPrefix.value) && (
-//             <span class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Prefix && <Prefix />}</span>
+//       <div class={twMerge('flex items-center justify-center space-x-4 rounded', clsx(className))} {...attrs}>
+//         <div class="relative">
+//           {img ? (
+//             typeof img === 'string' ? (
+//               <img alt={alt} src={img} class={imgClassName} />
+//             ) : (
+//               img({ alt, ...imgProps })
+//             )
+//           ) : placeholderInitials ? (
+//             <div
+//               class={twMerge(
+//                 theme.root.img.off,
+//                 theme.root.initials.base,
+//                 stacked && theme.root.stacked,
+//                 bordered && theme.root.bordered,
+//                 bordered && theme.root.color[color],
+//                 theme.root.size[size],
+//                 rounded && theme.root.rounded,
+//               )}
+//               data-testid="flowbite-avatar-initials-placeholder"
+//             >
+//               <span class={twMerge(theme.root.initials.text)} data-testid="flowbite-avatar-initials-placeholder-text">
+//                 {placeholderInitials}
+//               </span>
+//             </div>
+//           ) : (
+//             <div class={twMerge(imgClassName, theme.root.img.off)} data-testid="flowbite-avatar-img">
+//               <svg class={theme.root.img.placeholder} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+//                 <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+//               </svg>
+//             </div>
 //           )}
-//
-//           <Slot />
-//
-//           {isOutlineGradient.value && (Suffix || loadingSuffix.value) && (
-//             <span class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Suffix && <Suffix />}</span>
+//           {status && (
+//             <span
+//               data-testid="flowbite-avatar-status"
+//               class={twMerge(theme.root.status.base, theme.root.status[status], theme.root.statusPosition[statusPosition])}
+//             />
 //           )}
-//         </span>
-//
-//         {!isOutlineGradient.value && (Suffix || loadingSuffix.value) && (
-//           <div class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Suffix && <Suffix />}</div>
-//         )}
-//       </ButtonComponent>
+//         </div>
+//         {children && <div>{children}</div>}
+//       </div>
 //     )
 //   },
 // )
