@@ -17,7 +17,6 @@ const { dependencies = {}, devDependencies = {} } = pkg as any as {
 }
 errorOnDuplicatesPkgDeps(devDependencies, dependencies)
 
-console.log('vercel', process.env.VERCEL)
 const isDuringVercelDeployment = Boolean(process.env.VERCEL)
 
 /**
