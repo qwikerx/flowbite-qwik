@@ -1,6 +1,7 @@
 /**
  * title: Social media icons
  * description: This footer component can be used to show your brand’s logo, multiple rows of website links, a copyright notice and social media profile icons including Twitter, Facebook, Instagram, and more.
+ * height: 400
  */
 
 import { component$ } from '@builder.io/qwik'

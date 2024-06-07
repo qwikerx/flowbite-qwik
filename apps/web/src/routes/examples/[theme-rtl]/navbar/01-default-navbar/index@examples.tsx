@@ -1,6 +1,7 @@
 /**
  * title: Default Navbar
  * description: Use this example of a navigation bar built with the utility classes from Tailwind CSS to enable users to navigate across the pages of your website.
+ * height: 400
  */
 
 import { component$ } from '@builder.io/qwik'

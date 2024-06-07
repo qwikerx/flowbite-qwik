@@ -1,6 +1,7 @@
 /**
  * title: Default Tabs
  * description: Use the following default tabs component example to show a list of links that the user can navigate from on your website.
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

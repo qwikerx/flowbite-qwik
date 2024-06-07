@@ -6,10 +6,9 @@ import { examples } from '~/examples'
 
 interface Item {
   name: string
-  height?: number
 }
 
-export const ComponentDocPage = component$<Item>(({ name, height = 200 }) => {
+export const ComponentDocPage = component$<Item>(({ name }) => {
   const previewItems = useComputed$(() => examples[name])
   const tableOfContentItems = useComputed$(() => previewItems.value?.map((item) => item.title))
 
@@ -22,26 +21,32 @@ export const ComponentDocPage = component$<Item>(({ name, height = 200 }) => {
   })
 
   return (
-    <div class="flex">
-      <div class="mx-auto flex min-w-0 max-w-6xl flex-col px-4">
-        <section class="flex flex-col gap-8">
-          <h1 class="capitalize text-4xl font-bold mb-7">{name}</h1>
-          {previewItems.value?.map((item, i) => (
-            <Preview
-              key={i + item.title}
-              title={item.title}
-              url={item.url}
-              description={item.description}
-              codeContent={item.content}
-              height={height}
-            />
-          ))}
-        </section>
-      </div>
+    <>
+      {previewItems.value ? (
+        <div class="flex">
+          <div class="mx-auto flex min-w-0 max-w-6xl flex-col px-4">
+            <section class="flex flex-col gap-8">
+              <h1 class="capitalize text-4xl font-bold mb-7">{name}</h1>
+              {previewItems.value?.map((item, i) => (
+                <Preview
+                  key={i + item.title}
+                  title={item.title}
+                  url={item.url}
+                  description={item.description}
+                  codeContent={item.content}
+                  height={item.height}
+                />
+              ))}
+            </section>
+          </div>
 
-      <div class="right-0 hidden w-64 flex-none pl-8 xl:block xl:text-sm">
-        <TableOfContents items={tableOfContentItems.value} />
-      </div>
-    </div>
+          <div class="right-0 hidden w-64 flex-none pl-8 xl:block xl:text-sm">
+            <TableOfContents items={tableOfContentItems.value} />
+          </div>
+        </div>
+      ) : (
+        <h2 class="text-center text-2xl font-bold">Component {name} does not exist</h2>
+      )}
+    </>
   )
 })

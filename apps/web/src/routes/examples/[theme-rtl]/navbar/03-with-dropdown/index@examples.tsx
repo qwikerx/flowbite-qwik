@@ -1,6 +1,7 @@
 /**
  * title: Navbar with dropdown
  * description: This example can be used to show a secondary dropdown menu when clicking on one of the navigation links.
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { Dropdown, DropdownItem, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'flowbite-qwik'

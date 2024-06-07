@@ -21,14 +21,16 @@ type PreviewProps = PropsOf<'iframe'> & {
   title: string
   description?: string
   codeContent?: string
+  height?: number | string
 }
 
 type PreviewDisplaySize = 'mobile' | 'tablet' | 'desktop'
 
 const liveDir = 'https://github.com/qwikerx/flowbite-qwik/blob/main'
 
-export const Preview = component$<PreviewProps>(({ url, class: classNames, title, codeContent, ...props }) => {
+export const Preview = component$<PreviewProps>(({ url, class: classNames, height = 200, title, codeContent, ...props }) => {
   useStyles$(styles)
+
   const { isDark } = useDark()
   const { themeName, textClasses } = useFlowbiteThemable()
 
@@ -123,9 +125,9 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, title
           ]}
         >
           {displaySize.value ? (
-            <iframe ref={iframe} src={iframeSrc.value} {...props} class={['w-full', classNames]} />
+            <iframe ref={iframe} src={iframeSrc.value} height={height} {...props} class={['w-full', classNames]} />
           ) : (
-            <div class="flex justify-center w-full mx-auto items-center" style={{ height: `${props.height}px` }}>
+            <div class="flex justify-center w-full mx-auto items-center" style={{ height: `${height}px` }}>
               {<Spinner size="6" />}
             </div>
           )}

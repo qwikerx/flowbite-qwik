@@ -1,6 +1,7 @@
 /**
  * title: Playground
  * description: Use the playground to test different toast positions and types.
+ * height: 400
  */
 import { component$, useContext } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

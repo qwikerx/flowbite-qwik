@@ -1,6 +1,7 @@
 /**
  * title: Always open accordion
  * description: Always open prop to makes accordion able to open multiple elements.
+ * height: 300
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

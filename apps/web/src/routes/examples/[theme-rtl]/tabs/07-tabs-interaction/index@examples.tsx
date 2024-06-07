@@ -1,6 +1,7 @@
 /**
  * title: Interaction
  * description: You can interact with tabs by using the `onClickInteraction$` prop.
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

@@ -1,21 +1,24 @@
 import fs from 'fs'
 import prettier from 'prettier'
 
-function getTitleAndDescription(fileContent: string) {
-  const pattern = /\/\*\*[^]*?title:\s*(.*?)\s*\*[^]*?description:\s*(.*?)\s*\*\//
+function getMetadata(fileContent: string) {
+  const pattern = /\/\*\*[^]*?title:\s*(.*?)\s*\*[^]*?description:\s*(.*?)\s*[^]*?height:\s*(.*?)\s*\*\//
   const match = pattern.exec(fileContent)
 
   let title = ''
   let description = ''
+  let height = ''
 
   if (match) {
     title = match[1].trim()
     description = match[2].trim()
+    height = match[3].trim()
   }
 
   return {
     title,
     description,
+    height,
   }
 }
 
@@ -24,6 +27,7 @@ interface Example {
   description: string
   url: string
   content: string
+  height: string
 }
 
 function JsonToTs(json: Record<string, Example[]>) {
@@ -43,7 +47,7 @@ export function getExamplesRoutes() {
       fs.readdirSync(path).map((example) => {
         const path = `src/routes/examples/[theme-rtl]/${component}/${example}`
         const content = fs.readFileSync(path + '/index@examples.tsx', 'utf-8')
-        const { title, description } = getTitleAndDescription(content)
+        const { title, description, height } = getMetadata(content)
         const codeContent = content
           .replace(/\/\*\*[\s\S]*?\*\//, '')
           .replace("import { StaticGenerateHandler } from '@builder.io/qwik-city'\n", '')
@@ -59,6 +63,7 @@ export function getExamplesRoutes() {
           description,
           url: `/examples/[theme-rtl]/${component}/${example}`,
           content: codeContent,
+          height,
         })
       })
 
@@ -70,6 +75,7 @@ export function getExamplesRoutes() {
             '  description: string',
             '  url: string',
             '  content: string',
+            '  height: string',
             '}',
             '',
             `export const examples: Record<string, Example[]> = ${JsonToTs(examples)}`,

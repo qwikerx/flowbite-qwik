@@ -1,6 +1,7 @@
 /**
  * title: With icons
  * description: You can add icons to the tabs to make them more visually appealing and easier to understand.
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

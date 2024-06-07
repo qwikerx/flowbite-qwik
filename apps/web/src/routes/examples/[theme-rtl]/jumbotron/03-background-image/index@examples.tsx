@@ -1,6 +1,7 @@
 /**
  * title: Background image
  * description: Use this jumbotron to apply a background image with a darkening opacity effect to improve readability.
+ * height: 400
  */
 
 import { component$ } from '@builder.io/qwik'

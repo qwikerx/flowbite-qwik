@@ -1,6 +1,7 @@
 /**
  * title: Default jumbotron
  * description: Use this default example to show a title, description, and two CTA buttons for the jumbotron component.
+ * height: 400
  */
 
 import { component$ } from '@builder.io/qwik'

@@ -1,6 +1,7 @@
 /**
  * title: Directive - show
  * description: Use this props if you want to control which directive to use for rendering every tab content
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
