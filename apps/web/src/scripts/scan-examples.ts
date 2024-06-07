@@ -44,7 +44,12 @@ export function getExamplesRoutes() {
         const path = `src/routes/examples/[theme-rtl]/${component}/${example}`
         const content = fs.readFileSync(path + '/index@examples.tsx', 'utf-8')
         const { title, description } = getTitleAndDescription(content)
-        const codeContent = content.replace(/\/\*\*[\s\S]*?\*\//, '').trim()
+        const codeContent = content
+          .replace(/\/\*\*[\s\S]*?\*\//, '')
+          .replace("import { StaticGenerateHandler } from '@builder.io/qwik-city'\n", '')
+          .replace("import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'\n", '')
+          .replace('export const onStaticGenerate: StaticGenerateHandler = async () => {\n' + '  return staticGenerateHandler()\n' + '}', '')
+          .trim()
         if (!examples[component]) {
           examples[component] = []
         }

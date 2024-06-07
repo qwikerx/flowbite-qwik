@@ -5,7 +5,7 @@
 
 import { component$ } from '@builder.io/qwik'
 import { Rating, RatingSize } from 'flowbite-qwik'
-import { staticGenerateHandler } from '../../layout'
+import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
 export default component$(() => {
