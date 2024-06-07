@@ -2,18 +2,18 @@ import fs from 'fs'
 import prettier from 'prettier'
 
 function getMetadata(fileContent: string) {
-  const pattern = /\/\*\*[^]*?title:\s*(.*?)\s*\*[^]*?description:\s*(.*?)\s*[^]*?height:\s*(.*?)\s*\*\//
+  const pattern =
+    /\*\*(?:\s|\n)*\* title:\s*(?<title>[^\n]*)(?:\s|\n)*\* description:\s*(?<description>[^\n]*)(?:(?:\s|\n)*\* height:\s*(?<height>\d+))?/
   const match = pattern.exec(fileContent)
-  console.log(fileContent, match)
 
   let title = ''
   let description = ''
   let height = ''
 
   if (match) {
-    title = match[1].trim()
-    description = match[2].trim()
-    height = match[3].trim()
+    title = match[1]?.trim() ?? ''
+    description = match[2]?.trim() ?? ''
+    height = match[3]?.trim() ?? '200'
   }
 
   return {
