@@ -418,7 +418,7 @@ export const examples: Record<string, Example[]> = {
         "import { component$ } from '@builder.io/qwik'\nimport { Rating } from 'flowbite-qwik'\nimport { staticGenerateHandler } from '../../layout'\nimport { StaticGenerateHandler } from '@builder.io/qwik-city'\n\nexport default component$(() => {\n  return (\n    <div class=\"p-3\">\n      <Rating rating={4} reviewLink={{ href: '#', text: '73 reviews' }} />\n    </div>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}",
     },
     {
-      title: 'Star sizes',
+      title: 'Stars sizes',
       description: 'Check out the different sizing options for the star review component from small, medium, and large.',
       url: '/examples/[theme-rtl]/rating/04-with-sizes',
       content:
@@ -475,6 +475,37 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/tabs/07-tabs-interaction',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Tab, Tabs } from \'flowbite-qwik\'\nimport { staticGenerateHandler } from \'~/routes/examples/[theme-rtl]/layout\'\n\nexport default component$(() => {\n  return (\n    <Tabs\n      directive="show"\n      onClickInteraction$={() => {\n        alert(\'Click!\')\n      }}\n    >\n      <Tab title="First">\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aspernatur debitis iste libero molestiae mollitia, optio sunt? A, consectetur\n        distinctio, eaque harum iusto laudantium, molestiae nam odio officia pariatur vitae?\n      </Tab>\n      <Tab title="Second">\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam asperiores autem cupiditate, deleniti eligendi exercitationem magnam\n        maiores, minus pariatur provident quasi qui quidem recusandae rem reprehenderit sapiente sequi sint soluta.\n      </Tab>\n      <Tab title="Third">\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi aperiam assumenda consectetur, dolorem, dolores, ea eos ipsum itaque\n        iure laudantium nostrum nulla numquam perspiciatis provident qui quod totam voluptatem.\n      </Tab>\n      <Tab title="Fourth" disabled>\n        Lorem ipsum dolor...\n      </Tab>\n    </Tabs>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
+    },
+  ],
+  toast: [
+    {
+      title: 'Props type',
+      description: 'Use these contextual toast components to show success, danger, or warning alert messages to your users.',
+      url: '/examples/[theme-rtl]/toast/01-default',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Toast } from \'flowbite-qwik\'\nimport { staticGenerateHandler } from \'~/routes/examples/[theme-rtl]/layout\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-col p-3 space-y-2">\n      <Toast id="default">Default</Toast>\n      <Toast id="success" type="success">\n        Success\n      </Toast>\n      <Toast id="danger" type="danger">\n        Danger\n      </Toast>\n      <Toast id="warning" type="warning">\n        Warning\n      </Toast>\n    </div>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
+    },
+    {
+      title: 'Props divide',
+      description: 'Use divide prop to add a dividing line between the toast content and the close button.',
+      url: '/examples/[theme-rtl]/toast/02-divide',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Toast } from \'flowbite-qwik\'\nimport { staticGenerateHandler } from \'~/routes/examples/[theme-rtl]/layout\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-col p-3 space-y-2">\n      <Toast id="default" divide>\n        Default\n      </Toast>\n      <Toast id="success" divide type="success">\n        Success\n      </Toast>\n      <Toast id="danger" divide type="danger">\n        Danger\n      </Toast>\n      <Toast id="warning" divide type="warning">\n        Warning\n      </Toast>\n    </div>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
+    },
+    {
+      title: 'Message',
+      description:
+        'This component can be used to show messages and a CTA button when receiving chat messages, comment notifications, and other use cases.',
+      url: '/examples/[theme-rtl]/toast/03-message',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Button, Toast } from \'flowbite-qwik\'\nimport { staticGenerateHandler } from \'~/routes/examples/[theme-rtl]/layout\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-col p-3 space-y-2">\n      <Toast id="card" alignment="start" icon={<img alt="Avatar" class="w-8 h-8 rounded-full shadow-lg" src="/profile-picture.jpg" />}>\n        <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">Jese Leos</span>\n        <div class="mb-2 text-sm font-normal">Hi Neil, thanks for sharing your thoughts regarding Flowbite.</div>\n        <Button size="xs" href="#">\n          Reply\n        </Button>\n      </Toast>\n    </div>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
+    },
+    {
+      title: 'Playground',
+      description: 'Use the playground to test different toast positions and types.',
+      url: '/examples/[theme-rtl]/toast/04-playground',
+      content:
+        'import { component$, useContext } from \'@builder.io/qwik\'\nimport { StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Button, ToastPosition, useToast } from \'flowbite-qwik\'\nimport { toastPositionContext } from \'~/root\'\nimport { staticGenerateHandler } from \'~/routes/examples/[theme-rtl]/layout\'\n\nexport default component$(() => {\n  const toastPosition = useContext(toastPositionContext)\n\n  const { add } = useToast()\n\n  return (\n    <div class="flex flex-col p-3 space-y-2">\n      <div class="mb-4">\n        <label for="position" class="mr-3">\n          Position\n        </label>\n        <select\n          onChange$={(v) => {\n            toastPosition.value = (v.target as HTMLSelectElement).value as ToastPosition\n          }}\n          class="dark:bg-gray-800 dark:text-white bg-white text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"\n        >\n          <option value="top-right">top-right</option>\n          <option value="top-left">top-left</option>\n          <option value="bottom-left">bottom-left</option>\n          <option value="bottom-right">bottom-right</option>\n        </select>\n      </div>\n\n      <div class="flex gap-3">\n        <Button\n          onClick$={() =>\n            add({\n              type: \'success\',\n              text: \'This is a success toast\',\n              closable: true,\n            })\n          }\n        >\n          Add success toast from\n        </Button>\n        <Button\n          onClick$={() =>\n            add({\n              type: \'danger\',\n              text: \'This is a danger toast\',\n              closable: true,\n              time: 2000,\n            })\n          }\n        >\n          Add danger toast with autoclose timer\n        </Button>\n      </div>\n    </div>\n  )\n})\n\nexport const onStaticGenerate: StaticGenerateHandler = async () => {\n  return staticGenerateHandler()\n}',
     },
   ],
   toggle: [

@@ -11,7 +11,7 @@ interface Item {
 
 export const ComponentDocPage = component$<Item>(({ name, height = 200 }) => {
   const previewItems = useComputed$(() => examples[name])
-  const tableOfContentItems = useComputed$(() => previewItems.value.map((item) => item.title))
+  const tableOfContentItems = useComputed$(() => previewItems.value?.map((item) => item.title))
 
   useVisibleTask$(() => {
     const hash = document.location.hash
@@ -26,7 +26,7 @@ export const ComponentDocPage = component$<Item>(({ name, height = 200 }) => {
       <div class="mx-auto flex min-w-0 max-w-6xl flex-col px-4">
         <section class="flex flex-col gap-8">
           <h1 class="capitalize text-4xl font-bold mb-7">{name}</h1>
-          {previewItems.value.map((item, i) => (
+          {previewItems.value?.map((item, i) => (
             <Preview
               key={i + item.title}
               title={item.title}
