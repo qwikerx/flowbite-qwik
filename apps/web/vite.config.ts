@@ -17,12 +17,15 @@ const { dependencies = {}, devDependencies = {} } = pkg as any as {
 }
 errorOnDuplicatesPkgDeps(devDependencies, dependencies)
 
+console.log('vercel', process.env.VERCEL)
+const isDuringVercelDeployment = Boolean(process.env.VERCEL)
+
 /**
  * Note that Vite normally starts from `index.html` but the qwikCity plugin makes start at `src/entry.ssr.tsx` instead.
  */
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
-    plugins: [qwikCity(), qwikVite(), tsconfigPaths(), watchExamplesRoutes()],
+    plugins: [qwikCity(), qwikVite(), tsconfigPaths(), !isDuringVercelDeployment && watchExamplesRoutes()],
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
       // Put problematic deps that break bundling here, mostly those with binaries.
