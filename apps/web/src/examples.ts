@@ -49,6 +49,105 @@ export const examples: Record<string, Example[]> = {
       height: '300',
     },
   ],
+  avatar: [
+    {
+      title: 'Default avatar',
+      description:
+        "Here's a default example of the <Avatar> component where you can use the img prop to pass the image URL, the alt prop to pass a description of the image for accessibility and the rounded prop to make the avatar rounded.",
+      url: '/examples/[theme-rtl]/avatar/01-default-avatar',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Avatar img="/profile-picture-5.jpg" alt="avatar of Jese" rounded />\n      <Avatar img="/profile-picture-5.jpg" />\n    </div>\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Avatar with border',
+      description: 'Use the bordered prop to add a border style to the avatar.',
+      url: '/examples/[theme-rtl]/avatar/02-avatar-with-border',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Avatar img="/profile-picture-5.jpg" alt="avatar of Jese" rounded bordered />\n      <Avatar img="/profile-picture-5.jpg" bordered />\n    </div>\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Avatar placeholder',
+      description:
+        "If the user doesn't have an image you can simply don't use any image to show a placeholder image, and you can still pass the rounded prop to make the avatar rounded and other options.",
+      url: '/examples/[theme-rtl]/avatar/03-avatar-placeholder',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Avatar } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-2\">\n      <Avatar />\n      <Avatar rounded />\n    </div>\n  )\n})",
+      height: '100',
+    },
+    {
+      title: 'Placeholder initials',
+      description: 'Alternatively to the placeholder image you can use the placeholderInitials prop to show the user initials.',
+      url: '/examples/[theme-rtl]/avatar/04-avatar-placeholder-initials',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Avatar placeholderInitials="RR" />\n      <Avatar placeholderInitials="RR" rounded />\n    </div>\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Dot indicator',
+      description:
+        'You can use the status prop to show a dot indicator on the avatar, and you can use the statusPosition prop to change the position of the dot indicator. This is useful to show the user status like online, offline, busy, away, and more.',
+      url: '/examples/[theme-rtl]/avatar/05-avatar-dot-indicator',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Avatar img="/profile-picture-5.jpg" status="online" />\n      <Avatar img="/profile-picture-5.jpg" rounded status="busy" statusPosition="top-right" />\n      <Avatar img="/profile-picture-5.jpg" status="offline" statusPosition="bottom-left" />\n      <Avatar img="/profile-picture-5.jpg" rounded status="away" statusPosition="bottom-right" />\n    </div>\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Stacked layout',
+      description:
+        'Stack multiple avatars together by using the <AvatarGroup> component and by passing the stacked prop to the child components of the group. The <AvatarCounter> component can be used to show the total number of avatars in the group by passing the total prop and a link to the href prop to view all users.',
+      url: '/examples/[theme-rtl]/avatar/06-avatar-stacked-layout',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar, AvatarGroup, AvatarGroupCounter } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <AvatarGroup>\n        <Avatar img="/profile-picture-1.jpg" rounded stacked />\n        <Avatar img="/profile-picture-2.jpg" rounded stacked />\n        <Avatar img="/profile-picture-3.jpg" rounded stacked />\n        <Avatar img="/profile-picture-4.jpg" rounded stacked />\n        <Avatar img="/profile-picture-5.jpg" rounded stacked />\n      </AvatarGroup>\n      <AvatarGroup>\n        <Avatar img="/profile-picture-1.jpg" rounded stacked />\n        <Avatar img="/profile-picture-2.jpg" rounded stacked />\n        <Avatar img="/profile-picture-3.jpg" rounded stacked />\n        <Avatar img="/profile-picture-4.jpg" rounded stacked />\n        <AvatarGroupCounter total={99} href="#" />\n      </AvatarGroup>\n    </div>\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Avatar with text',
+      description:
+        'Use this example to show an avatar with text (i.e. username, email, etc.) by passing the custom markup inside the <Avatar> component. This is useful for admin dashboard interfaces while the user is logged in.',
+      url: '/examples/[theme-rtl]/avatar/07-avatar-with-text',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Avatar img="/profile-picture-5.jpg" rounded>\n      <div class="space-y-1 font-medium dark:text-white">\n        <div>Jese Leos</div>\n        <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>\n      </div>\n    </Avatar>\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Avatar dropdown',
+      description:
+        'Use the <Dropdown> component to show a dropdown menu when clicking on the avatar component. This example is often used to show the user settings, account settings, and more.',
+      url: '/examples/[theme-rtl]/avatar/08-avatar-dropdown',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar, Dropdown, DropdownItem } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="ml-16">\n      <Dropdown as={<Avatar alt="User settings" img="/profile-picture-5.jpg" rounded />}>\n        <DropdownItem header>\n          <span class="block text-sm">Bonnie Green</span>\n          <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>\n        </DropdownItem>\n        <DropdownItem>Dashboard</DropdownItem>\n        <DropdownItem>Settings</DropdownItem>\n        <DropdownItem divider />\n        <DropdownItem>Sign out</DropdownItem>\n      </Dropdown>\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Avatar colors',
+      description:
+        'If you want to change the default color of the avatar component you can pass the color prop. Colors that you can choose from are gray, light, purple, success, pink, and more.',
+      url: '/examples/[theme-rtl]/avatar/09-avatar-colors',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-col gap-3">\n      <div class="flex flex-wrap gap-2">\n        <Avatar img="/profile-picture-5.jpg" rounded bordered color="gray" />\n        <Avatar img="/profile-picture-5.jpg" rounded bordered color="failure" />\n        <Avatar img="/profile-picture-5.jpg" rounded bordered color="purple" />\n        <Avatar img="/profile-picture-5.jpg" rounded bordered color="success" />\n        <Avatar img="/profile-picture-5.jpg" rounded bordered color="pink" />\n      </div>\n      <div class="flex flex-wrap gap-2">\n        <Avatar img="/profile-picture-5.jpg" bordered color="gray" />\n        <Avatar img="/profile-picture-5.jpg" bordered color="failure" />\n        <Avatar img="/profile-picture-5.jpg" bordered color="purple" />\n        <Avatar img="/profile-picture-5.jpg" bordered color="success" />\n        <Avatar img="/profile-picture-5.jpg" bordered color="pink" />\n      </div>\n    </div>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Avatar sizes',
+      description:
+        'Change the default size of the avatar component by passing the size prop. Sizes that you can choose from are xs, sm, md, lg, and xl.',
+      url: '/examples/[theme-rtl]/avatar/10-avatar-sizes',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap items-center gap-2">\n      <Avatar img="/profile-picture-5.jpg" size="xs" />\n      <Avatar img="/profile-picture-5.jpg" size="sm" />\n      <Avatar img="/profile-picture-5.jpg" size="md" />\n      <Avatar img="/profile-picture-5.jpg" size="lg" />\n      <Avatar img="/profile-picture-5.jpg" size="xl" />\n    </div>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Override image element',
+      description:
+        'You can override the default image element by passing the img prop to the <Avatar> component. This is useful if you want to use a different image element like <Image>',
+      url: '/examples/[theme-rtl]/avatar/11-avatar-override-image',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Avatar\n        img={\n          <picture>\n            <source media="(min-width: 900px)" srcset="/profile-picture-3.jpg" />\n            <source media="(min-width: 480px)" srcset="/profile-picture-4.jpg" />\n            <img alt="" src="/profile-picture-5.jpg" height="48" width="48" />\n          </picture>\n        }\n      />\n    </div>\n  )\n})',
+      height: '200',
+    },
+  ],
   badge: [
     {
       title: 'Default Badge',
