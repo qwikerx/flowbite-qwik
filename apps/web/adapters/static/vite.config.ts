@@ -12,7 +12,7 @@ export default extendConfig(baseConfig, () => {
     },
     plugins: [
       staticAdapter({
-        origin: 'http://127.0.0.1:8080',
+        origin: 'https://flowbite-qwik.com',
       }),
     ],
   }
