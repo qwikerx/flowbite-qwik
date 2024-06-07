@@ -1,6 +1,7 @@
 import { component$ } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
 import { Button, Jumbotron, JumbotronHeading, JumbotronSubText, IconArrowRightOutline } from 'flowbite-qwik'
+import { DocumentHead } from '@builder.io/qwik-city'
 
 export default component$(() => {
   const boxes = [
@@ -54,4 +55,8 @@ export default component$(() => {
       <DocFooter class="mt-16" />
     </div>
   )
+})
+
+export const head: DocumentHead = () => ({
+  title: 'Flowbite Qwik - UI Component Library',
 })
