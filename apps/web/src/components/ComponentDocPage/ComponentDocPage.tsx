@@ -1,4 +1,4 @@
-import { component$, useComputed$, useVisibleTask$ } from '@builder.io/qwik'
+import { component$, Slot, useComputed$, useVisibleTask$ } from '@builder.io/qwik'
 import { Preview } from '~/components/Preview/Preview'
 import { TableOfContents } from '~/components/TableOfContents/TableOfContents'
 import { scrollTo } from '~/utils/scroll-to'
@@ -26,7 +26,9 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
         <div class="flex">
           <div class="mx-auto flex min-w-0 max-w-6xl flex-col px-4">
             <section class="flex flex-col gap-8">
-              <h1 class="capitalize text-4xl font-bold mb-7">{name}</h1>
+              <h1 class="capitalize text-4xl font-bold">{name}</h1>
+              <Slot name="explanation" />
+
               {previewItems.value?.map((item, i) => (
                 <Preview
                   key={i + item.title}

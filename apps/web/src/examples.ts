@@ -273,12 +273,12 @@ export const examples: Record<string, Example[]> = {
   ],
   drawer: [
     {
-      title: '',
+      title: 'Drawer',
       description: '',
       url: '/examples/[theme-rtl]/drawer/01-default-drawer',
       content:
         "import { component$, Slot, useSignal } from '@builder.io/qwik'\nimport { Button, Drawer, DrawerPosition, IconHomeOutline } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const isDrawerOpen = {\n    left: useSignal(false),\n    right: useSignal(false),\n    top: useSignal(false),\n    bottom: useSignal(false),\n    'bottom-edge': useSignal(false),\n  }\n\n  return (\n    <section class=\"p-2\">\n      <div>\n        <h2 class=\"text-2xl font-semibold my-3\">Default Drawer</h2>\n        <div class=\"flex gap-2\">\n          {(['top', 'right', 'bottom', 'left', 'bottom-edge'] as DrawerPosition[]).map((position) => (\n            <>\n              <Button\n                onClick$={() => {\n                  isDrawerOpen[position].value = true\n                }}\n              >\n                {position}\n              </Button>\n\n              <Drawer\n                class={{\n                  hidden: position === 'bottom-edge' && isDrawerOpen.bottom.value,\n                }}\n                bind:open={isDrawerOpen[position]}\n                position={position}\n                title={`Drawer ${position}`}\n                titleIcon={IconHomeOutline}\n              >\n                <p class=\"mb-6 text-sm text-gray-500 dark:text-gray-400\">\n                  Supercharge your hiring by taking advantage of our&nbsp;\n                  <a href=\"#\" class=\"text-cyan-600 underline hover:no-underline dark:text-cyan-500\">\n                    limited-time sale\n                  </a>\n                  <br />\n                  for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the #1 design job board.\n                </p>\n                <div class=\"flex gap-4\">\n                  <Button full>Buy</Button>\n                  <Button color=\"alternative\" full>\n                    See more\n                  </Button>\n                </div>\n              </Drawer>\n            </>\n          ))}\n        </div>\n        <Slot />\n      </div>\n    </section>\n  )\n})",
-      height: '',
+      height: '500',
     },
   ],
   dropdown: [
@@ -495,6 +495,48 @@ export const examples: Record<string, Example[]> = {
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Jumbotron, JumbotronHeading, JumbotronSubText, Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Jumbotron class="bg-center bg-no-repeat bg-[url(\'https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg\')] dark:bg-gray-700 bg-gray-700 bg-blend-multiply">\n      <JumbotronHeading tag="h2" class="text-white">\n        We invest in the world’s potential\n      </JumbotronHeading>\n      <JumbotronSubText class="text-white">\n        Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.\n      </JumbotronSubText>\n      <div class="flex gap-2 justify-center">\n        <Button>Get started</Button>\n        <Button color="alternative">Learn more</Button>\n      </div>\n    </Jumbotron>\n  )\n})',
       height: '400',
+    },
+  ],
+  modal: [
+    {
+      title: 'Default modal',
+      description: '',
+      url: '/examples/[theme-rtl]/modal/01-default-modal',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Button, Modal } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const defaultModalVisible = useSignal(false)\n\n  return (\n    <div>\n      <h2 class="my-3">Default modal</h2>\n      <Button\n        onClick$={() => {\n          defaultModalVisible.value = true\n        }}\n      >\n        Open Modal\n      </Button>\n      <Modal\n        header={<div class="flex items-center text-lg">Terms of Service</div>}\n        footer={\n          <div class="flex justify-between">\n            <Button\n              onClick$={() => {\n                defaultModalVisible.value = false\n              }}\n              color="alternative"\n            >\n              Decline\n            </Button>\n            <Button\n              onClick$={() => {\n                defaultModalVisible.value = false\n              }}\n              color="green"\n            >\n              I accept\n            </Button>\n          </div>\n        }\n        bind:show={defaultModalVisible}\n        onClickOutside$={() => {\n          console.log(\'click outside !\')\n        }}\n      >\n        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">\n          With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are\n          updating their terms of service agreements to comply.\n        </p>\n        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">\n          The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data\n          rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally\n          affect them.\n        </p>\n      </Modal>\n    </div>\n  )\n})',
+      height: '500',
+    },
+    {
+      title: 'Modal sizes',
+      description: '',
+      url: '/examples/[theme-rtl]/modal/02-modal-sizes',
+      content:
+        "import { component$, Signal, useSignal, useStore } from '@builder.io/qwik'\nimport { Button, Modal, ModalSize } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const sizeModalVisible = useStore<Record<string, Signal<boolean>>>({\n    xs: useSignal(false),\n    md: useSignal(false),\n    xl: useSignal(false),\n    ['5xl']: useSignal(false),\n  })\n\n  return (\n    <ul class=\"flex gap-2\">\n      {['xs', 'md', 'xl', '5xl'].map((size) => (\n        <li key={size}>\n          <Button\n            onClick$={() => {\n              sizeModalVisible[size].value = true\n            }}\n          >\n            {size.toUpperCase()} Modal\n          </Button>\n          <Modal size={size as ModalSize} header={<div class=\"flex items-center text-lg\">Size {size}</div>} bind:show={sizeModalVisible[size]}>\n            <p class=\"text-base leading-relaxed text-gray-500 dark:text-gray-400\">\n              With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are\n              updating their terms of service agreements to comply.\n            </p>\n            <p class=\"text-base leading-relaxed text-gray-500 dark:text-gray-400\">\n              The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of\n              data rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could\n              personally affect them.\n            </p>\n          </Modal>\n        </li>\n      ))}\n    </ul>\n  )\n})",
+      height: '500',
+    },
+    {
+      title: 'Modal escapable',
+      description: '',
+      url: '/examples/[theme-rtl]/modal/03-modal-escapable',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Button, Modal } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const escapeModalVisible = useSignal(false)\n\n  return (\n    <div>\n      <h2 class="my-3">Prop - escapable</h2>\n      <Button\n        onClick$={() => {\n          escapeModalVisible.value = true\n        }}\n      >\n        Open Not Escapable Modal\n      </Button>\n      <Modal\n        notEscapable\n        header={<div class="flex items-center text-lg">Terms of Service</div>}\n        footer={\n          <div class="flex justify-between">\n            <Button\n              onClick$={() => {\n                escapeModalVisible.value = false\n              }}\n              color="alternative"\n            >\n              Decline\n            </Button>\n          </div>\n        }\n        bind:show={escapeModalVisible}\n      >\n        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">\n          With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are\n          updating their terms of service agreements to comply.\n        </p>\n        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">\n          The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data\n          rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally\n          affect them.\n        </p>\n      </Modal>\n    </div>\n  )\n})',
+      height: '500',
+    },
+    {
+      title: 'Modal persistent',
+      description: '',
+      url: '/examples/[theme-rtl]/modal/04-modal-persistent',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Button, Modal } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const persistentModalVisible = useSignal(false)\n\n  return (\n    <div>\n      <h2 class="my-3">Prop - persistent</h2>\n      <Button\n        onClick$={() => {\n          persistentModalVisible.value = true\n        }}\n      >\n        Open Persistent Modal\n      </Button>\n      <Modal\n        notEscapable\n        persistent\n        header={<div class="flex items-center text-lg">Terms of Service</div>}\n        footer={\n          <div class="flex justify-between">\n            <Button\n              onClick$={() => {\n                persistentModalVisible.value = false\n              }}\n              color="alternative"\n            >\n              Decline\n            </Button>\n          </div>\n        }\n        bind:show={persistentModalVisible}\n      >\n        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">\n          With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are\n          updating their terms of service agreements to comply.\n        </p>\n        <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">\n          The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data\n          rights in the European Union. It requires organizations to notify users as soon as possible of high-risk data breaches that could personally\n          affect them.\n        </p>\n      </Modal>\n    </div>\n  )\n})',
+      height: '500',
+    },
+    {
+      title: 'Pop-up modal',
+      description: '',
+      url: '/examples/[theme-rtl]/modal/05-modal-popup',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Button, IconBullhornSolid, Modal } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const popupModalVisible = useSignal(false)\n\n  return (\n    <div>\n      <h2 class="my-3">Pop-up modal</h2>\n      <Button\n        onClick$={() => {\n          popupModalVisible.value = true\n        }}\n      >\n        Open Modal\n      </Button>\n      <Modal bind:show={popupModalVisible} size="md" popup>\n        <div class="text-center">\n          <IconBullhornSolid class="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200" />\n\n          <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>\n          <div class="flex gap-2 justify-center">\n            <Button color="red">Yes, I\'m sure</Button>\n            <Button outline>No, cancel</Button>\n          </div>\n        </div>\n      </Modal>\n    </div>\n  )\n})',
+      height: '600',
     },
   ],
   navbar: [

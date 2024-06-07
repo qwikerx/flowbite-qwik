@@ -4,6 +4,7 @@ import prettier from 'prettier'
 function getMetadata(fileContent: string) {
   const pattern = /\/\*\*[^]*?title:\s*(.*?)\s*\*[^]*?description:\s*(.*?)\s*[^]*?height:\s*(.*?)\s*\*\//
   const match = pattern.exec(fileContent)
+  console.log(fileContent, match)
 
   let title = ''
   let description = ''
