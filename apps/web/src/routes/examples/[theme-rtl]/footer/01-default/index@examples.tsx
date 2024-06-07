@@ -1,6 +1,7 @@
 /**
  * title: Default footer
  * description: Use this footer component to show a copyright notice and some helpful website links.
+ * height: 400
  */
 
 import { component$ } from '@builder.io/qwik'

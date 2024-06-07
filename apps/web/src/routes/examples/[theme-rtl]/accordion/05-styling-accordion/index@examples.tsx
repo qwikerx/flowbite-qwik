@@ -1,6 +1,7 @@
 /**
  * title: Styling accordion
  * description: You can style accordion content and headers by passing tailwind classes into them.
+ * height: 300
  */
 
 import { component$ } from '@builder.io/qwik'

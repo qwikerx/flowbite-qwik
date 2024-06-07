@@ -1,6 +1,7 @@
 /**
  * title: Message
  * description: This component can be used to show messages and a CTA button when receiving chat messages, comment notifications, and other use cases.
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

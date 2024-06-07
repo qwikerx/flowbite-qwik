@@ -1,6 +1,7 @@
 /**
  * title: Props type
  * description: Use these contextual toast components to show success, danger, or warning alert messages to your users.
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

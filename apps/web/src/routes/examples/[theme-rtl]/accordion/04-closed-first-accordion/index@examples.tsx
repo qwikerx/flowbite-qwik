@@ -1,6 +1,7 @@
 /**
  * title: Closed first accordion
  * description: First item is not open by default
+ * height: 300
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

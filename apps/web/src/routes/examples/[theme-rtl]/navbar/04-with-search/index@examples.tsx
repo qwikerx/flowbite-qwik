@@ -1,6 +1,7 @@
 /**
  * title: Navbar with search
  * description: Use this example of a navbar element to also show a search input element that you can integrate for a site-wide search.
+ * height: 400
  */
 import { component$, useSignal } from '@builder.io/qwik'
 import { IconSearchOutline, Input, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'flowbite-qwik'

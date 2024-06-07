@@ -1,5 +1,7 @@
 /**
  * title: Align left
+ * description: Use this example to align the jumbotron content to the left.
+ * height: 400
  */
 
 import { component$ } from '@builder.io/qwik'

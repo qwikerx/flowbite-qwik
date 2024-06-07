@@ -1,6 +1,7 @@
 /**
  * title: Default accordion
  * description: Use this example to basic accordion.
+ * height: 300
  */
 
 import { component$ } from '@builder.io/qwik'

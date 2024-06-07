@@ -1,6 +1,7 @@
 /**
  * title: Active tab
  * description: If you want to set a specific tab as active you can do so by using the `active` prop.
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

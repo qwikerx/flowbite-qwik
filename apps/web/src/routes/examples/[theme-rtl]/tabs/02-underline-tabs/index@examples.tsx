@@ -1,6 +1,7 @@
 /**
  * title: Tabs with icons
  * description: This is an example of the tabs component where you can also use a SVG powered icon to complement the text within the navigational tabs.
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

@@ -1,6 +1,7 @@
 /**
  * title: Navbar with CTA button
  * description: Use the following navbar element to show a call to action button alongside the logo and page links.
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'flowbite-qwik'

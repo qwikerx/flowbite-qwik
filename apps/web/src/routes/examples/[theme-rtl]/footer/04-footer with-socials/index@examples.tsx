@@ -1,6 +1,7 @@
 /**
  * title: Sitemap links
  * description: If you have a website with many pages you can use this footer component to show a sitemap spanning the entire width of a row followed below by a copyright notice and social media icons.
+ * height: 400
  */
 
 import { component$ } from '@builder.io/qwik'

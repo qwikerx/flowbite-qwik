@@ -1,6 +1,7 @@
 /**
  * title: Pills tabs
  * description: If you want to use pills as a style for the tabs component you can do so by using this example.
+ * height: 400
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
