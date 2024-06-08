@@ -7,7 +7,7 @@ import rehypeStringify from 'rehype-stringify'
 import styles from './code-block.css?inline'
 import { Button, IconCopySolid, useToggle } from 'flowbite-qwik'
 
-type CodeBlockProps = { content: string; language: string; light?: boolean }
+type CodeBlockProps = { content: string; language: string; expandable?: boolean }
 
 async function highlight(content: string, language: string) {
   // Escape angle brackets using HTML character entities
@@ -23,7 +23,7 @@ async function highlight(content: string, language: string) {
   return String(file)
 }
 
-export const CodeBlock = component$<CodeBlockProps>(({ content, language }) => {
+export const CodeBlock = component$<CodeBlockProps>(({ content, language, expandable = true }) => {
   useStyles$(styles)
   const { value: isCollapsed, toggle$ } = useToggle(true)
 
@@ -61,17 +61,21 @@ export const CodeBlock = component$<CodeBlockProps>(({ content, language }) => {
           </Button>
         </div>
       </div>
-      <pre dangerouslySetInnerHTML={highlightedContent.value} class={['p-4 overflow-auto', isCollapsed.value ? 'max-h-48' : 'max-h-none']} />
-
-      <Button
-        color="light"
-        size="md"
-        full
-        class="rounded-t-none border-t text-gray-800 bg-gray-100 border-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600"
-        onClick$={toggle$}
-      >
-        {isCollapsed.value ? 'Expand code' : 'Collapse code'}
-      </Button>
+      <pre
+        dangerouslySetInnerHTML={highlightedContent.value}
+        class={['p-4 overflow-auto', isCollapsed.value && expandable ? 'max-h-48' : 'max-h-none']}
+      />
+      {expandable && (
+        <Button
+          color="light"
+          size="md"
+          full
+          class="rounded-t-none border-t text-gray-800 bg-gray-100 border-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600"
+          onClick$={toggle$}
+        >
+          {isCollapsed.value ? 'Expand code' : 'Collapse code'}
+        </Button>
+      )}
     </div>
   )
 })

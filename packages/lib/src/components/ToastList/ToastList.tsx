@@ -17,8 +17,8 @@ export const ToastList = component$<ToastListProps>(({ position = 'top-right' })
           class={[
             'fixed flex flex-col space-y-2 z-20',
             {
-              'top-16 left-4': position === 'top-left',
-              'top-16 right-4': position === 'top-right',
+              'top-4 left-4': position === 'top-left',
+              'top-4 right-4': position === 'top-right',
               'bottom-4 left-4': position === 'bottom-left',
               'bottom-4 right-4': position === 'bottom-right',
             },

@@ -4,7 +4,7 @@
  * height: 400
  */
 import { component$, useContext } from '@builder.io/qwik'
-import { StaticGenerateHandler } from '@builder.io/qwik-city'
+import { Link, StaticGenerateHandler } from '@builder.io/qwik-city'
 import { Button, ToastPosition, useToast } from 'flowbite-qwik'
 import { toastPositionContext } from '~/root'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
@@ -58,6 +58,9 @@ export default component$(() => {
           Add danger toast with autoclose timer
         </Button>
       </div>
+      <Link href="/docs/getting-started/quickstart" class="text-blue-500 underline">
+        The toast position should be defined in the FlowbiteProvider
+      </Link>
     </div>
   )
 })
