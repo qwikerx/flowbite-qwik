@@ -15,7 +15,7 @@ export default component$(() => {
 
   return (
     <FlowbiteProvider theme={themeAndRtl.value.theme}>
-      <div dir={themeAndRtl.value.rtl}>
+      <div class="p-4" dir={themeAndRtl.value.rtl}>
         <Slot />
       </div>
     </FlowbiteProvider>

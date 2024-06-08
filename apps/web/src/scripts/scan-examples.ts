@@ -88,3 +88,5 @@ export function getExamplesRoutes() {
         })
     })
 }
+
+getExamplesRoutes()

@@ -26,7 +26,7 @@ type PreviewProps = PropsOf<'iframe'> & {
 
 type PreviewDisplaySize = 'mobile' | 'tablet' | 'desktop'
 
-const liveDir = 'https://github.com/qwikerx/flowbite-qwik/blob/main'
+const liveDir = 'https://github.com/qwikerx/flowbite-qwik/tree/main/apps/web/src/routes'
 
 export const Preview = component$<PreviewProps>(({ url, class: classNames, height = 200, title, codeContent, ...props }) => {
   useStyles$(styles)
