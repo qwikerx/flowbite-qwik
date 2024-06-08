@@ -120,6 +120,8 @@ export default component$(() => {
 ## Components
 
 - Accordion
+- Alert
+- Avatar
 - Badge
 - Breadcrumb
 - Button

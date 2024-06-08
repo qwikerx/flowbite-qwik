@@ -4,14 +4,15 @@ import { DocumentHead } from '@builder.io/qwik-city'
 
 export default component$(() => {
   return (
-    <ComponentDocPage name="avatar">
+    <ComponentDocPage name="alert">
       <div q:slot="explanation">
-        Use the avatar component to show user profile images and placeholders in different sizes, colors and shapes based on Qwik and Tailwind CSS
+        Get started with the alert component to show contextual information to the user such as when validating forms or showing errors based on Qwik
+        and Tailwind CSS
       </div>
     </ComponentDocPage>
   )
 })
 
 export const head: DocumentHead = () => ({
-  title: 'Qwik Avatar - Flowbite',
+  title: 'Qwik Alert - Flowbite',
 })
