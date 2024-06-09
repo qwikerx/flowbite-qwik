@@ -19,9 +19,9 @@ export default component$(() => {
   return (
     <>
       <div class="p-3 flex flex-col gap-3">
-        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Small" size="sm" />
-        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Medium" size="md" />
-        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Large" size="lg" />
+        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Small" sizing="sm" />
+        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Medium" sizing="md" />
+        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Large" sizing="lg" />
       </div>
     </>
   )
