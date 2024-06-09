@@ -97,6 +97,12 @@ export default component$(() => {
             <SidebarItem tag={NavLink} href="/docs/components/input">
               Input
             </SidebarItem>
+            <SidebarItem tag={NavLink} href="/docs/components/radio">
+              Radio
+            </SidebarItem>
+            <SidebarItem tag={NavLink} href="/docs/components/select">
+              Select
+            </SidebarItem>
             <SidebarItem tag={NavLink} href="/docs/components/toggle">
               Toggle
             </SidebarItem>

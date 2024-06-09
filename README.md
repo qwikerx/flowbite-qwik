@@ -124,10 +124,10 @@ export default component$(() => {
 - Accordion
 - Alert
 - Avatar
-- Checkbox
 - Badge
 - Breadcrumb
 - Button
+- Checkbox
 - Drawer
 - Dropdown
 - Footer
@@ -135,14 +135,16 @@ export default component$(() => {
 - Jumbotron
 - Modal
 - Navbar
+- Radio
 - Rating
+- Select
 - Sidebar
 - Spinner
 - Tabs
 - Toast
 - Toggle
 
-## Composables
+## Composables / hooks
 
 - useToasts
 - useDark

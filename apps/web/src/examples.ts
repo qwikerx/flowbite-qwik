@@ -797,6 +797,32 @@ export const examples: Record<string, Example[]> = {
       height: '400',
     },
   ],
+  radio: [
+    {
+      title: 'Default',
+      description: 'Use the default example of a radio component with the checked and unchecked state.',
+      url: '/examples/[theme-rtl]/radio/01-default',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Radio } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const pick = useSignal<string>(\'\')\n\n  return (\n    <>\n      <div class="p-3 flex flex-col gap-3">\n        <Radio name="radio" value="one" bind:option={pick}>\n          First option\n        </Radio>\n        <Radio name="radio" value="two" bind:option={pick}>\n          Second option\n        </Radio>\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Color',
+      description: 'This example can be used for the color of the radio component by applying the color attribute to the input element.',
+      url: '/examples/[theme-rtl]/radio/02-colors',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Radio } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const pick = useSignal<string>(\'blue\')\n\n  return (\n    <>\n      <h2 class="text-xl font-semibold">Picked color : {pick.value}</h2>\n      <div class="p-3 flex flex-col gap-3">\n        <Radio name="radio" value="blue" bind:option={pick}>\n          Blue\n        </Radio>\n        <Radio name="radio" value="purple" color="purple" bind:option={pick}>\n          Purple\n        </Radio>\n        <Radio name="radio" value="red" color="red" bind:option={pick}>\n          Red\n        </Radio>\n        <Radio name="radio" value="green" color="green" bind:option={pick}>\n          Green\n        </Radio>\n        <Radio name="radio" value="pink" color="pink" bind:option={pick}>\n          Pink\n        </Radio>\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Disabled',
+      description: 'This example can be used for the disabled state of the radio component by applying the disabled attribute to the input element.',
+      url: '/examples/[theme-rtl]/radio/03-disabled',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Radio } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const pick = useSignal<string>(\'\')\n\n  return (\n    <>\n      <div class="p-3 flex flex-col gap-3">\n        <Radio name="radio" value="one" disabled bind:option={pick}>\n          First option\n        </Radio>\n        <Radio name="radio" value="two" disabled bind:option={pick}>\n          Second option\n        </Radio>\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
+  ],
   rating: [
     {
       title: 'Default rating',
@@ -828,6 +854,48 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/rating/04-with-sizes',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Rating, RatingSize } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"p-3 flex flex-col gap-3\">\n      {(['sm', 'md', 'lg'] as RatingSize[]).map((size) => (\n        <Rating rating={4} size={size} />\n      ))}\n    </div>\n  )\n})",
+      height: '200',
+    },
+  ],
+  select: [
+    {
+      title: 'Default',
+      description: 'Get started with the default example of a select input component to get a single option selection.',
+      url: '/examples/[theme-rtl]/select/01-default',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Select } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const selected = useSignal('')\n  const countries = [\n    { value: 'us', name: 'United States' },\n    { value: 'ca', name: 'Canada' },\n    { value: 'fr', name: 'France' },\n  ]\n\n  return (\n    <>\n      <div class=\"p-3 flex flex-col gap-3\">\n        <Select bind:value={selected} options={countries} placeholder=\"Choose a country\" label=\"Select an option\" />\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Disabled',
+      description: 'Apply the disable state to the select component to disallow the selection of new options.',
+      url: '/examples/[theme-rtl]/select/02-disabled',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Select } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const selected = useSignal('')\n  const countries = [\n    { value: 'us', name: 'United States' },\n    { value: 'ca', name: 'Canada' },\n    { value: 'fr', name: 'France' },\n  ]\n\n  return (\n    <>\n      <div class=\"p-3 flex flex-col gap-3\">\n        <Select bind:value={selected} disabled options={countries} placeholder=\"Choose a country\" label=\"Select an option\" />\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Selected option',
+      description: 'Use this example to get a single option selection with the selected state of the select input component.',
+      url: '/examples/[theme-rtl]/select/03-selected',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Select } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const selected = useSignal('fr')\n  const countries = [\n    { value: 'us', name: 'United States' },\n    { value: 'ca', name: 'Canada' },\n    { value: 'fr', name: 'France' },\n  ]\n\n  return (\n    <>\n      <div class=\"p-3 flex flex-col gap-3\">\n        <Select bind:value={selected} options={countries} placeholder=\"Choose a country\" label=\"Select an option\" />\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Sizes',
+      description: 'Get started with the small, default, and large sizes for the select component from the example below.',
+      url: '/examples/[theme-rtl]/select/04-sizes',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Select } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const selected = useSignal(\'\')\n  const countries = [\n    { value: \'us\', name: \'United States\' },\n    { value: \'ca\', name: \'Canada\' },\n    { value: \'fr\', name: \'France\' },\n  ]\n\n  return (\n    <>\n      <div class="p-3 flex flex-col gap-3">\n        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Small" size="sm" />\n        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Medium" size="md" />\n        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Large" size="lg" />\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Underline',
+      description: 'Use the underline style for the select component as an alternative appearance.',
+      url: '/examples/[theme-rtl]/select/05-underline',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Select } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const selected = useSignal('')\n  const countries = [\n    { value: 'us', name: 'United States' },\n    { value: 'ca', name: 'Canada' },\n    { value: 'fr', name: 'France' },\n  ]\n\n  return (\n    <>\n      <div class=\"p-3 flex flex-col gap-3\">\n        <Select bind:value={selected} options={countries} underline placeholder=\"Choose a country\" label=\"Underline\" />\n      </div>\n    </>\n  )\n})",
       height: '200',
     },
   ],
