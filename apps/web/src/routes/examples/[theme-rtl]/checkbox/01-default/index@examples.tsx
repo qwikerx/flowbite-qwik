@@ -1,19 +1,20 @@
 /**
- * title: Required
- * description: Get started with this example if you want to apply the required state to an input field.
+ * title: Checkbox example
+ * description: Use this default example of a checkbox element in a checked and unchecked state.
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
-import { Input } from 'flowbite-qwik'
+import { Checkbox } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
 export default component$(() => {
-  const val = useSignal('')
+  const val = useSignal(false)
+
   return (
     <>
       <div class="p-3">
-        <Input bind:value={val} required label="First name" placeholder="First name" />
+        <Checkbox bind:checked={val}>Checkbox</Checkbox>
       </div>
     </>
   )

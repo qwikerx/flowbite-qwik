@@ -1,5 +1,5 @@
 .doc-page h1 {
-  @apply mb-2 inline-block w-full text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white;
+  @apply mb-2 inline-block w-full capitalize text-4xl font-bold tracking-tight text-gray-900 dark:text-white;
 }
 
 .doc-page h2 {
@@ -34,6 +34,6 @@
   @apply my-8 border-t border-gray-200 dark:border-gray-800;
 }
 
-em {
+.doc-page em {
   @apply italic text-gray-700 dark:text-gray-300;
 }

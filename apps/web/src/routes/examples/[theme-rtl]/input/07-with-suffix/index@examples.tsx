@@ -12,7 +12,6 @@ export default component$(() => {
   const val = useSignal('')
   return (
     <div class="p-3">
-      <h2 class="text-2xl font-semibold my-3">Suffix</h2>
       <Input
         bind:value={val}
         label="First name"

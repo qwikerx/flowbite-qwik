@@ -1,15 +1,15 @@
-import { component$, useComputed$, Signal, QRL, useTask$ } from '@builder.io/qwik'
+import { component$, useComputed$, Signal, QRL, ClassList } from '@builder.io/qwik'
 import { InputSize } from '../Input/input-types'
 import { FlowbiteToggleColor, useToggleClasses } from './composables/use-toggle-classes'
-import { PropsOfInput } from '../Input/Input'
 
-type ToggleProps = PropsOfInput & {
+type ToggleProps = {
   color?: FlowbiteToggleColor
   disabled?: boolean
   label?: string
   'bind:checked': Signal<boolean>
   size?: InputSize
   onChange$?: QRL<(value: boolean) => void>
+  class?: ClassList
 }
 
 export const Toggle = component$<ToggleProps>(
@@ -19,17 +19,19 @@ export const Toggle = component$<ToggleProps>(
       useComputed$(() => color),
     )
 
-    useTask$(({ track }) => {
-      track(() => props['bind:checked'].value)
-
-      if (onChange$) {
-        onChange$(props['bind:checked'].value ?? false)
-      }
-    })
-
     return (
       <label class={[classNames, labelClasses.value]}>
-        <input bind:checked={props['bind:checked']} type="checkbox" class="peer sr-only" disabled={disabled} />
+        <input
+          bind:checked={props['bind:checked']}
+          type="checkbox"
+          class="peer sr-only"
+          disabled={disabled}
+          onChange$={() => {
+            if (onChange$) {
+              onChange$(props['bind:checked'].value)
+            }
+          }}
+        />
         <span class={[toggleClasses.value, toggleSize.value, toggleColor.value]} />
         <span class={toggleBallClasses.value}>{label}</span>
       </label>

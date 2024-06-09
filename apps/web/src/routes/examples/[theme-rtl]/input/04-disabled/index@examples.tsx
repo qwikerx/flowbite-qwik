@@ -13,7 +13,6 @@ export default component$(() => {
   return (
     <>
       <div class="p-3">
-        <h2 class="text-2xl font-semibold my-3">Disabled</h2>
         <Input bind:value={val} disabled label="First name" placeholder="First name" />
       </div>
     </>

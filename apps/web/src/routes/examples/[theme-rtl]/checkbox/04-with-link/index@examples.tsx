@@ -1,19 +1,24 @@
 /**
- * title: Required
- * description: Get started with this example if you want to apply the required state to an input field.
+ * title: With link
+ * description: Use this example if you want to add an anchor link inside the label of the checkbox component.
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
-import { Input } from 'flowbite-qwik'
+import { Checkbox } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
 export default component$(() => {
-  const val = useSignal('')
+  const val = useSignal(false)
+
   return (
     <>
       <div class="p-3">
-        <Input bind:value={val} required label="First name" placeholder="First name" />
+        <Checkbox bind:checked={val}>
+          <a href="#" class="text-blue-500 underline">
+            I agree with terms and conditions.
+          </a>
+        </Checkbox>
       </div>
     </>
   )

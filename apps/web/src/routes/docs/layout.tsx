@@ -1,7 +1,7 @@
 import { $, component$, Slot, useSignal } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
 import { Button, IconDotsVerticalOutline, Sidebar, SidebarCollapse, SidebarItem, SidebarItemGroup, useComponentOuterClick } from 'flowbite-qwik'
-import { Link } from '@builder.io/qwik-city'
+import { NavLink } from '~/components/NavLink/NavLink'
 
 export default component$(() => {
   const isSidebarOpen = useSignal(false)
@@ -27,79 +27,82 @@ export default component$(() => {
       >
         <SidebarItemGroup>
           <SidebarCollapse label="Getting Started" opened>
-            <SidebarItem tag={Link} href="/docs/getting-started/introduction">
+            <SidebarItem tag={NavLink} href="/docs/getting-started/introduction">
               Introduction
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/getting-started/quickstart">
+            <SidebarItem tag={NavLink} href="/docs/getting-started/quickstart">
               Quickstart
             </SidebarItem>
           </SidebarCollapse>
           <SidebarCollapse label="Components" opened>
-            <SidebarItem tag={Link} href="/docs/components/accordion">
+            <SidebarItem tag={NavLink} href="/docs/components/accordion">
               Accordion
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/alert">
+            <SidebarItem tag={NavLink} href="/docs/components/alert">
               Alert
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/avatar">
+            <SidebarItem tag={NavLink} href="/docs/components/avatar">
               Avatar
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/badge">
+            <SidebarItem tag={NavLink} href="/docs/components/badge">
               Badge
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/breadcrumb">
+            <SidebarItem tag={NavLink} href="/docs/components/breadcrumb">
               Breadcrumb
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/button">
+            <SidebarItem tag={NavLink} href="/docs/components/button">
               Button
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/drawer">
+            <SidebarItem tag={NavLink} href="/docs/components/drawer">
               Drawer
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/dropdown">
+            <SidebarItem tag={NavLink} href="/docs/components/dropdown">
               Dropdown
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/footer">
+            <SidebarItem tag={NavLink} href="/docs/components/footer">
               Footer
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/icon">
+            <SidebarItem tag={NavLink} href="/docs/components/icon">
               Icon
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/jumbotron">
+            <SidebarItem tag={NavLink} href="/docs/components/jumbotron">
               Jumbotron
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/modal">
+            <SidebarItem tag={NavLink} href="/docs/components/modal">
               Modal
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/navbar">
+            <SidebarItem tag={NavLink} href="/docs/components/navbar">
               Navbar
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/rating">
+            <SidebarItem tag={NavLink} href="/docs/components/rating">
               Rating
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/sidebar">
+            <SidebarItem tag={NavLink} href="/docs/components/sidebar">
               Sidebar
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/spinner">
+            <SidebarItem tag={NavLink} href="/docs/components/spinner">
               Spinner
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/tabs">
+            <SidebarItem tag={NavLink} href="/docs/components/tabs">
               Tabs
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/toast">
+            <SidebarItem tag={NavLink} href="/docs/components/toast">
               Toast
             </SidebarItem>
           </SidebarCollapse>
           <SidebarCollapse label="Form">
-            <SidebarItem tag={Link} href="/docs/components/input">
+            <SidebarItem tag={NavLink} href="/docs/components/checkbox">
+              Checkbox
+            </SidebarItem>
+            <SidebarItem tag={NavLink} href="/docs/components/input">
               Input
             </SidebarItem>
-            <SidebarItem tag={Link} href="/docs/components/toggle">
+            <SidebarItem tag={NavLink} href="/docs/components/toggle">
               Toggle
             </SidebarItem>
           </SidebarCollapse>
           <SidebarCollapse label="Extra">
-            <SidebarItem tag={Link} href="/docs/components/code-block">
+            <SidebarItem tag={NavLink} href="/docs/components/code-block">
               CodeBlock
             </SidebarItem>
           </SidebarCollapse>

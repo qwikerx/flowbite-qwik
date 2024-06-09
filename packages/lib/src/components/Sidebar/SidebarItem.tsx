@@ -32,6 +32,8 @@ export const InnerSidebarItem = component$<SidebarItemProps>(({ tag: Tag = 'a', 
         classNames,
         isCollapse ? 'pl-11' : '',
       ]}
+      // @ts-ignore
+      activeClass="bg-gray-200 dark:bg-gray-600"
     >
       {!!Icon && !isCollapse && (
         <Icon class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
