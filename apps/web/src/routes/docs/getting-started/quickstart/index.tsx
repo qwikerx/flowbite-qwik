@@ -61,6 +61,94 @@ export default component$(() => {
               `}
           />
         </div>
+        <div>
+          <h2>Set up the Flowbite Provider</h2>
+          <p>
+            To use it, wrap the root component with the <em>FlowbiteProvider</em>, and specify the wanted toast position and theme.
+          </p>
+          <p>Actual available colors theme are : 'blue', 'green', 'red', 'pink' and 'purple'</p>
+          <p>Available toast positions are : 'top-right', 'top-left', 'bottom-right', 'bottom-left'</p>
+          <p>
+            If you use dark theme, also add <em>FlowbiteProviderHeader</em> into your head element
+          </p>
+
+          <CodeBlock
+            language="tsx"
+            expandable={false}
+            content={`
+                <QwikCityProvider>
+                <head>
+                  <RouterHead />
+                  // Add the FlowbiteProviderHeader to the head
+                  <FlowbiteProviderHeader />
+                </head>
+                <body>
+                  // Add the FlowbiteProvider to the body
+                  <FlowbiteProvider toastPosition={toastPosition.value} theme="blue">
+                    <RouterOutlet />
+                  </FlowbiteProvider>
+                </body>
+              </QwikCityProvider>
+            `}
+          />
+        </div>
+        <div>
+          <h2>Toggle Dark mode</h2>
+          <p>To use dark mode, we provide a composable useDark that you can use to toggle the dark mode.</p>
+
+          <h3>Here is an example of Dark mode Toggle</h3>
+          <CodeBlock
+            language="tsx"
+            expandable={false}
+            content={`
+              const { isDark, setDarkModeValue } = useDark()
+
+              <Button
+                square
+                color="light"
+                title="Toggle dark mode"
+                onClick$={() => {
+                  setDarkModeValue(isDark.value ? 'light' : 'dark')
+                }}
+              >
+                {isDark.value ? <IconSunOutline class="h-4 w-4" /> : <IconMoonOutline class="h-4 w-4" />}
+              </Button>
+            `}
+          />
+
+          <h3>Add style to setup your dark mode</h3>
+          <CodeBlock
+            language="css"
+            expandable={false}
+            content={`
+              .dark {
+                color-scheme: dark;
+                background: #111827;
+              }
+              .light {
+                color-scheme: light;
+                background: #fff;
+              }
+            `}
+          />
+
+          <h3>Use dark mode in your tailwind classes</h3>
+          <p>
+            To use dark mode in your tailwind classes, you can use the <em>dark:</em> prefix. Here is an example of how to use dark mode in your
+            classes.
+            <br />
+            <a href="https://tailwindcss.com/docs/dark-mode">Read more about Tailwind dark mode</a>
+          </p>
+          <CodeBlock
+            language="html"
+            expandable={false}
+            content={`
+              <div class="bg-white text-gray-800 dark:bg-gray-800 dark:text-white">
+                Dark mode content
+              </div>
+            `}
+          />
+        </div>
       </div>
     </DocumentPage>
   )

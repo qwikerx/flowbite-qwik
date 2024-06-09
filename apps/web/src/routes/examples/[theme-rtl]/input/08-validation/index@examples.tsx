@@ -12,7 +12,6 @@ export default component$(() => {
   const val = useSignal('')
   return (
     <div class="p-3">
-      <h2 class="text-2xl font-semibold my-3">Validation</h2>
       <Input bind:value={val} label="First name" placeholder="First name" validationStatus="success" />
       <hr class="mt-4 border-0"></hr>
       <Input bind:value={val} label="First name" placeholder="First name" validationStatus="error" validationMessage="This field is not valid" />

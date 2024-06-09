@@ -13,7 +13,6 @@ export default component$(() => {
   return (
     <>
       <div class="p-3">
-        <h2 class="text-2xl font-semibold my-3">Default input</h2>
         <p class="text-xl">Value : {val.value}</p>
         <Input bind:value={val} label="Name" placeholder="John Doe" />
       </div>

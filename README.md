@@ -25,6 +25,8 @@
 
 ### `flowbite-qwik` is an open source collection of UI components, built in Qwik, with utility classes from Tailwind CSS that you can use as a starting point for user interfaces and websites.
 
+[Online documentation](https://flowbite-qwik.com)
+
 ## Table of Contents
 
 - [Documentation](#documentation)
@@ -122,6 +124,7 @@ export default component$(() => {
 - Accordion
 - Alert
 - Avatar
+- Checkbox
 - Badge
 - Breadcrumb
 - Button
@@ -139,12 +142,14 @@ export default component$(() => {
 - Toast
 - Toggle
 
-## composables
+## Composables
 
 - useToasts
 - useDark
+- useDebounce
 - useMediaQuery
 - useOuterClick
+- useToggle
 
 [//]: # '## Community'
 [//]: #

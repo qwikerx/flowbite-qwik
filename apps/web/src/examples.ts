@@ -433,6 +433,57 @@ export const examples: Record<string, Example[]> = {
       height: '200',
     },
   ],
+  checkbox: [
+    {
+      title: 'Checkbox example',
+      description: 'Use this default example of a checkbox element in a checked and unchecked state.',
+      url: '/examples/[theme-rtl]/checkbox/01-default',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox bind:checked={val}>Checkbox</Checkbox>\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Disabled state',
+      description:
+        'This example can be used for the disabled state of the checkbox component by applying the disabled attribute to the input element.',
+      url: '/examples/[theme-rtl]/checkbox/02-disabled',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox bind:checked={val} disabled>\n          Disable\n        </Checkbox>\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Checked state',
+      description: 'This example can be used for the checked state of the checkbox component.',
+      url: '/examples/[theme-rtl]/checkbox/03-checked',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(true)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox bind:checked={val}>Checked</Checkbox>\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'With link',
+      description: 'Use this example if you want to add an anchor link inside the label of the checkbox component.',
+      url: '/examples/[theme-rtl]/checkbox/04-with-link',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Checkbox } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class="p-3">\n        <Checkbox bind:checked={val}>\n          <a href="#" class="text-blue-500 underline">\n            I agree with terms and conditions.\n          </a>\n        </Checkbox>\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'On change event',
+      description: 'This example can be used for the onchange event of the checkbox component.',
+      url: '/examples/[theme-rtl]/checkbox/05-on-change-event',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox\n          bind:checked={val}\n          onChange$={(val: boolean) => {\n            alert(`Checkbox state changed to ${val}`)\n          }}\n        >\n          Change state\n        </Checkbox>\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Colors',
+      description: 'This example can be used for the color of the checkbox component by applying the color attribute to the input element.',
+      url: '/examples/[theme-rtl]/checkbox/06-colors',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox, FlowbiteTheme } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(true)\n\n  return (\n    <>\n      <div class=\"p-3 flex gap-3\">\n        {(['blue', 'green', 'red', 'pink', 'purple'] as FlowbiteTheme[]).map((color) => (\n          <Checkbox bind:checked={val} color={color}>\n            {color}\n          </Checkbox>\n        ))}\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+  ],
   drawer: [
     {
       title: 'Drawer',
@@ -579,7 +630,7 @@ export const examples: Record<string, Example[]> = {
         'Use this example as a generic form element which includes multiple input fields types such as text, email, password, number, URL, and phone number and use the grid layout to add multiple columns and rows.',
       url: '/examples/[theme-rtl]/input/01-default',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <h2 class="text-2xl font-semibold my-3">Default input</h2>\n        <p class="text-xl">Value : {val.value}</p>\n        <Input bind:value={val} label="Name" placeholder="John Doe" />\n      </div>\n    </>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <p class="text-xl">Value : {val.value}</p>\n        <Input bind:value={val} label="Name" placeholder="John Doe" />\n      </div>\n    </>\n  )\n})',
       height: '200',
     },
     {
@@ -587,7 +638,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use the following examples to apply a small, default or large size for the input fields.',
       url: '/examples/[theme-rtl]/input/02-sizes',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <h2 class="text-2xl font-semibold my-3">Sizes</h2>\n        <p class="text-xl">Value : {val.value}</p>\n        <div class="flex flex-col gap-3">\n          <Input bind:value={val} label="Small" placeholder="enter your name" size="sm" />\n          <Input bind:value={val} label="Medium" placeholder="enter your name" size="md" />\n          <Input bind:value={val} label="Large" placeholder="enter your name" size="lg" />\n        </div>\n      </div>\n    </>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <p class="text-xl">Value : {val.value}</p>\n        <div class="flex flex-col gap-3">\n          <Input bind:value={val} label="Small" placeholder="enter your name" size="sm" />\n          <Input bind:value={val} label="Medium" placeholder="enter your name" size="md" />\n          <Input bind:value={val} label="Large" placeholder="enter your name" size="lg" />\n        </div>\n      </div>\n    </>\n  )\n})',
       height: '200',
     },
     {
@@ -595,7 +646,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Get started with this example if you want to apply the required state to an input field.',
       url: '/examples/[theme-rtl]/input/03-required',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <h2 class="text-2xl font-semibold my-3">Disabled</h2>\n        <Input bind:value={val} required label="First name" placeholder="First name" />\n      </div>\n    </>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <Input bind:value={val} required label="First name" placeholder="First name" />\n      </div>\n    </>\n  )\n})',
       height: '200',
     },
     {
@@ -603,7 +654,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Get started with this example if you want to apply the disabled state to an input field.',
       url: '/examples/[theme-rtl]/input/04-disabled',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <h2 class="text-2xl font-semibold my-3">Disabled</h2>\n        <Input bind:value={val} disabled label="First name" placeholder="First name" />\n      </div>\n    </>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <Input bind:value={val} disabled label="First name" placeholder="First name" />\n      </div>\n    </>\n  )\n})',
       height: '200',
     },
     {
@@ -619,7 +670,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use this example to add a prefix to the input field.',
       url: '/examples/[theme-rtl]/input/06-with-prefix',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { IconSearchOutline, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <div class="p-3">\n      <h2 class="text-2xl font-semibold my-3">Prefix</h2>\n      <Input\n        bind:value={val}\n        label="First name"\n        placeholder="First name"\n        prefix={<IconSearchOutline class="w-5 h-5 text-gray-500 dark:text-gray-400" />}\n      />\n    </div>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { IconSearchOutline, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <div class="p-3">\n      <Input\n        bind:value={val}\n        label="First name"\n        placeholder="First name"\n        prefix={<IconSearchOutline class="w-5 h-5 text-gray-500 dark:text-gray-400" />}\n      />\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -627,7 +678,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use this example to add a suffix to the input field.',
       url: '/examples/[theme-rtl]/input/07-with-suffix',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { IconSearchOutline, Input, Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <div class="p-3">\n      <h2 class="text-2xl font-semibold my-3">Suffix</h2>\n      <Input\n        bind:value={val}\n        label="First name"\n        placeholder="First name"\n        size="lg"\n        prefix={<IconSearchOutline class="w-5 h-5 text-gray-500 dark:text-gray-400" />}\n        suffix={<Button>Hello</Button>}\n      />\n    </div>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { IconSearchOutline, Input, Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <div class="p-3">\n      <Input\n        bind:value={val}\n        label="First name"\n        placeholder="First name"\n        size="lg"\n        prefix={<IconSearchOutline class="w-5 h-5 text-gray-500 dark:text-gray-400" />}\n        suffix={<Button>Hello</Button>}\n      />\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -635,7 +686,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use this example to add a suffix to the input field.',
       url: '/examples/[theme-rtl]/input/08-validation',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <div class="p-3">\n      <h2 class="text-2xl font-semibold my-3">Validation</h2>\n      <Input bind:value={val} label="First name" placeholder="First name" validationStatus="success" />\n      <hr class="mt-4 border-0"></hr>\n      <Input bind:value={val} label="First name" placeholder="First name" validationStatus="error" validationMessage="This field is not valid" />\n    </div>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <div class="p-3">\n      <Input bind:value={val} label="First name" placeholder="First name" validationStatus="success" />\n      <hr class="mt-4 border-0"></hr>\n      <Input bind:value={val} label="First name" placeholder="First name" validationStatus="error" validationMessage="This field is not valid" />\n    </div>\n  )\n})',
       height: '200',
     },
   ],

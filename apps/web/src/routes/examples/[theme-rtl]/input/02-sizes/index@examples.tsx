@@ -13,7 +13,6 @@ export default component$(() => {
   return (
     <>
       <div class="p-3">
-        <h2 class="text-2xl font-semibold my-3">Sizes</h2>
         <p class="text-xl">Value : {val.value}</p>
         <div class="flex flex-col gap-3">
           <Input bind:value={val} label="Small" placeholder="enter your name" size="sm" />

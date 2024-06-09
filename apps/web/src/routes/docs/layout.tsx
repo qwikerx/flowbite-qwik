@@ -91,6 +91,9 @@ export default component$(() => {
             </SidebarItem>
           </SidebarCollapse>
           <SidebarCollapse label="Form">
+            <SidebarItem tag={Link} href="/docs/components/checkbox">
+              Checkbox
+            </SidebarItem>
             <SidebarItem tag={Link} href="/docs/components/input">
               Input
             </SidebarItem>

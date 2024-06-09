@@ -13,15 +13,25 @@ export const DocumentPage = component$(() => {
   useVisibleTask$(() => {
     const sectionsTitles = document.querySelectorAll('h2')
     sectionsTitles.forEach((sectionTitle) => {
+      const slug = toSlug(sectionTitle.textContent || '')
       sections.push(sectionTitle.textContent || '')
-      sectionTitle.setAttribute('id', toSlug(sectionTitle.textContent || ''))
+      sectionTitle.setAttribute('id', slug)
+      sectionTitle.classList.add('group')
+
+      const link = document.createElement('a')
+      link.href = `#${slug}`
+      link.textContent = '#'
+      link.classList.add('group-hover:inline')
+      link.classList.add('hidden')
+      link.classList.add('pl-2')
+      sectionTitle.appendChild(link)
     })
 
     const hash = document.location.hash
     if (hash) {
       scrollTo(hash)
       activeElement.value = hash.slice(1)
-    } else {
+    } else if (sections.length > 0) {
       activeElement.value = toSlug(sections[0])
     }
   })
@@ -50,12 +60,14 @@ export const DocumentPage = component$(() => {
 
   return (
     <div class="flex">
-      <div ref={page} class="text-lg relative text-gray-600 dark:text-gray-400 max-w-6xl doc-page">
+      <div ref={page} class="text-lg flex flex-col px-4 text-gray-600 dark:text-gray-400 max-w-6xl w-3/4 doc-page">
         <Slot />
       </div>
-      <div class="right-0 hidden w-64 flex-none pl-8 xl:block xl:text-sm">
-        <TableOfContents items={sections} activeElement={activeElement.value} />
-      </div>
+      {sections.length > 0 && (
+        <div class="hidden w-1/4 flex-none pl-8 xl:block xl:text-sm">
+          <TableOfContents items={sections} activeElement={activeElement.value} />
+        </div>
+      )}
     </div>
   )
 })

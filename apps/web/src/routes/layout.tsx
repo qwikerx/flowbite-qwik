@@ -98,3 +98,10 @@ export default component$(() => {
     </div>
   )
 })
+
+export const head = () => {
+  return {
+    title: 'Flowbite Qwik',
+    description: 'Use Flowbite Qwik UI components and start building modern web applications using Qwik components based on Tailwind CSS',
+  }
+}

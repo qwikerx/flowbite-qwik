@@ -1,19 +1,22 @@
 /**
- * title: Required
- * description: Get started with this example if you want to apply the required state to an input field.
+ * title: Disabled state
+ * description: This example can be used for the disabled state of the checkbox component by applying the disabled attribute to the input element.
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
-import { Input } from 'flowbite-qwik'
+import { Checkbox } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
 export default component$(() => {
-  const val = useSignal('')
+  const val = useSignal(false)
+
   return (
     <>
       <div class="p-3">
-        <Input bind:value={val} required label="First name" placeholder="First name" />
+        <Checkbox bind:checked={val} disabled>
+          Disable
+        </Checkbox>
       </div>
     </>
   )
