@@ -11,20 +11,20 @@ type SelectProps = PropsOf<'select'> & {
   placeholder?: string
   disabled?: boolean
   underline?: boolean
-  size?: InputSize
+  sizing?: InputSize
   validationStatus?: ValidationStatus
   validationMessage?: JSXOutput
   helper?: JSXOutput
 }
 
-export const Select = component$<SelectProps>(({ label, options, class: classNames, ...props }) => {
+export const Select = component$<SelectProps>(({ label, options, sizing = 'md', ...props }) => {
   const validationStatus = useComputed$(() => props.validationStatus)
-  const size = useComputed$(() => props.size ?? ('md' as InputSize))
+  const sizingComputed = useComputed$(() => sizing as InputSize)
   const disabled = useComputed$(() => props.disabled ?? false)
   const underline = useComputed$(() => props.underline ?? false)
 
   const { labelClasses, selectClasses, validationWrapperClasses } = useSelectClasses({
-    size,
+    sizing: sizingComputed,
     disabled,
     underline,
     validationStatus,

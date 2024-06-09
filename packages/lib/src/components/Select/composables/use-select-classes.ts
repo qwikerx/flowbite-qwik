@@ -23,7 +23,7 @@ const errorInputClasses =
   'bg-red-50 border-red-500 text-red-900 placeholder-red-700 focus:ring-red-500 focus:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500'
 
 export type UseSelectClassesProps = {
-  size: Signal<InputSize>
+  sizing: Signal<InputSize>
   disabled: Signal<boolean>
   underline: Signal<boolean>
   validationStatus: Signal<ValidationStatus | undefined>
@@ -45,7 +45,7 @@ export function useSelectClasses(props: UseSelectClassesProps): {
     return twMerge(
       defaultSelectClasses,
       classByStatus,
-      selectSizeClasses[props.size.value],
+      selectSizeClasses[props.sizing.value],
       props.disabled.value && disabledSelectClasses,
       props.underline.value ? underlineSelectClasses : 'border border-gray-300 rounded-lg',
       props.underline.value && underlineByStatus,
