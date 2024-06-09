@@ -49,6 +49,66 @@ export const examples: Record<string, Example[]> = {
       height: '300',
     },
   ],
+  alert: [
+    {
+      title: 'Default alert',
+      description:
+        'The default alert component is a simple alert box with a text inside it, and you can use the color prop to change the color of the alert box and the title prop to add a title to the alert box. Inside the <Alert> component you can add any type of content such as text, images, or other components as they will be considered children of the alert box.',
+      url: '/examples/[theme-rtl]/alert/01-default-alert',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Alert } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Alert color="info">\n      <span class="font-medium">Info alert!</span> Change a few things up and try submitting again.\n    </Alert>\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Alert with icon',
+      description: 'Use the icon prop to add an icon to the alert box, and you can use any icon from the Flowbite Qwik Icons library.',
+      url: '/examples/[theme-rtl]/alert/02-alert-with-icon',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Alert, IconInfoCircleOutline } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Alert color="failure" icon={IconInfoCircleOutline}>\n      <span class="font-medium">Info alert!</span> Change a few things up and try submitting again.\n    </Alert>\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Dismissible alert',
+      description:
+        'You can use the onDismiss prop on the <Alert> component to add a dismiss button to the alert box by adding a function inside of it that will be called when the user clicks on the dismiss button.',
+      url: '/examples/[theme-rtl]/alert/03-alert-dismissible',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Alert } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <Alert\n      color=\"success\"\n      onDismiss$={() => {\n        alert('Alert dismissed!')\n      }}\n    >\n      <span class=\"font-medium\">Info alert!</span> Change a few things up and try submitting again.\n    </Alert>\n  )\n})",
+      height: '100',
+    },
+    {
+      title: 'Rounded alert',
+      description: 'To make the alert box rounded you can use the rounded prop on the <Alert> component.',
+      url: '/examples/[theme-rtl]/alert/04-alert-rounded',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Alert } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Alert color="warning" rounded>\n      <span class="font-medium">Info alert!</span> Change a few things up and try submitting again.\n    </Alert>\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Border accent',
+      description: 'Add a border accent to the alert box by applying the withBorderAccent prop on the <Alert> component.',
+      url: '/examples/[theme-rtl]/alert/05-alert-with-border',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Alert } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Alert color="warning" withBorderAccent>\n      <span>\n        <span class="font-medium">Info alert!</span> Change a few things up and try submitting again.\n      </span>\n    </Alert>\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Additional content',
+      description: 'Add additional content by using the additionalContent prop and add any type of content inside of it.',
+      url: '/examples/[theme-rtl]/alert/06-alert-additional-content',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Alert, IconEyeOutline, IconInfoCircleOutline } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Alert additionalContent={<ExampleAdditionalContent />} color="warning" icon={IconInfoCircleOutline}>\n      <span class="font-medium">Info alert!</span> Change a few things up and try submitting again.\n    </Alert>\n  )\n})\n\nconst ExampleAdditionalContent = component$(() => {\n  return (\n    <>\n      <div class="mb-4 mt-2 text-sm text-cyan-700 dark:text-cyan-800">\n        More info about this info alert goes here. This example text is going to run a bit longer so that you can see how spacing within an alert\n        works with this kind of content.\n      </div>\n      <div class="flex">\n        <button\n          type="button"\n          class="mr-2 inline-flex items-center rounded-lg bg-cyan-700 px-3 py-1.5 text-center text-xs font-medium text-white hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-800 dark:hover:bg-cyan-900"\n        >\n          <IconEyeOutline class="-ml-0.5 mr-2 h-4 w-4" />\n          View more\n        </button>\n        <button\n          type="button"\n          class="rounded-lg border border-cyan-700 bg-transparent px-3 py-1.5 text-center text-xs font-medium text-cyan-700 hover:bg-cyan-800 hover:text-white focus:ring-4 focus:ring-cyan-300 dark:border-cyan-800 dark:text-cyan-800 dark:hover:text-white"\n        >\n          Dismiss\n        </button>\n      </div>\n    </>\n  )\n})',
+      height: '250',
+    },
+    {
+      title: 'Alert All options',
+      description: 'This is an example with all the available options and props for the alert component.',
+      url: '/examples/[theme-rtl]/alert/07-alert-all-options',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Alert, IconEyeOutline, IconInfoCircleOutline } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Alert\n      additionalContent={<ExampleAdditionalContent />}\n      color="success"\n      icon={IconInfoCircleOutline}\n      onDismiss$={() => {\n        alert(\'Alert dismissed!\')\n      }}\n      rounded\n    >\n      <span class="font-medium">Info alert!</span> Change a few things up and try submitting again.\n    </Alert>\n  )\n})\n\nconst ExampleAdditionalContent = component$(() => {\n  return (\n    <>\n      <div class="mb-4 mt-2 text-sm text-cyan-700 dark:text-cyan-800">\n        More info about this info alert goes here. This example text is going to run a bit longer so that you can see how spacing within an alert\n        works with this kind of content.\n      </div>\n      <div class="flex">\n        <button\n          type="button"\n          class="mr-2 inline-flex items-center rounded-lg bg-cyan-700 px-3 py-1.5 text-center text-xs font-medium text-white hover:bg-cyan-800 focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-800 dark:hover:bg-cyan-900"\n        >\n          <IconEyeOutline class="-ml-0.5 mr-2 h-4 w-4" />\n          View more\n        </button>\n        <button\n          type="button"\n          class="rounded-lg border border-cyan-700 bg-transparent px-3 py-1.5 text-center text-xs font-medium text-cyan-700 hover:bg-cyan-800 hover:text-white focus:ring-4 focus:ring-cyan-300 dark:border-cyan-800 dark:text-cyan-800 dark:hover:text-white"\n        >\n          Dismiss\n        </button>\n      </div>\n    </>\n  )\n})',
+      height: '250',
+    },
+  ],
   avatar: [
     {
       title: 'Default avatar',

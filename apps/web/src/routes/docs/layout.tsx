@@ -38,6 +38,9 @@ export default component$(() => {
             <SidebarItem tag={Link} href="/docs/components/accordion">
               Accordion
             </SidebarItem>
+            <SidebarItem tag={Link} href="/docs/components/alert">
+              Alert
+            </SidebarItem>
             <SidebarItem tag={Link} href="/docs/components/avatar">
               Avatar
             </SidebarItem>
