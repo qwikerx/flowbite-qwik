@@ -6,7 +6,7 @@ type JumbotronHeadingProps = PropsOf<'h1'> & {
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }
 
-export const JumbotronHeading = component$<JumbotronHeadingProps>(({ tag: Tag = 'h2', class: classNames, ...attrs }) => {
+export const JumbotronHeading = component$<JumbotronHeadingProps>(({ tag: Tag = 'h1', class: classNames, ...attrs }) => {
   return (
     <Tag
       {...attrs}

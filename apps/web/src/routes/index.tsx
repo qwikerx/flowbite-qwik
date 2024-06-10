@@ -30,7 +30,7 @@ export default component$(() => {
         <JumbotronHeading tag="h1">
           <span class="text-qwik">⚡ Flowbite Qwik </span> <span class="text-qwik-secondary">component library</span> based on Tailwind CSS
         </JumbotronHeading>
-        <JumbotronSubText>
+        <JumbotronSubText tag="h2">
           Get started with the most popular open-source library of interactive UI components built with the utility classes from Tailwind CSS
         </JumbotronSubText>
         <div class="flex gap-2 justify-center">
