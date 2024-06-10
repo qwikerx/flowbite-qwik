@@ -5,7 +5,8 @@
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { IconGridOutline, IconGridPlusOutline, IconProfileCardOutline, IconUserCircleSolid, Tab, Tabs } from 'flowbite-qwik'
+import { Tab, Tabs } from 'flowbite-qwik'
+import { IconGridOutline, IconGridPlusOutline, IconProfileCardOutline, IconUserCircleSolid } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {

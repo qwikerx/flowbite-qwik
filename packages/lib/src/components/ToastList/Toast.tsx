@@ -2,7 +2,7 @@ import { component$, JSXOutput, Slot, useComputed$, PropsOf, QRL, useTask$ } fro
 import { isBrowser } from '@builder.io/qwik/build'
 import { useToastClasses } from './composables/use-toast-class'
 import { ToastAlign, ToastType } from './toast-type'
-import { FlCloseOutline } from '@qwikest/icons/flowbite'
+import { IconCloseOutline } from 'flowbite-qwik-icons'
 
 type ToastProps = PropsOf<'div'> & {
   id: string
@@ -89,7 +89,7 @@ export const Toast = component$<ToastProps>(
             onClick$={() => onClose$?.(id)}
           >
             <span class="sr-only">Close</span>
-            <FlCloseOutline class="w-3 h-3" />
+            <IconCloseOutline class="w-3 h-3" />
           </button>
         )}
       </div>

@@ -2,18 +2,8 @@ import { PropsOf, component$, useComputed$, useSignal, useTask$, useStyles$ } fr
 import { isBrowser } from '@builder.io/qwik/build'
 import styles from './preview.css?inline'
 import { toSlug } from '~/utils/slug'
-import {
-  Button,
-  IconDesktopPcOutline,
-  IconGithubSolid,
-  IconMobilePhoneOutline,
-  IconTabletOutline,
-  Spinner,
-  useDark,
-  useMediaQuery,
-  useFlowbiteThemable,
-  useToggle,
-} from 'flowbite-qwik'
+import { Button, Spinner, useDark, useMediaQuery, useFlowbiteThemable, useToggle } from 'flowbite-qwik'
+import { IconDesktopPcOutline, IconGithubSolid, IconMobilePhoneOutline, IconTabletOutline } from 'flowbite-qwik-icons'
 import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
 
 type PreviewProps = PropsOf<'iframe'> & {

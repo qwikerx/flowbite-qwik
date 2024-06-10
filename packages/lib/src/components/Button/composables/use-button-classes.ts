@@ -1,6 +1,6 @@
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../button-types'
 import { ClassList, Component, HTMLAttributeAnchorTarget, Signal, useComputed$ } from '@builder.io/qwik'
-import { IconProps } from '@qwikest/icons/*'
+import type { IconProps } from 'flowbite-qwik-icons'
 import { twMerge } from 'tailwind-merge'
 import { useFlowbiteThemable } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
 

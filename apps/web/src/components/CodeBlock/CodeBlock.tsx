@@ -5,7 +5,8 @@ import rehypeParse from 'rehype-parse'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import styles from './code-block.css?inline'
-import { Button, IconCopySolid, useToggle } from 'flowbite-qwik'
+import { Button, useToggle } from 'flowbite-qwik'
+import { IconCopySolid } from 'flowbite-qwik-icons'
 
 type CodeBlockProps = { content: string; language: string; expandable?: boolean }
 

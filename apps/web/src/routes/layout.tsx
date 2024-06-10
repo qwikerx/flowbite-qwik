@@ -6,10 +6,6 @@ import {
   Dropdown,
   DropdownItem,
   FlowbiteTheme,
-  IconCheckOutline,
-  IconGithubSolid,
-  IconMoonOutline,
-  IconSunOutline,
   Navbar,
   NavbarBrand,
   NavbarCollapse,
@@ -18,6 +14,7 @@ import {
   useDark,
   useFlowbiteThemable,
 } from 'flowbite-qwik'
+import { IconCheckOutline, IconGithubSolid, IconMoonOutline, IconSunOutline } from 'flowbite-qwik-icons'
 import pkg from 'flowbite-qwik/package.json'
 
 export default component$(() => {

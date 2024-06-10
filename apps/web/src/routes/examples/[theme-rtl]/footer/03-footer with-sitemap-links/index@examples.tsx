@@ -5,20 +5,8 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import {
-  Footer,
-  FooterCopyright,
-  FooterLink,
-  FooterLinkGroup,
-  FooterBrand,
-  FooterDivider,
-  FooterTitle,
-  FooterIcon,
-  IconFacebookSolid,
-  IconGithubSolid,
-  IconDribbbleSolid,
-  IconLinkedinSolid,
-} from 'flowbite-qwik'
+import { Footer, FooterCopyright, FooterLink, FooterLinkGroup, FooterBrand, FooterDivider, FooterTitle, FooterIcon } from 'flowbite-qwik'
+import { IconFacebookSolid, IconGithubSolid, IconDribbbleSolid, IconLinkedinSolid } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 

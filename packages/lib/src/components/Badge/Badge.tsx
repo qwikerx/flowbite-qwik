@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik'
 import { BadgeClassesProps, useBadgeClasses } from './composables/use-badge-classes'
-import { IconCloseOutline } from '~/components/Icon'
+import { IconCloseOutline } from 'flowbite-qwik-icons'
 
 export const Badge = component$<BadgeClassesProps>(({ icon: Icon, onClose$, ...props }) => {
   const { badgeClasses, badgeChipsClasses } = useBadgeClasses(props)

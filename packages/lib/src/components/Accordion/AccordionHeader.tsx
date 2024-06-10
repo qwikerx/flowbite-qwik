@@ -1,7 +1,7 @@
 import { component$, Slot, useComputed$ } from '@builder.io/qwik'
 import { useAccordionHeaderClasses } from './composables/use-accordion-header-class'
 import { AccordionHeaderProps } from './accordion-types'
-import { IconAngleDownOutline } from '../Icon'
+import { IconAngleDownOutline } from 'flowbite-qwik-icons'
 
 export const AccordionHeader = component$<AccordionHeaderProps>(
   ({ id, openedPanels, flush = false, isLast = false, isFirst = false, onClick$, ...attrs }) => {

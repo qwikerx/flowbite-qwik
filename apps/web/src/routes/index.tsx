@@ -1,6 +1,7 @@
 import { component$ } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
-import { Button, Jumbotron, JumbotronHeading, JumbotronSubText, IconArrowRightOutline } from 'flowbite-qwik'
+import { Button, Jumbotron, JumbotronHeading, JumbotronSubText } from 'flowbite-qwik'
+import { IconArrowRightOutline } from 'flowbite-qwik-icons'
 import { DocumentHead } from '@builder.io/qwik-city'
 
 export default component$(() => {

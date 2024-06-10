@@ -4,7 +4,8 @@
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Badge, IconRocketOutline } from 'flowbite-qwik'
+import { Badge } from 'flowbite-qwik'
+import { IconRocketOutline } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {

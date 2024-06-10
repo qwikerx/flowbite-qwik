@@ -1,7 +1,7 @@
 import { PropsOf, Slot, component$, useComputed$, Component } from '@builder.io/qwik'
 import { useBreadcrumbItemClasses } from './composables/use-breadcrumb-item-classes'
-import { IconProps } from '@qwikest/icons'
-import { IconArrowRightOutline, IconHomeOutline } from '../Icon'
+import type { IconProps } from 'flowbite-qwik-icons'
+import { IconArrowRightOutline, IconHomeOutline } from 'flowbite-qwik-icons'
 
 type BreadcrumbItemProps = PropsOf<'a'> & {
   home?: boolean

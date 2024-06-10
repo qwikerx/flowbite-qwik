@@ -4,7 +4,8 @@
  * height: 400
  */
 import { component$, useSignal } from '@builder.io/qwik'
-import { IconSearchOutline, Input, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'flowbite-qwik'
+import { Input, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'flowbite-qwik'
+import { IconSearchOutline } from 'flowbite-qwik-icons'
 import { Link, StaticGenerateHandler } from '@builder.io/qwik-city'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 

@@ -6,7 +6,8 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Alert, IconEyeOutline, IconInfoCircleOutline } from 'flowbite-qwik'
+import { Alert } from 'flowbite-qwik'
+import { IconEyeOutline, IconInfoCircleOutline } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {

@@ -3,7 +3,7 @@ import { ModalSize } from '~/components/Modal/modal-types'
 import { useComponentOuterClick } from '~/composables/use-outer-click'
 import { isServer } from '@builder.io/qwik/build'
 import { useModalClasses } from '~/components/Modal/composables/use-modal-classes'
-import { FlCloseOutline } from '@qwikest/icons/flowbite'
+import { IconCloseOutline } from 'flowbite-qwik-icons'
 
 type ModalProps = PropsOf<'div'> & {
   'bind:show': Signal<boolean>
@@ -92,7 +92,7 @@ export const Modal = component$<ModalProps>(
                         type="button"
                         onClick$={closeModal}
                       >
-                        <FlCloseOutline class="w-4 h-4" />
+                        <IconCloseOutline class="w-4 h-4" />
                       </button>
                     )}
                   </div>

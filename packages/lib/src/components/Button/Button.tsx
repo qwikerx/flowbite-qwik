@@ -4,7 +4,7 @@ import { useButtonClasses } from '~/components/Button/composables/use-button-cla
 import { useButtonSpinner } from '~/components/Button/composables/use-button-spinner'
 import { Spinner } from '~/components/Spinner/Spinner'
 import { LinkProps } from '@builder.io/qwik-city'
-import { IconProps } from '@qwikest/icons/*'
+import type { IconProps } from 'flowbite-qwik-icons'
 
 type ButtonProps = PropsOf<'button'> &
   PropsOf<'a'> & {

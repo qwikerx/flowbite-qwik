@@ -1,8 +1,8 @@
 import { $, Component, component$, PropsOf } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
-import { IconProps } from '@qwikest/icons'
-import { IconBarsOutline } from '~/components/Icon'
+import type { IconProps } from 'flowbite-qwik-icons'
+import { IconBarsOutline } from 'flowbite-qwik-icons'
 import { useNavbarContext } from '~/components/Navbar/composables/use-navbar-context'
 
 type NavbarToggleProps = PropsOf<'button'> & {

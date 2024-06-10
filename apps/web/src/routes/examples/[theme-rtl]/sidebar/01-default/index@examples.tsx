@@ -5,15 +5,8 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import {
-  Sidebar,
-  SidebarItemGroup,
-  IconHomeOutline,
-  IconInboxOutline,
-  IconUserCircleOutline,
-  IconShoppingBagOutline,
-  SidebarItem,
-} from 'flowbite-qwik'
+import { Sidebar, SidebarItemGroup, SidebarItem } from 'flowbite-qwik'
+import { IconHomeOutline, IconInboxOutline, IconUserCircleOutline, IconShoppingBagOutline } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 

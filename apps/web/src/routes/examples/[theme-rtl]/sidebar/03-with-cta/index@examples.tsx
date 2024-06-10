@@ -5,23 +5,18 @@
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
+import { Sidebar, SidebarItemGroup, SidebarItem, SidebarCollapse, SidebarCta, Badge } from 'flowbite-qwik'
 import {
-  Sidebar,
-  SidebarItemGroup,
   IconHomeOutline,
   IconInboxOutline,
   IconUserCircleOutline,
   IconShoppingBagOutline,
-  SidebarItem,
   IconFileEditSolid,
   IconAdressBookOutline,
   IconGearSolid,
   IconAtomSolid,
-  SidebarCollapse,
   IconAdjustmentsHorizontalSolid,
-  SidebarCta,
-  Badge,
-} from 'flowbite-qwik'
+} from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 

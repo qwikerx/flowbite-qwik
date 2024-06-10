@@ -6,7 +6,8 @@
 
 import { component$, Fragment, Signal, Slot, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Button, Drawer, DrawerPosition, IconHomeOutline } from 'flowbite-qwik'
+import { Button, Drawer, DrawerPosition } from 'flowbite-qwik'
+import { IconHomeOutline } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {

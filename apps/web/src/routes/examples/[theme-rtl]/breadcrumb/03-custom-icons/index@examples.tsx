@@ -5,7 +5,8 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Breadcrumb, BreadcrumbItem, IconArrowLeftOutline, IconBarsOutline } from 'flowbite-qwik'
+import { Breadcrumb, BreadcrumbItem } from 'flowbite-qwik'
+import { IconArrowLeftOutline, IconBarsOutline } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {

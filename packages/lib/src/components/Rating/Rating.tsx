@@ -1,7 +1,7 @@
 import { component$, useComputed$, Slot } from '@builder.io/qwik'
 import { RatingSize } from './rating-types'
 import { useRatingClasses } from './composables/use-rating-classes'
-import { FlStarSolid } from '@qwikest/icons/flowbite'
+import { IconStarSolid } from 'flowbite-qwik-icons'
 
 type RatingProps = {
   rating?: number
@@ -22,10 +22,10 @@ export const Rating = component$<RatingProps>(({ rating = 3, scale = 5, size = '
   return (
     <div class="flex items-center">
       {Array.from({ length: validStarNumber.value }).map((_, validStarIndex) => (
-        <FlStarSolid key={validStarIndex} class={[sizeClasses.value, 'text-yellow-400']} />
+        <IconStarSolid key={validStarIndex} class={[sizeClasses.value, 'text-yellow-400']} />
       ))}
       {Array.from({ length: invalidStarNumber.value }).map((_, invalidStarIndex) => (
-        <FlStarSolid key={invalidStarIndex} class={[sizeClasses.value, 'text-gray-300 dark:text-gray-500']} />
+        <IconStarSolid key={invalidStarIndex} class={[sizeClasses.value, 'text-gray-300 dark:text-gray-500']} />
       ))}
       <Slot name="besideText" />
       {Boolean(reviewLink?.href && reviewLink?.text) && (
