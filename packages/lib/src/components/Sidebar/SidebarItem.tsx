@@ -32,7 +32,7 @@ export const InnerSidebarItem = component$<SidebarItemProps>(({ tag: Tag = 'a', 
         classNames,
         isCollapse ? 'pl-11' : '',
       ]}
-      // @ts-ignore
+      // @ts-expect-error it's ok
       activeClass="bg-gray-200 dark:bg-gray-600"
     >
       {!!Icon && !isCollapse && (

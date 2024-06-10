@@ -1,6 +1,7 @@
 /**
- * title: Input fields
+ * title: Input sizes
  * description: Use the following examples to apply a small, default or large size for the input fields.
+ * height: 350
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

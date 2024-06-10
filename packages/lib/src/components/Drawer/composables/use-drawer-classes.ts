@@ -3,7 +3,7 @@ import { DrawerPosition } from '../drawer-types'
 import { twMerge } from 'tailwind-merge'
 
 export function useDrawerClasses(isOpen: Signal<boolean>, isEdge: Signal<boolean>, position: Signal<DrawerPosition>) {
-  const defaultClasses = 'fixed z-60 overflow-y-auto bg-white transition-transform dark:bg-gray-800'
+  const defaultClasses = 'fixed z-50 overflow-y-auto bg-white transition-transform dark:bg-gray-800'
   const edgeClasses = 'rounded-t-lg border-t border-gray-200 rounded-t-lg dark:border-gray-700'
   const backdropClasses = 'fixed inset-0 z-30 bg-gray-900/50 dark:bg-gray-900/80'
   const edgeHandleClasses = 'absolute w-8 h-1 -translate-x-1/2 bg-gray-300 rounded-lg top-3 left-1/2 dark:bg-gray-600'

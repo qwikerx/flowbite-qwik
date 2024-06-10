@@ -34,30 +34,30 @@ export default component$(() => {
             language="javascript"
             expandable={false}
             content={`
-                import flowbitePlugin from 'flowbite/plugin'
+import flowbitePlugin from 'flowbite/plugin'
 
-                export default {
-                  theme: {
-                    extend: {
-                      animation: {
-                        'from-left': 'slideFromLeft 0.2s 1',
-                        'from-right': 'slideFromRight 0.2s 1',
-                      },
-                      keyframes: {
-                        slideFromLeft: {
-                          '0%': { transform: 'translateX(-100%)' },
-                          '100%': { transform: 'translateX(0)' },
-                        },
-                        slideFromRight: {
-                          '0%': { transform: 'translateX(100%)' },
-                          '100%': { transform: 'translateX(0)' },
-                        },
-                      },
-                    },
-                  },
-                  content: ['node_modules/flowbite-qwik/**/*.{cjs,mjs}'],
-                  plugins: [flowbitePlugin],
-                }
+export default {
+  theme: {
+    extend: {
+      animation: {
+        'from-left': 'slideFromLeft 0.2s 1',
+        'from-right': 'slideFromRight 0.2s 1',
+      },
+      keyframes: {
+        slideFromLeft: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        slideFromRight: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
+    },
+  },
+  content: ['node_modules/flowbite-qwik/**/*.{cjs,mjs}'],
+  plugins: [flowbitePlugin],
+}
               `}
           />
         </div>
@@ -76,19 +76,19 @@ export default component$(() => {
             language="tsx"
             expandable={false}
             content={`
-                <QwikCityProvider>
-                <head>
-                  <RouterHead />
-                  // Add the FlowbiteProviderHeader to the head
-                  <FlowbiteProviderHeader />
-                </head>
-                <body>
-                  // Add the FlowbiteProvider to the body
-                  <FlowbiteProvider toastPosition={toastPosition.value} theme="blue">
-                    <RouterOutlet />
-                  </FlowbiteProvider>
-                </body>
-              </QwikCityProvider>
+<QwikCityProvider>
+<head>
+  <RouterHead />
+  // Add the FlowbiteProviderHeader to the head
+  <FlowbiteProviderHeader />
+</head>
+<body>
+  // Add the FlowbiteProvider to the body
+  <FlowbiteProvider toastPosition={toastPosition.value} theme="blue">
+    <RouterOutlet />
+  </FlowbiteProvider>
+</body>
+</QwikCityProvider>
             `}
           />
         </div>
@@ -101,18 +101,18 @@ export default component$(() => {
             language="tsx"
             expandable={false}
             content={`
-              const { isDark, setDarkModeValue } = useDark()
+const { isDark, setDarkModeValue } = useDark()
 
-              <Button
-                square
-                color="light"
-                title="Toggle dark mode"
-                onClick$={() => {
-                  setDarkModeValue(isDark.value ? 'light' : 'dark')
-                }}
-              >
-                {isDark.value ? <IconSunOutline class="h-4 w-4" /> : <IconMoonOutline class="h-4 w-4" />}
-              </Button>
+<Button
+  square
+  color="light"
+  title="Toggle dark mode"
+  onClick$={() => {
+    setDarkModeValue(isDark.value ? 'light' : 'dark')
+  }}
+>
+  {isDark.value ? <IconSunOutline class="h-4 w-4" /> : <IconMoonOutline class="h-4 w-4" />}
+</Button>
             `}
           />
 
@@ -121,14 +121,14 @@ export default component$(() => {
             language="css"
             expandable={false}
             content={`
-              .dark {
-                color-scheme: dark;
-                background: #111827;
-              }
-              .light {
-                color-scheme: light;
-                background: #fff;
-              }
+.dark {
+  color-scheme: dark;
+  background: #111827;
+}
+.light {
+  color-scheme: light;
+  background: #fff;
+}
             `}
           />
 
@@ -143,9 +143,9 @@ export default component$(() => {
             language="html"
             expandable={false}
             content={`
-              <div class="bg-white text-gray-800 dark:bg-gray-800 dark:text-white">
-                Dark mode content
-              </div>
+<div class="bg-white text-gray-800 dark:bg-gray-800 dark:text-white">
+  Dark mode content
+</div>
             `}
           />
         </div>

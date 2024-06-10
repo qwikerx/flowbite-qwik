@@ -1,6 +1,7 @@
 /**
  * title: Sizes
  * description: You can customize the toggle component with different sizes.
+ * height: 100
  */
 import { component$, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

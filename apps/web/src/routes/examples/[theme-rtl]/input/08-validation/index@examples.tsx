@@ -1,6 +1,7 @@
 /**
- * title: Suffix
- * description: Use this example to add a suffix to the input field.
+ * title: Input validation
+ * description: Use this example to add a validation message to the input field.
+ * height: 300
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

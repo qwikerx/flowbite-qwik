@@ -4,13 +4,13 @@
  * height: 500
  */
 
-import { component$, Slot, useSignal } from '@builder.io/qwik'
+import { component$, Fragment, Signal, Slot, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 import { Button, Drawer, DrawerPosition, IconHomeOutline } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
-  const isDrawerOpen = {
+  const isDrawerOpen: Record<string, Signal<boolean>> = {
     left: useSignal(false),
     right: useSignal(false),
     top: useSignal(false),
@@ -24,7 +24,7 @@ export default component$(() => {
         <h2 class="text-2xl font-semibold my-3">Default Drawer</h2>
         <div class="flex gap-2">
           {(['top', 'right', 'bottom', 'left', 'bottom-edge'] as DrawerPosition[]).map((position) => (
-            <>
+            <Fragment key={position}>
               <Button
                 onClick$={() => {
                   isDrawerOpen[position].value = true
@@ -57,7 +57,7 @@ export default component$(() => {
                   </Button>
                 </div>
               </Drawer>
-            </>
+            </Fragment>
           ))}
         </div>
         <Slot />

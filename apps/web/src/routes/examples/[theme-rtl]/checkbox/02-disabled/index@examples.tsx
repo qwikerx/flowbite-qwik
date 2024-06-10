@@ -1,6 +1,7 @@
 /**
  * title: Disabled state
  * description: This example can be used for the disabled state of the checkbox component by applying the disabled attribute to the input element.
+ * height: 100
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

@@ -53,7 +53,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
     <>
       {previewItems.value ? (
         <div class="flex" ref={previewElements}>
-          <div class="mx-auto flex min-w-0 max-w-6xl flex-col px-4">
+          <div class="mx-auto flex min-w-0 max-w-6xl flex-col xl:px-4">
             <section class="flex flex-col gap-8">
               <h1 class="capitalize text-4xl font-bold">{name}</h1>
               <Slot name="explanation" />
