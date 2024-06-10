@@ -3,8 +3,8 @@ import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { useDrawerClasses } from './composables/use-drawer-classes'
 import { DrawerPosition } from './drawer-types'
-import { IconProps } from '@qwikest/icons'
-import { IconCloseOutline } from '../Icon'
+import type { IconProps } from 'flowbite-qwik-icons'
+import { IconCloseOutline } from 'flowbite-qwik-icons'
 import { isServer } from '@builder.io/qwik/build'
 
 type DrawerProps = PropsOf<'div'> & {

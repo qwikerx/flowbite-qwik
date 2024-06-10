@@ -30,6 +30,9 @@ importers:
       flowbite:
         specifier: ^2.3.0
         version: 2.3.0
+      flowbite-qwik-icons:
+        specifier: ^0.1.4
+        version: 0.1.4(@builder.io/qwik-city@1.5.5(@types/node@20.14.1)(rollup@4.18.0))(@builder.io/qwik@1.5.5(@types/node@20.14.1)(undici@6.18.2))
       rehype-highlight:
         specifier: ^7.0.0
         version: 7.0.0
@@ -133,6 +136,9 @@ importers:
       flowbite:
         specifier: ^2.3.0
         version: 2.3.0
+      flowbite-qwik-icons:
+        specifier: ^0.1.4
+        version: 0.1.4(@builder.io/qwik-city@1.5.5(@types/node@20.14.1)(rollup@4.18.0))(@builder.io/qwik@1.5.5(@types/node@20.14.1)(undici@6.18.2))
       tailwind-merge:
         specifier: ^2.3.0
         version: 2.3.0
@@ -140,9 +146,6 @@ importers:
         specifier: ^3.4.3
         version: 3.4.3(ts-node@10.9.1(@types/node@20.14.1)(typescript@5.4.5))
     devDependencies:
-      '@qwikest/icons':
-        specifier: ^0.0.13
-        version: 0.0.13(@builder.io/qwik@1.5.5(@types/node@20.14.1)(undici@6.18.2))
       '@types/eslint':
         specifier: ^8.56.10
         version: 8.56.10
@@ -636,12 +639,6 @@ packages:
 
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
-
-  '@qwikest/icons@0.0.13':
-    resolution: {integrity: sha512-e0wY8vmx0nDSUiuCATlk+ojTvdBV4txIGHHWjZW5SRkv4XB8H9+3WSDcLPz0ItUdRyzcrohE9k2jtQI/98aRPA==}
-    engines: {node: '>=15.0.0'}
-    peerDependencies:
-      '@builder.io/qwik': '>=1.0.0'
 
   '@rollup/pluginutils@5.1.0':
     resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
@@ -1755,6 +1752,13 @@ packages:
 
   flatted@3.3.1:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
+
+  flowbite-qwik-icons@0.1.4:
+    resolution: {integrity: sha512-N5qaezhpK1gRfdac/KTVMtOFhdrpDAEM2bHAk8vgYk3lIja/EfkAeW1bvec9SeppxP+wOv5kdt8kNncRAppEdA==}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      '@builder.io/qwik': 1.5.5
+      '@builder.io/qwik-city': 1.5.5
 
   flowbite@2.3.0:
     resolution: {integrity: sha512-pm3JRo8OIJHGfFYWgaGpPv8E+UdWy0Z3gEAGufw+G/1dusaU/P1zoBLiQpf2/+bYAi+GBQtPVG86KYlV0W+AFQ==}
@@ -4265,10 +4269,6 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@qwikest/icons@0.0.13(@builder.io/qwik@1.5.5(@types/node@20.14.1)(undici@6.18.2))':
-    dependencies:
-      '@builder.io/qwik': 1.5.5(@types/node@20.14.1)(undici@6.18.2)
-
   '@rollup/pluginutils@5.1.0(rollup@4.18.0)':
     dependencies:
       '@types/estree': 1.0.5
@@ -5524,6 +5524,11 @@ snapshots:
       keyv: 4.5.4
 
   flatted@3.3.1: {}
+
+  flowbite-qwik-icons@0.1.4(@builder.io/qwik-city@1.5.5(@types/node@20.14.1)(rollup@4.18.0))(@builder.io/qwik@1.5.5(@types/node@20.14.1)(undici@6.18.2)):
+    dependencies:
+      '@builder.io/qwik': 1.5.5(@types/node@20.14.1)(undici@6.18.2)
+      '@builder.io/qwik-city': 1.5.5(@types/node@20.14.1)(rollup@4.18.0)
 
   flowbite@2.3.0:
     dependencies:

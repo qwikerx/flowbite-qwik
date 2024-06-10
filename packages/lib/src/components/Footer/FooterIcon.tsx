@@ -1,5 +1,5 @@
 import { Component, PropsOf, component$ } from '@builder.io/qwik'
-import { IconProps } from '@qwikest/icons/*'
+import type { IconProps } from 'flowbite-qwik-icons'
 import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
 
@@ -14,13 +14,7 @@ export const FooterIcon = component$<FooterIconProps>(({ ariaLabel, class: class
   return (
     <div>
       {href ? (
-        <a
-          aria-label={ariaLabel}
-          data-testid="flowbite-footer-icon"
-          href={href}
-          class={twMerge('text-gray-500 dark:hover:text-white', clsx(className))}
-          {...props}
-        >
+        <a aria-label={ariaLabel} href={href} class={twMerge('text-gray-500 dark:hover:text-white', clsx(className))} {...props}>
           <Icon class="h-5 w-5" />
         </a>
       ) : (

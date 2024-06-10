@@ -2,7 +2,7 @@ import { Component, PropsOf, useComputed$ } from '@builder.io/qwik'
 import type { BadgeSize, BadgeType } from '../badge-types'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
-import { IconProps } from '@qwikest/icons'
+import type { IconProps } from 'flowbite-qwik-icons'
 import { useFlowbiteThemable } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
 
 const defaultBadgeClasses = 'mr-2 px-2.5 py-0.5 rounded flex items-center justify-center gap-1'

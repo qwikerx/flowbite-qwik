@@ -4,7 +4,8 @@
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
-import { IconSearchOutline, Input } from 'flowbite-qwik'
+import { Input } from 'flowbite-qwik'
+import { IconSearchOutline } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 

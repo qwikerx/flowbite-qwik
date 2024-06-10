@@ -6,7 +6,8 @@
 
 import { component$, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Button, IconBullhornSolid, Modal } from 'flowbite-qwik'
+import { Button, Modal } from 'flowbite-qwik'
+import { IconBullhornSolid } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {

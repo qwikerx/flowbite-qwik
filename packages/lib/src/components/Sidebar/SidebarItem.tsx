@@ -1,6 +1,6 @@
 import { Component, PropsOf, component$, Slot } from '@builder.io/qwik'
 import { LinkProps } from '@builder.io/qwik-city'
-import { IconProps } from '@qwikest/icons/*'
+import type { IconProps } from 'flowbite-qwik-icons'
 
 type SidebarItemProps = PropsOf<'a'> &
   PropsOf<'button'> & {

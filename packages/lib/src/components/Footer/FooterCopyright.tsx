@@ -18,9 +18,7 @@ export const FooterCopyright = component$<CopyrightProps>(({ by, class: classNam
           {by}
         </a>
       ) : (
-        <span data-testid="flowbite-footer-copyright-span" class="ml-1">
-          {by}
-        </span>
+        <span class="ml-1">{by}</span>
       )}
     </div>
   )

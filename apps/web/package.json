@@ -52,6 +52,7 @@
     "eslint": "^9.4.0",
     "eslint-config-prettier": "^9.1.0",
     "flowbite-qwik": "workspace:*",
+    "flowbite-qwik-icons": "^0.1.4",
     "postcss": "^8.4.38",
     "prettier": "^3.3.0",
     "prettier-plugin-tailwindcss": "^0.6.1",

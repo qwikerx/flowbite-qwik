@@ -1,8 +1,8 @@
 import { Component, component$, JSXOutput, PropsOf, Slot } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
-import { IconProps } from '@qwikest/icons'
-import { IconCloseSolid } from '~/components/Icon'
+import type { IconProps } from 'flowbite-qwik-icons'
+import { IconCloseSolid } from 'flowbite-qwik-icons'
 
 type AlertColor =
   | 'info'

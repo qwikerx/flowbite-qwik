@@ -1,6 +1,7 @@
 import { $, component$, Slot, useSignal } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
-import { Button, IconDotsVerticalOutline, Sidebar, SidebarCollapse, SidebarItem, SidebarItemGroup, useComponentOuterClick } from 'flowbite-qwik'
+import { Button, Sidebar, SidebarCollapse, SidebarItem, SidebarItemGroup, useComponentOuterClick } from 'flowbite-qwik'
+import { IconDotsVerticalOutline } from 'flowbite-qwik-icons'
 import { NavLink } from '~/components/NavLink/NavLink'
 
 export default component$(() => {
