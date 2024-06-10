@@ -1,6 +1,7 @@
 /**
  * title: Disabled state
  * description: Apply the disabled attribute to disallow the users from making any further selections.
+ * height: 100
  */
 import { component$, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

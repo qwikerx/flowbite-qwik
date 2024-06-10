@@ -1,6 +1,7 @@
 /**
  * title: Colors
  * description: This example can be used for the color of the checkbox component by applying the color attribute to the input element.
+ * height: 100
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

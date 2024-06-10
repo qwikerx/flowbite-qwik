@@ -21,7 +21,7 @@ export default component$(() => {
       <Sidebar
         ref={sidebar}
         class={[
-          'fixed z-50 top-14 pb-14 left-0 h-full w-full max-w-64 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 lg:translate-x-0',
+          'fixed z-50 top-16 xl:top-14 pb-14 left-0 h-full w-full max-w-64 bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 lg:translate-x-0',
           isSidebarOpen.value ? 'translate-x-0' : '-translate-x-full',
         ]}
       >
@@ -61,9 +61,6 @@ export default component$(() => {
             </SidebarItem>
             <SidebarItem tag={NavLink} href="/docs/components/footer">
               Footer
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/icon">
-              Icon
             </SidebarItem>
             <SidebarItem tag={NavLink} href="/docs/components/jumbotron">
               Jumbotron
@@ -107,17 +104,12 @@ export default component$(() => {
               Toggle
             </SidebarItem>
           </SidebarCollapse>
-          <SidebarCollapse label="Extra">
-            <SidebarItem tag={NavLink} href="/docs/components/code-block">
-              CodeBlock
-            </SidebarItem>
-          </SidebarCollapse>
         </SidebarItemGroup>
       </Sidebar>
 
       <div class="lg:ml-64">
-        <div class="bg-white px-2 py-2.5 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-600 lg:hidden">
-          <Button ref={sidebarButton} color="dark" prefix={IconDotsVerticalOutline} onClick$={() => (isSidebarOpen.value = true)}>
+        <div class="px-5 py-2 lg:hidden border-b border-gray-200 dark:border-gray-600">
+          <Button ref={sidebarButton} color="light" prefix={IconDotsVerticalOutline} onClick$={() => (isSidebarOpen.value = true)}>
             Menu
           </Button>
         </div>

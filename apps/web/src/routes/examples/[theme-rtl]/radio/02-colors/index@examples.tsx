@@ -1,6 +1,7 @@
 /**
  * title: Color
  * description: This example can be used for the color of the radio component by applying the color attribute to the input element.
+ * height: 300
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

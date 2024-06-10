@@ -1,6 +1,7 @@
 /**
  * title: On change event
  * description: This example can be used for the onchange event of the checkbox component.
+ * height: 100
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

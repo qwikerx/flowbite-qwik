@@ -440,7 +440,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/checkbox/01-default',
       content:
         "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox bind:checked={val}>Checkbox</Checkbox>\n      </div>\n    </>\n  )\n})",
-      height: '200',
+      height: '100',
     },
     {
       title: 'Disabled state',
@@ -449,7 +449,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/checkbox/02-disabled',
       content:
         "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox bind:checked={val} disabled>\n          Disable\n        </Checkbox>\n      </div>\n    </>\n  )\n})",
-      height: '200',
+      height: '100',
     },
     {
       title: 'Checked state',
@@ -457,7 +457,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/checkbox/03-checked',
       content:
         "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(true)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox bind:checked={val}>Checked</Checkbox>\n      </div>\n    </>\n  )\n})",
-      height: '200',
+      height: '100',
     },
     {
       title: 'With link',
@@ -465,7 +465,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/checkbox/04-with-link',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Checkbox } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class="p-3">\n        <Checkbox bind:checked={val}>\n          <a href="#" class="text-blue-500 underline">\n            I agree with terms and conditions.\n          </a>\n        </Checkbox>\n      </div>\n    </>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'On change event',
@@ -473,7 +473,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/checkbox/05-on-change-event',
       content:
         "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox\n          bind:checked={val}\n          onChange$={(val: boolean) => {\n            alert(`Checkbox state changed to ${val}`)\n          }}\n        >\n          Change state\n        </Checkbox>\n      </div>\n    </>\n  )\n})",
-      height: '200',
+      height: '100',
     },
     {
       title: 'Colors',
@@ -481,7 +481,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/checkbox/06-colors',
       content:
         "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox, FlowbiteTheme } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(true)\n\n  return (\n    <>\n      <div class=\"p-3 flex gap-3\">\n        {(['blue', 'green', 'red', 'pink', 'purple'] as FlowbiteTheme[]).map((color) => (\n          <Checkbox bind:checked={val} color={color}>\n            {color}\n          </Checkbox>\n        ))}\n      </div>\n    </>\n  )\n})",
-      height: '200',
+      height: '100',
     },
   ],
   drawer: [
@@ -491,7 +491,7 @@ export const examples: Record<string, Example[]> = {
         'Use the Drawer component (or "off-canvas") to show a fixed element relative to the document page from any side for navigation, contact forms, informational purposes or other user actions. You can set multiple options such as the placement, activate body scrolling, show or hide the backdrop and even use the sizeable edge functionality to show a small part of the drawer when it is not shown completely.',
       url: '/examples/[theme-rtl]/drawer/01-default-drawer',
       content:
-        "import { component$, Slot, useSignal } from '@builder.io/qwik'\nimport { Button, Drawer, DrawerPosition, IconHomeOutline } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const isDrawerOpen = {\n    left: useSignal(false),\n    right: useSignal(false),\n    top: useSignal(false),\n    bottom: useSignal(false),\n    'bottom-edge': useSignal(false),\n  }\n\n  return (\n    <section class=\"p-2\">\n      <div>\n        <h2 class=\"text-2xl font-semibold my-3\">Default Drawer</h2>\n        <div class=\"flex gap-2\">\n          {(['top', 'right', 'bottom', 'left', 'bottom-edge'] as DrawerPosition[]).map((position) => (\n            <>\n              <Button\n                onClick$={() => {\n                  isDrawerOpen[position].value = true\n                }}\n              >\n                {position}\n              </Button>\n\n              <Drawer\n                class={{\n                  hidden: position === 'bottom-edge' && isDrawerOpen.bottom.value,\n                }}\n                bind:open={isDrawerOpen[position]}\n                position={position}\n                title={`Drawer ${position}`}\n                titleIcon={IconHomeOutline}\n              >\n                <p class=\"mb-6 text-sm text-gray-500 dark:text-gray-400\">\n                  Supercharge your hiring by taking advantage of our&nbsp;\n                  <a href=\"#\" class=\"text-cyan-600 underline hover:no-underline dark:text-cyan-500\">\n                    limited-time sale\n                  </a>\n                  <br />\n                  for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the #1 design job board.\n                </p>\n                <div class=\"flex gap-4\">\n                  <Button full>Buy</Button>\n                  <Button color=\"alternative\" full>\n                    See more\n                  </Button>\n                </div>\n              </Drawer>\n            </>\n          ))}\n        </div>\n        <Slot />\n      </div>\n    </section>\n  )\n})",
+        "import { component$, Fragment, Signal, Slot, useSignal } from '@builder.io/qwik'\nimport { Button, Drawer, DrawerPosition, IconHomeOutline } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const isDrawerOpen: Record<string, Signal<boolean>> = {\n    left: useSignal(false),\n    right: useSignal(false),\n    top: useSignal(false),\n    bottom: useSignal(false),\n    'bottom-edge': useSignal(false),\n  }\n\n  return (\n    <section class=\"p-2\">\n      <div>\n        <h2 class=\"text-2xl font-semibold my-3\">Default Drawer</h2>\n        <div class=\"flex gap-2\">\n          {(['top', 'right', 'bottom', 'left', 'bottom-edge'] as DrawerPosition[]).map((position) => (\n            <Fragment key={position}>\n              <Button\n                onClick$={() => {\n                  isDrawerOpen[position].value = true\n                }}\n              >\n                {position}\n              </Button>\n\n              <Drawer\n                class={{\n                  hidden: position === 'bottom-edge' && isDrawerOpen.bottom.value,\n                }}\n                bind:open={isDrawerOpen[position]}\n                position={position}\n                title={`Drawer ${position}`}\n                titleIcon={IconHomeOutline}\n              >\n                <p class=\"mb-6 text-sm text-gray-500 dark:text-gray-400\">\n                  Supercharge your hiring by taking advantage of our&nbsp;\n                  <a href=\"#\" class=\"text-cyan-600 underline hover:no-underline dark:text-cyan-500\">\n                    limited-time sale\n                  </a>\n                  <br />\n                  for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the #1 design job board.\n                </p>\n                <div class=\"flex gap-4\">\n                  <Button full>Buy</Button>\n                  <Button color=\"alternative\" full>\n                    See more\n                  </Button>\n                </div>\n              </Drawer>\n            </Fragment>\n          ))}\n        </div>\n        <Slot />\n      </div>\n    </section>\n  )\n})",
       height: '500',
     },
   ],
@@ -625,7 +625,7 @@ export const examples: Record<string, Example[]> = {
   ],
   input: [
     {
-      title: 'Input fields',
+      title: 'Default input',
       description:
         'Use this example as a generic form element which includes multiple input fields types such as text, email, password, number, URL, and phone number and use the grid layout to add multiple columns and rows.',
       url: '/examples/[theme-rtl]/input/01-default',
@@ -634,12 +634,12 @@ export const examples: Record<string, Example[]> = {
       height: '200',
     },
     {
-      title: 'Input fields',
+      title: 'Input sizes',
       description: 'Use the following examples to apply a small, default or large size for the input fields.',
       url: '/examples/[theme-rtl]/input/02-sizes',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <>\n      <div class="p-3">\n        <p class="text-xl">Value : {val.value}</p>\n        <div class="flex flex-col gap-3">\n          <Input bind:value={val} label="Small" placeholder="enter your name" size="sm" />\n          <Input bind:value={val} label="Medium" placeholder="enter your name" size="md" />\n          <Input bind:value={val} label="Large" placeholder="enter your name" size="lg" />\n        </div>\n      </div>\n    </>\n  )\n})',
-      height: '200',
+      height: '350',
     },
     {
       title: 'Required',
@@ -682,12 +682,12 @@ export const examples: Record<string, Example[]> = {
       height: '200',
     },
     {
-      title: 'Suffix',
-      description: 'Use this example to add a suffix to the input field.',
+      title: 'Input validation',
+      description: 'Use this example to add a validation message to the input field.',
       url: '/examples/[theme-rtl]/input/08-validation',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <div class="p-3">\n      <Input bind:value={val} label="First name" placeholder="First name" validationStatus="success" />\n      <hr class="mt-4 border-0"></hr>\n      <Input bind:value={val} label="First name" placeholder="First name" validationStatus="error" validationMessage="This field is not valid" />\n    </div>\n  )\n})',
-      height: '200',
+      height: '300',
     },
   ],
   jumbotron: [
@@ -812,7 +812,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/radio/02-colors',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Radio } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const pick = useSignal<string>(\'blue\')\n\n  return (\n    <>\n      <h2 class="text-xl font-semibold">Picked color : {pick.value}</h2>\n      <div class="p-3 flex flex-col gap-3">\n        <Radio name="radio" value="blue" bind:option={pick}>\n          Blue\n        </Radio>\n        <Radio name="radio" value="purple" color="purple" bind:option={pick}>\n          Purple\n        </Radio>\n        <Radio name="radio" value="red" color="red" bind:option={pick}>\n          Red\n        </Radio>\n        <Radio name="radio" value="green" color="green" bind:option={pick}>\n          Green\n        </Radio>\n        <Radio name="radio" value="pink" color="pink" bind:option={pick}>\n          Pink\n        </Radio>\n      </div>\n    </>\n  )\n})',
-      height: '200',
+      height: '300',
     },
     {
       title: 'Disabled',
@@ -888,7 +888,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/select/04-sizes',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Select } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const selected = useSignal(\'\')\n  const countries = [\n    { value: \'us\', name: \'United States\' },\n    { value: \'ca\', name: \'Canada\' },\n    { value: \'fr\', name: \'France\' },\n  ]\n\n  return (\n    <>\n      <div class="p-3 flex flex-col gap-3">\n        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Small" sizing="sm" />\n        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Medium" sizing="md" />\n        <Select bind:value={selected} options={countries} placeholder="Choose a country" label="Large" sizing="lg" />\n      </div>\n    </>\n  )\n})',
-      height: '200',
+      height: '350',
     },
     {
       title: 'Underline',
@@ -1037,7 +1037,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/toast/03-message',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Toast } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-col p-3 space-y-2">\n      <Toast id="card" alignment="start" icon={<img alt="Avatar" class="w-8 h-8 rounded-full shadow-lg" src="/profile-picture.jpg" />}>\n        <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">Jese Leos</span>\n        <div class="mb-2 text-sm font-normal">Hi Neil, thanks for sharing your thoughts regarding Flowbite.</div>\n        <Button size="xs" href="#">\n          Reply\n        </Button>\n      </Toast>\n    </div>\n  )\n})',
-      height: '400',
+      height: '200',
     },
     {
       title: 'Playground',
@@ -1055,7 +1055,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/toggle/01-default-toggle',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Toggle } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const toggleValue = useSignal(false)\n\n  return (\n    <div class="flex gap-2 flex-wrap p-6">\n      <Toggle label="Toggle me" bind:checked={toggleValue} />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Checked Toggle',
@@ -1063,7 +1063,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/toggle/02-checked-toggle',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Toggle } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const checkedToggleValue = useSignal(true)\n\n  return (\n    <div class="flex gap-2 flex-wrap p-6">\n      <Toggle label="Toggle me" bind:checked={checkedToggleValue} />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Disabled state',
@@ -1071,7 +1071,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/toggle/03-disabled-state',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Toggle } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const checkedToggleValue = useSignal(true)\n  const toggleValue = useSignal(false)\n\n  return (\n    <div class="flex gap-2 flex-wrap p-6">\n      <Toggle label="Disabled toggle" disabled bind:checked={toggleValue} />\n      <Toggle label="Disabled checked" disabled bind:checked={checkedToggleValue} />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Colors',
@@ -1087,7 +1087,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/toggle/05-size',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Toggle } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const checkedToggleValue = useSignal(true)\n\n  return (\n    <div class="flex gap-2 flex-wrap p-6">\n      <Toggle label="Small" size="sm" bind:checked={checkedToggleValue} />\n      <Toggle label="Medium" size="md" bind:checked={checkedToggleValue} />\n      <Toggle label="Large" size="lg" bind:checked={checkedToggleValue} />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
   ],
 }

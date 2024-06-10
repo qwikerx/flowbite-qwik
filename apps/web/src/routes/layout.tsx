@@ -92,7 +92,7 @@ export default component$(() => {
         </NavbarCollapse>
       </Navbar>
 
-      <main class="pt-14">
+      <main class="pt-16 xl:pt-14">
         <Slot />
       </main>
     </div>

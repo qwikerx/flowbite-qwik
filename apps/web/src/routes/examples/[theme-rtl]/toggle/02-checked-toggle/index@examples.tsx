@@ -1,6 +1,7 @@
 /**
  * title: Checked Toggle
  * description: Apply the checked attribute to the toggle component to activate the selection by default.
+ * height: 100
  */
 import { component$, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

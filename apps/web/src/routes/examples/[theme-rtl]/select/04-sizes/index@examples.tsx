@@ -1,6 +1,7 @@
 /**
  * title: Sizes
  * description: Get started with the small, default, and large sizes for the select component from the example below.
+ * height: 350
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

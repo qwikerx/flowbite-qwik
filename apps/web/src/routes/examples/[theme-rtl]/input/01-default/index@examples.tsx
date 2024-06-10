@@ -1,5 +1,5 @@
 /**
- * title: Input fields
+ * title: Default input
  * description: Use this example as a generic form element which includes multiple input fields types such as text, email, password, number, URL, and phone number and use the grid layout to add multiple columns and rows.
  */
 

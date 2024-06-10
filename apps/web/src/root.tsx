@@ -29,6 +29,9 @@ export default component$(() => {
         <FlowbiteProviderHeader />
       </head>
       <body>
+        <noscript>
+          <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C8NPV5F" height="0" width="0" style="display:none;visibility:hidden" />
+        </noscript>
         <FlowbiteProvider toastPosition={toastPosition.value} theme="blue">
           <RouterOutlet />
         </FlowbiteProvider>

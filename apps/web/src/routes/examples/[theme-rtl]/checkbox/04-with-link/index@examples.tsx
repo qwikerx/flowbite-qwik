@@ -1,6 +1,7 @@
 /**
  * title: With link
  * description: Use this example if you want to add an anchor link inside the label of the checkbox component.
+ * height: 100
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

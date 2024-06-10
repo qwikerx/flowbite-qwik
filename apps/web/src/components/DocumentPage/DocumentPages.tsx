@@ -60,7 +60,7 @@ export const DocumentPage = component$(() => {
 
   return (
     <div class="flex">
-      <div ref={page} class="text-lg flex flex-col px-4 text-gray-600 dark:text-gray-400 max-w-6xl w-3/4 doc-page">
+      <div ref={page} class="text-lg flex flex-col xl:px-4 text-gray-600 dark:text-gray-400 max-w-6xl w-full xl:w-3/4 doc-page">
         <Slot />
       </div>
       {sections.length > 0 && (
