@@ -1,4 +1,4 @@
-import './global.css'
+import styles from './global.css?inline'
 import { component$, createContextId, useContextProvider, useSignal, Signal, useContext, useStyles$ } from '@builder.io/qwik'
 import { QwikCityProvider, RouterOutlet } from '@builder.io/qwik-city'
 import { RouterHead } from '~/components/RouterHead/RouterHead'
@@ -11,16 +11,7 @@ export default component$(() => {
   useContextProvider(toastPositionContext, useSignal('top-right'))
   const toastPosition = useContext(toastPositionContext)
 
-  useStyles$(`
-    .dark {
-      color-scheme: dark;
-      background: #111827;
-    }
-    .light {
-      color-scheme: light;
-      background: #fff;
-    }
-  `)
+  useStyles$(styles)
 
   return (
     <QwikCityProvider>
