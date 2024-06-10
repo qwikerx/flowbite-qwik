@@ -3,7 +3,7 @@
 
   <div>
     <a href="https://flowbite.com">
-      <img alt="Flowbite Qwik - Tailwind CSS components" width="500"  src="./apps/web/public/logo-light-bg.png">
+      <img alt="Flowbite Qwik - Tailwind CSS components" width="500"  src="./public/logo-light-bg.png">
   </div>
   <p>
     Build websites even faster with components on top of Qwik and Tailwind CSS
