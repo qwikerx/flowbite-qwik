@@ -54,6 +54,9 @@ export default component$(() => {
             <SidebarItem tag={NavLink} href="/docs/components/button">
               Button
             </SidebarItem>
+            <SidebarItem tag={NavLink} href="/docs/components/card">
+              Card
+            </SidebarItem>
             <SidebarItem tag={NavLink} href="/docs/components/drawer">
               Drawer
             </SidebarItem>

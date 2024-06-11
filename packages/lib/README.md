@@ -127,6 +127,7 @@ export default component$(() => {
 - Badge
 - Breadcrumb
 - Button
+- Card
 - Checkbox
 - Drawer
 - Dropdown
