@@ -260,7 +260,8 @@ export function useButtonClasses(props: UseButtonClassesProps) {
         (props.prefix || props.suffix || props.loading.value) && 'inline-flex items-center',
         props.class?.value,
         props.target?.value,
-        props.full.value && 'w-full justify-center',
+        props.full.value && 'w-full',
+        'justify-center',
       ]
         .filter((str) => str)
         .join(' '),
