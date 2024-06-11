@@ -125,6 +125,7 @@ export default component$(() => {
 - Alert
 - Avatar
 - Badge
+- Banner
 - Breadcrumb
 - Button
 - Card

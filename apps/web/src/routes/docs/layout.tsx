@@ -35,7 +35,7 @@ export default component$(() => {
               Quickstart
             </SidebarItem>
           </SidebarCollapse>
-          <SidebarCollapse label="Components" opened>
+          <SidebarCollapse label="Components (19)" opened>
             <SidebarItem tag={NavLink} href="/docs/components/accordion">
               Accordion
             </SidebarItem>
@@ -47,6 +47,9 @@ export default component$(() => {
             </SidebarItem>
             <SidebarItem tag={NavLink} href="/docs/components/badge">
               Badge
+            </SidebarItem>
+            <SidebarItem tag={NavLink} href="/docs/components/banner">
+              Banner
             </SidebarItem>
             <SidebarItem tag={NavLink} href="/docs/components/breadcrumb">
               Breadcrumb
@@ -91,7 +94,7 @@ export default component$(() => {
               Toast
             </SidebarItem>
           </SidebarCollapse>
-          <SidebarCollapse label="Form">
+          <SidebarCollapse label="Form (5)">
             <SidebarItem tag={NavLink} href="/docs/components/checkbox">
               Checkbox
             </SidebarItem>
