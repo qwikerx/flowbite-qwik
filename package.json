@@ -16,24 +16,18 @@
     "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules && pnpm -r exec rm -rf dist",
     "prebuild": "tsc --build --clean",
     "test": "pnpm -r test",
-    "test:coverage": "pnpm -r test:coverage",
-    "lint": "eslint \"{bootstrap,application,domain,infrastructure}/**/*.{js,ts}\"",
-    "lint:fix": "npm run lint -- --fix",
-    "migrate:create": "pnpm -r migrate:create",
-    "start:rest-api": "pnpm -r migrate:push && pnpm --filter rest-api run prod",
-    "start:graphql-api": "pnpm -r migrate:push && pnpm --filter graphql-api run prod",
-    "qwikapp": "pnpm -r migrate:push && pnpm --filter qwik-webapp run dev"
+    "test:coverage": "pnpm -r test:coverage"
   },
   "keywords": [],
   "author": "",
   "license": "",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.4.0",
-    "@typescript-eslint/parser": "^7.4.0",
-    "typescript": "^5.4.3"
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "typescript": "^5.4.5"
   },
   "dependencies": {
     "npm-run-all": "^4.1.5",
-    "vitest": "^1.4.0"
+    "vitest": "^1.6.0"
   }
 }

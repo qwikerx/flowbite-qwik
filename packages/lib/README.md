@@ -1,5 +1,5 @@
 <div style="text-align: center">
-  <h1>flowbite-qwik</h1>
+  <h1>Flowbite Qwik Components</h1>
 
   <div>
     <a href="https://flowbite.com">
@@ -24,6 +24,8 @@
 ---
 
 ### `flowbite-qwik` is an open source collection of UI components, built in Qwik, with utility classes from Tailwind CSS that you can use as a starting point for user interfaces and websites.
+
+[Online documentation](https://flowbite-qwik.com)
 
 ## Table of Contents
 
@@ -119,31 +121,37 @@ export default component$(() => {
 
 ## Components
 
-- Accordions
-- Badges
-- Breadcrumbs
-- Buttons
-- CodeBlock
+- Accordion
+- Alert
+- Avatar
+- Badge
+- Breadcrumb
+- Button
+- Checkbox
 - Drawer
 - Dropdown
 - Footer
-- Inputs
+- Input
 - Jumbotron
 - Modal
 - Navbar
-- Ratings
+- Radio
+- Rating
+- Select
 - Sidebar
 - Spinner
 - Tabs
-- Toasts
+- Toast
 - Toggle
 
-## composables
+## Composables / hooks
 
 - useToasts
 - useDark
+- useDebounce
 - useMediaQuery
 - useOuterClick
+- useToggle
 
 [//]: # '## Community'
 [//]: #
