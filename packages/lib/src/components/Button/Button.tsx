@@ -6,7 +6,7 @@ import { Spinner } from '~/components/Spinner/Spinner'
 import { LinkProps } from '@builder.io/qwik-city'
 import type { IconProps } from 'flowbite-qwik-icons'
 
-type ButtonProps = PropsOf<'button'> &
+export type ButtonProps = PropsOf<'button'> &
   PropsOf<'a'> & {
     color?: ButtonVariant
     gradient?: ButtonGradient

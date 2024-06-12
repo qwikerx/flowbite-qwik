@@ -1,4 +1,4 @@
-import { FlowbiteTheme } from '../FlowbiteThemable/composables/use-flowbite-themable'
+import { FlowbiteTheme } from '~/components/FlowbiteThemable'
 
 export type ButtonMonochromeGradient = 'blue' | 'green' | 'cyan' | 'teal' | 'lime' | 'red' | 'pink' | 'purple'
 export type ButtonDuotoneGradient = 'purple-blue' | 'cyan-blue' | 'green-blue' | 'purple-pink' | 'pink-orange' | 'teal-lime' | 'red-yellow'
