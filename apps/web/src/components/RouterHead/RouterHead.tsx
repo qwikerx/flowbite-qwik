@@ -37,7 +37,16 @@ export const RouterHead = component$(() => {
       ))}
 
       <QwikPartytown forward={['gtag', 'dataLayer.push']} />
-      <script async type="text/partytown" src="https://www.googletagmanager.com/gtm.js?id=GTM-5C8NPV5F" />
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-78YXL53K0Y" />
+      <script
+        type="text/partytown"
+        dangerouslySetInnerHTML={`
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function (){dataLayer.push(arguments);}
+          window.gtag('js', new Date());
+          window.gtag('config', 'G-78YXL53K0Y');
+          `}
+      />
     </>
   )
 })
