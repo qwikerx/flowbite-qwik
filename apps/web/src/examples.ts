@@ -605,6 +605,31 @@ export const examples: Record<string, Example[]> = {
         'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel noIndicators>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
       height: '300',
     },
+    {
+      title: 'Slider complex content',
+      description: 'Instead of images or simple texte, we can use any component we need',
+      url: '/examples/[theme-rtl]/carousel/07-slider-complex-content',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Card, Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-96">\n      <Carousel>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">\n            <Card href="#" class="max-w-sm">\n              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>\n              <p class="font-normal text-gray-700 dark:text-gray-400">\n                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.\n              </p>\n            </Card>\n          </div>\n        </CarouselSlice>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-blue-400 dark:bg-blue-700 dark:text-white">\n            <Card href="#" class="max-w-sm">\n              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Crystal Clear Oasis</h5>\n              <p class="font-normal text-gray-700 dark:text-gray-400">\n                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.\n              </p>\n            </Card>\n          </div>\n        </CarouselSlice>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-rose-400 dark:bg-rose-700 dark:text-white">\n            <Card href="#" class="max-w-sm">\n              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lost in the Sands</h5>\n              <p class="font-normal text-gray-700 dark:text-gray-400">\n                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.\n              </p>\n            </Card>\n          </div>\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '600',
+    },
+    {
+      title: 'Scrollable carousel',
+      description: 'Use this example using the prop "scrollable" to scroll inside the carousel',
+      url: '/examples/[theme-rtl]/carousel/08-carousel-scrollable',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel\n        scrollable\n        slideAuto={false}\n        onSlideChanged$={() => {\n          console.log(\'changed !\')\n        }}\n      >\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Pause On Hover',
+      description:
+        'To conditionally pause the carousel on mouse hover (desktop), or touch and hold (mobile), you can use the pauseOnHover property on the <Carousel> component. Default value is false.',
+      url: '/examples/[theme-rtl]/carousel/09-carousel-pause-on-hover',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel pauseOnHover>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '300',
+    },
   ],
   checkbox: [
     {

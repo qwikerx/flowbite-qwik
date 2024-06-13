@@ -1,11 +1,13 @@
-import { $, component$, Slot, useOnDocument, useSignal, useStore, useVisibleTask$ } from '@builder.io/qwik'
-import './DocumentPage.css'
+import { $, component$, Slot, useOnDocument, useSignal, useStore, useStyles$, useVisibleTask$ } from '@builder.io/qwik'
+import styles from './DocumentPage.css?inline'
 import { toSlug } from '~/utils/slug'
 import { TableOfContents } from '../TableOfContents/TableOfContents'
 import { useDebounce } from 'flowbite-qwik'
 import { scrollTo } from '~/utils/scroll-to'
 
 export const DocumentPage = component$(() => {
+  useStyles$(styles)
+
   const page = useSignal<HTMLElement>()
   const activeElement = useSignal<string>()
   const sections = useStore<Array<string>>([])
