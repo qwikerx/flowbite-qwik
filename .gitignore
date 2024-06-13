@@ -1,6 +1,7 @@
 # Build
 dist
 /packages/lib/lib
+/packages/cli/bin
 /packages/lib/lib-types
 /apps/web/lib-types
 server

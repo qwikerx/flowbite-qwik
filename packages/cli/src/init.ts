@@ -165,8 +165,7 @@ async function addFlowbiteToTailwind(): Promise<void> {
 
   if (fs.readFileSync(tailwindConfigPath, 'utf8').includes('flowbitePlugin')) return
 
-  // const tailwindConfig = await import(pathToFileURL(tailwindConfigPath).href).then((m) => m.default)
-  const tailwindConfig: any = {}
+  const tailwindConfig = await import(pathToFileURL(tailwindConfigPath).href).then((m) => m.default)
 
   tailwindConfig.content = ['node_modules/flowbite-qwik/**/*.{cjs,mjs}', './src/**/*.{js,ts,jsx,tsx,mdx}']
 
