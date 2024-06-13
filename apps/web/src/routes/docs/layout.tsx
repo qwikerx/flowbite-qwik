@@ -35,7 +35,7 @@ export default component$(() => {
               Quickstart
             </SidebarItem>
           </SidebarCollapse>
-          <SidebarCollapse label="Components (19)" opened>
+          <SidebarCollapse label="Components (20)" opened>
             <SidebarItem tag={NavLink} href="/docs/components/accordion">
               Accordion
             </SidebarItem>
@@ -59,6 +59,9 @@ export default component$(() => {
             </SidebarItem>
             <SidebarItem tag={NavLink} href="/docs/components/card">
               Card
+            </SidebarItem>
+            <SidebarItem tag={NavLink} href="/docs/components/carousel">
+              Carousel
             </SidebarItem>
             <SidebarItem tag={NavLink} href="/docs/components/drawer">
               Drawer

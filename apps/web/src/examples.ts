@@ -555,6 +555,82 @@ export const examples: Record<string, Example[]> = {
       height: '600',
     },
   ],
+  carousel: [
+    {
+      title: 'Default carousel',
+      description: 'Use this example by adding a series of images inside the <Carousel> component.',
+      url: '/examples/[theme-rtl]/carousel/01-default-carousel',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Slider content',
+      description: 'Instead of images you can also use any type of markup and content inside the carousel such as simple text.',
+      url: '/examples/[theme-rtl]/carousel/02-slider-content',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 1</div>\n        </CarouselSlice>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 2</div>\n        </CarouselSlice>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 3</div>\n        </CarouselSlice>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 4</div>\n        </CarouselSlice>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 5</div>\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Static carousel',
+      description:
+        'Pass the slideAuto prop to false to the carousel component to make it static and disable the automatic sliding functionality. This does not disable the control or indicator buttons.',
+      url: '/examples/[theme-rtl]/carousel/03-static-carousel',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel slideAuto={false}>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Sliding interval',
+      description: 'Use the slideInterval prop to set the interval between slides in milliseconds. The default value is 3000.',
+      url: '/examples/[theme-rtl]/carousel/04-sliding-interval',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel slideInterval={5000}>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Carousel without controls',
+      description: 'Use the noControls prop to hide the controls of the carousel',
+      url: '/examples/[theme-rtl]/carousel/05-carousel-without-controls',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel noControls>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Carousel without indicators',
+      description: 'Use the noIndicators prop to hide the indicators of the carousel',
+      url: '/examples/[theme-rtl]/carousel/06-carousel-without-indicators',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel noIndicators>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Slider complex content',
+      description: 'Instead of images or simple texte, we can use any component we need',
+      url: '/examples/[theme-rtl]/carousel/07-slider-complex-content',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Card, Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-96">\n      <Carousel>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">\n            <Card href="#" class="max-w-sm">\n              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>\n              <p class="font-normal text-gray-700 dark:text-gray-400">\n                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.\n              </p>\n            </Card>\n          </div>\n        </CarouselSlice>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-blue-400 dark:bg-blue-700 dark:text-white">\n            <Card href="#" class="max-w-sm">\n              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Crystal Clear Oasis</h5>\n              <p class="font-normal text-gray-700 dark:text-gray-400">\n                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.\n              </p>\n            </Card>\n          </div>\n        </CarouselSlice>\n        <CarouselSlice>\n          <div class="flex h-full items-center justify-center bg-rose-400 dark:bg-rose-700 dark:text-white">\n            <Card href="#" class="max-w-sm">\n              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lost in the Sands</h5>\n              <p class="font-normal text-gray-700 dark:text-gray-400">\n                Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.\n              </p>\n            </Card>\n          </div>\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '600',
+    },
+    {
+      title: 'Scrollable carousel',
+      description: 'Use this example using the prop "scrollable" to scroll inside the carousel',
+      url: '/examples/[theme-rtl]/carousel/08-carousel-scrollable',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel\n        scrollable\n        slideAuto={false}\n        onSlideChanged$={() => {\n          console.log(\'changed !\')\n        }}\n      >\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Pause On Hover',
+      description:
+        'To conditionally pause the carousel on mouse hover (desktop), or touch and hold (mobile), you can use the pauseOnHover property on the <Carousel> component. Default value is false.',
+      url: '/examples/[theme-rtl]/carousel/09-carousel-pause-on-hover',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Carousel, CarouselSlice } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">\n      <Carousel pauseOnHover>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />\n        </CarouselSlice>\n        <CarouselSlice>\n          <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />\n        </CarouselSlice>\n      </Carousel>\n    </div>\n  )\n})',
+      height: '300',
+    },
+  ],
   checkbox: [
     {
       title: 'Checkbox example',
