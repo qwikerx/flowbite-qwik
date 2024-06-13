@@ -37,7 +37,7 @@ async function tailwindInstalledInProject(): Promise<boolean> {
     return false
   }
 
-  const packageJson = await import(pathToFileURL(packageJsonPath).href).then((m) => m.default)
+  const packageJson = await import(pathToFileURL(packageJsonPath).href).then((m) => m)
   console.log('Loaded package.json:', packageJson)
 
   const { dependencies, devDependencies } = packageJson

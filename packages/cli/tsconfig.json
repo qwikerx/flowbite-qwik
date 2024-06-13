@@ -15,5 +15,5 @@
     "outDir": "dist",
     "noEmit": true
   },
-  "include": ["scripts"]
+  "include": ["src"]
 }

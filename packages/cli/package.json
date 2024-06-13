@@ -1,28 +1,29 @@
 {
   "name": "flowbite-qwik-cli",
   "version": "0.0.1",
-  "description": "",
-  "main": "dist/init.js",
-  "bin": "./dist/init.js",
+  "description": "This is a CLI tool to setup flowbite qwik into your project",
+  "main": "bin/init.cjs",
+  "bin": {
+    "init": "bin/init.cjs"
+  },
   "type": "module",
   "scripts": {
-    "build": "tsc ./scripts/init.ts --outDir dist",
+    "build": "vite build --ssr --mode lib",
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check ."
   },
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
-    "@clack/prompts": "^0.7.0",
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.2",
-    "@types/yargs": "^17.0.32",
     "eslint": "^9.4.0",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.0.0-alpha.30",
-    "yargs": "^17.7.2"
+    "vite": "^5.2.13"
   },
   "dependencies": {
+    "@clack/prompts": "^0.7.0",
     "prettier": "^3.3.2"
   }
 }
