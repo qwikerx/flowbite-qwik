@@ -22,7 +22,7 @@ export const Navbar = component$<NavbarProps>(
           'bg-white px-2 py-2.5 dark:border-gray-700 dark:bg-gray-800 sm:px-4',
           border && 'border',
           rounded && 'rounded',
-          sticky && 'fixed z-10 w-full',
+          sticky && 'fixed z-50 w-full',
           separator && 'border-b border-gray-200 dark:border-gray-600',
           clsx(classNames),
         )}

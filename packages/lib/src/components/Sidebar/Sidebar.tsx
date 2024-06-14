@@ -1,16 +1,74 @@
-import { FunctionComponent, PropsOf } from '@builder.io/qwik'
+import { FunctionComponent, PropsOf, component$, useSignal, Slot } from '@builder.io/qwik'
 import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { getChild } from '~/utils/getChild'
 import { SidebarItemGroup } from './SidebarItemGroup'
 import { SidebarItem } from './SidebarItem'
 import { SidebarCollapse } from './SidebarCollapse'
+import { useSidebarOpen } from './composables/use-open-sidebar'
+import { IconCloseOutline } from 'flowbite-qwik-icons'
 
 type SidebarProps = PropsOf<'aside'> & {
   highlight?: boolean
+  closeButton?: boolean
 }
 
-export const Sidebar: FunctionComponent<SidebarProps> = ({ children, highlight = false, class: classNames, ...attrs }) => {
+const InternalSidebar = component$<SidebarProps>(({ highlight = false, closeButton = false, class: classNames, ...attrs }) => {
+  const { isOpen, setIsOpen } = useSidebarOpen()
+  const sidebar = useSignal<HTMLElement>()
+
+  return (
+    <>
+      {isOpen.value && (
+        <div
+          class="bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-30"
+          onClick$={() => {
+            setIsOpen(false)
+          }}
+        />
+      )}
+      <aside
+        ref={sidebar}
+        class={twMerge(
+          'top-0 left-0 w-64 h-full relative',
+          [
+            'fixed z-50 left-0 h-full w-full max-w-64 transition-transform bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 sm:translate-x-0',
+            isOpen.value ? 'translate-x-0' : '-translate-x-full',
+          ],
+          clsx(classNames),
+        )}
+        aria-label="Sidebar"
+        {...attrs}
+      >
+        {closeButton && (
+          <button
+            onClick$={() => {
+              setIsOpen(false)
+            }}
+            type="button"
+            class="block sm:hidden absolute top-0 right-0 p-3 text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
+          >
+            <span class="sr-only">Close sidebar</span>
+            <IconCloseOutline />
+          </button>
+        )}
+        <nav
+          class={[
+            'h-full px-3 py-4 overflow-y-auto',
+            {
+              'bg-white dark:bg-gray-900': !highlight,
+              'bg-gray-50 dark:bg-gray-800': highlight,
+            },
+          ]}
+        >
+          <Slot />
+        </nav>
+      </aside>
+    </>
+  )
+})
+
+export const Sidebar: FunctionComponent<SidebarProps> = ({ children, ...attrs }) => {
   const sidebarItemGroups = []
   getChild(children, [
     {
@@ -36,19 +94,5 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({ children, highlight =
     },
   ])
 
-  return (
-    <aside class={twMerge('top-0 left-0 w-64 h-full', clsx(classNames))} aria-label="Sidebar" {...attrs}>
-      <nav
-        class={[
-          'h-full px-3 py-4 overflow-y-auto',
-          {
-            'bg-white dark:bg-gray-900': !highlight,
-            'bg-gray-50 dark:bg-gray-800': highlight,
-          },
-        ]}
-      >
-        {children}
-      </nav>
-    </aside>
-  )
+  return <InternalSidebar {...attrs}>{children}</InternalSidebar>
 }
