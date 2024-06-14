@@ -6,13 +6,15 @@ import { spawn } from 'child_process'
 import * as prettier from 'prettier'
 import * as path from 'path'
 import { pathToFileURL } from 'url'
+import { identifyMonorepoRoot } from 'identify-monorepo-root'
 
 function detectPackageManager(): string {
-  if (fs.existsSync('yarn.lock')) {
+  const rootFolder = identifyMonorepoRoot() || './'
+  if (fs.existsSync(path.resolve(rootFolder, 'yarn.lock'))) {
     return 'yarn'
-  } else if (fs.existsSync('pnpm-lock.yaml')) {
+  } else if (fs.existsSync(path.resolve(rootFolder, 'pnpm-lock.yaml'))) {
     return 'pnpm'
-  } else if (fs.existsSync('package-lock.json')) {
+  } else if (fs.existsSync(path.resolve(rootFolder, 'package-lock.json'))) {
     return 'npm'
   } else {
     return 'npm' // as default
@@ -30,7 +32,6 @@ function hasTailwindConfig(): boolean {
 
 async function tailwindInstalledInProject(): Promise<boolean> {
   const packageJsonPath = path.resolve(process.cwd(), 'package.json')
-  console.log('Checking package.json at:', packageJsonPath)
 
   if (!fs.existsSync(packageJsonPath)) {
     console.error('package.json not found at:', packageJsonPath)
@@ -38,7 +39,6 @@ async function tailwindInstalledInProject(): Promise<boolean> {
   }
 
   const packageJson = await import(pathToFileURL(packageJsonPath).href).then((m) => m)
-  console.log('Loaded package.json:', packageJson)
 
   const { dependencies, devDependencies } = packageJson
   return dependencies?.['tailwindcss'] || devDependencies?.['tailwindcss']
@@ -156,16 +156,23 @@ import { FlowbiteProvider ${useDarkTheme ? ', FlowbiteProviderHeader' : ''} } fr
 async function addFlowbiteToTailwind(): Promise<void> {
   const tailwindConfigName = getTailwindConfig()
   const tailwindConfigPath = path.resolve(process.cwd(), tailwindConfigName || 'tailwind.config.js')
-  console.log('Tailwind config path:', tailwindConfigPath)
 
   if (!fs.existsSync(tailwindConfigPath)) {
     console.error('tailwind.config not found at:', tailwindConfigPath)
     return
   }
 
-  if (fs.readFileSync(tailwindConfigPath, 'utf8').includes('flowbitePlugin')) return
+  const configFileContent = fs.readFileSync(tailwindConfigPath, 'utf8')
+  if (configFileContent.includes('flowbitePlugin')) return
 
-  const tailwindConfig = await import(pathToFileURL(tailwindConfigPath).href).then((m) => m.default)
+  let tailwindConfig: any = {}
+  if (!configFileContent.includes('require(')) {
+    tailwindConfig = await import(pathToFileURL(tailwindConfigPath).href)
+      .then((m) => m.default)
+      .catch(() => {
+        console.error('fail to load tailwind config file, try to update your config manually')
+      })
+  }
 
   tailwindConfig.content = ['node_modules/flowbite-qwik/**/*.{cjs,mjs}', './src/**/*.{js,ts,jsx,tsx,mdx}']
 
@@ -231,6 +238,7 @@ async function installFlowbiteQwik(): Promise<void> {
 
   const colorTheme = await select({
     message: 'Choose your color theme',
+    initialValue: 'blue',
     options: [
       { value: 'blue', label: 'Blue' },
       { value: 'green', label: 'Green' },
@@ -243,6 +251,7 @@ async function installFlowbiteQwik(): Promise<void> {
 
   const toastPosition = await select({
     message: 'Choose your toast position',
+    initialValue: 'top-right',
     options: [
       { value: 'top-right', label: 'Top Right' },
       { value: 'top-left', label: 'Top Left' },

@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is a CLI tool to setup flowbite qwik into your project",
   "main": "bin/init.cjs",
   "bin": {
@@ -27,6 +27,7 @@
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.2",
     "eslint": "^9.4.0",
+    "identify-monorepo-root": "^1.0.7",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.0.0-alpha.30",
     "vite": "^5.2.13"

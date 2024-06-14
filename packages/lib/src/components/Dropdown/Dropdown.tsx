@@ -13,7 +13,7 @@ import {
   Fragment,
   useVisibleTask$,
 } from '@builder.io/qwik'
-import { getChild } from '~/utils/getChild'
+import { getChild } from '~/utils/children-inspector'
 import { Button } from '~/components/Button/Button'
 import { useDocumentOuterClick } from '~/composables/use-outer-click'
 import { ButtonSize } from '~/components/Button/button-types'

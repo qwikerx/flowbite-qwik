@@ -1,7 +1,7 @@
 import { FunctionComponent, PropsOf, component$, useSignal, Slot } from '@builder.io/qwik'
 import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { getChild } from '~/utils/getChild'
+import { getChild } from '~/utils/children-inspector'
 import { SidebarItemGroup } from './SidebarItemGroup'
 import { SidebarItem } from './SidebarItem'
 import { SidebarCollapse } from './SidebarCollapse'

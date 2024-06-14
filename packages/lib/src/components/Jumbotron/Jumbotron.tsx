@@ -1,7 +1,7 @@
 import { PropsOf } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
-import { getChild } from '~/utils/getChild'
+import { getChild } from '~/utils/children-inspector'
 import { JumbotronSubText } from './JumbotronSubText'
 
 type JumbotronProps = PropsOf<'div'> & {

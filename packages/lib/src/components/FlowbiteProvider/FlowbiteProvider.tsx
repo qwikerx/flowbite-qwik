@@ -3,9 +3,9 @@ import { toastContext } from '../ToastList/composables/use-toast'
 import { ToastList } from '../ToastList/ToastList'
 import { ToastPosition } from '~/components/ToastList'
 import { darkModeContext } from '~/composables/use-dark'
-import { FlowbiteTheme } from '../FlowbiteThemable/composables/use-flowbite-themable'
+import { FlowbiteTheme } from '~/components/FlowbiteThemable'
 import { FlowbiteThemable } from '../FlowbiteThemable/FlowbiteThemable'
-import { sidebarContext } from '../Sidebar/composables/use-open-sidebar'
+import { sidebarContext } from '~/components/Sidebar'
 
 type FlowbiteProviderProps = {
   toastPosition?: ToastPosition
