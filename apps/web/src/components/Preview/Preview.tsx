@@ -67,7 +67,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
         </a>
       </h2>
       {props.description && <p class="text-gray-600 dark:text-gray-400 mb-4">{props.description}</p>}
-      <div class="flex justify-between p-4 bg-gray-50 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
+      <div class="flex relative justify-between p-4 bg-gray-50 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
         <ul>
           <li>
             <Button color="light" href={fileUrl.value} prefix={IconGithubSolid} size="sm">
@@ -75,7 +75,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
             </Button>
           </li>
         </ul>
-        <ul class="hidden lg:flex gap-3 justify-center">
+        <ul class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:flex gap-3 justify-center">
           <li>
             <Button color="light" square onClick$={() => (displaySize.value = 'mobile')} title="Toggle mobile view">
               <IconMobilePhoneOutline />
