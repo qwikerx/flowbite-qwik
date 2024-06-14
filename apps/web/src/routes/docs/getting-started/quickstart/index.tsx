@@ -12,8 +12,14 @@ export default component$(() => {
         </p>
       </div>
       <div>
+        <h2>Automatic Installation</h2>
+        <p>You can install Flowbite Qwik in your project by running the following command in your project directory:</p>
+        <CodeBlock language="bash" expandable={false} content="npx flowbite-qwik-cli init" />
+      </div>
+      <div>
+        <h2>Or install it manually</h2>
         <div>
-          <h2>Setup Tailwind CSS</h2>
+          <h3>Setup Tailwind CSS</h3>
           <p>
             Install Tailwind CSS by following the{' '}
             <a target="_blank" rel="noreferrer" href="https://tailwindcss.com/docs/installation">
@@ -23,7 +29,7 @@ export default component$(() => {
           </p>
         </div>
         <div>
-          <h2>Install Flowbite Qwik</h2>
+          <h3>Install Flowbite Qwik</h3>
           <p>Install Flowbite Qwik by running the following command in your project directory:</p>
           <CodeBlock language="bash" expandable={false} content="npm install flowbite-qwik" />
           <p>
@@ -62,7 +68,7 @@ export default {
           />
         </div>
         <div>
-          <h2>Set up the Flowbite Provider</h2>
+          <h3>Set up the Flowbite Provider</h3>
           <p>
             To use it, wrap the root component with the <em>FlowbiteProvider</em>, and specify the wanted toast position and theme.
           </p>
@@ -93,7 +99,7 @@ export default {
           />
         </div>
         <div>
-          <h2>Toggle Dark mode</h2>
+          <h3>Toggle Dark mode</h3>
           <p>To use dark mode, we provide a composable useDark that you can use to toggle the dark mode.</p>
 
           <h3>Here is an example of Dark mode Toggle</h3>
