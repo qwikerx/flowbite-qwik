@@ -1,14 +1,14 @@
 import { $, createContextId, useComputed$, useContext } from '@builder.io/qwik'
 
 type NavbarContextProps = { isOpen: boolean }
-export const NavbarContext = createContextId<NavbarContextProps>('Navbar')
+export const navbarContext = createContextId<NavbarContextProps>('Navbar')
 
 export function useNavbarContext() {
-  const navbarContext = useContext(NavbarContext)
+  const state = useContext(navbarContext)
 
-  const isOpen = useComputed$(() => navbarContext.isOpen)
+  const isOpen = useComputed$(() => state.isOpen)
   const setIsOpen = $((value: boolean) => {
-    navbarContext.isOpen = value
+    state.isOpen = value
   })
 
   return {
