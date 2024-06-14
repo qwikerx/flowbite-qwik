@@ -104,7 +104,7 @@ export default component$(() => {
       </Sidebar>
 
       <div class="sm:ml-64">
-        <div class="pb-1 lg:hidden border-b border-gray-200 dark:border-gray-600">
+        <div class="pb-1 sm:hidden border-b border-gray-200 dark:border-gray-600">
           <button
             onClick$={() => {
               setIsOpen(true)

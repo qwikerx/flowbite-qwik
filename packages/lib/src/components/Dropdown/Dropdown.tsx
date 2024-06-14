@@ -41,7 +41,15 @@ type DropdownProps = PropsOf<'div'> & {
   inline?: boolean
   size?: DropdownSize
 }
-export const Dropdown: FunctionComponent<DropdownProps> = ({ children, label, as, closeWhenSelect = true, inline = false, size = 'm', ...attrs }) => {
+export const Dropdown: FunctionComponent<DropdownProps> = ({
+  children,
+  label,
+  as: Trigger,
+  closeWhenSelect = true,
+  inline = false,
+  size = 'm',
+  ...attrs
+}) => {
   const components: ComponentType[] = []
 
   getChild(children, [
@@ -61,6 +69,23 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({ children, label, as
     },
   ])
 
+  let triggerIsButton = false
+
+  getChild(Trigger, [
+    {
+      component: Button,
+      foundComponentCallback: () => {
+        triggerIsButton = true
+      },
+    },
+    {
+      component: 'button',
+      foundComponentCallback: () => {
+        triggerIsButton = true
+      },
+    },
+  ])
+
   return (
     <div>
       <InnerDropdown
@@ -70,9 +95,10 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({ children, label, as
         inline={inline}
         size={size}
         title={attrs.title}
-        asTrigger={!!as}
+        asTrigger={!!Trigger}
+        triggerIsButton={triggerIsButton}
       >
-        {as}
+        {Trigger}
       </InnerDropdown>
     </div>
   )
@@ -101,9 +127,10 @@ type InnerDropdownProps = {
   size: DropdownSize
   title?: string
   asTrigger?: boolean
+  triggerIsButton?: boolean
 }
 
-const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeWhenSelect, components, inline, size, title }) => {
+const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, triggerIsButton, closeWhenSelect, components, inline, size, title }) => {
   const { dropdownModalClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
@@ -141,6 +168,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, closeW
             size={size}
             inline={inline}
             visible={visible.value}
+            triggerIsAlreadyButton={triggerIsButton}
           >
             <Slot />
           </TriggerButtonAs.value>
@@ -285,17 +313,20 @@ type InnerTriggerAsProps = {
   size: DropdownSize
   inline: boolean
   visible: boolean
+  triggerIsAlreadyButton?: boolean
 }
-const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, visible, onClick$ }) => {
+const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, visible, onClick$, triggerIsAlreadyButton }) => {
   const { triggerInlineClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
   )
 
+  const Tag = triggerIsAlreadyButton ? 'div' : 'button'
+
   return (
-    <button onClick$={onClick$} class={triggerInlineClasses.value} aria-expanded={visible} aria-label="Dropdown">
+    <Tag onClick$={onClick$} class={triggerInlineClasses.value} aria-expanded={visible} aria-label="Dropdown">
       <Slot />
-    </button>
+    </Tag>
   )
 })
 
