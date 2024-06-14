@@ -1,5 +1,5 @@
 import { component$, useComputed$, Signal, QRL, ClassList } from '@builder.io/qwik'
-import { InputSize } from '../Input/input-types'
+import { InputSize } from '~/components/Input'
 import { FlowbiteToggleColor, useToggleClasses } from './composables/use-toggle-classes'
 
 type ToggleProps = {

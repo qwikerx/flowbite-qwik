@@ -143,6 +143,7 @@ export default component$(() => {
 - Select
 - Sidebar
 - Spinner
+- Table
 - Tabs
 - Toast
 - Toggle

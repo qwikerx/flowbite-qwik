@@ -1,6 +1,6 @@
 /**
  * title: Default sidebar
- * description: Use this example to show a list of navigation menu items by adding <SidebarItem> children components inside the <Sidebar> component and pass the href prop to set a URL and icon to apply any icons from the react-icons icon library. You can also add a text label as a badge by using the label prop from React and the labelColor to set the color of the label background.
+ * description: Use this example to show a list of navigation menu items by adding <SidebarItem> children components inside the <Sidebar> component and pass the href prop to set a URL and icon to apply any icons from the flowbite-qwik-icons icon library. You can also add a text label as a badge by using the label prop from Qwik and the labelColor to set the color of the label background.
  * height: 500
  */
 
