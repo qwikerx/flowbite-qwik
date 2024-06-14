@@ -25,6 +25,6 @@ export default {
       },
     },
   },
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', "node_modules/flowbite-qwik/**/*.{cjs,mjs}'"],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', 'node_modules/flowbite-qwik/**/*.{cjs,mjs}'],
   plugins: [flowbitePlugin],
 }

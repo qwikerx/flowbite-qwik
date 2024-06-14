@@ -6,6 +6,7 @@ on:
 
 jobs:
   publish-npm:
+    if: startsWith(github.event.release.tag_name, 'flowbite-qwik-cli@')
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -22,8 +23,8 @@ jobs:
           node-version: 20
           cache: 'pnpm'
           registry-url: https://registry.npmjs.org
-      - run: pnpm --filter flowbite-qwik install --frozen-lockfile
-      - run: pnpm --filter flowbite-qwik build
-      - run: pnpm --filter flowbite-qwik publish --provenance --access public --no-git-checks
+      - run: pnpm --filter flowbite-qwik-cli install --frozen-lockfile
+      - run: pnpm --filter flowbite-qwik-cli build
+      - run: pnpm --filter flowbite-qwik-cli publish --provenance --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_TOKEN}}

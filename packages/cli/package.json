@@ -12,7 +12,16 @@
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check ."
   },
-  "keywords": [],
+ "keywords": [
+    "design-system",
+    "component-library",
+    "flowbite",
+    "flowbite-qwik",
+    "qwik",
+    "qwikjs",
+    "tailwind",
+    "tailwindcss"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@types/eslint": "^8.56.10",
