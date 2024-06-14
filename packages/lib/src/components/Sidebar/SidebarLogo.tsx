@@ -7,7 +7,6 @@ type SidebarLogoProps = PropsOf<'a'> & {
     url: string
     alt?: string
   }
-  href?: string
   tag?: Component<LinkProps> | 'a'
 }
 

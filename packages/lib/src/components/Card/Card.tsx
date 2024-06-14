@@ -1,21 +1,24 @@
-import { component$, JSXOutput, PropsOf, Slot } from '@builder.io/qwik'
+import { Component, component$, JSXOutput, PropsOf, Slot } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
+import { LinkProps } from '@builder.io/qwik-city'
 
 type CardProps = PropsOf<'div'> & {
   horizontal?: boolean
   href?: string
+  tag?: Component<LinkProps> | string
   imgAlt?: string
   imgSrc?: string
   imgAs?: JSXOutput
 }
 
-export const Card = component$<CardProps>(({ class: className, imgSrc, imgAlt, imgAs, horizontal = false, href, ...attrs }) => {
-  const Component = !!href ? 'a' : 'div'
+export const Card = component$<CardProps>(({ class: className, tag = 'a', imgSrc, imgAlt, imgAs, horizontal = false, href, ...attrs }) => {
+  const LinkComponent = tag !== 'a' ? tag : 'a'
+  const TagComponent = href ? LinkComponent : 'div'
 
   return (
     // @ts-expect-error href does not exist on div
-    <Component
+    <TagComponent
       href={href}
       class={twMerge(
         'flex rounded-lg border border-gray-200 bg-white shadow-md dark:border-gray-700 dark:bg-gray-800',
@@ -40,6 +43,6 @@ export const Card = component$<CardProps>(({ class: className, imgSrc, imgAlt, i
       <div class="flex h-full flex-col justify-center gap-4 p-6">
         <Slot />
       </div>
-    </Component>
+    </TagComponent>
   )
 })

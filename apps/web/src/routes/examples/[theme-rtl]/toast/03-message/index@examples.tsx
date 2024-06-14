@@ -11,7 +11,7 @@ import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 export default component$(() => {
   return (
     <div class="flex flex-col p-3 space-y-2">
-      <Toast id="card" alignment="start" icon={<img alt="Avatar" class="w-8 h-8 rounded-full shadow-lg" src="/profile-picture.jpg" />}>
+      <Toast id="card" alignment="start" icon={<img alt="Avatar" class="w-8 h-8 rounded-lg shadow-lg" src="/profile-picture.jpg" />}>
         <span class="mb-1 text-sm font-semibold text-gray-900 dark:text-white">Jese Leos</span>
         <div class="mb-2 text-sm font-normal">Hi Neil, thanks for sharing your thoughts regarding Flowbite.</div>
         <Button size="xs" href="#">

@@ -14,7 +14,7 @@ export default component$(() => {
 
   return (
     <Navbar fluid rounded>
-      <NavbarBrand as={Link} href="https://flowbite-qwik.com/">
+      <NavbarBrand tag={Link} href="https://flowbite-qwik.com/">
         <img src="/small-logo.png" alt="Flowbite qwik logo" width="215" height="195" class="mr-3 h-6 sm:h-9 w-auto" />
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
       </NavbarBrand>

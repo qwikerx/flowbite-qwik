@@ -25,7 +25,7 @@ export default component$(() => {
   return (
     <div>
       <Navbar fluid rounded separator sticky id="header__navbar">
-        <NavbarBrand as={Link} href="/">
+        <NavbarBrand tag={Link} href="/">
           <img src="/small-logo.png" alt="Flowbite qwik logo" width="215" height="195" class="mr-3 h-6 sm:h-9 w-auto" />
           <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
         </NavbarBrand>
@@ -79,10 +79,10 @@ export default component$(() => {
           <NavbarToggle />
         </div>
         <NavbarCollapse>
-          <NavbarLink href="/docs/getting-started/introduction" as={Link} active={location.url.pathname === '/docs/getting-started/introduction'}>
+          <NavbarLink href="/docs/getting-started/introduction" tag={Link} active={location.url.pathname === '/docs/getting-started/introduction'}>
             Docs
           </NavbarLink>
-          <NavbarLink href="/docs/getting-started/quickstart" as={Link} active={location.url.pathname === '/docs/getting-started/quickstart'}>
+          <NavbarLink href="/docs/getting-started/quickstart" tag={Link} active={location.url.pathname === '/docs/getting-started/quickstart'}>
             Quickstart
           </NavbarLink>
           <NavbarLink href="https://flowbite.com">Flowbite</NavbarLink>
