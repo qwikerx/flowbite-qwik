@@ -31,7 +31,7 @@ const InternalSidebar = component$<SidebarProps>(({ highlight = false, withNavba
       <aside
         ref={sidebar}
         class={twMerge(
-          'left-0 w-64 h-full fixed z-50 max-w-64 transition-transform bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 sm:translate-x-0',
+          'left-0 w-64 h-full fixed z-40 max-w-64 transition-transform bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 sm:translate-x-0',
           isOpen.value ? 'translate-x-0' : '-translate-x-full',
           withNavbar ? 'top-16 xl:top-14 pb-14' : 'top-0',
           clsx(classNames),
