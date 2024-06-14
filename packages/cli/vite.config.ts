@@ -3,7 +3,6 @@ import { defineConfig } from 'vite'
 export default defineConfig(() => {
   return {
     build: {
-      cssCodeSplit: true,
       target: 'esnext',
       lib: {
         entry: './src/init.ts',
