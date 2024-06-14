@@ -35,7 +35,7 @@ export default component$(() => {
               Quickstart
             </SidebarItem>
           </SidebarCollapse>
-          <SidebarCollapse label="Components (20)" opened>
+          <SidebarCollapse label="Components (21)" opened>
             <SidebarItem tag={NavLink} href="/docs/components/accordion">
               Accordion
             </SidebarItem>
