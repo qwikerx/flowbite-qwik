@@ -1,7 +1,7 @@
 /**
  * title: Modal escapable
  * description: The escapable property is true by default to improve user experience and accessibility. In some situations, your user may be required to interact with the modal content. If this is the case, you can set the notEscapable property to true. The developer can then choose when they want to close the modal.
- * height: 500
+ * height: 600
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
@@ -14,7 +14,6 @@ export default component$(() => {
 
   return (
     <div>
-      <h2 class="my-3">Prop - escapable</h2>
       <Button
         onClick$={() => {
           escapeModalVisible.value = true

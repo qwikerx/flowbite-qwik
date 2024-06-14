@@ -8,7 +8,7 @@ export default component$(() => {
   const boxes = [
     {
       title: 'Qwik components 🧱',
-      text: 'Use hundreds of open-source components such as navbars, modals, and dropdowns based on Qwik and Tailwind CSS.',
+      text: 'Use dozen of open-source components such as navbars, modals, and dropdowns based on Qwik and Tailwind CSS.',
     },
     {
       title: 'Based on Tailwind CSS 💨',

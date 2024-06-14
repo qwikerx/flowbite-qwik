@@ -42,7 +42,7 @@ function processChild(child: JSXNode, fill: string) {
   }
 }
 
-export function updateFillOfChildren(children: JSXNode, fill: string): any {
+export function updateFillOfChildren(children: JSXNode, fill: string) {
   getChild(children, [
     {
       component: 'path',

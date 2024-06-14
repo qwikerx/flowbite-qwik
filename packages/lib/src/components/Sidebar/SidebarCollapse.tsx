@@ -3,7 +3,7 @@ import { InnerSidebarItem, SidebarItem } from './SidebarItem'
 import type { IconProps } from 'flowbite-qwik-icons'
 import { IconAngleDownSolid } from 'flowbite-qwik-icons'
 import { SidebarItemGroup } from './SidebarItemGroup'
-import { getChild } from '~/utils/getChild'
+import { getChild } from '~/utils/children-inspector'
 import { useToggle } from '~/composables'
 
 type SidebarCollapseProps = PropsOf<'div'> & {

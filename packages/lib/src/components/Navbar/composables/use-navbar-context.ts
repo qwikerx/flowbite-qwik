@@ -1,7 +1,7 @@
 import { $, createContextId, useComputed$, useContext } from '@builder.io/qwik'
 
 type NavbarContextProps = { isOpen: boolean }
-export const navbarContext = createContextId<NavbarContextProps>('Navbar')
+export const navbarContext = createContextId<NavbarContextProps>('FLOWBITE_NAVBAR_CONTEXT')
 
 export function useNavbarContext() {
   const state = useContext(navbarContext)

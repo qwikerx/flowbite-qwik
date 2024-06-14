@@ -7,7 +7,7 @@ import uuid from '~/utils/uuid'
 import { AccordionHeader } from './AccordionHeader'
 import { AccordionContent } from './AccordionContent'
 import { useAccordionState } from './composables/use-accordion-state'
-import { getChild } from '~/utils/getChild'
+import { getChild } from '~/utils/children-inspector'
 
 type ChildrenType = {
   header: {

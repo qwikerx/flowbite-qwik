@@ -1,7 +1,7 @@
 /**
  * title: Default modal
  * description: Use the <Modal> component to show a dialog element to the user with a header, body, and footer where you can add any type of content such as text or form elements. The visibility of the component can be set by passing a boolean value to the bind:show prop on the <Modal> component.
- * height: 500
+ * height: 600
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
@@ -14,7 +14,6 @@ export default component$(() => {
 
   return (
     <div>
-      <h2 class="my-3">Default modal</h2>
       <Button
         onClick$={() => {
           defaultModalVisible.value = true

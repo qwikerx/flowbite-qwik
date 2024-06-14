@@ -16,7 +16,7 @@ import {
 import { useTabsClasses } from '~/components/Tabs/composables/use-tabs-classes'
 import { TabsVariant } from '~/components/Tabs/tabs-types'
 import { useTabClasses } from '~/components/Tabs/composables/use-tab-classes'
-import { getChild } from '~/utils/getChild'
+import { getChild } from '~/utils/children-inspector'
 import uuid from '~/utils/uuid'
 import type { IconProps } from 'flowbite-qwik-icons'
 

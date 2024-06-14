@@ -15,7 +15,7 @@ import { RouterHead } from '~/components/RouterHead/RouterHead'
 import { FlowbiteProvider, FlowbiteProviderHeader } from 'flowbite-qwik'
 import type { ToastPosition } from 'flowbite-qwik'
 
-export const toastPositionContext = createContextId<Signal<ToastPosition>>('toast-position-context')
+export const toastPositionContext = createContextId<Signal<ToastPosition>>('FLOWBITE_TOAST_POSITION_CONTEXT')
 
 export default component$(() => {
   useContextProvider(toastPositionContext, useSignal('top-right'))

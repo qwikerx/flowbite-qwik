@@ -1,7 +1,7 @@
 /**
  * title: Modal persistent
  * description: Clicking outside the element or pressing esc key will not send close event.
- * height: 500
+ * height: 600
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
@@ -14,7 +14,6 @@ export default component$(() => {
 
   return (
     <div>
-      <h2 class="my-3">Prop - persistent</h2>
       <Button
         onClick$={() => {
           persistentModalVisible.value = true

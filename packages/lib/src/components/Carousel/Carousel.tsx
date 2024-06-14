@@ -12,7 +12,7 @@ import {
   useStyles$,
   useVisibleTask$,
 } from '@builder.io/qwik'
-import { getChild } from '~/utils/getChild'
+import { getChild } from '~/utils/children-inspector'
 import uuid from '~/utils/uuid'
 import { IconAngleLeftSolid, IconAngleRightOutline } from 'flowbite-qwik-icons'
 import styles from './Carousel.css?inline'

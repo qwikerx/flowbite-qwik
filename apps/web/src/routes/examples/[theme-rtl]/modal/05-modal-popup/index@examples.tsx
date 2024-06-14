@@ -15,7 +15,6 @@ export default component$(() => {
 
   return (
     <div>
-      <h2 class="my-3">Pop-up modal</h2>
       <Button
         onClick$={() => {
           popupModalVisible.value = true
