@@ -1,4 +1,4 @@
-import { JSXOutput, PropsOf, Signal, component$, useComputed$ } from '@builder.io/qwik'
+import { JSXOutput, PropsOf, Signal, component$, useComputed$, useId } from '@builder.io/qwik'
 import { InputSize, InputType, ValidationStatus, validationStatusMap } from './input-types'
 import { twMerge } from 'tailwind-merge'
 import { useInputClasses } from './composables/use-input-classes'
@@ -9,6 +9,7 @@ export type PropsOfInput = Omit<
 >
 
 type InputProps = PropsOfInput & {
+  name?: string
   disabled?: boolean
   label?: string
   required?: boolean
@@ -37,6 +38,7 @@ export const Input = component$<InputProps>(
     helper,
     ...props
   }) => {
+    const id = useId()
     const validationWrapperClasses = useComputed$(() =>
       twMerge(
         'mt-2 text-sm',
@@ -53,10 +55,15 @@ export const Input = component$<InputProps>(
 
     return (
       <div class={classNames}>
-        {Boolean(label) && <label class={labelClasses.value}>{required ? `${label} *` : label}</label>}
+        {Boolean(label) && (
+          <label for={id} class={labelClasses.value}>
+            {required ? `${label} *` : label}
+          </label>
+        )}
         <div class="flex relative">
           {Boolean(prefix) && <div class="w-10 flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none overflow-hidden">{prefix}</div>}
           <input
+            id={id}
             {...props}
             bind:value={props['bind:value']}
             type={type}

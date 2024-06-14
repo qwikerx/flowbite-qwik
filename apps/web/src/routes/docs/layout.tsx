@@ -90,6 +90,9 @@ export default component$(() => {
             <SidebarItem tag={NavLink} href="/docs/components/spinner">
               Spinner
             </SidebarItem>
+            <SidebarItem tag={NavLink} href="/docs/components/table">
+              Table
+            </SidebarItem>
             <SidebarItem tag={NavLink} href="/docs/components/tabs">
               Tabs
             </SidebarItem>

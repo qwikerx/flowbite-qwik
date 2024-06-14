@@ -1,6 +1,6 @@
 /**
  * title: Spinner colors
- * description: Update the colors of the loading spinner by using the color React prop.
+ * description: Update the colors of the loading spinner by using the color Qwik prop.
  */
 
 import { component$ } from '@builder.io/qwik'
