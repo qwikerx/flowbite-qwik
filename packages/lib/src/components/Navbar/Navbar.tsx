@@ -1,7 +1,7 @@
 import { component$, PropsOf, Slot, useContextProvider, useStore } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
-import { NavbarContext } from '~/components/Navbar/composables/use-navbar-context'
+import { navbarContext } from '~/components/Navbar/composables/use-navbar-context'
 
 type NavbarProps = PropsOf<'nav'> & {
   menuOpen?: boolean
@@ -14,12 +14,12 @@ type NavbarProps = PropsOf<'nav'> & {
 
 export const Navbar = component$<NavbarProps>(
   ({ border = false, fluid = false, sticky = false, separator = false, menuOpen = false, rounded = false, class: classNames, ...props }) => {
-    useContextProvider(NavbarContext, useStore({ isOpen: menuOpen }))
+    useContextProvider(navbarContext, useStore({ isOpen: menuOpen }))
 
     return (
       <nav
         class={twMerge(
-          'bg-white px-2 py-2.5 dark:border-gray-700 dark:bg-gray-800 sm:px-4',
+          'bg-white px-2 h-16 xl:h-14 dark:border-gray-700 flex items-center dark:bg-gray-800 sm:px-4',
           border && 'border',
           rounded && 'rounded',
           sticky && 'fixed z-50 w-full',
@@ -28,7 +28,7 @@ export const Navbar = component$<NavbarProps>(
         )}
         {...props}
       >
-        <div class={twMerge('mx-auto flex flex-wrap items-center justify-between', !fluid && 'container')}>
+        <div class={twMerge('mx-auto w-full flex flex-wrap items-center justify-between', !fluid && 'container')}>
           <Slot />
         </div>
       </nav>

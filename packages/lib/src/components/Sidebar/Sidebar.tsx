@@ -11,9 +11,10 @@ import { IconCloseOutline } from 'flowbite-qwik-icons'
 type SidebarProps = PropsOf<'aside'> & {
   highlight?: boolean
   closeButton?: boolean
+  withNavbar?: boolean
 }
 
-const InternalSidebar = component$<SidebarProps>(({ highlight = false, closeButton = false, class: classNames, ...attrs }) => {
+const InternalSidebar = component$<SidebarProps>(({ highlight = false, withNavbar = false, closeButton = false, class: classNames, ...attrs }) => {
   const { isOpen, setIsOpen } = useSidebarOpen()
   const sidebar = useSignal<HTMLElement>()
 
@@ -30,11 +31,9 @@ const InternalSidebar = component$<SidebarProps>(({ highlight = false, closeButt
       <aside
         ref={sidebar}
         class={twMerge(
-          'top-0 left-0 w-64 h-full relative',
-          [
-            'fixed z-50 left-0 h-full w-full max-w-64 transition-transform bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 sm:translate-x-0',
-            isOpen.value ? 'translate-x-0' : '-translate-x-full',
-          ],
+          'left-0 w-64 h-full fixed z-50 max-w-64 transition-transform bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 sm:translate-x-0',
+          isOpen.value ? 'translate-x-0' : '-translate-x-full',
+          withNavbar ? 'top-16 xl:top-14 pb-14' : 'top-0',
           clsx(classNames),
         )}
         aria-label="Sidebar"

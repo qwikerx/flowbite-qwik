@@ -8,7 +8,7 @@ export default component$(() => {
 
   return (
     <div>
-      <Sidebar class="top-16 xl:top-14 pb-14">
+      <Sidebar withNavbar>
         <SidebarItemGroup>
           <SidebarCollapse label="Getting Started" opened>
             <SidebarItem tag={NavLink} href="/docs/getting-started/introduction">
