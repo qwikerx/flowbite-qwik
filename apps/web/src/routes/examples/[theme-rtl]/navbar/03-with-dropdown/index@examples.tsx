@@ -16,7 +16,15 @@ export default component$(() => {
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
       </NavbarBrand>
       <div class="flex md:order-2">
-        <Dropdown as={<img class="w-8 h-8 rounded-full" src="/profile-picture.jpg" alt="user photo" />}>
+        <Dropdown
+          as={
+            <img
+              class="w-8 h-8 rounded-full"
+              src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"
+              alt="user photo"
+            />
+          }
+        >
           <DropdownItem header>
             <span class="block text-sm">Bonnie Green</span>
             <span class="block truncate text-sm font-medium">name@flowbite.com</span>

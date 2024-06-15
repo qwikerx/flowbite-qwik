@@ -12,7 +12,15 @@ import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 export default component$(() => {
   return (
     <div class="ml-16">
-      <Dropdown as={<Avatar alt="User settings" img="/profile-picture-5.jpg" rounded />}>
+      <Dropdown
+        as={
+          <Avatar
+            alt="User settings"
+            img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+            rounded
+          />
+        }
+      >
         <DropdownItem header>
           <span class="block text-sm">Bonnie Green</span>
           <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>

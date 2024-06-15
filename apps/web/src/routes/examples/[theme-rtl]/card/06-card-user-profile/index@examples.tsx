@@ -41,7 +41,13 @@ export default component$(() => {
         </Dropdown>
       </div>
       <div class="flex flex-col items-center pb-10">
-        <img alt="Bonnie image" height="96" src="/profile-picture-3.jpg" width="96" class="mb-3 rounded-full shadow-lg" />
+        <img
+          alt="Bonnie image"
+          height="96"
+          src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"
+          width="96"
+          class="mb-3 rounded-full shadow-lg"
+        />
         <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">Bonnie Green</h5>
         <span class="text-sm text-gray-500 dark:text-gray-400">Visual Designer</span>
         <div class="mt-4 flex space-x-3 lg:mt-6">

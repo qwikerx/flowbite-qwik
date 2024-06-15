@@ -60,4 +60,5 @@ export default component$(() => {
 
 export const head: DocumentHead = () => ({
   title: 'Flowbite Qwik - UI Component Library',
+  meta: [{ name: 'description', content: '⚡ Flowbite Qwik, component library based on Tailwind CSS' }],
 })

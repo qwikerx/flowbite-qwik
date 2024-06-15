@@ -12,10 +12,27 @@ import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 export default component$(() => {
   return (
     <div class="flex flex-wrap gap-2">
-      <Avatar img="/profile-picture-5.jpg" status="online" />
-      <Avatar img="/profile-picture-5.jpg" rounded status="busy" statusPosition="top-right" />
-      <Avatar img="/profile-picture-5.jpg" status="offline" statusPosition="bottom-left" />
-      <Avatar img="/profile-picture-5.jpg" rounded status="away" statusPosition="bottom-right" />
+      <Avatar
+        img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+        status="online"
+      />
+      <Avatar
+        img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+        rounded
+        status="busy"
+        statusPosition="top-right"
+      />
+      <Avatar
+        img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+        status="offline"
+        statusPosition="bottom-left"
+      />
+      <Avatar
+        img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+        rounded
+        status="away"
+        statusPosition="bottom-right"
+      />
     </div>
   )
 })

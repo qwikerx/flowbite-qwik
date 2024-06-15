@@ -13,18 +13,63 @@ export default component$(() => {
   return (
     <div class="flex flex-col gap-3">
       <div class="flex flex-wrap gap-2">
-        <Avatar img="/profile-picture-5.jpg" rounded bordered color="gray" />
-        <Avatar img="/profile-picture-5.jpg" rounded bordered color="failure" />
-        <Avatar img="/profile-picture-5.jpg" rounded bordered color="purple" />
-        <Avatar img="/profile-picture-5.jpg" rounded bordered color="success" />
-        <Avatar img="/profile-picture-5.jpg" rounded bordered color="pink" />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          rounded
+          bordered
+          color="gray"
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          rounded
+          bordered
+          color="failure"
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          rounded
+          bordered
+          color="purple"
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          rounded
+          bordered
+          color="success"
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          rounded
+          bordered
+          color="pink"
+        />
       </div>
       <div class="flex flex-wrap gap-2">
-        <Avatar img="/profile-picture-5.jpg" bordered color="gray" />
-        <Avatar img="/profile-picture-5.jpg" bordered color="failure" />
-        <Avatar img="/profile-picture-5.jpg" bordered color="purple" />
-        <Avatar img="/profile-picture-5.jpg" bordered color="success" />
-        <Avatar img="/profile-picture-5.jpg" bordered color="pink" />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          bordered
+          color="gray"
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          bordered
+          color="failure"
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          bordered
+          color="purple"
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          bordered
+          color="success"
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          bordered
+          color="pink"
+        />
       </div>
     </div>
   )

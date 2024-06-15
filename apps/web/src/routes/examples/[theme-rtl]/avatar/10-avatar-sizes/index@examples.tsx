@@ -12,11 +12,11 @@ import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 export default component$(() => {
   return (
     <div class="flex flex-wrap items-center gap-2">
-      <Avatar img="/profile-picture-5.jpg" size="xs" />
-      <Avatar img="/profile-picture-5.jpg" size="sm" />
-      <Avatar img="/profile-picture-5.jpg" size="md" />
-      <Avatar img="/profile-picture-5.jpg" size="lg" />
-      <Avatar img="/profile-picture-5.jpg" size="xl" />
+      <Avatar img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg" size="xs" />
+      <Avatar img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg" size="sm" />
+      <Avatar img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg" size="md" />
+      <Avatar img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg" size="lg" />
+      <Avatar img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg" size="xl" />
     </div>
   )
 })

@@ -13,17 +13,53 @@ export default component$(() => {
   return (
     <div class="flex flex-wrap gap-2">
       <AvatarGroup>
-        <Avatar img="/profile-picture-1.jpg" rounded stacked />
-        <Avatar img="/profile-picture-2.jpg" rounded stacked />
-        <Avatar img="/profile-picture-3.jpg" rounded stacked />
-        <Avatar img="/profile-picture-4.jpg" rounded stacked />
-        <Avatar img="/profile-picture-5.jpg" rounded stacked />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/on9fjbionkpt1fqhtbov.jpg"
+          rounded
+          stacked
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/g5dmxlpqgtkar6bb55b6.jpg"
+          rounded
+          stacked
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"
+          rounded
+          stacked
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/v0w8f2cf2xxxas8ad1jl.jpg"
+          rounded
+          stacked
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+          rounded
+          stacked
+        />
       </AvatarGroup>
       <AvatarGroup>
-        <Avatar img="/profile-picture-1.jpg" rounded stacked />
-        <Avatar img="/profile-picture-2.jpg" rounded stacked />
-        <Avatar img="/profile-picture-3.jpg" rounded stacked />
-        <Avatar img="/profile-picture-4.jpg" rounded stacked />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/on9fjbionkpt1fqhtbov.jpg"
+          rounded
+          stacked
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/g5dmxlpqgtkar6bb55b6.jpg"
+          rounded
+          stacked
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"
+          rounded
+          stacked
+        />
+        <Avatar
+          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/v0w8f2cf2xxxas8ad1jl.jpg"
+          rounded
+          stacked
+        />
         <AvatarGroupCounter total={99} href="#" />
       </AvatarGroup>
     </div>

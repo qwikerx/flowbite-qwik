@@ -27,10 +27,10 @@ export default component$(() => {
       <Navbar fluid rounded separator sticky id="header__navbar">
         <NavbarBrand tag={Link} href="/">
           <img
-            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718461602/flowbite-qwik/q91266o4fonn7zg3jtpj.png"
+            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto,w_43,h_39/v1718461602/flowbite-qwik/q91266o4fonn7zg3jtpj.png"
             alt="Flowbite qwik small logo"
-            width="215"
-            height="195"
+            width="43"
+            height="39"
             class="mr-3 h-6 sm:h-9 w-auto"
           />
           <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
