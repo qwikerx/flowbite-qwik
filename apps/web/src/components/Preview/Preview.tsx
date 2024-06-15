@@ -115,7 +115,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
           ]}
         >
           {displaySize.value ? (
-            <iframe ref={iframe} src={iframeSrc.value} height={height} {...props} title={title} class={['w-full', classNames]} />
+            <iframe loading="lazy" ref={iframe} src={iframeSrc.value} height={height} {...props} title={title} class={['w-full', classNames]} />
           ) : (
             <div class="flex justify-center w-full mx-auto items-center" style={{ height: `${height}px` }}>
               {<Spinner size="6" />}
