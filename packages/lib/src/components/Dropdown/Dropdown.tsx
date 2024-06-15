@@ -184,7 +184,12 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, trigge
           />
         )}
 
-        <div ref={dropdownModalRef} role="menu" class={[dropdownModalClasses.value, visible.value ? 'visible' : 'invisible']}>
+        <div
+          ref={dropdownModalRef}
+          role="menu"
+          aria-expanded={visible.value}
+          class={[dropdownModalClasses.value, visible.value ? 'visible' : 'invisible']}
+        >
           <ul tabIndex={0} class="py-1 focus:outline-none">
             {components.map((comp) => (
               <li role="menuitem" key={comp.id}>
@@ -298,7 +303,7 @@ const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, i
   )
 
   return (
-    <button onClick$={onClick$} class={triggerInlineClasses.value} aria-expanded={visible}>
+    <button onClick$={onClick$} aria-haspopup="menu" class={triggerInlineClasses.value} aria-expanded={visible}>
       {label}
       <IconAngleDownOutline />
     </button>
@@ -324,7 +329,7 @@ const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, visible,
   const Tag = triggerIsAlreadyButton ? 'div' : 'button'
 
   return (
-    <Tag onClick$={onClick$} class={triggerInlineClasses.value} aria-expanded={visible} aria-label="Dropdown">
+    <Tag onClick$={onClick$} aria-haspopup="menu" class={triggerInlineClasses.value} aria-expanded={visible}>
       <Slot />
     </Tag>
   )
@@ -348,7 +353,7 @@ const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, v
   }
 
   return (
-    <Button onClick$={onClick$} size={buttonSize[size]} suffix={IconAngleDownOutline} aria-expanded={visible}>
+    <Button onClick$={onClick$} aria-haspopup="menu" size={buttonSize[size]} suffix={IconAngleDownOutline} aria-expanded={visible}>
       {label}
     </Button>
   )
