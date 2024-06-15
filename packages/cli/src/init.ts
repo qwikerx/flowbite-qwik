@@ -2,11 +2,17 @@
 
 import { intro, outro, confirm, isCancel, spinner, log, select } from '@clack/prompts'
 import * as fs from 'fs'
+import { readFile } from 'fs/promises'
 import { spawn } from 'child_process'
 import * as prettier from 'prettier'
 import * as path from 'path'
 import { pathToFileURL } from 'url'
 import { identifyMonorepoRoot } from 'identify-monorepo-root'
+
+async function readJsonFile(path: string) {
+  const file = await readFile(path, 'utf8')
+  return JSON.parse(file)
+}
 
 function detectPackageManager(): string {
   const rootFolder = identifyMonorepoRoot() || './'
@@ -38,7 +44,7 @@ async function tailwindInstalledInProject(): Promise<boolean> {
     return false
   }
 
-  const packageJson = await import(pathToFileURL(packageJsonPath).href).then((m) => m)
+  const packageJson = await readJsonFile('./package.json')
 
   const { dependencies, devDependencies } = packageJson
   return dependencies?.['tailwindcss'] || devDependencies?.['tailwindcss']
@@ -166,12 +172,10 @@ async function addFlowbiteToTailwind(): Promise<void> {
   if (configFileContent.includes('flowbitePlugin')) return
 
   let tailwindConfig: any = {}
-  if (!configFileContent.includes('require(')) {
-    tailwindConfig = await import(pathToFileURL(tailwindConfigPath).href)
-      .then((m) => m.default)
-      .catch(() => {
-        console.error('fail to load tailwind config file, try to update your config manually')
-      })
+  try {
+    tailwindConfig = await import(pathToFileURL(tailwindConfigPath).href).then((m) => m.default)
+  } catch (e) {
+    console.error('fail to load tailwind config file, generating a default one ...')
   }
 
   tailwindConfig.content = ['node_modules/flowbite-qwik/**/*.{cjs,mjs}', './src/**/*.{js,ts,jsx,tsx,mdx}']
