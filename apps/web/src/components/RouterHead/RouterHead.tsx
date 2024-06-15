@@ -11,7 +11,7 @@ export const RouterHead = component$(() => {
 
   return (
     <>
-      <meta charSet="utf-8" />
+      <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -37,7 +37,7 @@ export const RouterHead = component$(() => {
       ))}
 
       <QwikPartytown forward={['gtag', 'dataLayer.push']} />
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-78YXL53K0Y" />
+      <script async type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-78YXL53K0Y" />
       <script
         type="text/partytown"
         dangerouslySetInnerHTML={`
