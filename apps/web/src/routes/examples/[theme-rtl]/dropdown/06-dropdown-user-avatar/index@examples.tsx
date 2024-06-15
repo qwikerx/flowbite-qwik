@@ -11,7 +11,15 @@ import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 export default component$(() => {
   return (
     <div class="flex gap-5">
-      <Dropdown as={<img class="w-8 h-8 rounded-full" src="/profile-picture.jpg" alt="user photo" />}>
+      <Dropdown
+        as={
+          <img
+            class="w-8 h-8 rounded-full"
+            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"
+            alt="user photo"
+          />
+        }
+      >
         <DropdownItem header>
           <span class="block text-sm">Bonnie Green</span>
           <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
@@ -22,7 +30,15 @@ export default component$(() => {
         <DropdownItem>Sign out</DropdownItem>
       </Dropdown>
 
-      <Dropdown as={<img class="w-8 h-8 rounded-full" src="/profile-picture.jpg" alt="user photo" />}>
+      <Dropdown
+        as={
+          <img
+            class="w-8 h-8 rounded-full"
+            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"
+            alt="user photo"
+          />
+        }
+      >
         <DropdownItem header>
           <span class="block text-sm">Bonnie Green</span>
           <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
@@ -33,7 +49,15 @@ export default component$(() => {
         <DropdownItem>Sign out</DropdownItem>
       </Dropdown>
 
-      <Dropdown as={<img class="w-8 h-8 rounded-full" src="/profile-picture.jpg" alt="user photo" />}>
+      <Dropdown
+        as={
+          <img
+            class="w-8 h-8 rounded-full"
+            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"
+            alt="user photo"
+          />
+        }
+      >
         <DropdownItem header>
           <span class="block text-sm">Bonnie Green</span>
           <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>

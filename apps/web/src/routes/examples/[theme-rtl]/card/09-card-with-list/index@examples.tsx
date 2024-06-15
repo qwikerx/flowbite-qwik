@@ -23,7 +23,13 @@ export default component$(() => {
           <li class="py-3 sm:py-4">
             <div class="flex items-center space-x-4">
               <div class="shrink-0">
-                <img alt="Neil image" height="32" src="/profile-picture-1.jpg" width="32" class="rounded-full" />
+                <img
+                  alt="Neil image"
+                  height="32"
+                  src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/on9fjbionkpt1fqhtbov.jpg"
+                  width="32"
+                  class="rounded-full"
+                />
               </div>
               <div class="min-w-0 flex-1">
                 <p class="truncate text-sm font-medium text-gray-900 dark:text-white">Neil Sims</p>
@@ -35,7 +41,13 @@ export default component$(() => {
           <li class="py-3 sm:py-4">
             <div class="flex items-center space-x-4">
               <div class="shrink-0">
-                <img alt="Bonnie image" height="32" src="/profile-picture-3.jpg" width="32" class="rounded-full" />
+                <img
+                  alt="Bonnie image"
+                  height="32"
+                  src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"
+                  width="32"
+                  class="rounded-full"
+                />
               </div>
               <div class="min-w-0 flex-1">
                 <p class="truncate text-sm font-medium text-gray-900 dark:text-white">Bonnie Green</p>
@@ -47,7 +59,13 @@ export default component$(() => {
           <li class="py-3 sm:py-4">
             <div class="flex items-center space-x-4">
               <div class="shrink-0">
-                <img alt="Michael image" height="32" src="/profile-picture-2.jpg" width="32" class="rounded-full" />
+                <img
+                  alt="Michael image"
+                  height="32"
+                  src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/g5dmxlpqgtkar6bb55b6.jpg"
+                  width="32"
+                  class="rounded-full"
+                />
               </div>
               <div class="min-w-0 flex-1">
                 <p class="truncate text-sm font-medium text-gray-900 dark:text-white">Michael Gough</p>
@@ -59,7 +77,13 @@ export default component$(() => {
           <li class="py-3 sm:py-4">
             <div class="flex items-center space-x-4">
               <div class="shrink-0">
-                <img alt="Lana image" height="32" src="/profile-picture-4.jpg" width="32" class="rounded-full" />
+                <img
+                  alt="Lana image"
+                  height="32"
+                  src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/v0w8f2cf2xxxas8ad1jl.jpg"
+                  width="32"
+                  class="rounded-full"
+                />
               </div>
               <div class="min-w-0 flex-1">
                 <p class="truncate text-sm font-medium text-gray-900 dark:text-white">Lana Byrd</p>
@@ -71,7 +95,13 @@ export default component$(() => {
           <li class="pb-0 pt-3 sm:pt-4">
             <div class="flex items-center space-x-4">
               <div class="shrink-0">
-                <img alt="Thomas image" height="32" src="/profile-picture-5.jpg" width="32" class="rounded-full" />
+                <img
+                  alt="Thomas image"
+                  height="32"
+                  src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"
+                  width="32"
+                  class="rounded-full"
+                />
               </div>
               <div class="min-w-0 flex-1">
                 <p class="truncate text-sm font-medium text-gray-900 dark:text-white">Thomes Lean</p>

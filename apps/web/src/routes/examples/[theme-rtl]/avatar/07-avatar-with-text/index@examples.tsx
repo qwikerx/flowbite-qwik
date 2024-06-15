@@ -11,7 +11,7 @@ import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   return (
-    <Avatar img="/profile-picture-5.jpg" rounded>
+    <Avatar img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg" rounded>
       <div class="space-y-1 font-medium dark:text-white">
         <div>Jese Leos</div>
         <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
