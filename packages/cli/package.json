@@ -6,6 +6,9 @@
   "bin": {
     "init": "bin/init.cjs"
   },
+  "bugs": "https://github.com/qwikerx/flowbite-qwik/issues",
+  "repository": "https://github.com/qwikerx/flowbite-qwik.git",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "vite build --ssr --mode lib",
@@ -22,7 +25,6 @@
     "tailwind",
     "tailwindcss"
   ],
-  "license": "ISC",
   "devDependencies": {
     "@types/eslint": "^8.56.10",
     "@types/node": "^20.14.2",

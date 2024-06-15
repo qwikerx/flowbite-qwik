@@ -98,7 +98,7 @@ export default {
 }
 ```
 
-### Setup `flowbite-qwik` providers
+3. Setup `flowbite-qwik` providers
 
 In your `src/root.tsx` file, import the `FlowbiteProvider` and wrap your app with it and define the theme and toast position.
 
