@@ -470,6 +470,58 @@ export const examples: Record<string, Example[]> = {
       height: '200',
     },
   ],
+  'button-group': [
+    {
+      title: 'Default button group',
+      description:
+        'Use this example of the <ButtonGroup> component by adding the Button component as a child element and stack them together. You can also use the color prop to change the color of the buttons.',
+      url: '/examples/[theme-rtl]/button-group/01-default-button-group',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup>\n      <Button color="light">Profile</Button>\n      <Button color="light">Settings</Button>\n      <Button color="light">Messages</Button>\n    </ButtonGroup>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Button group with icons',
+      description:
+        'Import one of the icons from the flowbite-qwik-icons library and add it as a child element to the <Button> component to create multiple buttons with icons grouped together.',
+      url: '/examples/[theme-rtl]/button-group/02-button-group-with-icons',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\nimport { IconDownloadOutline, IconFileSearchOutline, IconProfileCardOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup>\n      <Button color="light" prefix={IconProfileCardOutline}>\n        Profile\n      </Button>\n      <Button color="light" prefix={IconFileSearchOutline}>\n        Settings\n      </Button>\n      <Button color="light" prefix={IconDownloadOutline}>\n        Messages\n      </Button>\n    </ButtonGroup>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Button group as links',
+      description: 'You can also use the button group component as links.',
+      url: '/examples/[theme-rtl]/button-group/03-button-group-as-links',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\nimport { IconDownloadOutline, IconFileSearchOutline, IconProfileCardOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup>\n      <Button href="#profile" color="light" prefix={IconProfileCardOutline}>\n        Profile\n      </Button>\n      <Button href="#settings" color="light" prefix={IconFileSearchOutline}>\n        Settings\n      </Button>\n      <Button href="#messages" color="light" prefix={IconDownloadOutline}>\n        Messages\n      </Button>\n    </ButtonGroup>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Button group Outline',
+      description: 'Group a series of buttons together on a single line or stack them in a vertical column.',
+      url: '/examples/[theme-rtl]/button-group/04-button-group-outline',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup outline>\n      <Button color="blue">Profile</Button>\n      <Button color="blue">Settings</Button>\n      <Button color="blue">Messages</Button>\n    </ButtonGroup>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Outlined with icon',
+      description: 'Group a series of buttons together on a single line or stack them in a vertical column.',
+      url: '/examples/[theme-rtl]/button-group/05-button-group-outline-with-icons',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\nimport { IconDownloadOutline, IconFileSearchOutline, IconProfileCardOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup outline>\n      <Button color="red" prefix={IconProfileCardOutline}>\n        Profile\n      </Button>\n      <Button color="red" prefix={IconFileSearchOutline}>\n        Settings\n      </Button>\n      <Button color="red" prefix={IconDownloadOutline}>\n        Messages\n      </Button>\n    </ButtonGroup>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Button group event handler',
+      description: 'You can use onClick$ option of the Button component to know which one is clicked',
+      url: '/examples/[theme-rtl]/button-group/06-button-group-event-handler',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\nimport { IconDownloadOutline, IconFileSearchOutline, IconProfileCardOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup>\n      <Button onClick$={() => alert(\'clicked!\')} href="#profile" color="light" prefix={IconProfileCardOutline}>\n        Profile\n      </Button>\n      <Button onClick$={() => alert(\'clicked!\')} href="#settings" color="light" prefix={IconFileSearchOutline}>\n        Settings\n      </Button>\n      <Button onClick$={() => alert(\'clicked!\')} href="#messages" color="light" prefix={IconDownloadOutline}>\n        Messages\n      </Button>\n    </ButtonGroup>\n  )\n})',
+      height: '200',
+    },
+  ],
   card: [
     {
       title: 'Default card',
@@ -1165,7 +1217,7 @@ export const examples: Record<string, Example[]> = {
     {
       title: 'Striped rows',
       description:
-        'Use the striped React prop on the <Table> component to alternate the background of every second row of the table to increase contrast and readability.',
+        'Use the striped Qwik prop on the <Table> component to alternate the background of every second row of the table to increase contrast and readability.',
       url: '/examples/[theme-rtl]/table/02-table-striped-rows',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="overflow-x-auto">\n      <Table striped>\n        <TableHead>\n          <TableHeadCell>Product name</TableHeadCell>\n          <TableHeadCell>Color</TableHeadCell>\n          <TableHeadCell>Category</TableHeadCell>\n          <TableHeadCell>Price</TableHeadCell>\n          <TableHeadCell>\n            <span class="sr-only">Edit</span>\n          </TableHeadCell>\n        </TableHead>\n        <TableBody class="divide-y">\n          <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n            <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">{\'Apple MacBook Pro 17"\'}</TableCell>\n            <TableCell>Sliver</TableCell>\n            <TableCell>Laptop</TableCell>\n            <TableCell>$2999</TableCell>\n            <TableCell>\n              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">\n                Edit\n              </a>\n            </TableCell>\n          </TableRow>\n          <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n            <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">Microsoft Surface Pro</TableCell>\n            <TableCell>White</TableCell>\n            <TableCell>Laptop PC</TableCell>\n            <TableCell>$1999</TableCell>\n            <TableCell>\n              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">\n                Edit\n              </a>\n            </TableCell>\n          </TableRow>\n          <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n            <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</TableCell>\n            <TableCell>Black</TableCell>\n            <TableCell>Accessories</TableCell>\n            <TableCell>$99</TableCell>\n            <TableCell>\n              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">\n                Edit\n              </a>\n            </TableCell>\n          </TableRow>\n          <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n            <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">Google Pixel Phone</TableCell>\n            <TableCell>Gray</TableCell>\n            <TableCell>Phone</TableCell>\n            <TableCell>$799</TableCell>\n            <TableCell>\n              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">\n                Edit\n              </a>\n            </TableCell>\n          </TableRow>\n          <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n            <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">Apple Watch 5</TableCell>\n            <TableCell>Red</TableCell>\n            <TableCell>Wearables</TableCell>\n            <TableCell>$999</TableCell>\n            <TableCell>\n              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">\n                Edit\n              </a>\n            </TableCell>\n          </TableRow>\n        </TableBody>\n      </Table>\n    </div>\n  )\n})',

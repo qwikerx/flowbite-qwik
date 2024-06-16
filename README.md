@@ -49,7 +49,17 @@ To use `flowbite-qwik`, you just need to setup `flowbite` normally and install `
 
 `flowbite` can be included as a plugin into an existing Tailwind CSS project.
 
-### Require via `npm`
+### 😎 Automatic way using CLI
+
+Flowbite-qwik can be automatically installed using its CLI, simply use this command :
+
+```
+npx flowbite-qwik-cli@latest init
+```
+
+Click [here](https://github.com/qwikerx/flowbite-qwik/blob/main/packages/cli/README.md) for more details.
+
+### 🐓 Manual way via `npm`
 
 Make sure that you have <a href="https://nodejs.org/en/" rel="nofollow" >Node.js</a> and <a href="https://tailwindcss.com/" rel="nofollow" >Tailwind CSS</a> installed.
 
@@ -88,7 +98,7 @@ export default {
 }
 ```
 
-### Setup `flowbite-qwik` providers
+3. Setup `flowbite-qwik` providers
 
 In your `src/root.tsx` file, import the `FlowbiteProvider` and wrap your app with it and define the theme and toast position.
 
@@ -128,6 +138,7 @@ export default component$(() => {
 - Banner
 - Breadcrumb
 - Button
+- ButtonGroup
 - Card
 - Carousel
 - Checkbox

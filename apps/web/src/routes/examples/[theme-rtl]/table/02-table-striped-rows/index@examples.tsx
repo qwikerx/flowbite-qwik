@@ -1,6 +1,6 @@
 /**
  * title: Striped rows
- * description: Use the striped React prop on the <Table> component to alternate the background of every second row of the table to increase contrast and readability.
+ * description: Use the striped Qwik prop on the <Table> component to alternate the background of every second row of the table to increase contrast and readability.
  * height: 400
  */
 
