@@ -7,6 +7,7 @@ export const allComponents = {
     'banner',
     'breadcrumb',
     'button',
+    'button-group',
     'card',
     'carousel',
     'drawer',
