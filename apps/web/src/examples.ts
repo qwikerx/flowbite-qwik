@@ -1256,6 +1256,49 @@ export const examples: Record<string, Example[]> = {
       height: '400',
     },
   ],
+  textarea: [
+    {
+      title: 'Default Textarea',
+      description: 'Get started with the default example of a textarea component below.',
+      url: '/examples/[theme-rtl]/textarea/01-default',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Textarea } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const textareaValue = useSignal(\'\')\n\n  return (\n    <div class="flex gap-2 flex-wrap p-6">\n      <p class="text-sm mb-4 pb-4 border-b border-gray-200 dark:border-gray-800">Textarea value: {textareaValue}</p>\n\n      <Textarea bind:value={textareaValue} label="Your message" placeholder="Type something here..." class="w-full" />\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Comment box',
+      description:
+        'Most often the textarea component is used as the main text field input element in comment sections. Use this example to also apply a helper text and buttons below the textarea itself.',
+      url: '/examples/[theme-rtl]/textarea/02-comment-box',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Textarea, Button } from \'flowbite-qwik\'\nimport { IconFileImportOutline, IconImageOutline, IconMapLocationOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  const textareaValue = useSignal(\'\')\n\n  return (\n    <div class="flex gap-2 flex-wrap p-6">\n      <Textarea\n        bind:value={textareaValue}\n        placeholder="Write a ccomment"\n        class="w-full"\n        footer={\n          <div class="flex justify-between">\n            <Button>Post comment</Button>\n            <div class="flex ps-0 space-x-1 rtl:space-x-reverse sm:ps-2">\n              <button\n                type="button"\n                class="inline-flex justify-center items-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"\n              >\n                <IconFileImportOutline class="w-4 h-4" />\n              </button>\n              <button\n                type="button"\n                class="inline-flex justify-center items-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"\n              >\n                <IconMapLocationOutline class="w-4 h-4" />\n              </button>\n              <button\n                type="button"\n                class="inline-flex justify-center items-center p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"\n              >\n                <IconImageOutline class="w-4 h-4" />\n              </button>\n            </div>\n          </div>\n        }\n      />\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Disabled Textarea',
+      description: 'Use the `disabled` prop to make the textarea component non-editable and non-interactive.',
+      url: '/examples/[theme-rtl]/textarea/03-disabled',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Textarea } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const textareaValue = useSignal(\'\')\n\n  return (\n    <div class="flex gap-2 flex-wrap p-6 ">\n      <Textarea bind:value={textareaValue} disabled label="Your message" placeholder="Type something here..." class="w-full" />\n    </div>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Required Textarea',
+      description: 'Use the `required` prop to make the textarea component a required field inside a form.',
+      url: '/examples/[theme-rtl]/textarea/04-required',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Textarea } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const textareaValue = useSignal(\'\')\n\n  return (\n    <div class="flex gap-2 flex-wrap p-6 ">\n      <Textarea bind:value={textareaValue} required label="Your message" placeholder="Type something here..." class="w-full" />\n    </div>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Readonly Textarea',
+      description: 'Use the `readonly` prop to make the textarea component non-editable but interactive.',
+      url: '/examples/[theme-rtl]/textarea/05-readonly',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Textarea } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const textareaValue = useSignal(\'Flowbite is awesome!\')\n\n  return (\n    <div class="flex gap-2 flex-wrap p-6 ">\n      <Textarea bind:value={textareaValue} readOnly label="Your message" placeholder="Type something here..." class="w-full" />\n    </div>\n  )\n})',
+      height: '200',
+    },
+  ],
   toast: [
     {
       title: 'Props type',

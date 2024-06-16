@@ -24,6 +24,7 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "scan.examples": "tsx ./src/scripts/scan-examples.ts",
+    "scan.components": "tsx ./src/scripts/scan-components.ts",
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },

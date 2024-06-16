@@ -25,6 +25,7 @@ export * from './components/Sidebar'
 export * from './components/Spinner'
 export * from './components/Table'
 export * from './components/Tabs'
+export * from './components/Textarea'
 export * from './components/ToastList'
 export * from './components/Toggle'
 

@@ -2,6 +2,7 @@ import { component$, Slot } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
 import { Sidebar, SidebarCollapse, SidebarItem, SidebarItemGroup, useSidebarOpen } from 'flowbite-qwik'
 import { NavLink } from '~/components/NavLink/NavLink'
+import { allComponents } from '~/components'
 
 export default component$(() => {
   const { setIsOpen } = useSidebarOpen()
@@ -18,87 +19,19 @@ export default component$(() => {
               Quickstart
             </SidebarItem>
           </SidebarCollapse>
-          <SidebarCollapse label="Components (21)" opened>
-            <SidebarItem tag={NavLink} href="/docs/components/accordion">
-              Accordion
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/alert">
-              Alert
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/avatar">
-              Avatar
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/badge">
-              Badge
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/banner">
-              Banner
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/breadcrumb">
-              Breadcrumb
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/button">
-              Button
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/card">
-              Card
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/carousel">
-              Carousel
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/drawer">
-              Drawer
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/dropdown">
-              Dropdown
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/footer">
-              Footer
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/jumbotron">
-              Jumbotron
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/modal">
-              Modal
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/navbar">
-              Navbar
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/rating">
-              Rating
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/sidebar">
-              Sidebar
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/spinner">
-              Spinner
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/table">
-              Table
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/tabs">
-              Tabs
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/toast">
-              Toast
-            </SidebarItem>
+          <SidebarCollapse label={`Components (${allComponents.components.length})`} opened>
+            {allComponents.components.map((component) => (
+              <SidebarItem class="capitalize" key={component} tag={NavLink} href={`/docs/components/${component}`}>
+                {component}
+              </SidebarItem>
+            ))}
           </SidebarCollapse>
-          <SidebarCollapse label="Form (5)">
-            <SidebarItem tag={NavLink} href="/docs/components/checkbox">
-              Checkbox
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/input">
-              Input
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/radio">
-              Radio
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/select">
-              Select
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/components/toggle">
-              Toggle
-            </SidebarItem>
+          <SidebarCollapse label={`Form Components (${allComponents.formComponents.length})`}>
+            {allComponents.formComponents.map((component) => (
+              <SidebarItem class="capitalize" key={component} tag={NavLink} href={`/docs/components/form/${component}`}>
+                {component}
+              </SidebarItem>
+            ))}
           </SidebarCollapse>
         </SidebarItemGroup>
       </Sidebar>
