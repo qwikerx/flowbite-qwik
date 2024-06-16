@@ -966,6 +966,64 @@ export const examples: Record<string, Example[]> = {
       height: '400',
     },
   ],
+  kbd: [
+    {
+      title: 'Default KBD',
+      description: 'Here’s a list of KBD components that you can use inside any other element.',
+      url: '/examples/[theme-rtl]/kbd/01-default-kbd',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd>Shift</Kbd>\n      <Kbd>Ctrl</Kbd>\n      <Kbd>Tab</Kbd>\n      <Kbd>Caps Lock</Kbd>\n      <Kbd>Esc</Kbd>\n      <Kbd>Spacebar</Kbd>\n      <Kbd>Enter</Kbd>\n    </div>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'KBD inside text',
+      description: 'Use this example by nesting an inline KBD component inside a paragraph.',
+      url: '/examples/[theme-rtl]/kbd/02-kbd-inside-text',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <>\n      Please press <Kbd>Ctrl</Kbd> + <Kbd>Shift</Kbd> + <Kbd>R</Kbd> to re-render an MDN page.\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'KBD inside table',
+      description: 'The KBD component can also be used inside table components to denote what type of key can be pressed for certain descriptions.',
+      url: '/examples/[theme-rtl]/kbd/03-kbd-inside-table',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Kbd, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from \'flowbite-qwik\'\nimport { IconAngleDownSolid, IconAngleLeftSolid, IconAngleRightSolid, IconAngleUpSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <Table>\n      <TableHead>\n        <TableHeadCell>Key</TableHeadCell>\n        <TableHeadCell>Description</TableHeadCell>\n      </TableHead>\n      <TableBody class="divide-y">\n        <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n          <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">\n            <Kbd>Shift</Kbd> <span>or</span> <Kbd>Tab</Kbd>\n          </TableCell>\n          <TableCell>Navigate to interactive elements</TableCell>\n        </TableRow>\n        <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n          <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">\n            <Kbd>Enter</Kbd> or <Kbd>Spacebar</Kbd>\n          </TableCell>\n          <TableCell>Ensure elements with ARIA role="button" can be activated with both key commands.</TableCell>\n        </TableRow>\n        <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n          <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">\n            <span class="inline-flex gap-1">\n              <Kbd icon={IconAngleUpSolid} />\n              <Kbd icon={IconAngleDownSolid} />\n            </span>\n            <span> or </span>\n            <span class="inline-flex gap-1">\n              <Kbd icon={IconAngleLeftSolid} />\n              <Kbd icon={IconAngleRightSolid} />\n            </span>\n          </TableCell>\n          <TableCell>Choose and activate previous/next tab.</TableCell>\n        </TableRow>\n      </TableBody>\n    </Table>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Arrow keys',
+      description: 'Use this example to show arrow keys inside the KBD styled element.',
+      url: '/examples/[theme-rtl]/kbd/04-kbd-arrow-keys',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\nimport { IconAngleDownSolid, IconAngleLeftSolid, IconAngleRightSolid, IconAngleUpSolid } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd icon={IconAngleUpSolid} />\n      <Kbd icon={IconAngleDownSolid} />\n      <Kbd icon={IconAngleLeftSolid} />\n      <Kbd icon={IconAngleRightSolid} />\n    </div>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Letter Keys',
+      description: 'Use this example to show letter keys inside the KBD styled element.',
+      url: '/examples/[theme-rtl]/kbd/05-kbd-letter-keys',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd>Q</Kbd>\n      <Kbd>W</Kbd>\n      <Kbd>E</Kbd>\n      <Kbd>R</Kbd>\n      <Kbd>T</Kbd>\n      <Kbd>Y</Kbd>\n      <Kbd>I</Kbd>\n      <Kbd>O</Kbd>\n      <Kbd>P</Kbd>\n      <Kbd>A</Kbd>\n      <Kbd>S</Kbd>\n      <Kbd>D</Kbd>\n      <Kbd>F</Kbd>\n      <Kbd>G</Kbd>\n      <Kbd>H</Kbd>\n      <Kbd>J</Kbd>\n      <Kbd>K</Kbd>\n      <Kbd>L</Kbd>\n      <Kbd>Z</Kbd>\n      <Kbd>X</Kbd>\n      <Kbd>C</Kbd>\n      <Kbd>V</Kbd>\n      <Kbd>B</Kbd>\n      <Kbd>N</Kbd>\n      <Kbd>M</Kbd>\n    </div>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Number Keys',
+      description: 'Use this example to show a key inside a KBD component from the english numeral system.',
+      url: '/examples/[theme-rtl]/kbd/06-kbd-number-keys',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd>1</Kbd>\n      <Kbd>2</Kbd>\n      <Kbd>3</Kbd>\n      <Kbd>4</Kbd>\n      <Kbd>5</Kbd>\n      <Kbd>6</Kbd>\n      <Kbd>7</Kbd>\n      <Kbd>8</Kbd>\n      <Kbd>9</Kbd>\n      <Kbd>0</Kbd>\n    </div>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Function keys',
+      description: 'This example can be used to denote function keys inside the KBD component.',
+      url: '/examples/[theme-rtl]/kbd/07-kbd-function-keys',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd>F1</Kbd>\n      <Kbd>F2</Kbd>\n      <Kbd>F3</Kbd>\n      <Kbd>F4</Kbd>\n      <Kbd>F5</Kbd>\n      <Kbd>F6</Kbd>\n      <Kbd>F7</Kbd>\n      <Kbd>F8</Kbd>\n      <Kbd>F9</Kbd>\n      <Kbd>F10</Kbd>\n      <Kbd>F11</Kbd>\n      <Kbd>F12</Kbd>\n    </div>\n  )\n})",
+      height: '200',
+    },
+  ],
   modal: [
     {
       title: 'Default modal',

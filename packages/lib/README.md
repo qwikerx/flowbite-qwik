@@ -147,6 +147,7 @@ export default component$(() => {
 - Footer
 - Input
 - Jumbotron
+- Kbd
 - Modal
 - Navbar
 - Radio

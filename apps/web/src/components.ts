@@ -14,6 +14,7 @@ export const allComponents = {
     'dropdown',
     'footer',
     'jumbotron',
+    'kbd',
     'modal',
     'navbar',
     'rating',
