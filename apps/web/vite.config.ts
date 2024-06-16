@@ -7,7 +7,7 @@ import { qwikVite } from '@builder.io/qwik/optimizer'
 import { qwikCity } from '@builder.io/qwik-city/vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import pkg from './package.json'
-import watchExamplesRoutes from './vite-plugin'
+import { watchExamplesRoutes, watchComponentsRoutes } from './vite-plugin'
 import { partytownVite } from '@builder.io/partytown/utils'
 import { join } from 'path'
 
@@ -30,6 +30,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
       qwikVite(),
       tsconfigPaths(),
       !isDuringVercelDeployment && watchExamplesRoutes(),
+      !isDuringVercelDeployment && watchComponentsRoutes(),
       partytownVite({ dest: join(__dirname, 'dist', '~partytown') }),
     ],
     // This tells Vite which dependencies to pre-build in dev mode.
