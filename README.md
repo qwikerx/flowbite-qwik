@@ -145,6 +145,7 @@ export default component$(() => {
 - Spinner
 - Table
 - Tabs
+- Textarea
 - Toast
 - Toggle
 
