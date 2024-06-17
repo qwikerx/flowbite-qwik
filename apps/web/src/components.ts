@@ -19,6 +19,7 @@ export const allComponents = {
     'footer',
     'jumbotron',
     'kbd',
+    'list-group',
     'modal',
     'navbar',
     'rating',
