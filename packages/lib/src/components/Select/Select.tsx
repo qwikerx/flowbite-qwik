@@ -15,9 +15,10 @@ type SelectProps = PropsOf<'select'> & {
   validationStatus?: ValidationStatus
   validationMessage?: JSXOutput
   helper?: JSXOutput
+  onChange$?: () => void
 }
 
-export const Select = component$<SelectProps>(({ label, options, sizing = 'md', ...props }) => {
+export const Select = component$<SelectProps>(({ label, options, sizing = 'md', onChange$, ...props }) => {
   const validationStatus = useComputed$(() => props.validationStatus)
   const sizingComputed = useComputed$(() => sizing as InputSize)
   const disabled = useComputed$(() => props.disabled ?? false)
@@ -34,10 +35,20 @@ export const Select = component$<SelectProps>(({ label, options, sizing = 'md', 
     <>
       <label>
         {label && <span class={labelClasses.value}>{label}</span>}
-        <select class={selectClasses.value} {...props}>
-          <option value="" disabled selected={!props['bind:value'].value}>
-            {props.placeholder}
-          </option>
+        <select
+          class={selectClasses.value}
+          {...props}
+          onChange$={(e) => {
+            // FIXME : should be managed by Qwik
+            props['bind:value'].value = (e.target as HTMLSelectElement).value
+            onChange$?.()
+          }}
+        >
+          {props.placeholder && (
+            <option value="" disabled>
+              {props.placeholder}
+            </option>
+          )}
           {options.map((option) => (
             <option key={option.value} value={option.value} selected={option.value === props['bind:value'].value}>
               {option.name}

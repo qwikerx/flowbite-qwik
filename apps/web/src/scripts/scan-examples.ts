@@ -88,7 +88,7 @@ export function getExamplesRoutes() {
           { semi: false, singleQuote: true, trailingComma: 'all', printWidth: 150, parser: 'typescript' },
         )
         .then((content) => {
-          fs.writeFileSync('./src/examples.ts', content)
+          fs.writeFileSync('./src/generated-examples.ts', content)
         })
     })
 }

@@ -2,7 +2,7 @@
  * DO NOT EDIT, GENERATED FILE
  */
 
-export const allComponents = {
+export const allDocs = {
   components: [
     'accordion',
     'alert',
@@ -31,5 +31,7 @@ export const allComponents = {
     'toast',
     'tooltip',
   ],
-  formComponents: ['checkbox', 'input', 'radio', 'select', 'textarea', 'toggle'],
+  forms: ['checkbox', 'input', 'radio', 'select', 'textarea', 'toggle'],
+  'getting-started': ['introduction', 'quickstart'],
+  typography: ['blockquote'],
 }

@@ -1,5 +1,5 @@
 import { getExamplesRoutes } from './src/scripts/scan-examples'
-import { scanComponentsRoutes } from './src/scripts/scan-components'
+import { scanDocsRoutes } from './src/scripts/scan-docs'
 import type { Plugin } from 'vite'
 import { watch } from 'chokidar'
 
@@ -29,14 +29,14 @@ export function watchExamplesRoutes(): Plugin {
   }
 }
 
-export function watchComponentsRoutes(): Plugin {
+export function watchDocsRoutes(): Plugin {
   const isProduction = process.env.NODE_ENV === 'production'
 
   return {
-    name: 'watch-components-plugin',
+    name: 'watch-docs-plugin',
     buildStart() {
       if (isProduction) {
-        scanComponentsRoutes()
+        scanDocsRoutes()
         return
       }
 
@@ -47,7 +47,7 @@ export function watchComponentsRoutes(): Plugin {
 
       watcher.on('all', (event, path) => {
         console.log(`${path} file changed due to ${event}`)
-        scanComponentsRoutes()
+        scanDocsRoutes()
       })
     },
   }

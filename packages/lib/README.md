@@ -136,6 +136,7 @@ export default component$(() => {
 - Avatar
 - Badge
 - Banner
+- Blockquote
 - Breadcrumb
 - Button
 - ButtonGroup
