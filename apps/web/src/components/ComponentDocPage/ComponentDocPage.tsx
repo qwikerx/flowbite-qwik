@@ -2,7 +2,7 @@ import { $, component$, Slot, useComputed$, useOnDocument, useSignal, useVisible
 import { Preview } from '~/components/Preview/Preview'
 import { TableOfContents } from '~/components/TableOfContents/TableOfContents'
 import { scrollTo } from '~/utils/scroll-to'
-import { examples } from '~/examples'
+import { examples } from '~/generated-examples'
 import { toSlug } from '~/utils/slug'
 import { useDebounce } from 'flowbite-qwik'
 

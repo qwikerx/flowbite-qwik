@@ -2,7 +2,8 @@ import { component$, Slot } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
 import { Sidebar, SidebarCollapse, SidebarItem, SidebarItemGroup, useSidebarOpen } from 'flowbite-qwik'
 import { NavLink } from '~/components/NavLink/NavLink'
-import { allComponents } from '~/components'
+import { allDocs } from '~/generated-docs'
+import { toPascalCase } from '~/utils/case'
 
 export default component$(() => {
   const { setIsOpen } = useSidebarOpen()
@@ -12,23 +13,29 @@ export default component$(() => {
       <Sidebar withNavbar>
         <SidebarItemGroup>
           <SidebarCollapse label="Getting Started" opened>
-            <SidebarItem tag={NavLink} href="/docs/getting-started/introduction">
-              Introduction
-            </SidebarItem>
-            <SidebarItem tag={NavLink} href="/docs/getting-started/quickstart">
-              Quickstart
-            </SidebarItem>
-          </SidebarCollapse>
-          <SidebarCollapse label={`Components (${allComponents.components.length})`} opened>
-            {allComponents.components.map((component) => (
-              <SidebarItem class="capitalize" key={component} tag={NavLink} href={`/docs/components/${component}`}>
+            {allDocs['getting-started'].map((component) => (
+              <SidebarItem class="capitalize" key={component} tag={NavLink} href={`/docs/getting-started/${component}`}>
                 {component}
               </SidebarItem>
             ))}
           </SidebarCollapse>
-          <SidebarCollapse label={`Form Components (${allComponents.formComponents.length})`}>
-            {allComponents.formComponents.map((component) => (
-              <SidebarItem class="capitalize" key={component} tag={NavLink} href={`/docs/components/form/${component}`}>
+          <SidebarCollapse label={`Components (${allDocs.components.length})`} opened>
+            {allDocs.components.map((component) => (
+              <SidebarItem key={component} tag={NavLink} href={`/docs/components/${component}`}>
+                {toPascalCase(component)}
+              </SidebarItem>
+            ))}
+          </SidebarCollapse>
+          <SidebarCollapse label={`Forms (${allDocs.forms.length})`}>
+            {allDocs.forms.map((component) => (
+              <SidebarItem class="capitalize" key={component} tag={NavLink} href={`/docs/forms/${component}`}>
+                {component}
+              </SidebarItem>
+            ))}
+          </SidebarCollapse>
+          <SidebarCollapse label={`Typography (${allDocs.typography.length})`}>
+            {allDocs.typography.map((component) => (
+              <SidebarItem class="capitalize" key={component} tag={NavLink} href={`/docs/typography/${component}`}>
                 {component}
               </SidebarItem>
             ))}

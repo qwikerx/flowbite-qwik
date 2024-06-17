@@ -3,35 +3,35 @@
  * description: Use the playground to test different toast positions and types.
  * height: 400
  */
-import { component$, useContext } from '@builder.io/qwik'
+import { component$, useContext, useSignal, useTask$ } from '@builder.io/qwik'
 import { Link, StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Button, ToastPosition, useToast } from 'flowbite-qwik'
+import { Button, Select, ToastPosition, useToast } from 'flowbite-qwik'
 import { toastPositionContext } from '~/root'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   const toastPosition = useContext(toastPositionContext)
 
+  const selected = useSignal('top-right')
+  const positions = [
+    { value: 'top-right', name: 'top-right' },
+    { value: 'top-left', name: 'top-left' },
+    { value: 'bottom-left', name: 'bottom-left' },
+    { value: 'bottom-right', name: 'bottom-right' },
+  ]
+
   const { add } = useToast()
 
   return (
     <div class="flex flex-col p-3 space-y-2">
-      <div class="mb-4">
-        <label for="position" class="mr-3">
-          Position
-        </label>
-        <select
-          onChange$={(v) => {
-            toastPosition.value = (v.target as HTMLSelectElement).value as ToastPosition
-          }}
-          class="dark:bg-gray-800 dark:text-white bg-white text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-        >
-          <option value="top-right">top-right</option>
-          <option value="top-left">top-left</option>
-          <option value="bottom-left">bottom-left</option>
-          <option value="bottom-right">bottom-right</option>
-        </select>
-      </div>
+      <Select
+        bind:value={selected}
+        options={positions}
+        label="Select an position"
+        onChange$={() => {
+          toastPosition.value = selected.value as ToastPosition
+        }}
+      />
 
       <div class="flex gap-3">
         <Button

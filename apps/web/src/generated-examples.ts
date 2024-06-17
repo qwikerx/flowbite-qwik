@@ -315,6 +315,73 @@ export const examples: Record<string, Example[]> = {
       height: '450',
     },
   ],
+  blockquote: [
+    {
+      title: 'Default blockquote',
+      description: 'Use this example to quote an external source inside a <Blockquote> component.',
+      url: '/examples/[theme-rtl]/blockquote/01-default-blockquote',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Blockquote } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <Blockquote>\n      \"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice\n      for your next SaaS application.\"\n    </Blockquote>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Solid background',
+      description: 'This example can be used as an alternative style to the default one by applying a solid background color.',
+      url: '/examples/[theme-rtl]/blockquote/02-blockquote-solid-background',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Blockquote } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <>\n      <p class="text-gray-500 dark:text-gray-400">\n        Does your user know how to exit out of screens? Can they follow your intended user journey and buy something from the site you’ve designed? By\n        running a usability test, you’ll be able to see how users will interact with your design once it’s live.\n      </p>\n      <Blockquote class="my-4 border-l-4 border-gray-300 bg-gray-50 p-4 dark:border-gray-500 dark:bg-gray-800">\n        "Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect\n        choice for your next SaaS application."\n      </Blockquote>\n      First of all you need to understand how Flowbite works. This library is not another framework. Rather, it is a set of components based on\n      Tailwind CSS that you can just copy-paste from the documentation.\n    </>\n  )\n})',
+      height: '400',
+    },
+    {
+      title: 'Blockquote icon',
+      description: 'Use this example to show an icon above the blockquote text content.',
+      url: '/examples/[theme-rtl]/blockquote/03-blockquote-icon',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Blockquote } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Blockquote>\n      <svg\n        class="mb-4 h-8 w-8 text-gray-400 dark:text-gray-600"\n        aria-hidden="true"\n        xmlns="http://www.w3.org/2000/svg"\n        fill="currentColor"\n        viewBox="0 0 18 14"\n      >\n        <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />\n      </svg>\n      "Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice\n      for your next SaaS application."\n    </Blockquote>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Paragraph context',
+      description: 'Use this example to show a <Blockquote> component between multiple paragraph elements.',
+      url: '/examples/[theme-rtl]/blockquote/04-blockquote-paragraph-context',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Blockquote } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <>\n      <p class="mb-3 text-gray-500 dark:text-gray-400">\n        Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software\n        development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and\n        changes.\n      </p>\n      <div class="grid grid-cols-1 md:grid-cols-2 md:gap-6">\n        <p class="mb-3 text-gray-500 dark:text-gray-400">\n          Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software\n          development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and\n          changes.\n        </p>\n        <Blockquote class="mb-3">\n          <p class="text-xl font-semibold italic text-gray-900 dark:text-white">\n            " Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect\n            choice for your next SaaS application. "\n          </p>\n        </Blockquote>\n      </div>\n      <p class="mb-3 text-gray-500 dark:text-gray-400">\n        Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate\n        toil, and deploy changes with ease, with a complete audit trail for every change.\n      </p>\n    </>\n  )\n})',
+      height: '400',
+    },
+    {
+      title: 'User testimonial',
+      description: 'This example can be used for user testimonials by mentioning the author and occupation of the author.',
+      url: '/examples/[theme-rtl]/blockquote/05-blockquote-user-testimonial',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar, Blockquote } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <figure class="mx-auto max-w-screen-md text-center">\n      <svg\n        class="mx-auto mb-3 h-10 w-10 text-gray-400 dark:text-gray-600"\n        aria-hidden="true"\n        xmlns="http://www.w3.org/2000/svg"\n        fill="currentColor"\n        viewBox="0 0 18 14"\n      >\n        <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />\n      </svg>\n      <Blockquote>\n        <p class="text-2xl font-medium italic text-gray-900 dark:text-white">\n          "Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect\n          choice for your next SaaS application."\n        </p>\n      </Blockquote>\n      <figcaption class="mt-6 flex items-center justify-center space-x-3">\n        <Avatar\n          rounded\n          size="xs"\n          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"\n          alt="profile picture"\n        />\n        <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">\n          <cite class="pr-3 font-medium text-gray-900 dark:text-white">Micheal Gough</cite>\n          <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">CEO at Google</cite>\n        </div>\n      </figcaption>\n    </figure>\n  )\n})',
+      height: '400',
+    },
+    {
+      title: 'User Review',
+      description: 'Use this example to show a user review with rating stars and the name and occupation of the author.',
+      url: '/examples/[theme-rtl]/blockquote/06-blockquote-user-review',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar, Blockquote, Rating } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <figure class="max-w-screen-md">\n      <div class="mb-4 flex items-center">\n        <Rating size="md" rating={4} />\n      </div>\n      <Blockquote>\n        <p class="text-2xl font-semibold text-gray-900 dark:text-white">\n          "Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect\n          choice for your next SaaS application."\n        </p>\n      </Blockquote>\n      <figcaption class="mt-6 flex items-center space-x-3">\n        <Avatar\n          rounded\n          size="xs"\n          img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"\n          alt="profile picture"\n        />\n        <div class="flex items-center divide-x-2 divide-gray-300 dark:divide-gray-700">\n          <cite class="pr-3 font-medium text-gray-900 dark:text-white">Bonnie Green</cite>\n          <cite class="pl-3 text-sm text-gray-500 dark:text-gray-400">CTO at Flowbite</cite>\n        </div>\n      </figcaption>\n    </figure>\n  )\n})',
+      height: '400',
+    },
+    {
+      title: 'Alignment',
+      description:
+        'Choose from the following examples the blockquote text alignment from starting from left, center to right based on the utility classes from Tailwind CSS.',
+      url: '/examples/[theme-rtl]/blockquote/07-blockquote-alignment',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Blockquote, Select } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const selected = useSignal('text-left')\n  const alignments = [\n    { value: 'text-left', name: 'Left (default)' },\n    { value: 'text-center', name: 'Center' },\n    { value: 'text-right', name: 'Right' },\n  ]\n\n  return (\n    <div class=\"flex flex-col gap-5\">\n      <Select bind:value={selected} options={alignments} label=\"Select an alignment\" />\n\n      <Blockquote class={selected.value}>\n        \"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect\n        choice for your next SaaS application.\"\n      </Blockquote>\n    </div>\n  )\n})",
+      height: '300',
+    },
+    {
+      title: 'Sizes',
+      description: 'Choose from one of the multiple sizes for the default blockquote component based on the surrounding elements and sizes.',
+      url: '/examples/[theme-rtl]/blockquote/08-blockquote-size',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Blockquote, Select } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const selected = useSignal('text-left')\n  const sizes = [\n    { value: 'text-lg', name: 'Small (default)' },\n    { value: 'text-xl', name: 'Medium' },\n    { value: 'text-2xl', name: 'Large' },\n  ]\n\n  return (\n    <div class=\"flex flex-col gap-5\">\n      <Select bind:value={selected} options={sizes} label=\"Select a size\" />\n\n      <Blockquote class={selected.value}>\n        \"Flowbite is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect\n        choice for your next SaaS application.\"\n      </Blockquote>\n    </div>\n  )\n})",
+      height: '300',
+    },
+  ],
   breadcrumb: [
     {
       title: 'Default Breadcrumb',
@@ -1538,7 +1605,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use the playground to test different toast positions and types.',
       url: '/examples/[theme-rtl]/toast/04-playground',
       content:
-        'import { component$, useContext } from \'@builder.io/qwik\'\nimport { Link, StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Button, ToastPosition, useToast } from \'flowbite-qwik\'\nimport { toastPositionContext } from \'~/root\'\n\nexport default component$(() => {\n  const toastPosition = useContext(toastPositionContext)\n\n  const { add } = useToast()\n\n  return (\n    <div class="flex flex-col p-3 space-y-2">\n      <div class="mb-4">\n        <label for="position" class="mr-3">\n          Position\n        </label>\n        <select\n          onChange$={(v) => {\n            toastPosition.value = (v.target as HTMLSelectElement).value as ToastPosition\n          }}\n          class="dark:bg-gray-800 dark:text-white bg-white text-gray-900 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"\n        >\n          <option value="top-right">top-right</option>\n          <option value="top-left">top-left</option>\n          <option value="bottom-left">bottom-left</option>\n          <option value="bottom-right">bottom-right</option>\n        </select>\n      </div>\n\n      <div class="flex gap-3">\n        <Button\n          onClick$={() =>\n            add({\n              type: \'success\',\n              text: \'This is a success toast\',\n              closable: true,\n            })\n          }\n        >\n          Add success toast from\n        </Button>\n        <Button\n          onClick$={() =>\n            add({\n              type: \'danger\',\n              text: \'This is a danger toast\',\n              closable: true,\n              time: 2000,\n            })\n          }\n        >\n          Add danger toast with autoclose timer\n        </Button>\n      </div>\n      <Link href="/docs/getting-started/quickstart" class="text-blue-500 underline">\n        The toast position should be defined in the FlowbiteProvider\n      </Link>\n    </div>\n  )\n})',
+        "import { component$, useContext, useSignal, useTask$ } from '@builder.io/qwik'\nimport { Link, StaticGenerateHandler } from '@builder.io/qwik-city'\nimport { Button, Select, ToastPosition, useToast } from 'flowbite-qwik'\nimport { toastPositionContext } from '~/root'\n\nexport default component$(() => {\n  const toastPosition = useContext(toastPositionContext)\n\n  const selected = useSignal('top-right')\n  const positions = [\n    { value: 'top-right', name: 'top-right' },\n    { value: 'top-left', name: 'top-left' },\n    { value: 'bottom-left', name: 'bottom-left' },\n    { value: 'bottom-right', name: 'bottom-right' },\n  ]\n\n  const { add } = useToast()\n\n  return (\n    <div class=\"flex flex-col p-3 space-y-2\">\n      <Select\n        bind:value={selected}\n        options={positions}\n        label=\"Select an position\"\n        onChange$={() => {\n          toastPosition.value = selected.value as ToastPosition\n        }}\n      />\n\n      <div class=\"flex gap-3\">\n        <Button\n          onClick$={() =>\n            add({\n              type: 'success',\n              text: 'This is a success toast',\n              closable: true,\n            })\n          }\n        >\n          Add success toast from\n        </Button>\n        <Button\n          onClick$={() =>\n            add({\n              type: 'danger',\n              text: 'This is a danger toast',\n              closable: true,\n              time: 2000,\n            })\n          }\n        >\n          Add danger toast with autoclose timer\n        </Button>\n      </div>\n      <Link href=\"/docs/getting-started/quickstart\" class=\"text-blue-500 underline\">\n        The toast position should be defined in the FlowbiteProvider\n      </Link>\n    </div>\n  )\n})",
       height: '400',
     },
   ],
