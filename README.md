@@ -149,6 +149,7 @@ export default component$(() => {
 - Input
 - Jumbotron
 - Kbd
+- Link
 - ListGroup
 - Modal
 - Navbar

@@ -11,7 +11,7 @@ import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 export default component$(() => {
   return (
     <div class="flex gap-2 flex-wrap">
-      <Button color="default">Default</Button>
+      <Button>Default</Button>
       <Button color="alternative">Alternative</Button>
       <Button color="dark">Dark</Button>
       <Button color="light">Light</Button>

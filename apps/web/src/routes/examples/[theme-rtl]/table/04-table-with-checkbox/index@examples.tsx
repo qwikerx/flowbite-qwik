@@ -6,7 +6,7 @@
 
 import { component$, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Checkbox, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-qwik'
+import { Checkbox, Link, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
@@ -37,9 +37,9 @@ export default component$(() => {
             <TableCell>Laptop</TableCell>
             <TableCell>$2999</TableCell>
             <TableCell>
-              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+              <Link href="#" class="text-gray-9000">
                 Edit
-              </a>
+              </Link>
             </TableCell>
           </TableRow>
           <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -51,9 +51,9 @@ export default component$(() => {
             <TableCell>Laptop PC</TableCell>
             <TableCell>$1999</TableCell>
             <TableCell>
-              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+              <Link href="#" class="text-gray-9000">
                 Edit
-              </a>
+              </Link>
             </TableCell>
           </TableRow>
           <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -65,9 +65,9 @@ export default component$(() => {
             <TableCell>Accessories</TableCell>
             <TableCell>$99</TableCell>
             <TableCell>
-              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
+              <Link href="#" class="text-gray-9000">
                 Edit
-              </a>
+              </Link>
             </TableCell>
           </TableRow>
         </TableBody>

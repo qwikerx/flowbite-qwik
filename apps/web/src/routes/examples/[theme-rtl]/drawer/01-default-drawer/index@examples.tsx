@@ -6,7 +6,7 @@
 
 import { component$, Fragment, Signal, Slot, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Button, Drawer, DrawerPosition } from 'flowbite-qwik'
+import { Button, Drawer, DrawerPosition, Link } from 'flowbite-qwik'
 import { IconHomeOutline } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
@@ -45,9 +45,9 @@ export default component$(() => {
               >
                 <p class="mb-6 text-sm text-gray-500 dark:text-gray-400">
                   Supercharge your hiring by taking advantage of our&nbsp;
-                  <a href="#" class="text-cyan-600 underline hover:no-underline dark:text-cyan-500">
+                  <Link href="#" underline>
                     limited-time sale
-                  </a>
+                  </Link>
                   <br />
                   for Flowbite Docs + Job Board. Unlimited access to over 190K top-ranked candidates and the #1 design job board.
                 </p>
