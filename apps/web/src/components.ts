@@ -1,3 +1,7 @@
+/**
+ * DO NOT EDIT, GENERATED FILE
+ */
+
 export const allComponents = {
   components: [
     'accordion',

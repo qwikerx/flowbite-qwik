@@ -22,7 +22,7 @@
   "author": "",
   "license": "",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0-alpha.30",
     "@typescript-eslint/parser": "^7.13.0",
     "typescript": "^5.4.5"
   },

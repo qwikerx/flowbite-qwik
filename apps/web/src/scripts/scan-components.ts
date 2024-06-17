@@ -11,13 +11,18 @@ export function scanComponentsRoutes() {
 
   // write to file
   prettier
-    .format([`export const allComponents = ${JSON.stringify({ components, formComponents })}`].join('\n'), {
-      semi: false,
-      singleQuote: true,
-      trailingComma: 'all',
-      printWidth: 150,
-      parser: 'typescript',
-    })
+    .format(
+      ['/**', ' * DO NOT EDIT, GENERATED FILE', ' */', '', `export const allComponents = ${JSON.stringify({ components, formComponents })}`].join(
+        '\n',
+      ),
+      {
+        semi: false,
+        singleQuote: true,
+        trailingComma: 'all',
+        printWidth: 150,
+        parser: 'typescript',
+      },
+    )
     .then((content) => {
       fs.writeFileSync('./src/components.ts', content)
     })

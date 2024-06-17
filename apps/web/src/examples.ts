@@ -1,3 +1,7 @@
+/**
+ * DO NOT EDIT, GENERATED FILE
+ */
+
 type Example = {
   title: string
   description: string
