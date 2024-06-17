@@ -1199,7 +1199,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Customize the pagination buttons by passing a custom button component.',
       url: '/examples/[theme-rtl]/pagination/07-with-custom-button',
       content:
-        "import { component$, useSignal, Slot } from '@builder.io/qwik'\nimport { Pagination, PaginationButtonProps } from 'flowbite-qwik'\nimport { twMerge } from 'tailwind-merge'\n\nconst CustomButton = component$<PaginationButtonProps>(({ active, class: className, ...props }) => {\n  return (\n    <button\n      type=\"button\"\n      class={twMerge(\n        'h-10 w-12 border border-gray-300 bg-white py-2 leading-tight text-gray-500 enabled:hover:bg-gray-100 enabled:hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 enabled:dark:hover:bg-gray-700 enabled:dark:hover:text-white',\n        active &&\n          'bg-orange-500 text-white dark:bg-orange-500 dark:text-white hover:bg-orange-600 hover:text-white dark:hover:bg-orange-600 dark:hover:text-white',\n      )}\n      {...props}\n    >\n      <Slot />\n    </button>\n  )\n})\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class=\"p-3 flex text-center gap-3\">\n        <Pagination totalPages={100} currentPage={currentPage} paginationButton={CustomButton} />\n      </div>\n    </>\n  )\n})",
+        "import { component$, useSignal, Slot } from '@builder.io/qwik'\nimport { Pagination, PaginationButtonProps } from 'flowbite-qwik'\nimport { twMerge } from 'tailwind-merge'\n\nconst CustomButton = component$<PaginationButtonProps>(({ active, ...props }) => {\n  return (\n    <button\n      type=\"button\"\n      class={twMerge(\n        'h-10 w-12 border border-gray-300 bg-white py-2 leading-tight text-gray-500 enabled:hover:bg-gray-100 enabled:hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 enabled:dark:hover:bg-gray-700 enabled:dark:hover:text-white',\n        active &&\n          'bg-orange-500 text-white dark:bg-orange-500 dark:text-white hover:bg-orange-600 hover:text-white dark:hover:bg-orange-600 dark:hover:text-white',\n      )}\n      {...props}\n    >\n      <Slot />\n    </button>\n  )\n})\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class=\"p-3 flex text-center gap-3\">\n        <Pagination totalPages={100} currentPage={currentPage} paginationButton={CustomButton} />\n      </div>\n    </>\n  )\n})",
       height: '200',
     },
   ],
@@ -1582,6 +1582,43 @@ export const examples: Record<string, Example[]> = {
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Toggle } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const checkedToggleValue = useSignal(true)\n\n  return (\n    <div class="flex gap-2 flex-wrap p-6">\n      <Toggle label="Small" size="sm" bind:checked={checkedToggleValue} />\n      <Toggle label="Medium" size="md" bind:checked={checkedToggleValue} />\n      <Toggle label="Large" size="lg" bind:checked={checkedToggleValue} />\n    </div>\n  )\n})',
       height: '100',
+    },
+  ],
+  tooltip: [
+    {
+      title: 'Default tooltip',
+      description:
+        'Wrap the trigger component with the <Tooltip> component and pass the tooltip content to the content prop of the <Tooltip> component.',
+      url: '/examples/[theme-rtl]/tooltip/01-default',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center p-8">\n      <Tooltip>\n        <Button q:slot="trigger">Hover me</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Default styles',
+      description: 'Use the style prop to change the style of the tooltip. The default style is light and you can also use dark.',
+      url: '/examples/[theme-rtl]/tooltip/02-styles',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip style="dark">\n        <Button q:slot="trigger">Dark tooltip</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip style="light">\n        <Button q:slot="trigger">Light tooltip</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip style="auto">\n        <Button q:slot="trigger">Auto tooltip</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Placement',
+      description:
+        'Update the placement of the tooltip using the placement prop. The default placement is top and you can also use right, bottom, and left.',
+      url: '/examples/[theme-rtl]/tooltip/03-placement',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip placement="top">\n        <Button q:slot="trigger">Tooltip top</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip placement="right">\n        <Button q:slot="trigger">Tooltip right</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip placement="bottom">\n        <Button q:slot="trigger">Tooltip bottom</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip placement="left">\n        <Button q:slot="trigger">Tooltip left</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Trigger',
+      description:
+        'Use the trigger prop to change the trigger type of the tooltip if you want to show the tooltip when clicking on the trigger element instead of hovering over it.',
+      url: '/examples/[theme-rtl]/tooltip/04-trigger',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip trigger="hover">\n        <Button q:slot="trigger">Tooltip hover</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip trigger="click">\n        <Button q:slot="trigger">Tooltip click</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
+      height: '200',
     },
   ],
 }
