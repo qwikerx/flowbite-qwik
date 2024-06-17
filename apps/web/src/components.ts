@@ -22,6 +22,7 @@ export const allComponents = {
     'list-group',
     'modal',
     'navbar',
+    'pagination',
     'rating',
     'sidebar',
     'spinner',
