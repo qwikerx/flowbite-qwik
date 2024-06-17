@@ -1144,6 +1144,57 @@ export const examples: Record<string, Example[]> = {
       height: '400',
     },
   ],
+  pagination: [
+    {
+      title: 'Default pagination',
+      description:
+        'Use the following list of pagination items based on two sizes powered by Tailwind CSS utility classes to indicate a series of content for your website.',
+      url: '/examples/[theme-rtl]/pagination/01-default',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Pagination } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class=\"p-3 flex text-center gap-3\">\n        <Pagination totalPages={100} currentPage={currentPage} />\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Pagination with icons',
+      description: 'Add next and previous icons to the pagination component by passing the showIcons prop.',
+      url: '/examples/[theme-rtl]/pagination/02-with-icons',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Pagination } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class="p-3 flex text-center gap-3">\n        <Pagination totalPages={100} currentPage={currentPage} showIcons previousLabel="Go back" nextLabel="Go forward" />\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Pagination with icons only',
+      description: 'Add next and previous icons only to the pagination component by passing the showIcons prop and no labels.',
+      url: '/examples/[theme-rtl]/pagination/03-with-icons-only',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Pagination } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class=\"p-3 flex text-center gap-3\">\n        <Pagination totalPages={100} currentPage={currentPage} showIcons />\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Pagination with custom icons',
+      description: 'Add custom icons to the pagination component by passing the showIcons prop and no labels.',
+      url: '/examples/[theme-rtl]/pagination/04-with-custom-icons',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Pagination } from 'flowbite-qwik'\nimport { IconArrowLeftSolid, IconArrowRightSolid } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class=\"p-3 flex text-center gap-3\">\n        <Pagination totalPages={100} currentPage={currentPage} showIcons nextIcon={IconArrowRightSolid} previousIcon={IconArrowLeftSolid} />\n      </div>\n    </>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Table data navigation',
+      description: 'Use this example show table data navigation by using the layout="table" prop.',
+      url: '/examples/[theme-rtl]/pagination/05-table-layout',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Pagination } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class="p-3 flex text-center gap-3">\n        <Pagination layout="table" totalPages={100} currentPage={currentPage} />\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Table data navigation with icons',
+      description: 'Show icons for the next and previous control buttons for table navigation by passing the showIcons prop.',
+      url: '/examples/[theme-rtl]/pagination/06-table-layout-with-icons',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Pagination } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class="p-3 flex text-center gap-3">\n        <Pagination layout="table" totalPages={100} currentPage={currentPage} />\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
+  ],
   radio: [
     {
       title: 'Default',
