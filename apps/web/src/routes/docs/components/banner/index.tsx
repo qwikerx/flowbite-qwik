@@ -1,6 +1,5 @@
 import { component$ } from '@builder.io/qwik'
 import { ComponentDocPage } from '~/components/ComponentDocPage/ComponentDocPage'
-import { DocumentHead } from '@builder.io/qwik-city'
 
 export default component$(() => {
   return (
@@ -15,7 +14,7 @@ export default component$(() => {
   )
 })
 
-export const head: DocumentHead = () => ({
+export const head = () => ({
   title: 'Qwik Banner - Flowbite',
   meta: [
     {

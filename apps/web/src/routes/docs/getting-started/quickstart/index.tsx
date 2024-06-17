@@ -159,3 +159,14 @@ const { isDark, setDarkModeValue } = useDark()
     </DocumentPage>
   )
 })
+
+export const head = () => ({
+  title: 'Quickstart - Flowbite Qwik',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Learn how to get started with the free and open-source Flowbite Qwik UI component library based on the utility classes from Tailwind CSS',
+    },
+  ],
+})

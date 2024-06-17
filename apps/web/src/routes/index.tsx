@@ -2,7 +2,6 @@ import { component$ } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
 import { Button, Jumbotron, JumbotronHeading, JumbotronSubText } from 'flowbite-qwik'
 import { IconArrowRightOutline } from 'flowbite-qwik-icons'
-import { DocumentHead } from '@builder.io/qwik-city'
 
 export default component$(() => {
   const boxes = [
@@ -58,7 +57,7 @@ export default component$(() => {
   )
 })
 
-export const head: DocumentHead = () => ({
+export const head = () => ({
   title: 'Flowbite Qwik - UI Component Library',
   meta: [{ name: 'description', content: '⚡ Flowbite Qwik, component library based on Tailwind CSS' }],
 })

@@ -34,3 +34,14 @@ export default component$(() => {
     </>
   )
 })
+
+export const head = () => ({
+  title: 'Introduction - Flowbite Qwik',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Learn more about the free and open-source Flowbite Qwik UI components and start building modern web applications using React components based on Tailwind CSS',
+    },
+  ],
+})
