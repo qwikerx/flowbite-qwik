@@ -1,6 +1,5 @@
 import { $, Component, PropsOf, QRL, Signal, component$, useComputed$ } from '@builder.io/qwik'
 import { PaginationButton, PaginationButtonProps, PaginationNavigation } from './PaginationButton'
-import { twMerge } from 'tailwind-merge'
 import { IconChevronLeftSolid, IconChevronRightSolid, IconProps } from 'flowbite-qwik-icons'
 import { usePaginationClasses } from './composables/use-pagination-classes'
 
@@ -56,8 +55,7 @@ export const Pagination = component$<PaginationProps>(
       return [...Array(lastPage.value - firstPage.value + 1).keys()].map((key: number): number => key + firstPage.value)
     })
 
-    const { tableSpanClasses, previousNavigationClasses, nextNavigationClasses, buttonClasses, activeButtonClasses, iconClasses } =
-      usePaginationClasses(useComputed$(() => showIcon))
+    const { tableSpanClasses, previousNavigationClasses, nextNavigationClasses, iconClasses } = usePaginationClasses(useComputed$(() => showIcon))
 
     return (
       <nav class={[className]} {...props}>
@@ -79,7 +77,6 @@ export const Pagination = component$<PaginationProps>(
             displayedPages.value.map((page: number) => (
               <li aria-current={page === currentPage.value ? 'page' : undefined} key={page}>
                 <RenderPaginationButton
-                  class={twMerge(buttonClasses.value, currentPage.value === page && activeButtonClasses.value)}
                   active={page === currentPage.value}
                   onClick$={() => {
                     currentPage.value = page
