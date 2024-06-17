@@ -31,6 +31,7 @@ export * from './components/Table'
 export * from './components/Tabs'
 export * from './components/Textarea'
 export * from './components/ToastList'
+export * from './components/Tooltip'
 export * from './components/Toggle'
 
 // Composables

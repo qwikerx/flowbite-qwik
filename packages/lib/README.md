@@ -51,7 +51,7 @@ To use `flowbite-qwik`, you just need to setup `flowbite` normally and install `
 
 ### 😎 Automatic way using CLI
 
-Flowbite-qwik can be automatically installed using its CLI, simply use this command : 
+Flowbite-qwik can be automatically installed using its CLI, simply use this command :
 
 ```
 npx flowbite-qwik-cli@latest init
@@ -160,6 +160,7 @@ export default component$(() => {
 - Table
 - Tabs
 - Toast
+- Tooltip
 - Toggle
 
 ## Composables / hooks

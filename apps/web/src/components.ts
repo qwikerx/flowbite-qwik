@@ -29,6 +29,7 @@ export const allComponents = {
     'table',
     'tabs',
     'toast',
+    'tooltip',
   ],
   formComponents: ['checkbox', 'input', 'radio', 'select', 'textarea', 'toggle'],
 }
