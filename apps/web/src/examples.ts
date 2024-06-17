@@ -993,7 +993,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/kbd/03-kbd-inside-table',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Kbd, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from \'flowbite-qwik\'\nimport { IconAngleDownSolid, IconAngleLeftSolid, IconAngleRightSolid, IconAngleUpSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <Table>\n      <TableHead>\n        <TableHeadCell>Key</TableHeadCell>\n        <TableHeadCell>Description</TableHeadCell>\n      </TableHead>\n      <TableBody class="divide-y">\n        <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n          <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">\n            <Kbd>Shift</Kbd> <span>or</span> <Kbd>Tab</Kbd>\n          </TableCell>\n          <TableCell>Navigate to interactive elements</TableCell>\n        </TableRow>\n        <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n          <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">\n            <Kbd>Enter</Kbd> or <Kbd>Spacebar</Kbd>\n          </TableCell>\n          <TableCell>Ensure elements with ARIA role="button" can be activated with both key commands.</TableCell>\n        </TableRow>\n        <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">\n          <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">\n            <span class="inline-flex gap-1">\n              <Kbd icon={IconAngleUpSolid} />\n              <Kbd icon={IconAngleDownSolid} />\n            </span>\n            <span> or </span>\n            <span class="inline-flex gap-1">\n              <Kbd icon={IconAngleLeftSolid} />\n              <Kbd icon={IconAngleRightSolid} />\n            </span>\n          </TableCell>\n          <TableCell>Choose and activate previous/next tab.</TableCell>\n        </TableRow>\n      </TableBody>\n    </Table>\n  )\n})',
-      height: '200',
+      height: '300',
     },
     {
       title: 'Arrow keys',
@@ -1025,6 +1025,41 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/kbd/07-kbd-function-keys',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd>F1</Kbd>\n      <Kbd>F2</Kbd>\n      <Kbd>F3</Kbd>\n      <Kbd>F4</Kbd>\n      <Kbd>F5</Kbd>\n      <Kbd>F6</Kbd>\n      <Kbd>F7</Kbd>\n      <Kbd>F8</Kbd>\n      <Kbd>F9</Kbd>\n      <Kbd>F10</Kbd>\n      <Kbd>F11</Kbd>\n      <Kbd>F12</Kbd>\n    </div>\n  )\n})",
+      height: '200',
+    },
+  ],
+  'list-group': [
+    {
+      title: 'Default list group',
+      description:
+        'Use the default example to create a simple list of items inside a menu by using the ListGroup component with ListGroupItem child components inside of it.',
+      url: '/examples/[theme-rtl]/list-group/01-default-list-group',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { ListGroup, ListGroupItem } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex justify-center">\n      <ListGroup class="w-48">\n        <ListGroupItem>Profile</ListGroupItem>\n        <ListGroupItem>Settings</ListGroupItem>\n        <ListGroupItem>Messages</ListGroupItem>\n        <ListGroupItem disabled>Download</ListGroupItem>\n      </ListGroup>\n    </div>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'List items as links',
+      description: 'Convert the list items into links by adding the href prop to the ListGroupItem component, first item has the active prop',
+      url: '/examples/[theme-rtl]/list-group/02-list-items-as-links',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { ListGroup, ListGroupItem } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex justify-center">\n      <ListGroup class="w-48">\n        <ListGroupItem href="#" active>\n          Profile\n        </ListGroupItem>\n        <ListGroupItem href="#">Settings</ListGroupItem>\n        <ListGroupItem href="#">Messages</ListGroupItem>\n        <ListGroupItem href="#">Download</ListGroupItem>\n      </ListGroup>\n    </div>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'List group with buttons',
+      description: 'To create custom actions inside the list group, use the onClick$ prop on the ListGroupItem component.',
+      url: '/examples/[theme-rtl]/list-group/03-list-group-with-buttons',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { ListGroup, ListGroupItem } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex justify-center\">\n      <ListGroup class=\"w-48\">\n        <ListGroupItem onClick$={() => alert('Profile clicked!')} active>\n          Profile\n        </ListGroupItem>\n        <ListGroupItem>Settings</ListGroupItem>\n        <ListGroupItem>Messages</ListGroupItem>\n        <ListGroupItem>Download</ListGroupItem>\n      </ListGroup>\n    </div>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'List group with icons',
+      description: 'Add icons to the list group items by using the icon prop on the ListGroupItem component.',
+      url: '/examples/[theme-rtl]/list-group/04-list-group-with-icons',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { ListGroup, ListGroupItem } from 'flowbite-qwik'\nimport { IconAdjustmentsVerticalOutline, IconDownloadOutline, IconMessagesOutline, IconUserCircleOutline } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex justify-center\">\n      <ListGroup class=\"w-48\">\n        <ListGroupItem icon={IconUserCircleOutline} active>\n          Profile\n        </ListGroupItem>\n        <ListGroupItem icon={IconAdjustmentsVerticalOutline}>Settings</ListGroupItem>\n        <ListGroupItem icon={IconMessagesOutline}>Messages</ListGroupItem>\n        <ListGroupItem icon={IconDownloadOutline}>Download</ListGroupItem>\n      </ListGroup>\n    </div>\n  )\n})",
       height: '200',
     },
   ],

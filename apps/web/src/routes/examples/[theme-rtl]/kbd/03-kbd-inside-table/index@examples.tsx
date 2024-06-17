@@ -1,6 +1,7 @@
 /**
  * title: KBD inside table
  * description: The KBD component can also be used inside table components to denote what type of key can be pressed for certain descriptions.
+ * height: 300
  */
 
 import { component$ } from '@builder.io/qwik'
