@@ -3,7 +3,7 @@
  * description: Use the playground to test different toast positions and types.
  * height: 400
  */
-import { component$, useContext, useSignal, useTask$ } from '@builder.io/qwik'
+import { component$, useContext, useSignal } from '@builder.io/qwik'
 import { Link, StaticGenerateHandler } from '@builder.io/qwik-city'
 import { Button, Select, ToastPosition, useToast } from 'flowbite-qwik'
 import { toastPositionContext } from '~/root'
