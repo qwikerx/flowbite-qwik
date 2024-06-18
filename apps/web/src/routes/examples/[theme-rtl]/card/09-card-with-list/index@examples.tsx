@@ -5,7 +5,7 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import { Card, Link } from 'flowbite-qwik'
+import { Card, Heading, Link } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
@@ -13,7 +13,7 @@ export default component$(() => {
   return (
     <Card class="max-w-sm">
       <div class="mb-4 flex items-center justify-between">
-        <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Latest Customers</h5>
+        <Heading tag="h5">Latest Customers</Heading>
         <Link href="#" class="text-sm">
           View all
         </Link>

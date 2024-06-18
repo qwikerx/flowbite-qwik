@@ -6,7 +6,7 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Card, Carousel, CarouselSlice } from 'flowbite-qwik'
+import { Card, Carousel, CarouselSlice, Heading } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
@@ -16,7 +16,7 @@ export default component$(() => {
         <CarouselSlice>
           <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
             <Card href="#" class="max-w-sm">
-              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+              <Heading tag="h4">Noteworthy technology acquisitions 2021</Heading>
               <p class="font-normal text-gray-700 dark:text-gray-400">
                 Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
               </p>
@@ -26,7 +26,7 @@ export default component$(() => {
         <CarouselSlice>
           <div class="flex h-full items-center justify-center bg-blue-400 dark:bg-blue-700 dark:text-white">
             <Card href="#" class="max-w-sm">
-              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Crystal Clear Oasis</h5>
+              <Heading tag="h4">Crystal Clear Oasis</Heading>
               <p class="font-normal text-gray-700 dark:text-gray-400">
                 Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
               </p>
@@ -36,7 +36,7 @@ export default component$(() => {
         <CarouselSlice>
           <div class="flex h-full items-center justify-center bg-rose-400 dark:bg-rose-700 dark:text-white">
             <Card href="#" class="max-w-sm">
-              <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lost in the Sands</h5>
+              <Heading tag="h4">Lost in the Sands</Heading>
               <p class="font-normal text-gray-700 dark:text-gray-400">
                 Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.
               </p>

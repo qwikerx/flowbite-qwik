@@ -2,7 +2,7 @@ import { PropsOf, component$, useComputed$, useSignal, useTask$, useStyles$ } fr
 import { isBrowser } from '@builder.io/qwik/build'
 import styles from './preview.css?inline'
 import { toSlug } from '~/utils/slug'
-import { Button, Spinner, useDark, useMediaQuery, useFlowbiteThemable, useToggle } from 'flowbite-qwik'
+import { Button, Spinner, useDark, useMediaQuery, useFlowbiteThemable, useToggle, Heading, Link } from 'flowbite-qwik'
 import { IconDesktopPcOutline, IconGithubSolid, IconMobilePhoneOutline, IconTabletOutline } from 'flowbite-qwik-icons'
 import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
 
@@ -60,12 +60,12 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
 
   return (
     <div>
-      <h2 class="group scroll-mt-20 text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3" id={toSlug(title)}>
+      <Heading tag="h2" class="group scroll-mt-20 mb-3" id={toSlug(title)}>
         {title}
-        <a class={['group-hover:inline hidden pl-2', textClasses.value]} href={`#${toSlug(title)}`}>
+        <Link class={['group-hover:inline hidden pl-2', textClasses.value]} href={`#${toSlug(title)}`}>
           #
-        </a>
-      </h2>
+        </Link>
+      </Heading>
       {props.description && <p class="text-gray-600 dark:text-gray-400 mb-4">{props.description}</p>}
       <div class="flex relative justify-between p-4 bg-gray-50 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
         <ul>

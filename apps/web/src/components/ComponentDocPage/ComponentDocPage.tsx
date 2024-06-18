@@ -4,7 +4,7 @@ import { TableOfContents } from '~/components/TableOfContents/TableOfContents'
 import { scrollTo } from '~/utils/scroll-to'
 import { examples } from '~/generated-examples'
 import { toSlug } from '~/utils/slug'
-import { useDebounce } from 'flowbite-qwik'
+import { Heading, useDebounce } from 'flowbite-qwik'
 
 interface Item {
   name: string
@@ -55,7 +55,9 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
         <div class="flex" ref={previewElements}>
           <div class="mx-auto flex min-w-0 max-w-6xl flex-col xl:px-4">
             <section class="flex flex-col gap-8">
-              <h1 class="capitalize text-4xl font-bold">{name}</h1>
+              <Heading tag="h1" class="capitalize">
+                {name}
+              </Heading>
               <Slot name="description" />
 
               {previewItems.value?.map((item, i) => (
@@ -77,7 +79,9 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
           </div>
         </div>
       ) : (
-        <h2 class="text-center text-2xl font-bold">Component {name} does not exist</h2>
+        <Heading tag="h2" class="text-center">
+          Component {name} does not exist
+        </Heading>
       )}
     </>
   )

@@ -146,6 +146,7 @@ export default component$(() => {
 - Drawer
 - Dropdown
 - Footer
+- Heading
 - Input
 - Jumbotron
 - Kbd
