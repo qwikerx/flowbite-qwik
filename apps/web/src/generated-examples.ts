@@ -944,6 +944,58 @@ export const examples: Record<string, Example[]> = {
       height: '400',
     },
   ],
+  heading: [
+    {
+      title: 'Default heading',
+      description: 'Use this example of a H1 heading in the context of a paragraph and CTA button for landing pages.',
+      url: '/examples/[theme-rtl]/heading/01-default-heading',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Heading } from \'flowbite-qwik\'\nimport { IconArrowRightOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <div class="text-center">\n      <Heading class="mb-4">We invest in the world’s potential</Heading>\n      <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">\n        Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.\n      </p>\n\n      <Button href="#" suffix={IconArrowRightOutline}>\n        Learn more\n      </Button>\n    </div>\n  )\n})',
+      height: '250',
+    },
+    {
+      title: 'Second-level heading',
+      description: 'Use this example of a second-level H2 heading as the main subtitle for each section of your web page.',
+      url: '/examples/[theme-rtl]/heading/02-heading-second-level',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Heading, Link } from \'flowbite-qwik\'\nimport { IconAngleRightOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <>\n      <Heading tag="h2">Payments tool for companies</Heading>\n      <p class="my-4 text-lg text-gray-500">\n        Start developing with an open-source library of over 450+ UI components, sections, and pages built with the utility classes from Tailwind CSS\n        and designed in Figma.\n      </p>\n      <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">\n        Deliver great service experiences fast - without the complexity of traditional ITSM solutions. Accelerate critical development work, eliminate\n        toil, and deploy changes with ease.\n      </p>\n      <Link href="#" iconRight={IconAngleRightOutline}>\n        Read more\n      </Link>\n    </>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Highlighted heading',
+      description: 'Use this example to highlight a certain portion of the heading text with a different color.',
+      url: '/examples/[theme-rtl]/heading/03-highlighted-heading',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Heading, useFlowbiteThemable } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const { textClasses } = useFlowbiteThemable()\n\n  return (\n    <>\n      <Heading tag="h1" class="mb-4">\n        Get back to growth with <span class={textClasses.value}>the world\'s #1</span> CRM.\n      </Heading>\n      <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">\n        Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.\n      </p>\n    </>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Heading mark',
+      description: 'This example can be used to mark one part of the heading text with a solid background for highlighting.',
+      url: '/examples/[theme-rtl]/heading/04-heading-mark',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Heading } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <>\n      <Heading tag="h1" class="mb-4">\n        Regain <mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">control</mark> over your days\n      </Heading>\n      <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">\n        Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.\n      </p>\n    </>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Heading underline',
+      description:
+        'Get started with this example to underline an important part of the heading component using the offset feature from Tailwind CSS.',
+      url: '/examples/[theme-rtl]/heading/05-heading-underline',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Heading } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <>\n      <Heading tag="h1" class="mb-4">\n        We invest in the <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">world’s potential</span>\n      </Heading>\n      <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">\n        Here at Flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.\n      </p>\n    </>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Sizes',
+      description:
+        'The heading component has six levels of importance starting from H1 which has to be unique on the page and has the greatest weight of importance all the way to H6.',
+      url: '/examples/[theme-rtl]/heading/06-heading-sizes',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Heading, Select } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const selected = useSignal('h1')\n  const sizes = [\n    { value: 'h1', name: 'Heading one (H1 - default)' },\n    { value: 'h2', name: 'Heading two (H2)' },\n    { value: 'h3', name: 'Heading three (H3)' },\n    { value: 'h4', name: 'Heading four (H4)' },\n    { value: 'h5', name: 'Heading five (H5)' },\n    { value: 'h6', name: 'Heading fix (H6)' },\n  ]\n\n  return (\n    <>\n      <Select bind:value={selected} options={sizes} label=\"Select a size\" />\n\n      <Heading tag={selected.value} class=\"mt-4\">\n        We invest in the world’s potential\n      </Heading>\n    </>\n  )\n})",
+      height: '200',
+    },
+  ],
   input: [
     {
       title: 'Default input',
