@@ -5,12 +5,12 @@
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
-import { Heading, Select } from 'flowbite-qwik'
+import { Heading, HeadingTag, Select } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
 export default component$(() => {
-  const selected = useSignal('h1')
+  const selected = useSignal<HeadingTag>('h1')
   const sizes = [
     { value: 'h1', name: 'Heading one (H1 - default)' },
     { value: 'h2', name: 'Heading two (H2)' },
