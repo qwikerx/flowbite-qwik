@@ -33,5 +33,5 @@ export const allDocs = {
   ],
   forms: ['checkbox', 'input', 'radio', 'select', 'textarea', 'toggle'],
   'getting-started': ['introduction', 'quickstart'],
-  typography: ['blockquote', 'link'],
+  typography: ['blockquote', 'heading', 'link'],
 }

@@ -297,7 +297,7 @@ const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, visible,
   const Tag = triggerIsAlreadyButton ? 'div' : 'button'
 
   return (
-    <Tag aria-haspopup="menu" class={triggerInlineClasses.value} aria-expanded={visible} aria-controls="dropdownMenu">
+    <Tag role="group" aria-haspopup="menu" class={triggerInlineClasses.value} aria-expanded={visible} aria-controls="dropdownMenu">
       <Slot />
     </Tag>
   )

@@ -41,7 +41,7 @@ export const head = () => ({
     {
       name: 'description',
       content:
-        'Learn more about the free and open-source Flowbite Qwik UI components and start building modern web applications using React components based on Tailwind CSS',
+        'Learn more about the free and open-source Flowbite Qwik UI components and start building modern web applications using Qwik components based on Tailwind CSS',
     },
   ],
 })
