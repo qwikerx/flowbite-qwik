@@ -6,7 +6,7 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Banner, BannerCollapseButton } from 'flowbite-qwik'
+import { Banner, BannerCollapseButton, Link } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { IconCloseOutline, IconShareNodesSolid } from 'flowbite-qwik-icons'
 
@@ -20,12 +20,9 @@ export default component$(() => {
               <IconShareNodesSolid class="mr-4 h-4 w-4" />
               <span class="[&_p]:inline">
                 New brand identity has been launched for the&nbsp;
-                <a
-                  href="https://flowbite.com"
-                  class="inline font-medium text-cyan-600 underline decoration-solid underline-offset-2 hover:no-underline dark:text-cyan-500"
-                >
+                <Link underline href="https://flowbite.com">
                   Flowbite Library
-                </a>
+                </Link>
               </span>
             </p>
           </div>

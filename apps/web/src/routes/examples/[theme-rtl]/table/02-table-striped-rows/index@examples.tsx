@@ -6,7 +6,7 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-qwik'
+import { Link, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
@@ -29,9 +29,7 @@ export default component$(() => {
             <TableCell>Laptop</TableCell>
             <TableCell>$2999</TableCell>
             <TableCell>
-              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                Edit
-              </a>
+              <Link href="#">Edit</Link>
             </TableCell>
           </TableRow>
           <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -40,9 +38,7 @@ export default component$(() => {
             <TableCell>Laptop PC</TableCell>
             <TableCell>$1999</TableCell>
             <TableCell>
-              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                Edit
-              </a>
+              <Link href="#">Edit</Link>
             </TableCell>
           </TableRow>
           <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -51,9 +47,7 @@ export default component$(() => {
             <TableCell>Accessories</TableCell>
             <TableCell>$99</TableCell>
             <TableCell>
-              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                Edit
-              </a>
+              <Link href="#">Edit</Link>
             </TableCell>
           </TableRow>
           <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -62,9 +56,7 @@ export default component$(() => {
             <TableCell>Phone</TableCell>
             <TableCell>$799</TableCell>
             <TableCell>
-              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                Edit
-              </a>
+              <Link href="#">Edit</Link>
             </TableCell>
           </TableRow>
           <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">
@@ -73,9 +65,7 @@ export default component$(() => {
             <TableCell>Wearables</TableCell>
             <TableCell>$999</TableCell>
             <TableCell>
-              <a href="#" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">
-                Edit
-              </a>
+              <Link href="#">Edit</Link>
             </TableCell>
           </TableRow>
         </TableBody>

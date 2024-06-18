@@ -6,7 +6,7 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Banner, BannerCollapseButton } from 'flowbite-qwik'
+import { Banner, BannerCollapseButton, Link } from 'flowbite-qwik'
 import { IconArrowRightOutline, IconCloseOutline, IconSalePercentOutline } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
@@ -22,13 +22,9 @@ export default component$(() => {
               </span>
               <span class="[&_p]:inline">
                 Get 5% commision per sale&nbsp;
-                <a
-                  href="https://flowbite.com"
-                  class="ml-0 flex items-center text-sm font-medium text-cyan-600 hover:underline dark:text-cyan-500 md:ml-1 md:inline-flex"
-                >
+                <Link href="https://flowbite.com" iconRight={IconArrowRightOutline}>
                   Become a partner
-                  <IconArrowRightOutline class="ml-2" />
-                </a>
+                </Link>
               </span>
             </p>
           </div>

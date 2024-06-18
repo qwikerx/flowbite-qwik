@@ -5,7 +5,7 @@
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Accordion, AccordionContent, AccordionHeader, AccordionPanel } from 'flowbite-qwik'
+import { Accordion, AccordionContent, AccordionHeader, AccordionPanel, Link } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
@@ -22,11 +22,8 @@ export default component$(() => {
               and more.
             </p>
             <p class="text-gray-500 dark:text-gray-400">
-              Check out this guide to learn how to{' '}
-              <a href="/docs/getting-started/introduction/" class="text-blue-600 dark:text-blue-500 hover:underline">
-                get started
-              </a>{' '}
-              and start developing websites even faster with components on top of Tailwind CSS.
+              Check out this guide to learn how to <Link href="/docs/getting-started/introduction/">get started</Link> and start developing websites
+              even faster with components on top of Tailwind CSS.
             </p>
           </div>
         </AccordionContent>
@@ -42,11 +39,8 @@ export default component$(() => {
               and more.
             </p>
             <p class="text-gray-500 dark:text-gray-400">
-              Check out this guide to learn how to{' '}
-              <a href="/docs/getting-started/introduction/" class="text-blue-600 dark:text-blue-500 hover:underline">
-                get started
-              </a>{' '}
-              and start developing websites even faster with components on top of Tailwind CSS.
+              Check out this guide to learn how to <Link href="/docs/getting-started/introduction/">get started</Link> and start developing websites
+              even faster with components on top of Tailwind CSS.
             </p>
           </div>
         </AccordionContent>
@@ -62,11 +56,8 @@ export default component$(() => {
               and more.
             </p>
             <p class="text-gray-500 dark:text-gray-400">
-              Check out this guide to learn how to{' '}
-              <a href="/docs/getting-started/introduction/" class="text-blue-600 dark:text-blue-500 hover:underline">
-                get started
-              </a>{' '}
-              and start developing websites even faster with components on top of Tailwind CSS.
+              Check out this guide to learn how to <Link href="/docs/getting-started/introduction/">get started</Link> and start developing websites
+              even faster with components on top of Tailwind CSS.
             </p>
           </div>
         </AccordionContent>

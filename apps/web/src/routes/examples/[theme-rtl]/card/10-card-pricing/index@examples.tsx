@@ -5,7 +5,7 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import { Card } from 'flowbite-qwik'
+import { Button, Card } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
@@ -90,12 +90,7 @@ export default component$(() => {
           <span class="text-base font-normal leading-tight text-gray-500">24×7 phone & email support</span>
         </li>
       </ul>
-      <button
-        type="button"
-        class="inline-flex w-full justify-center rounded-lg bg-cyan-600 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-700 focus:outline-none focus:ring-4 focus:ring-cyan-200 dark:focus:ring-cyan-900"
-      >
-        Choose plan
-      </button>
+      <Button>Choose plan</Button>
     </Card>
   )
 })

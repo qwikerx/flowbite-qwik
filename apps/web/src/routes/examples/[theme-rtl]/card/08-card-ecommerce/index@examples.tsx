@@ -5,7 +5,7 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import { Card } from 'flowbite-qwik'
+import { Button, Card } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
@@ -35,12 +35,7 @@ export default component$(() => {
       </div>
       <div class="flex items-center justify-between">
         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
-        <a
-          href="#"
-          class="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-        >
-          Add to cart
-        </a>
+        <Button href="#">Add to cart</Button>
       </div>
     </Card>
   )

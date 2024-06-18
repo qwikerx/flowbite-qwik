@@ -2,6 +2,7 @@ import { component$, useComputed$, Slot } from '@builder.io/qwik'
 import { RatingSize } from './rating-types'
 import { useRatingClasses } from './composables/use-rating-classes'
 import { IconStarSolid } from 'flowbite-qwik-icons'
+import { Link } from '~/components/Link'
 
 type RatingProps = {
   rating?: number
@@ -31,9 +32,9 @@ export const Rating = component$<RatingProps>(({ rating = 3, scale = 5, size = '
       {Boolean(reviewLink?.href && reviewLink?.text) && (
         <>
           <span class="w-1 h-1 mx-1.5 bg-gray-500 rounded-full dark:bg-gray-400" />
-          <a href={reviewLink!.href} class="text-sm font-medium text-gray-900 underline hover:no-underline dark:text-white">
+          <Link href={reviewLink!.href} class="text-sm text-gray-900">
             {reviewLink!.text}
-          </a>
+          </Link>
         </>
       )}
     </div>
