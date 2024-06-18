@@ -8,14 +8,11 @@ import {
   PropsOf,
   Slot,
   useComputed$,
-  useSignal,
   createElement,
   Fragment,
-  useVisibleTask$,
 } from '@builder.io/qwik'
 import { getChild } from '~/utils/children-inspector'
 import { Button } from '~/components/Button/Button'
-import { useDocumentOuterClick } from '~/composables/use-outer-click'
 import { ButtonSize } from '~/components/Button/button-types'
 import type { IconProps } from 'flowbite-qwik-icons'
 import { IconAngleDownOutline } from 'flowbite-qwik-icons'
@@ -23,6 +20,7 @@ import { DropdownSize } from '~/components/Dropdown/dropdown-types'
 import { useDropdownClasses } from '~/components/Dropdown/composables/use-dropdown-classes'
 import uuid from '~/utils/uuid'
 import { useToggle } from '~/composables'
+import { Floating } from '../Floating/Floating'
 
 interface ComponentType {
   id: string
@@ -137,90 +135,62 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, asTrigger, trigge
   )
 
   const { value: visible, toggle$ } = useToggle(false)
-  const dropdownRef = useSignal<HTMLDivElement>()
-  const dropdownModalRef = useSignal<HTMLDivElement>()
 
   const TriggerButton = useComputed$(() => (inline ? InnerTriggerInline : InnerTriggerButton))
   const TriggerButtonAs = useComputed$(() => (asTrigger ? InnerTriggerAs : undefined))
 
-  useDocumentOuterClick([dropdownRef], toggle$, visible)
-
-  useVisibleTask$(() => {
-    const dropdownWidth = dropdownRef.value?.offsetWidth ?? 0
-    const dropdownModalWidth = dropdownModalRef.value?.offsetWidth ?? 0
-
-    if (dropdownWidth === dropdownModalWidth) return
-    if (dropdownWidth > dropdownModalWidth) {
-      dropdownModalRef.value!.style.left = `-${(dropdownWidth - dropdownModalWidth) / 2}px`
-    } else {
-      dropdownModalRef.value!.style.left = `-${(dropdownModalWidth - dropdownWidth) / 2}px`
-    }
-  })
-
   return (
-    <div class={['inline-flex relative justify-center']} title={title}>
-      <div ref={dropdownRef}>
+    <Floating
+      placement="bottom"
+      trigger="click"
+      styles={{
+        tooltip: [dropdownModalClasses.value],
+      }}
+      title={title}
+      noArrow
+      bind:visible={visible}
+      class="block max-w-max relative"
+      role="menu"
+      aria-labelledby="dropdownButton"
+    >
+      <q-slot q:slot="trigger">
         {TriggerButtonAs.value ? (
-          <TriggerButtonAs.value
-            onClick$={() => {
-              toggle$()
-            }}
-            size={size}
-            inline={inline}
-            visible={visible.value}
-            triggerIsAlreadyButton={triggerIsButton}
-          >
+          <TriggerButtonAs.value size={size} inline={inline} visible={visible.value} triggerIsAlreadyButton={triggerIsButton}>
             <Slot />
           </TriggerButtonAs.value>
         ) : (
-          <TriggerButton.value
-            onClick$={() => {
-              toggle$()
-            }}
-            label={label}
-            size={size}
-            inline={inline}
-            visible={visible.value}
-          />
+          <TriggerButton.value label={label} size={size} inline={inline} visible={visible.value} />
         )}
+      </q-slot>
 
-        <div
-          ref={dropdownModalRef}
-          role="menu"
-          aria-expanded={visible.value}
-          class={[dropdownModalClasses.value, visible.value ? 'visible' : 'invisible']}
-        >
-          <ul tabIndex={0} class="py-1 focus:outline-none">
-            {components.map((comp) => (
-              <li role="menuitem" key={comp.id}>
-                {comp.header ? (
-                  <InnerDropdownHeader size={size} inline={inline}>
-                    {comp.content}
-                  </InnerDropdownHeader>
-                ) : comp.divider ? (
-                  <InnerDropdownDivider size={size} inline={inline} />
-                ) : (
-                  <InnerDropdownItem
-                    size={size}
-                    inline={inline}
-                    icon={comp.icon}
-                    onClick$={$(() => {
-                      comp.onClick$?.()
-
-                      if (closeWhenSelect) {
-                        toggle$()
-                      }
-                    })}
-                  >
-                    {comp.content}
-                  </InnerDropdownItem>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
+      <ul tabIndex={0} q:slot="content" class="py-1 focus:outline-none">
+        {components.map((comp) => (
+          <li role="menuitem" key={comp.id}>
+            {comp.header ? (
+              <InnerDropdownHeader size={size} inline={inline}>
+                {comp.content}
+              </InnerDropdownHeader>
+            ) : comp.divider ? (
+              <InnerDropdownDivider size={size} inline={inline} />
+            ) : (
+              <InnerDropdownItem
+                size={size}
+                inline={inline}
+                icon={comp.icon}
+                onClick$={$(() => {
+                  comp.onClick$?.()
+                  if (closeWhenSelect) {
+                    toggle$()
+                  }
+                })}
+              >
+                {comp.content}
+              </InnerDropdownItem>
+            )}
+          </li>
+        ))}
+      </ul>
+    </Floating>
   )
 })
 
@@ -291,19 +261,18 @@ const InnerDropdownItem = component$<InnerDropdownItemProps>(({ icon: Icon, inli
  */
 type InnerTriggerInlineProps = {
   label?: string
-  onClick$: () => void
   size: DropdownSize
   inline: boolean
   visible: boolean
 }
-const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, inline, visible, onClick$ }) => {
+const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, inline, visible }) => {
   const { triggerInlineClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
   )
 
   return (
-    <button onClick$={onClick$} aria-haspopup="menu" class={triggerInlineClasses.value} aria-expanded={visible}>
+    <button aria-haspopup="menu" class={triggerInlineClasses.value} aria-expanded={visible}>
       {label}
       <IconAngleDownOutline />
     </button>
@@ -314,13 +283,12 @@ const InnerTriggerInline = component$<InnerTriggerInlineProps>(({ label, size, i
  * InnerTriggerAs
  */
 type InnerTriggerAsProps = {
-  onClick$: () => void
   size: DropdownSize
   inline: boolean
   visible: boolean
   triggerIsAlreadyButton?: boolean
 }
-const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, visible, onClick$, triggerIsAlreadyButton }) => {
+const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, visible, triggerIsAlreadyButton }) => {
   const { triggerInlineClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
@@ -329,7 +297,7 @@ const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, visible,
   const Tag = triggerIsAlreadyButton ? 'div' : 'button'
 
   return (
-    <Tag onClick$={onClick$} aria-haspopup="menu" class={triggerInlineClasses.value} aria-expanded={visible}>
+    <Tag aria-haspopup="menu" class={triggerInlineClasses.value} aria-expanded={visible} aria-controls="dropdownMenu">
       <Slot />
     </Tag>
   )
@@ -340,12 +308,11 @@ const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, inline, visible,
  */
 type InnerTriggerButtonProps = {
   label: string
-  onClick$: () => void
   size: DropdownSize
   inline: boolean
   visible: boolean
 }
-const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, visible, onClick$ }) => {
+const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, visible }) => {
   const buttonSize: Record<string, ButtonSize> = {
     s: 'sm',
     m: 'md',
@@ -353,7 +320,7 @@ const InnerTriggerButton = component$<InnerTriggerButtonProps>(({ label, size, v
   }
 
   return (
-    <Button onClick$={onClick$} aria-haspopup="menu" size={buttonSize[size]} suffix={IconAngleDownOutline} aria-expanded={visible}>
+    <Button aria-haspopup="menu" size={buttonSize[size]} suffix={IconAngleDownOutline} aria-controls="dropdownMenu" aria-expanded={visible}>
       {label}
     </Button>
   )
