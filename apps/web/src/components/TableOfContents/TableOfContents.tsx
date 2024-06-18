@@ -1,5 +1,6 @@
 import { component$, useComputed$ } from '@builder.io/qwik'
 import { toSlug } from '~/utils/slug'
+import { Heading } from 'flowbite-qwik'
 
 type TableOfContentsProps = {
   items: string[]
@@ -17,7 +18,9 @@ export const TableOfContents = component$<TableOfContentsProps>((props) => {
 
   return (
     <div class="fixed top-18 flex flex-col pb-10 h-full overflow-y-auto">
-      <h4 class="my-3 pl-2.5 text-sm font-semibold uppercase tracking-wide text-gray-900 dark:text-white">On this page</h4>
+      <Heading tag="h5" class="my-3 pl-2.5">
+        On this page
+      </Heading>
       <nav id="visible-table-of-contents">
         <ul class="list-outside list-none">
           {itemsState.value.map((content) => (

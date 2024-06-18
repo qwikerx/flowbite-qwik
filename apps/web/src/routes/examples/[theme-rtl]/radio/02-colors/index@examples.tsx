@@ -7,14 +7,14 @@
 import { component$, useSignal } from '@builder.io/qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Radio } from 'flowbite-qwik'
+import { Heading, Radio } from 'flowbite-qwik'
 
 export default component$(() => {
   const pick = useSignal<string>('blue')
 
   return (
     <>
-      <h2 class="text-xl font-semibold">Picked color : {pick.value}</h2>
+      <Heading tag="h5">Picked color : {pick.value}</Heading>
       <div class="p-3 flex flex-col gap-3">
         <Radio name="radio" value="blue" bind:option={pick}>
           Blue

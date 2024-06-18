@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
-import { Button, Jumbotron, JumbotronHeading, JumbotronSubText } from 'flowbite-qwik'
+import { Button, Heading, Jumbotron, JumbotronHeading, JumbotronSubText } from 'flowbite-qwik'
 import { IconArrowRightOutline } from 'flowbite-qwik-icons'
 
 export default component$(() => {
@@ -46,7 +46,7 @@ export default component$(() => {
         <div class="grid p-6 grid-cols-2 md:grid-cols-4 gap-6 mt-8 mx-auto max-w-6xl">
           {boxes.map((box, i) => (
             <div key={i} class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-              <h3 class="text-l font-semibold">{box.title}</h3>
+              <Heading tag="h3">{box.title}</Heading>
               <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{box.text}</p>
             </div>
           ))}

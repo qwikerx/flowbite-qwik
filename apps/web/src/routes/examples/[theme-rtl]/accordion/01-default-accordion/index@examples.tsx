@@ -6,7 +6,7 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Accordion, AccordionContent, AccordionHeader, AccordionPanel, Link } from 'flowbite-qwik'
+import { Accordion, AccordionContent, AccordionHeader, AccordionPanel, Heading, Link } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
@@ -14,7 +14,7 @@ export default component$(() => {
     <Accordion>
       <AccordionPanel>
         <AccordionHeader>
-          <h2>Accordion 1</h2>
+          <Heading tag="h5">Accordion 1</Heading>
         </AccordionHeader>
         <AccordionContent>
           <div>
@@ -31,7 +31,7 @@ export default component$(() => {
       </AccordionPanel>
       <AccordionPanel>
         <AccordionHeader>
-          <h2>Accordion 2</h2>
+          <Heading tag="h5">Accordion 2</Heading>
         </AccordionHeader>
         <AccordionContent>
           <div>
@@ -48,7 +48,7 @@ export default component$(() => {
       </AccordionPanel>
       <AccordionPanel>
         <AccordionHeader>
-          <h2>Accordion 3</h2>
+          <Heading tag="h5">Accordion 3</Heading>
         </AccordionHeader>
         <AccordionContent>
           <div>

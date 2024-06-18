@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik'
 import { Link } from '@builder.io/qwik-city'
-import { Button } from 'flowbite-qwik'
+import { Button, Heading } from 'flowbite-qwik'
 import { DocumentPage } from '~/components/DocumentPage/DocumentPages'
 
 export default component$(() => {
@@ -8,7 +8,7 @@ export default component$(() => {
     <>
       <DocumentPage>
         <div>
-          <h1>Flowbite Qwik - UI Component Library</h1>
+          <Heading tag="h1">Flowbite Qwik - UI Component Library</Heading>
           <p>
             Learn more about the free and open-source Flowbite Qwik UI components and start building modern web applications using Qwik components
             based on Tailwind CSS
@@ -17,13 +17,13 @@ export default component$(() => {
         <hr />
         <div>
           <p>
-            <a target="_blank" rel="noreferrer" href="https://github.com/qwikerx/flowbite-qwik">
+            <Link target="_blank" rel="noreferrer" href="https://github.com/qwikerx/flowbite-qwik">
               Flowbite Qwik
-            </a>{' '}
+            </Link>{' '}
             is a free and open-source UI component library based on the core{' '}
-            <a href="https://flowbite.com/" target="_blank" rel="noreferrer">
+            <Link href="https://flowbite.com/" target="_blank" rel="noreferrer">
               Flowbite
-            </a>{' '}
+            </Link>{' '}
             components and built with Qwik components and interactivity handling.
           </p>
         </div>

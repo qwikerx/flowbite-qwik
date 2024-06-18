@@ -1,35 +1,36 @@
 import { component$ } from '@builder.io/qwik'
 import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
 import { DocumentPage } from '~/components/DocumentPage/DocumentPages'
+import { Heading, Link } from 'flowbite-qwik'
 
 export default component$(() => {
   return (
     <DocumentPage>
       <div>
-        <h1>Quickstart - Flowbite Qwik</h1>
+        <Heading tag="h1">Quickstart - Flowbite Qwik</Heading>
         <p>
           Learn how to get started with the free and open-source Flowbite Qwik UI component library based on the utility classes from Tailwind CSS
         </p>
       </div>
       <div>
-        <h2>Automatic Installation</h2>
+        <Heading tag="h2">Automatic Installation</Heading>
         <p>You can install Flowbite Qwik in your project by running the following command in your project directory:</p>
-        <CodeBlock language="bash" expandable={false} content="npx flowbite-qwik-cli init" />
+        <CodeBlock language="bash" expandable={false} content="npx flowbite-qwik-cli@latest init" />
       </div>
       <div>
-        <h2>Or install it manually</h2>
+        <Heading tag="h2">Or install it manually</Heading>
         <div>
-          <h3>Setup Tailwind CSS</h3>
+          <Heading tag="h3">Setup Tailwind CSS</Heading>
           <p>
             Install Tailwind CSS by following the{' '}
-            <a target="_blank" rel="noreferrer" href="https://tailwindcss.com/docs/installation">
+            <Link target="_blank" rel="noreferrer" href="https://tailwindcss.com/docs/installation">
               official installation guide
-            </a>
+            </Link>
             .
           </p>
         </div>
         <div>
-          <h3>Install Flowbite Qwik</h3>
+          <Heading tag="h3">Install Flowbite Qwik</Heading>
           <p>Install Flowbite Qwik by running the following command in your project directory:</p>
           <CodeBlock language="bash" expandable={false} content="npm install flowbite-qwik" />
           <p>
@@ -68,7 +69,7 @@ export default {
           />
         </div>
         <div>
-          <h3>Set up the Flowbite Provider</h3>
+          <Heading tag="h3">Set up the Flowbite Provider</Heading>
           <p>
             To use it, wrap the root component with the <em>FlowbiteProvider</em>, and specify the wanted toast position and theme.
           </p>
@@ -99,10 +100,10 @@ export default {
           />
         </div>
         <div>
-          <h3>Toggle Dark mode</h3>
+          <Heading tag="h3">Toggle Dark mode</Heading>
           <p>To use dark mode, we provide a composable useDark that you can use to toggle the dark mode.</p>
 
-          <h3>Here is an example of Dark mode Toggle</h3>
+          <Heading tag="h3">Here is an example of Dark mode Toggle</Heading>
           <CodeBlock
             language="tsx"
             expandable={false}
@@ -122,7 +123,7 @@ const { isDark, setDarkModeValue } = useDark()
             `}
           />
 
-          <h3>Add style to setup your dark mode</h3>
+          <Heading tag="h3">Add style to setup your dark mode</Heading>
           <CodeBlock
             language="css"
             expandable={false}
@@ -138,12 +139,12 @@ const { isDark, setDarkModeValue } = useDark()
             `}
           />
 
-          <h3>Use dark mode in your tailwind classes</h3>
+          <Heading tag="h3">Use dark mode in your tailwind classes</Heading>
           <p>
             To use dark mode in your tailwind classes, you can use the <em>dark:</em> prefix. Here is an example of how to use dark mode in your
             classes.
             <br />
-            <a href="https://tailwindcss.com/docs/dark-mode">Read more about Tailwind dark mode</a>
+            <Link href="https://tailwindcss.com/docs/dark-mode">Read more about Tailwind dark mode</Link>
           </p>
           <CodeBlock
             language="html"

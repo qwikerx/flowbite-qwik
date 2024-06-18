@@ -6,7 +6,7 @@
 
 import { component$, Fragment, Signal, Slot, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Button, Drawer, DrawerPosition, Link } from 'flowbite-qwik'
+import { Button, Drawer, DrawerPosition, Heading, Link } from 'flowbite-qwik'
 import { IconHomeOutline } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
@@ -22,7 +22,9 @@ export default component$(() => {
   return (
     <section class="p-2">
       <div>
-        <h2 class="text-2xl font-semibold my-3">Default Drawer</h2>
+        <Heading tag="h4" class="my-3">
+          Choose you drawer
+        </Heading>
         <div class="flex gap-2">
           {(['top', 'right', 'bottom', 'left', 'bottom-edge'] as DrawerPosition[]).map((position) => (
             <Fragment key={position}>
