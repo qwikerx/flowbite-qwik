@@ -1,4 +1,5 @@
 import fs from 'fs'
+import prettier from 'prettier'
 
 const componentsToExclude = ['Floating', 'FlowbiteProvider', 'FlowbiteThemable']
 
@@ -54,13 +55,31 @@ export function generate() {
 
   const componentsAsLinks = components.map((comp) => {
     return `<a href="https://flowbite-qwik.com/docs/${componentsNaming[comp].folder}/${componentsNaming[comp].doc}">
-<img alt="Qwik ${comp}" src="https://flowbite.s3.amazonaws.com/github/${componentsNaming[comp].img}.jpg">
+<img alt="Qwik ${comp}" src="https://flowbite.s3.amazonaws.com/github/${componentsNaming[comp].img}.jpg" />
 </a>`
   })
-  const componentsGrid = `<div class="flex gap-3">\n${componentsAsLinks.join('\n')}\n</div>`
+  const componentsGrid = `
+  <style>
+.div-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
 
-  const newReadmeFile = readmeFile.replace(regex, `<!-- @qwikerx start -->\n${componentsGrid}\n<!-- @qwikerx end -->`)
-  fs.writeFileSync('./README.md', newReadmeFile)
+
+@media (min-width: 768px) {
+  .div-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+</style>
+  <div class="div-grid">\n${componentsAsLinks.join('\n')}\n</div>`
+
+  prettier.format(componentsGrid, { semi: false, singleQuote: true, trailingComma: 'all', printWidth: 150, parser: 'html' }).then((content) => {
+    const newReadmeFile = readmeFile.replace(regex, `<!-- @qwikerx start -->\n${content}\n<!-- @qwikerx end -->`)
+    fs.writeFileSync('./README.md', newReadmeFile)
+    fs.writeFileSync('../../README.md', newReadmeFile)
+  })
 }
 
 generate()

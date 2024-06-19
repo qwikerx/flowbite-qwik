@@ -3,20 +3,21 @@
 
   <div>
     <a href="https://flowbite-qwik.com">
-      <img alt="Flowbite Qwik - Tailwind CSS components" width="500"  src="./public/logo-light-bg.png">
+      <img alt="Flowbite Qwik - Tailwind CSS components" width="500"  src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/gjiop0re7dy2gkikpf6c.jpg" />
+      </a>
   </div>
   <p>
     Build websites even faster with components on top of Qwik and Tailwind CSS
   </p>
   <p>
     <a href="https://www.npmjs.com/package/flowbite-qwik">
-      <img src="https://img.shields.io/npm/dt/flowbite-qwik.svg" alt="Total Downloads">
+      <img src="https://img.shields.io/npm/dt/flowbite-qwik.svg" alt="Total Downloads" />
     </a>
     <a href="https://badge.fury.io/js/flowbite-qwik">
-      <img alt="Latest release" src="https://badge.fury.io/js/flowbite-qwik.svg">
+      <img alt="Latest release" src="https://badge.fury.io/js/flowbite-qwik.svg" />
     </a>
     <a href="https://flowbite.com/getting-started/license/">
-      <img src="https://img.shields.io/badge/license-MIT-blue" alt="License">
+      <img src="https://img.shields.io/badge/license-MIT-blue" alt="License" />
     </a>
   </p>
 </div>
@@ -132,113 +133,127 @@ export default component$(() => {
 ## Components
 
 <!-- @qwikerx start -->
-<div class="flex gap-3">
-<a href="https://flowbite-qwik.com/docs/components/accordion">
-<img alt="Qwik Accordion" src="https://flowbite.s3.amazonaws.com/github/accordion.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/alert">
-<img alt="Qwik Alert" src="https://flowbite.s3.amazonaws.com/github/alerts.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/avatar">
-<img alt="Qwik Avatar" src="https://flowbite.s3.amazonaws.com/github/avatar.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/badge">
-<img alt="Qwik Badge" src="https://flowbite.s3.amazonaws.com/github/badge.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/banner">
-<img alt="Qwik Banner" src="https://flowbite.s3.amazonaws.com/github/banner.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/typography/blockquote">
-<img alt="Qwik Blockquote" src="https://flowbite.s3.amazonaws.com/github/blockquote.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/breadcrumb">
-<img alt="Qwik Breadcrumb" src="https://flowbite.s3.amazonaws.com/github/breadcrumbs.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/button">
-<img alt="Qwik Button" src="https://flowbite.s3.amazonaws.com/github/buttons.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/button-group">
-<img alt="Qwik ButtonGroup" src="https://flowbite.s3.amazonaws.com/github/button-group.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/card">
-<img alt="Qwik Card" src="https://flowbite.s3.amazonaws.com/github/cards.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/carousel">
-<img alt="Qwik Carousel" src="https://flowbite.s3.amazonaws.com/github/carousel.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/forms/checkbox">
-<img alt="Qwik Checkbox" src="https://flowbite.s3.amazonaws.com/github/checkbox.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/drawer">
-<img alt="Qwik Drawer" src="https://flowbite.s3.amazonaws.com/github/drawer.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/dropdown">
-<img alt="Qwik Dropdown" src="https://flowbite.s3.amazonaws.com/github/dropdown.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/footer">
-<img alt="Qwik Footer" src="https://flowbite.s3.amazonaws.com/github/footer.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/typography/heading">
-<img alt="Qwik Heading" src="https://flowbite.s3.amazonaws.com/github/heading.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/forms/input">
-<img alt="Qwik Input" src="https://flowbite.s3.amazonaws.com/github/input-field.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/jumbotron">
-<img alt="Qwik Jumbotron" src="https://flowbite.s3.amazonaws.com/github/jumbotron.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/kbd">
-<img alt="Qwik Kbd" src="https://flowbite.s3.amazonaws.com/github/kbd.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/typography/link">
-<img alt="Qwik Link" src="https://flowbite.s3.amazonaws.com/github/link.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/list-group">
-<img alt="Qwik ListGroup" src="https://flowbite.s3.amazonaws.com/github/list-group.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/modal">
-<img alt="Qwik Modal" src="https://flowbite.s3.amazonaws.com/github/modal.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/navbar">
-<img alt="Qwik Navbar" src="https://flowbite.s3.amazonaws.com/github/navbar.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/pagination">
-<img alt="Qwik Pagination" src="https://flowbite.s3.amazonaws.com/github/pagination.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/forms/radio">
-<img alt="Qwik Radio" src="https://flowbite.s3.amazonaws.com/github/radio.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/rating">
-<img alt="Qwik Rating" src="https://flowbite.s3.amazonaws.com/github/rating.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/forms/select">
-<img alt="Qwik Select" src="https://flowbite.s3.amazonaws.com/github/select.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/sidebar">
-<img alt="Qwik Sidebar" src="https://flowbite.s3.amazonaws.com/github/sidebar.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/spinner">
-<img alt="Qwik Spinner" src="https://flowbite.s3.amazonaws.com/github/spinner.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/table">
-<img alt="Qwik Table" src="https://flowbite.s3.amazonaws.com/github/tables.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/tabs">
-<img alt="Qwik Tabs" src="https://flowbite.s3.amazonaws.com/github/tabs.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/forms/textarea">
-<img alt="Qwik Textarea" src="https://flowbite.s3.amazonaws.com/github/textarea.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/toast">
-<img alt="Qwik ToastList" src="https://flowbite.s3.amazonaws.com/github/toast.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/forms/toggle">
-<img alt="Qwik Toggle" src="https://flowbite.s3.amazonaws.com/github/toggle.jpg">
-</a>
-<a href="https://flowbite-qwik.com/docs/components/tooltip">
-<img alt="Qwik Tooltip" src="https://flowbite.s3.amazonaws.com/github/tooltips.jpg">
-</a>
+<style>
+  .div-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .div-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+</style>
+<div class="div-grid">
+  <a href="https://flowbite-qwik.com/docs/components/accordion">
+    <img alt="Qwik Accordion" src="https://flowbite.s3.amazonaws.com/github/accordion.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/alert">
+    <img alt="Qwik Alert" src="https://flowbite.s3.amazonaws.com/github/alerts.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/avatar">
+    <img alt="Qwik Avatar" src="https://flowbite.s3.amazonaws.com/github/avatar.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/badge">
+    <img alt="Qwik Badge" src="https://flowbite.s3.amazonaws.com/github/badge.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/banner">
+    <img alt="Qwik Banner" src="https://flowbite.s3.amazonaws.com/github/banner.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/typography/blockquote">
+    <img alt="Qwik Blockquote" src="https://flowbite.s3.amazonaws.com/github/blockquote.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/breadcrumb">
+    <img alt="Qwik Breadcrumb" src="https://flowbite.s3.amazonaws.com/github/breadcrumbs.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/button">
+    <img alt="Qwik Button" src="https://flowbite.s3.amazonaws.com/github/buttons.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/button-group">
+    <img alt="Qwik ButtonGroup" src="https://flowbite.s3.amazonaws.com/github/button-group.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/card">
+    <img alt="Qwik Card" src="https://flowbite.s3.amazonaws.com/github/cards.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/carousel">
+    <img alt="Qwik Carousel" src="https://flowbite.s3.amazonaws.com/github/carousel.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/forms/checkbox">
+    <img alt="Qwik Checkbox" src="https://flowbite.s3.amazonaws.com/github/checkbox.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/drawer">
+    <img alt="Qwik Drawer" src="https://flowbite.s3.amazonaws.com/github/drawer.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/dropdown">
+    <img alt="Qwik Dropdown" src="https://flowbite.s3.amazonaws.com/github/dropdown.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/footer">
+    <img alt="Qwik Footer" src="https://flowbite.s3.amazonaws.com/github/footer.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/typography/heading">
+    <img alt="Qwik Heading" src="https://flowbite.s3.amazonaws.com/github/heading.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/forms/input">
+    <img alt="Qwik Input" src="https://flowbite.s3.amazonaws.com/github/input-field.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/jumbotron">
+    <img alt="Qwik Jumbotron" src="https://flowbite.s3.amazonaws.com/github/jumbotron.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/kbd">
+    <img alt="Qwik Kbd" src="https://flowbite.s3.amazonaws.com/github/kbd.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/typography/link">
+    <img alt="Qwik Link" src="https://flowbite.s3.amazonaws.com/github/link.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/list-group">
+    <img alt="Qwik ListGroup" src="https://flowbite.s3.amazonaws.com/github/list-group.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/modal">
+    <img alt="Qwik Modal" src="https://flowbite.s3.amazonaws.com/github/modal.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/navbar">
+    <img alt="Qwik Navbar" src="https://flowbite.s3.amazonaws.com/github/navbar.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/pagination">
+    <img alt="Qwik Pagination" src="https://flowbite.s3.amazonaws.com/github/pagination.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/forms/radio">
+    <img alt="Qwik Radio" src="https://flowbite.s3.amazonaws.com/github/radio.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/rating">
+    <img alt="Qwik Rating" src="https://flowbite.s3.amazonaws.com/github/rating.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/forms/select">
+    <img alt="Qwik Select" src="https://flowbite.s3.amazonaws.com/github/select.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/sidebar">
+    <img alt="Qwik Sidebar" src="https://flowbite.s3.amazonaws.com/github/sidebar.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/spinner">
+    <img alt="Qwik Spinner" src="https://flowbite.s3.amazonaws.com/github/spinner.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/table">
+    <img alt="Qwik Table" src="https://flowbite.s3.amazonaws.com/github/tables.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/tabs">
+    <img alt="Qwik Tabs" src="https://flowbite.s3.amazonaws.com/github/tabs.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/forms/textarea">
+    <img alt="Qwik Textarea" src="https://flowbite.s3.amazonaws.com/github/textarea.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/toast">
+    <img alt="Qwik ToastList" src="https://flowbite.s3.amazonaws.com/github/toast.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/forms/toggle">
+    <img alt="Qwik Toggle" src="https://flowbite.s3.amazonaws.com/github/toggle.jpg" />
+  </a>
+  <a href="https://flowbite-qwik.com/docs/components/tooltip">
+    <img alt="Qwik Tooltip" src="https://flowbite.s3.amazonaws.com/github/tooltips.jpg" />
+  </a>
 </div>
+
 <!-- @qwikerx end -->
 
 ## Composables / hooks
