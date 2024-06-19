@@ -53,13 +53,40 @@ export function generate() {
     .readdirSync('./src/components')
     .filter((component) => !componentsToExclude.includes(component) && fs.lstatSync(`./src/components/${component}`).isDirectory())
 
-  const componentsAsLinks = components.map((comp) => {
-    return `<a href="https://flowbite-qwik.com/docs/${componentsNaming[comp].folder}/${componentsNaming[comp].doc}">
-<img alt="Qwik ${comp}" src="https://flowbite.s3.amazonaws.com/github/${componentsNaming[comp].img}.jpg" />
-</a>`
-  })
+  function chunkArray(array: string[], chunkSize: number) {
+    const chunks = []
+    for (let i = 0; i < array.length; i += chunkSize) {
+      chunks.push(array.slice(i, i + chunkSize))
+    }
+    return chunks
+  }
+
+  const groupedComponents = chunkArray(components, 3)
+
+  const componentsTable = `
+    <table>
+      ${groupedComponents
+        .map(
+          (group) => `<tr>
+          ${group
+            .map(
+              (comp: string) => `<td>
+            <a href="https://flowbite-qwik.com/docs/${componentsNaming[comp].folder}/${componentsNaming[comp].doc}">
+              <img alt="Qwik ${comp}" src="https://flowbite.s3.amazonaws.com/github/${componentsNaming[comp].img}.jpg" />
+              </a>
+          </td>`,
+            )
+            .join('')}
+          ${group.length < 3 ? '<td></td>'.repeat(3 - group.length) : ''}
+        </tr>
+      `,
+        )
+        .join('')}
+    </table>
+    `
+
   const componentsGrid = `
-  <div style="display:flex;">\n${componentsAsLinks.join('\n')}\n</div>`
+  <div style="display:flex;">\n${componentsTable}\n</div>`
 
   prettier.format(componentsGrid, { semi: false, singleQuote: true, trailingComma: 'all', printWidth: 150, parser: 'html' }).then((content) => {
     const newReadmeFile = readmeFile.replace(regex, `<!-- @qwikerx start -->\n${content}\n<!-- @qwikerx end -->`)
