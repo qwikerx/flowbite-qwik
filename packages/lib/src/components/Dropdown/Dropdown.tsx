@@ -313,7 +313,7 @@ const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, trigger, trigger
     <>{trigger}</>
   ) : (
     <button {...internalProps.value} class={triggerInlineClasses.value}>
-      <Slot />
+      {trigger}
     </button>
   )
 })
