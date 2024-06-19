@@ -23,7 +23,7 @@ import { useDropdownClasses } from '~/components/Dropdown/composables/use-dropdo
 import uuid from '~/utils/uuid'
 import { useToggle } from '~/composables'
 import { useFloating } from '~/composables/use-floating'
-import { RenderFloatingElement, RenderFloatingTrigger } from '../Floating/Floating'
+import { RenderFloatingElement } from '../Floating/Floating'
 
 interface ComponentType {
   id: string
@@ -142,27 +142,20 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, trigger, triggerI
 
   return (
     <div class="block max-w-max relative">
-      <RenderFloatingTrigger
-        ref={triggerRef}
-        triggerEl={
-          <>
-            {TriggerButtonAs.value ? (
-              <TriggerButtonAs.value
-                ref={triggerRef}
-                size={size}
-                inline={inline}
-                visible={visible.value}
-                triggerIsButton={triggerIsButton}
-                trigger={trigger}
-              />
-            ) : (
-              <TriggerButton.value ref={triggerRef} title={title} label={label} size={size} inline={inline} visible={visible.value} />
-            )}
-          </>
-        }
-      />
+      {TriggerButtonAs.value ? (
+        <TriggerButtonAs.value
+          ref={triggerRef}
+          size={size}
+          inline={inline}
+          visible={visible.value}
+          triggerIsButton={triggerIsButton}
+          trigger={trigger}
+        />
+      ) : (
+        <TriggerButton.value ref={triggerRef} title={title} label={label} size={size} inline={inline} visible={visible.value} />
+      )}
 
-      <RenderFloatingElement tabIndex={0} ref={floatingRef} isVisible={visible.value} class={[dropdownModalClasses.value, 'py-1 focus:outline-none']}>
+      <RenderFloatingElement tabIndex={0} isVisible={visible.value} ref={floatingRef} class={['py-1 focus:outline-none', dropdownModalClasses.value]}>
         <ul>
           {components.map((comp) => (
             <li role="menuitem" key={comp.id}>
