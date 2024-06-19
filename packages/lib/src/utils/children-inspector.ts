@@ -30,35 +30,6 @@ export function getChild(children: JSXChildren, components: FoundComponent[]) {
   }
 }
 
-type FoundComponentByProp = {
-  prop: string
-  value: string
-  foundComponentCallback: (child: JSXNode, index: number) => void
-}
-
-export function getChildByProp(children: JSXChildren, components: FoundComponentByProp[]) {
-  const childrenToProcess = Array.isArray(children) ? [...children] : [children]
-
-  let index = 0
-  while (childrenToProcess.length) {
-    index = index + 1
-
-    const child = childrenToProcess.shift() as JSXNode
-    if (!child) {
-      continue
-    }
-    if (Array.isArray(child)) {
-      childrenToProcess.unshift(...child)
-      continue
-    }
-
-    const foundComponent = components.find((comp) => child.props[comp.prop] === comp.value)
-    if (foundComponent) {
-      foundComponent.foundComponentCallback(child, index - 1)
-    }
-  }
-}
-
 /**
  * Icons part
  */

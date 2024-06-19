@@ -25,11 +25,7 @@ export function useFloating(placement: Placement = 'top', trigger = 'hover', noA
   const updateElementsAccessibilityAttributes = $((val: boolean) => {
     if (!triggerRef.value?.getAttribute('aria-expanded')) return
 
-    if (val) {
-      triggerRef.value?.setAttribute('aria-expanded', 'true')
-    } else {
-      triggerRef.value?.setAttribute('aria-expanded', 'false')
-    }
+    triggerRef.value.setAttribute('aria-expanded', val.toString())
   })
 
   const set$ = $((val: boolean) => {

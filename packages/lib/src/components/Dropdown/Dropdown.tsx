@@ -23,6 +23,7 @@ import { useDropdownClasses } from '~/components/Dropdown/composables/use-dropdo
 import uuid from '~/utils/uuid'
 import { useToggle } from '~/composables'
 import { useFloating } from '~/composables/use-floating'
+import { RenderFloatingElement, RenderFloatingTrigger } from '../Floating/Floating'
 
 interface ComponentType {
   id: string
@@ -94,7 +95,6 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
       inline={inline}
       size={size}
       title={attrs.title}
-      asTrigger={!!Trigger}
       triggerIsButton={triggerIsButton}
       trigger={Trigger}
     />
@@ -123,50 +123,47 @@ type InnerDropdownProps = {
   inline: boolean
   size: DropdownSize
   title?: string
-  asTrigger?: boolean
   triggerIsButton?: boolean
   trigger?: JSXOutput
 }
 
-const InnerDropdown = component$<InnerDropdownProps>(
-  ({ label, trigger, triggerIsButton, title, asTrigger, closeWhenSelect, components, inline, size }) => {
-    const { dropdownModalClasses } = useDropdownClasses(
-      useComputed$(() => size),
-      useComputed$(() => inline),
-    )
+const InnerDropdown = component$<InnerDropdownProps>(({ label, trigger, triggerIsButton, title, closeWhenSelect, components, inline, size }) => {
+  const { dropdownModalClasses } = useDropdownClasses(
+    useComputed$(() => size),
+    useComputed$(() => inline),
+  )
 
-    const { value: visible, toggle$ } = useToggle(false)
+  const { value: visible, toggle$ } = useToggle(false)
 
-    const TriggerButton = useComputed$(() => (inline ? InnerTriggerInline : InnerTriggerButton))
-    const TriggerButtonAs = useComputed$(() => (asTrigger ? InnerTriggerAs : undefined))
+  const TriggerButton = useComputed$(() => (inline ? InnerTriggerInline : InnerTriggerButton))
+  const TriggerButtonAs = useComputed$(() => (!!trigger ? InnerTriggerAs : undefined))
 
-    const { floatingRef, triggerRef } = useFloating('bottom', 'click', false, visible)
+  const { floatingRef, triggerRef } = useFloating('bottom', 'click', false, visible)
 
-    return (
-      <div class="block max-w-max relative">
-        {TriggerButtonAs.value ? (
-          <TriggerButtonAs.value
-            ref={triggerRef}
-            size={size}
-            inline={inline}
-            visible={visible.value}
-            triggerIsButton={triggerIsButton}
-            trigger={trigger}
-          />
-        ) : (
-          <TriggerButton.value ref={triggerRef} title={title} label={label} size={size} inline={inline} visible={visible.value} />
-        )}
+  return (
+    <div class="block max-w-max relative">
+      <RenderFloatingTrigger
+        ref={triggerRef}
+        triggerEl={
+          <>
+            {TriggerButtonAs.value ? (
+              <TriggerButtonAs.value
+                ref={triggerRef}
+                size={size}
+                inline={inline}
+                visible={visible.value}
+                triggerIsButton={triggerIsButton}
+                trigger={trigger}
+              />
+            ) : (
+              <TriggerButton.value ref={triggerRef} title={title} label={label} size={size} inline={inline} visible={visible.value} />
+            )}
+          </>
+        }
+      />
 
-        <ul
-          tabIndex={0}
-          ref={floatingRef}
-          class={[
-            'py-1 focus:outline-none',
-            'absolute z-10 inline-block left-0 top-0 transition-opacity duration-300',
-            dropdownModalClasses.value,
-            visible.value ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none',
-          ]}
-        >
+      <RenderFloatingElement tabIndex={0} ref={floatingRef} isVisible={visible.value} class={[dropdownModalClasses.value, 'py-1 focus:outline-none']}>
+        <ul>
           {components.map((comp) => (
             <li role="menuitem" key={comp.id}>
               {comp.header ? (
@@ -193,10 +190,10 @@ const InnerDropdown = component$<InnerDropdownProps>(
             </li>
           ))}
         </ul>
-      </div>
-    )
-  },
-)
+      </RenderFloatingElement>
+    </div>
+  )
+})
 
 /**
  * InnerDropdownHeader
