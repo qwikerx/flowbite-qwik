@@ -1760,7 +1760,7 @@ export const examples: Record<string, Example[]> = {
         'Wrap the trigger component with the <Tooltip> component and pass the tooltip content to the content prop of the <Tooltip> component.',
       url: '/examples/[theme-rtl]/tooltip/01-default',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center p-8">\n      <Tooltip>\n        <Button q:slot="trigger">Hover me</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center p-8">\n      <Tooltip style="dark" trigger={<Button>Hover me</Button>} content={<div>This is a tooltip</div>} />\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -1768,7 +1768,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use the style prop to change the style of the tooltip. The default style is light and you can also use dark.',
       url: '/examples/[theme-rtl]/tooltip/02-styles',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip style="dark">\n        <Button q:slot="trigger">Dark tooltip</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip style="light">\n        <Button q:slot="trigger">Light tooltip</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip style="auto">\n        <Button q:slot="trigger">Auto tooltip</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip style="dark" trigger={<Button>Dark tooltip</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip style="light" trigger={<Button>Light tooltip</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip style="auto" trigger={<Button>Auto tooltip</Button>} content={<div>This is a tooltip</div>} />\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -1777,7 +1777,7 @@ export const examples: Record<string, Example[]> = {
         'Update the placement of the tooltip using the placement prop. The default placement is top and you can also use right, bottom, and left.',
       url: '/examples/[theme-rtl]/tooltip/03-placement',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip placement="top">\n        <Button q:slot="trigger">Tooltip top</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip placement="right">\n        <Button q:slot="trigger">Tooltip right</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip placement="bottom">\n        <Button q:slot="trigger">Tooltip bottom</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip placement="left">\n        <Button q:slot="trigger">Tooltip left</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip placement="top" trigger={<Button>Tooltip top</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip placement="right" trigger={<Button>Tooltip right</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip placement="bottom" trigger={<Button>Tooltip bottom</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip placement="left" trigger={<Button>Tooltip left</Button>} content={<div>This is a tooltip</div>} />\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -1786,7 +1786,7 @@ export const examples: Record<string, Example[]> = {
         'Use the trigger prop to change the trigger type of the tooltip if you want to show the tooltip when clicking on the trigger element instead of hovering over it.',
       url: '/examples/[theme-rtl]/tooltip/04-trigger',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip trigger="hover">\n        <Button q:slot="trigger">Tooltip hover</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n\n      <Tooltip trigger="click">\n        <Button q:slot="trigger">Tooltip click</Button>\n\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip triggerStrategy="hover" trigger={<Button>Tooltip hover</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip triggerStrategy="click" trigger={<Button>Tooltip click</Button>} content={<div>This is a tooltip</div>} />\n    </div>\n  )\n})',
       height: '200',
     },
   ],

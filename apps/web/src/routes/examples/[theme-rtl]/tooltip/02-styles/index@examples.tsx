@@ -11,23 +11,11 @@ import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 export default component$(() => {
   return (
     <div class="flex text-center justify-center gap-3 p-8">
-      <Tooltip style="dark">
-        <Button q:slot="trigger">Dark tooltip</Button>
+      <Tooltip style="dark" trigger={<Button>Dark tooltip</Button>} content={<div>This is a tooltip</div>} />
 
-        <div q:slot="content">This is a tooltip</div>
-      </Tooltip>
+      <Tooltip style="light" trigger={<Button>Light tooltip</Button>} content={<div>This is a tooltip</div>} />
 
-      <Tooltip style="light">
-        <Button q:slot="trigger">Light tooltip</Button>
-
-        <div q:slot="content">This is a tooltip</div>
-      </Tooltip>
-
-      <Tooltip style="auto">
-        <Button q:slot="trigger">Auto tooltip</Button>
-
-        <div q:slot="content">This is a tooltip</div>
-      </Tooltip>
+      <Tooltip style="auto" trigger={<Button>Auto tooltip</Button>} content={<div>This is a tooltip</div>} />
     </div>
   )
 })

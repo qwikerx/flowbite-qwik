@@ -1,8 +1,10 @@
-import { $, ClassList, PropsOf, Signal, Slot, component$, useComputed$, useSignal, useVisibleTask$ } from '@builder.io/qwik'
-import { Placement, computePosition, arrow, flip, shift, offset } from '@floating-ui/dom'
-import { useDocumentOuterClick } from '~/composables'
+import { ClassList, JSXNode, JSXOutput, PropsOf, Signal, component$, useSignal } from '@builder.io/qwik'
+import { Placement } from '@floating-ui/dom'
+import { useFloating } from '~/composables/use-floating'
+import { Button } from '../Button'
+import { getChild } from '~/utils/children-inspector'
 
-type TooltipProps = PropsOf<'div'> & {
+type TooltipProps = {
   placement?: Placement
   trigger?: 'hover' | 'click'
   noArrow?: boolean
@@ -11,112 +13,67 @@ type TooltipProps = PropsOf<'div'> & {
     arrow?: ClassList
   }
   'bind:visible'?: Signal<boolean>
+  triggerEl?: JSXOutput
+  floatingEl?: JSXOutput
 }
 
 export const Floating = component$<TooltipProps>(
-  ({ placement = 'top', trigger = 'hover', noArrow = false, styles, class: className, 'bind:visible': isVisible = useSignal(false), ...props }) => {
-    const floating = useSignal<HTMLDivElement>()
-    const wrapper = useSignal<HTMLDivElement>()
-    const arrowEl = useSignal<HTMLDivElement>()
-
-    const leftPosition = useSignal(0)
-    const topPosition = useSignal(0)
-
-    const arrowLeftPosition = useSignal()
-    const arrowTopPosition = useSignal()
-
-    const staticSide = useComputed$(() => {
-      return {
-        top: 'bottom',
-        right: 'left',
-        bottom: 'top',
-        left: 'right',
-      }[placement.split('-')[0]] as string
-    })
-
-    useVisibleTask$(() => {
-      if (!floating.value || !wrapper.value) return
-
-      computePosition(wrapper.value, floating.value, {
-        placement,
-        middleware: [
-          !noArrow &&
-            !!arrowEl.value &&
-            arrow({
-              element: arrowEl.value,
-            }),
-          flip(),
-          shift(),
-          offset(8),
-        ],
-      }).then(({ x, y, middlewareData }) => {
-        leftPosition.value = x
-        topPosition.value = y
-
-        arrowLeftPosition.value = middlewareData.arrow?.x !== undefined ? middlewareData.arrow.x : undefined
-        arrowTopPosition.value = middlewareData.arrow?.y !== undefined ? middlewareData.arrow.y : undefined
-      })
-    })
-
-    const set$ = $((value: boolean) => {
-      isVisible.value = value
-    })
-
-    useDocumentOuterClick(
-      [wrapper, floating],
-      $(() => {
-        set$(false)
-      }),
-      useComputed$(() => isVisible.value && trigger === 'click'),
-    )
+  ({
+    placement = 'top',
+    floatingEl,
+    triggerEl,
+    trigger = 'hover',
+    noArrow = false,
+    styles,
+    'bind:visible': isVisible = useSignal(false),
+    ...props
+  }) => {
+    const { floatingRef, arrowRef, triggerRef } = useFloating(placement, trigger, noArrow, isVisible)
 
     return (
-      <div
-        ref={wrapper}
-        onMouseEnter$={() => {
-          if (trigger === 'hover') set$(true)
-        }}
-        onMouseLeave$={() => {
-          if (trigger === 'hover') set$(false)
-        }}
-        onClick$={(event) => {
-          if (trigger === 'click') {
-            if ([floating.value].some((element) => element === event.target || (element && element.contains(event.target as HTMLElement)))) return
-            set$(!isVisible.value)
-          }
-        }}
-        class={className}
-      >
-        <Slot name="trigger" />
+      <>
+        <RenderTrigger ref={triggerRef} triggerEl={triggerEl} />
 
         <div
-          ref={floating}
+          ref={floatingRef}
           class={[
             'absolute z-10 inline-block left-0 top-0 transition-opacity duration-300',
             isVisible.value ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none',
             styles?.tooltip,
           ]}
-          style={{
-            left: leftPosition.value + 'px',
-            top: topPosition.value + 'px',
-          }}
           {...props}
         >
-          <Slot name="content" />
+          <>{floatingEl}</>
 
-          {!noArrow && (
-            <div
-              ref={arrowEl}
-              class={['absolute h-2 w-2 rotate-45', styles?.arrow]}
-              style={{
-                left: arrowLeftPosition.value + 'px',
-                top: arrowTopPosition.value + 'px',
-                [staticSide.value]: '-4px',
-              }}
-            />
-          )}
+          {!noArrow && <div ref={arrowRef} class={['absolute h-2 w-2 rotate-45', styles?.arrow]} />}
         </div>
-      </div>
+      </>
     )
   },
 )
+
+type RenderTriggerProps = PropsOf<'button'> & {
+  ref: Signal<HTMLElement | undefined>
+  triggerEl: JSXOutput
+}
+
+const RenderTrigger = component$<RenderTriggerProps>((props) => {
+  let isButton = false
+  getChild(props.triggerEl, [
+    {
+      component: Button,
+      foundComponentCallback: () => {
+        isButton = true
+      },
+    },
+    {
+      component: 'button',
+      foundComponentCallback: () => {
+        isButton = true
+      },
+    },
+  ])
+  ;(props.triggerEl as JSXNode).props.ref = props.ref
+
+  return !isButton ? <button {...props}>{props.triggerEl}</button> : <>{props.triggerEl}</>
+})
