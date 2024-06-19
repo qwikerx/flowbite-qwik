@@ -54,6 +54,7 @@
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check .",
     "generate:icons": "tsx ./src/scripts/generate-icons.ts",
+    "readme.components": "tsx ./src/scripts/do-readme-components.ts",
     "lint": "npx eslint",
     "release": "np",
     "start": "vite --open --mode ssr",
