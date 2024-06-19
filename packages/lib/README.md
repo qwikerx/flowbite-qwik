@@ -133,7 +133,7 @@ export default component$(() => {
 ## Components
 
 <!-- @qwikerx start -->
-<div style="display: grid; gap: 16px; grid-template-columns: 1fr 1fr; @media (min-width: 768px) { grid-template-columns: 1fr 1fr 1fr; }}">
+<div style="display: grid; gap: 16px; grid-template-columns: 1fr 1fr; @media (min-width: 768px) {grid-template-columns: 1fr 1fr 1fr}">
   <a href="https://flowbite-qwik.com/docs/components/accordion">
     <img alt="Qwik Accordion" src="https://flowbite.s3.amazonaws.com/github/accordion.jpg" />
   </a>
