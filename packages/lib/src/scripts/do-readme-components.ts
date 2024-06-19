@@ -59,7 +59,7 @@ export function generate() {
 </a>`
   })
   const componentsGrid = `
-  <div style="display: grid; gap: 16px; grid-template-columns: 1fr 1fr; @media (min-width: 768px) { grid-template-columns: 1fr 1fr 1fr; }">\n${componentsAsLinks.join('\n')}\n</div>`
+  <div style="display:flex;">\n${componentsAsLinks.join('\n')}\n</div>`
 
   prettier.format(componentsGrid, { semi: false, singleQuote: true, trailingComma: 'all', printWidth: 150, parser: 'html' }).then((content) => {
     const newReadmeFile = readmeFile.replace(regex, `<!-- @qwikerx start -->\n${content}\n<!-- @qwikerx end -->`)
