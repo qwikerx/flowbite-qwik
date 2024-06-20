@@ -14,7 +14,7 @@ export default component$(() => {
 
 export const head = () => ({
   title: 'Qwik Footer - Flowbite',
-  name: [
+  meta: [
     {
       name: 'description',
       content:

@@ -1,0 +1,3 @@
+pnpm --filter flowbite-qwik lint-staged
+
+pnpm --filter flowbite-qwik readme.components

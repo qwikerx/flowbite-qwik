@@ -75,6 +75,7 @@
     "clsx": "^2.1.1",
     "eslint": "^9.5.0",
     "eslint-config-prettier": "^9.1.0",
+    "lint-staged": "^15.2.7",
     "np": "^10.0.5",
     "postcss": "^8.4.38",
     "prettier": "^3.3.2",
