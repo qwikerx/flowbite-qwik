@@ -17,8 +17,7 @@ export const head = () => ({
   meta: [
     {
       name: 'description',
-      content:
-        'Use these responsive card components to show data entries and information to your users in multiple forms and contexts such as for your blog, application, user profiles, and more.',
+      content: 'Use these responsive card components to show data entries and information to your users in multiple forms and contexts.',
     },
   ],
 })

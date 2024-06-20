@@ -39,5 +39,5 @@ lerna-debug.log*
 # Yarn
 .yarn/*
 !.yarn/releases
-/coverage/
+coverage/
 /server/
