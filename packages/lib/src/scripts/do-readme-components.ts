@@ -21,6 +21,7 @@ const componentsNaming: Record<string, { folder: string; img: string; doc: strin
   Floating: { folder: 'components', img: 'floating', doc: 'floating' },
   Footer: { folder: 'components', img: 'footer', doc: 'footer' },
   Heading: { folder: 'typography', img: 'heading', doc: 'heading' },
+  HR: { folder: 'typography', img: 'hr', doc: 'hr' },
   Input: { folder: 'forms', img: 'input-field', doc: 'input' },
   Jumbotron: { folder: 'components', img: 'jumbotron', doc: 'jumbotron' },
   Kbd: { folder: 'components', img: 'kbd', doc: 'kbd' },
