@@ -996,6 +996,56 @@ export const examples: Record<string, Example[]> = {
       height: '200',
     },
   ],
+  hr: [
+    {
+      title: 'Default HR',
+      description: 'Use this example to separate text content with a <hr /> horizontal line.',
+      url: '/examples/[theme-rtl]/hr/01-default-hr',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { HR } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <>\n      <p class="text-gray-500 dark:text-gray-400">\n        Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software\n        development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and\n        changes.\n      </p>\n      <HR />\n      <p class="text-gray-500 dark:text-gray-400">\n        Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate\n        toil, and deploy changes with ease, with a complete audit trail for every change.\n      </p>\n    </>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Trimmed',
+      description: 'Use this example to show a shorter version of the horizontal line.',
+      url: '/examples/[theme-rtl]/hr/02-hr-trimmed',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { HR } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <>\n      <p class="text-gray-500 dark:text-gray-400">\n        Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software\n        development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and\n        changes.\n      </p>\n      <HR.Trimmed />\n      <p class="text-gray-500 dark:text-gray-400">\n        Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate\n        toil, and deploy changes with ease, with a complete audit trail for every change.\n      </p>\n    </>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Icon HR',
+      description: 'This example can be used to set a default icon in the middle of the HR element.',
+      url: '/examples/[theme-rtl]/hr/03-hr-icon',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { HR } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <>\n      <p class="text-gray-500 dark:text-gray-400">\n        Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software\n        development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and\n        changes.\n      </p>\n      <HR.Icon />\n      <p class="text-gray-500 dark:text-gray-400">\n        Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate\n        toil, and deploy changes with ease, with a complete audit trail for every change.\n      </p>\n    </>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Custom icon HR',
+      description: 'This example can be used to set a custom icon in the middle of the HR element.',
+      url: '/examples/[theme-rtl]/hr/04-hr-custom-icon',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { HR } from 'flowbite-qwik'\nimport { IconAddressCardSolid } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <>\n      <p class=\"text-gray-500 dark:text-gray-400\">\n        Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software\n        development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and\n        changes.\n      </p>\n      <HR.Icon icon={IconAddressCardSolid} />\n      <p class=\"text-gray-500 dark:text-gray-400\">\n        Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate\n        toil, and deploy changes with ease, with a complete audit trail for every change.\n      </p>\n    </>\n  )\n})",
+      height: '300',
+    },
+    {
+      title: 'HR with Text',
+      description: 'Use this example to add a text in the middle of the HR component.',
+      url: '/examples/[theme-rtl]/hr/05-hr-text',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { HR } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <>\n      <p class="text-gray-500 dark:text-gray-400">\n        Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software\n        development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and\n        changes.\n      </p>\n      <HR.Text text="or" />\n      <p class="text-gray-500 dark:text-gray-400">\n        Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate\n        toil, and deploy changes with ease, with a complete audit trail for every change.\n      </p>\n    </>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'HR Shape',
+      description: 'This example can be used to separate content with an HR tag as a shape instead of a line.',
+      url: '/examples/[theme-rtl]/hr/06-hr-shape',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { HR } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <>\n      <p class="text-gray-500 dark:text-gray-400">\n        Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software\n        development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and\n        changes.\n      </p>\n      <HR.Square />\n      <p class="text-gray-500 dark:text-gray-400">\n        Deliver great service experiences fast - without the complexity of traditional ITSM solutions.Accelerate critical development work, eliminate\n        toil, and deploy changes with ease, with a complete audit trail for every change.\n      </p>\n    </>\n  )\n})',
+      height: '300',
+    },
+  ],
   input: [
     {
       title: 'Default input',

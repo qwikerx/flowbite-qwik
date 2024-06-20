@@ -120,11 +120,8 @@ const InnerCarousel = component$<InnerCarouselProps>(
 
       automaticSlide: $(function (this: CarouselStore) {
         if (!slideAuto) return
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const that = this
-        this.interval = setInterval(function () {
-          that.nextPicture()
-        }, slideInterval)
+
+        this.interval = setInterval(this.nextPicture.bind(this), slideInterval)
       }),
 
       resetInterval: $(function (this: CarouselStore) {
