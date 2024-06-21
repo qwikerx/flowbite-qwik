@@ -20,11 +20,13 @@ export default component$(() => {
             ))}
           </SidebarCollapse>
           <SidebarCollapse label={`Components (${allDocs.components.length})`} opened>
-            {allDocs.components.map((component) => (
-              <SidebarItem key={component} tag={NavLink} href={`/docs/components/${component}`}>
-                {toPascalCase(component)}
-              </SidebarItem>
-            ))}
+            {allDocs.components
+              .filter((component) => component !== 'dropdown')
+              .map((component) => (
+                <SidebarItem key={component} tag={NavLink} href={`/docs/components/${component}`}>
+                  {toPascalCase(component)}
+                </SidebarItem>
+              ))}
           </SidebarCollapse>
           <SidebarCollapse label={`Forms (${allDocs.forms.length})`}>
             {allDocs.forms.map((component) => (

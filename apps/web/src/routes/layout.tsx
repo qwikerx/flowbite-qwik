@@ -1,26 +1,12 @@
 import { component$, Slot } from '@builder.io/qwik'
 import { Link, useLocation } from '@builder.io/qwik-city'
-import {
-  Badge,
-  Button,
-  Dropdown,
-  DropdownItem,
-  FlowbiteTheme,
-  Navbar,
-  NavbarBrand,
-  NavbarCollapse,
-  NavbarLink,
-  NavbarToggle,
-  useDark,
-  useFlowbiteThemable,
-} from 'flowbite-qwik'
-import { IconCheckOutline, IconGithubSolid, IconMoonOutline, IconSunOutline } from 'flowbite-qwik-icons'
+import { Badge, Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle, useDark } from 'flowbite-qwik'
+import { IconGithubSolid, IconMoonOutline, IconSunOutline } from 'flowbite-qwik-icons'
 import pkg from 'flowbite-qwik/package.json'
 
 export default component$(() => {
   const { isDark, setDarkModeValue } = useDark()
   const location = useLocation()
-  const { themeName, setThemeName } = useFlowbiteThemable()
 
   return (
     <div>
@@ -49,7 +35,7 @@ export default component$(() => {
           >
             {isDark.value ? <IconSunOutline class="h-4 w-4" /> : <IconMoonOutline class="h-4 w-4" />}
           </Button>
-          <Dropdown
+          {/* <Dropdown
             title="Switch Flowbite theme"
             as={
               <Button square color="light" title="Switch Flowbite theme">
@@ -81,7 +67,7 @@ export default component$(() => {
                 {theme === themeName.value && <IconCheckOutline class="ml-2" />}
               </DropdownItem>
             ))}
-          </Dropdown>
+          </Dropdown> */}
           <Badge class="hidden md:block" size="sm" type="dark" content={'v' + pkg.version} />
 
           <NavbarToggle />
