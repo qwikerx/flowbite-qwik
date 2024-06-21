@@ -36,21 +36,7 @@ export const RouterHead = component$(() => {
         <script key={s.key} {...s.props} {...(s.props?.dangerouslySetInnerHTML ? {} : { dangerouslySetInnerHTML: s.script })} />
       ))}
 
-      {!import.meta.env.DEV && !loc.url.searchParams.get('example') && (
-        <>
-          <QwikPartytown forward={['gtag', 'dataLayer.push']} />
-          <script async type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-78YXL53K0Y" />
-          <script
-            type="text/partytown"
-            dangerouslySetInnerHTML={`
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = function (){dataLayer.push(arguments);}
-          window.gtag('js', new Date());
-          window.gtag('config', 'G-78YXL53K0Y');
-          `}
-          />
-        </>
-      )}
+      <QwikPartytown forward={['gtag', 'dataLayer.push']} />
     </>
   )
 })
