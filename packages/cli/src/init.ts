@@ -105,11 +105,11 @@ async function runCommand(cmd: string, packageManager: string): Promise<void> {
 async function installDependency(packageManager: string, packageName: string): Promise<void> {
   let command
   if (packageManager === 'yarn') {
-    command = `yarn add ${packageName}`
+    command = `yarn add -D ${packageName}`
   } else if (packageManager === 'pnpm') {
-    command = `pnpm add ${packageName}`
+    command = `pnpm add -D ${packageName}`
   } else {
-    command = `npm install ${packageName}`
+    command = `npm install --save-dev ${packageName}`
   }
 
   await executeCommand(command, false)

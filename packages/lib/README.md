@@ -67,7 +67,9 @@ Make sure that you have <a href="https://nodejs.org/en/" rel="nofollow" >Node.js
 1. Install `flowbite` as a dependency using `npm` by running the following command:
 
 ```bash
-npm i flowbite flowbite-qwik
+yarn add -D flowbite flowbite-qwik
+pnpm add -D flowbite flowbite-qwik
+npm i --save-dev flowbite flowbite-qwik
 ```
 
 2. Require `flowbite` as a plugin inside the `tailwind.config.js` file:
