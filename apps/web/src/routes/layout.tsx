@@ -1,4 +1,4 @@
-import { component$, Slot } from '@builder.io/qwik'
+import { component$, PrefetchServiceWorker, Slot } from '@builder.io/qwik'
 import { Link, useLocation } from '@builder.io/qwik-city'
 import {
   Badge,
@@ -100,6 +100,42 @@ export default component$(() => {
       <main>
         <Slot />
       </main>
+
+      {import.meta.env.PROD && (
+        <>
+          <PrefetchServiceWorker />
+          {/*<PrefetchGraph />*/}
+        </>
+      )}
     </div>
   )
 })
+
+export const head = () => {
+  return {
+    scripts: [
+      ...(import.meta.env.PROD
+        ? [
+            {
+              props: {
+                async: true,
+                type: 'text/partytown',
+                src: 'https://www.googletagmanager.com/gtag/js?id=G-78YXL53K0Y',
+              },
+            },
+            {
+              props: {
+                type: 'text/partytown',
+              },
+              script: `
+window.dataLayer = window.dataLayer || [];
+window.gtag = function (){dataLayer.push(arguments);}
+window.gtag('js', new Date());
+window.gtag('config', 'G-78YXL53K0Y');
+`,
+            },
+          ]
+        : []),
+    ],
+  }
+}
