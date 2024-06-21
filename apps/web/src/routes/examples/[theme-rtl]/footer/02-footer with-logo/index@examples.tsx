@@ -5,7 +5,7 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import { Footer, FooterCopyright, FooterLink, FooterLinkGroup, FooterBrand, FooterDivider } from 'flowbite-qwik'
+import { Footer } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
@@ -14,16 +14,16 @@ export default component$(() => {
     <Footer container>
       <div class="w-full text-center">
         <div class="w-full justify-between sm:flex sm:items-center sm:justify-between">
-          <FooterBrand href="https://flowbite.com" src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" name="Flowbite" />
-          <FooterLinkGroup>
-            <FooterLink href="#">About</FooterLink>
-            <FooterLink href="#">Privacy Policy</FooterLink>
-            <FooterLink href="#">Licensing</FooterLink>
-            <FooterLink href="#">Contact</FooterLink>
-          </FooterLinkGroup>
+          <Footer.Brand href="https://flowbite.com" src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" name="Flowbite" />
+          <Footer.LinkGroup>
+            <Footer.Link href="#">About</Footer.Link>
+            <Footer.Link href="#">Privacy Policy</Footer.Link>
+            <Footer.Link href="#">Licensing</Footer.Link>
+            <Footer.Link href="#">Contact</Footer.Link>
+          </Footer.LinkGroup>
         </div>
-        <FooterDivider />
-        <FooterCopyright href="#" by="Flowbite™" />
+        <Footer.Divider />
+        <Footer.Copyright href="#" by="Flowbite™" />
       </div>
     </Footer>
   )

@@ -1,3 +1,8 @@
-export { Avatar } from './Avatar'
-export { AvatarGroup } from './AvatarGroup'
-export { AvatarGroupCounter } from './AvatarGroupCounter'
+import { Avatar as AvatarRoot } from './Avatar'
+import { AvatarGroup } from './AvatarGroup'
+import { AvatarGroupCounter } from './AvatarGroupCounter'
+
+export const Avatar = Object.assign(AvatarRoot, {
+  Group: AvatarGroup,
+  GroupCounter: AvatarGroupCounter,
+})

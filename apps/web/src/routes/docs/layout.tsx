@@ -1,6 +1,6 @@
 import { component$, Slot } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
-import { Sidebar, SidebarCollapse, SidebarItem, SidebarItemGroup, useSidebarOpen } from 'flowbite-qwik'
+import { Sidebar, useSidebarOpen } from 'flowbite-qwik'
 import { NavLink } from '~/components/NavLink/NavLink'
 import { allDocs } from '~/generated-docs'
 import { toPascalCase } from '~/utils/case'
@@ -11,36 +11,36 @@ export default component$(() => {
   return (
     <div>
       <Sidebar withNavbar>
-        <SidebarItemGroup>
-          <SidebarCollapse label="Getting Started" opened>
+        <Sidebar.ItemGroup>
+          <Sidebar.Collapse label="Getting Started" opened>
             {allDocs['getting-started'].map((component) => (
-              <SidebarItem class="capitalize" key={component} tag={NavLink} href={`/docs/getting-started/${component}`}>
+              <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/getting-started/${component}`}>
                 {component}
-              </SidebarItem>
+              </Sidebar.Item>
             ))}
-          </SidebarCollapse>
-          <SidebarCollapse label={`Components (${allDocs.components.length})`} opened>
+          </Sidebar.Collapse>
+          <Sidebar.Collapse label={`Components (${allDocs.components.length})`} opened>
             {allDocs.components.map((component) => (
-              <SidebarItem key={component} tag={NavLink} href={`/docs/components/${component}`}>
+              <Sidebar.Item key={component} tag={NavLink} href={`/docs/components/${component}`}>
                 {toPascalCase(component)}
-              </SidebarItem>
+              </Sidebar.Item>
             ))}
-          </SidebarCollapse>
-          <SidebarCollapse label={`Forms (${allDocs.forms.length})`}>
+          </Sidebar.Collapse>
+          <Sidebar.Collapse label={`Forms (${allDocs.forms.length})`}>
             {allDocs.forms.map((component) => (
-              <SidebarItem class="capitalize" key={component} tag={NavLink} href={`/docs/forms/${component}`}>
+              <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/forms/${component}`}>
                 {component}
-              </SidebarItem>
+              </Sidebar.Item>
             ))}
-          </SidebarCollapse>
-          <SidebarCollapse label={`Typography (${allDocs.typography.length})`}>
+          </Sidebar.Collapse>
+          <Sidebar.Collapse label={`Typography (${allDocs.typography.length})`}>
             {allDocs.typography.map((component) => (
-              <SidebarItem class="capitalize" key={component} tag={NavLink} href={`/docs/typography/${component}`}>
+              <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/typography/${component}`}>
                 {component}
-              </SidebarItem>
+              </Sidebar.Item>
             ))}
-          </SidebarCollapse>
-        </SidebarItemGroup>
+          </Sidebar.Collapse>
+        </Sidebar.ItemGroup>
       </Sidebar>
 
       <div class="sm:ml-64">

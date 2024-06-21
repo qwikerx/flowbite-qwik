@@ -5,7 +5,7 @@
 
 import { component$, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Dropdown, DropdownItem, Toggle } from 'flowbite-qwik'
+import { Dropdown, Toggle } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
@@ -16,27 +16,27 @@ export default component$(() => {
   return (
     <div class="flex gap-4">
       <Dropdown label="Dropdown toggle" closeWhenSelect={false}>
-        <DropdownItem>
+        <Dropdown.Item>
           <Toggle label="Enable notifications" bind:checked={enableNotifications} />
-        </DropdownItem>
-        <DropdownItem>
+        </Dropdown.Item>
+        <Dropdown.Item>
           <Toggle label="Enable 2FA authentication" bind:checked={enable2faAuthentication} />
-        </DropdownItem>
-        <DropdownItem>
+        </Dropdown.Item>
+        <Dropdown.Item>
           <Toggle label="Subscribe to newsletter" bind:checked={subscribeToNewsletter} />
-        </DropdownItem>
+        </Dropdown.Item>
       </Dropdown>
 
       <Dropdown label="Dropdown toggle" closeWhenSelect={false}>
-        <DropdownItem>
+        <Dropdown.Item>
           <Toggle label="Enable notifications" bind:checked={enableNotifications} />
-        </DropdownItem>
-        <DropdownItem>
+        </Dropdown.Item>
+        <Dropdown.Item>
           <Toggle label="Enable 2FA authentication" bind:checked={enable2faAuthentication} />
-        </DropdownItem>
-        <DropdownItem>
+        </Dropdown.Item>
+        <Dropdown.Item>
           <Toggle label="Subscribe to newsletter" bind:checked={subscribeToNewsletter} />
-        </DropdownItem>
+        </Dropdown.Item>
       </Dropdown>
     </div>
   )

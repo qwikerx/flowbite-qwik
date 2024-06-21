@@ -1,44 +1,44 @@
 /**
  * title: Dropdown click event handler
- * description: Add a custom onClick$ event handler to the <DropdownItem> component to handle the click event.
+ * description: Add a custom onClick$ event handler to the <Dropdown.Item> component to handle the click event.
  */
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Dropdown, DropdownItem } from 'flowbite-qwik'
+import { Dropdown } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   return (
     <Dropdown label="Dropdown button">
-      <DropdownItem
+      <Dropdown.Item
         onClick$={() => {
           alert('click dashboard')
         }}
       >
         Dashboard
-      </DropdownItem>
-      <DropdownItem
+      </Dropdown.Item>
+      <Dropdown.Item
         onClick$={() => {
           alert('click settings')
         }}
       >
         Settings
-      </DropdownItem>
-      <DropdownItem
+      </Dropdown.Item>
+      <Dropdown.Item
         onClick$={() => {
           alert('click earnings')
         }}
       >
         Earnings
-      </DropdownItem>
-      <DropdownItem
+      </Dropdown.Item>
+      <Dropdown.Item
         onClick$={() => {
           alert('click sign-out')
         }}
       >
         Sign out
-      </DropdownItem>
+      </Dropdown.Item>
     </Dropdown>
   )
 })

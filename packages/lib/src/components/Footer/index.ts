@@ -1,8 +1,18 @@
-export { Footer } from './Footer'
-export { FooterDivider } from './FooterDivider'
-export { FooterLink } from './FooterLink'
-export { FooterLinkGroup } from './FooterLinkGroup'
-export { FooterIcon } from './FooterIcon'
-export { FooterTitle } from './FooterTitle'
-export { FooterBrand } from './FooterBrand'
-export { FooterCopyright } from './FooterCopyright'
+import { Footer as FooterRoot } from './Footer'
+import { FooterDivider } from './FooterDivider'
+import { FooterLink } from './FooterLink'
+import { FooterLinkGroup } from './FooterLinkGroup'
+import { FooterIcon } from './FooterIcon'
+import { FooterTitle } from './FooterTitle'
+import { FooterBrand } from './FooterBrand'
+import { FooterCopyright } from './FooterCopyright'
+
+export const Footer = Object.assign(FooterRoot, {
+  Divider: FooterDivider,
+  Link: FooterLink,
+  LinkGroup: FooterLinkGroup,
+  Icon: FooterIcon,
+  Title: FooterTitle,
+  Brand: FooterBrand,
+  Copyright: FooterCopyright,
+})

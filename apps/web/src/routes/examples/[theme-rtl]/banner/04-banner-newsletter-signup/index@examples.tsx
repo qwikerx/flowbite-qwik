@@ -6,7 +6,7 @@
 
 import { component$, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Banner, BannerCollapseButton, Button, Input } from 'flowbite-qwik'
+import { Banner, Button, Input } from 'flowbite-qwik'
 import { IconCloseSolid } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
@@ -26,9 +26,9 @@ export default component$(() => {
               <Button type="submit">Subscribe</Button>
             </form>
           </div>
-          <BannerCollapseButton color="light" class="border-0 bg-transparent text-gray-500 dark:text-gray-400">
+          <Banner.CollapseButton color="light" class="border-0 bg-transparent text-gray-500 dark:text-gray-400">
             <IconCloseSolid class="h-4 w-4" />
-          </BannerCollapseButton>
+          </Banner.CollapseButton>
         </div>
       </Banner>
       <div class="max-w-lg mx-auto">

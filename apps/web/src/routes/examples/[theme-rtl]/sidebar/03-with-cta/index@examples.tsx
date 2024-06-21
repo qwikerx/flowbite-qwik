@@ -5,7 +5,7 @@
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
-import { Sidebar, SidebarItemGroup, SidebarItem, SidebarCollapse, SidebarCta, Badge, useSidebarOpen } from 'flowbite-qwik'
+import { Sidebar, Badge, useSidebarOpen } from 'flowbite-qwik'
 import {
   IconHomeOutline,
   IconInboxOutline,
@@ -43,37 +43,28 @@ export default component$(() => {
         </svg>
       </button>
       <Sidebar highlight closeButton>
-        <SidebarItemGroup>
-          <SidebarItem icon={IconHomeOutline}>Dashboard</SidebarItem>
+        <Sidebar.ItemGroup>
+          <Sidebar.Item icon={IconHomeOutline}>Dashboard</Sidebar.Item>
+          <Sidebar.Item icon={IconInboxOutline}>inbox</Sidebar.Item>
+          <Sidebar.Item icon={IconUserCircleOutline}>Users</Sidebar.Item>
+          <Sidebar.Item icon={IconShoppingBagOutline}>Products</Sidebar.Item>
+        </Sidebar.ItemGroup>
 
-          <SidebarItem icon={IconInboxOutline}>inbox</SidebarItem>
+        <Sidebar.ItemGroup>
+          <Sidebar.Item icon={IconFileEditSolid}>Documentation</Sidebar.Item>
+          <Sidebar.Item icon={IconAdressBookOutline}>Help</Sidebar.Item>
+          <Sidebar.Item icon={IconGearSolid}>Settings</Sidebar.Item>
+          <Sidebar.Item icon={IconAtomSolid}>Details</Sidebar.Item>
 
-          <SidebarItem icon={IconUserCircleOutline}>Users</SidebarItem>
-
-          <SidebarItem icon={IconShoppingBagOutline}>Products</SidebarItem>
-        </SidebarItemGroup>
-
-        <SidebarItemGroup>
-          <SidebarItem icon={IconFileEditSolid}>Documentation</SidebarItem>
-
-          <SidebarItem icon={IconAdressBookOutline}>Help</SidebarItem>
-
-          <SidebarItem icon={IconGearSolid}>Settings</SidebarItem>
-
-          <SidebarItem icon={IconAtomSolid}>Details</SidebarItem>
-
-          <SidebarCollapse label="Collapse" icon={IconAdjustmentsHorizontalSolid}>
-            <SidebarItem>Dashboard</SidebarItem>
-
-            <SidebarItem>inbox</SidebarItem>
-
-            <SidebarItem>Users</SidebarItem>
-
-            <SidebarItem>Products</SidebarItem>
-          </SidebarCollapse>
-        </SidebarItemGroup>
+          <Sidebar.Collapse label="Collapse" icon={IconAdjustmentsHorizontalSolid}>
+            <Sidebar.Item>Dashboard</Sidebar.Item>
+            <Sidebar.Item>inbox</Sidebar.Item>
+            <Sidebar.Item>Users</Sidebar.Item>
+            <Sidebar.Item>Products</Sidebar.Item>
+          </Sidebar.Collapse>
+        </Sidebar.ItemGroup>
         {isCtaVisible.value && (
-          <SidebarCta onClose$={() => (isCtaVisible.value = false)}>
+          <Sidebar.Cta onClose$={() => (isCtaVisible.value = false)}>
             <Badge q:slot="badge" type="yellow" content="new" />
 
             <p class="mb-3 text-sm text-blue-800 dark:text-blue-400">
@@ -82,7 +73,7 @@ export default component$(() => {
             <a class="text-sm text-blue-800 underline font-medium hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300" href="#">
               Turn new navigation off
             </a>
-          </SidebarCta>
+          </Sidebar.Cta>
         )}
       </Sidebar>
     </div>

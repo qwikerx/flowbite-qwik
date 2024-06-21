@@ -5,7 +5,7 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import { Button, Card, Dropdown, DropdownItem, Heading } from 'flowbite-qwik'
+import { Button, Card, Dropdown, Heading } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
@@ -14,30 +14,30 @@ export default component$(() => {
     <Card class="max-w-sm">
       <div class="flex justify-end px-4 pt-4">
         <Dropdown inline label="">
-          <DropdownItem>
+          <Dropdown.Item>
             <a
               href="#"
               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
             >
               Edit
             </a>
-          </DropdownItem>
-          <DropdownItem>
+          </Dropdown.Item>
+          <Dropdown.Item>
             <a
               href="#"
               class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
             >
               Export Data
             </a>
-          </DropdownItem>
-          <DropdownItem>
+          </Dropdown.Item>
+          <Dropdown.Item>
             <a
               href="#"
               class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
             >
               Delete
             </a>
-          </DropdownItem>
+          </Dropdown.Item>
         </Dropdown>
       </div>
       <div class="flex flex-col items-center pb-10">
