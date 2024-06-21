@@ -30,7 +30,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
   const handleScroll$ = $(() => {
     const elements = previewElements.value?.querySelectorAll('[data-preview]')
 
-    if (elements) {
+    if (elements?.length) {
       for (let i = 0; i < elements.length; i++) {
         const element = elements[i] as HTMLElement
         const rect = element.getBoundingClientRect()
@@ -45,7 +45,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
     }
   })
 
-  const debounceHandleScroll$ = useDebounce(handleScroll$, 100)
+  const debounceHandleScroll$ = useDebounce(handleScroll$, 200)
 
   useOnDocument('scroll', debounceHandleScroll$)
 
