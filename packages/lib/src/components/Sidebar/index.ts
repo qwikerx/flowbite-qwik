@@ -1,6 +1,14 @@
-export { Sidebar } from './Sidebar'
-export { SidebarItem } from './SidebarItem'
-export { SidebarItemGroup } from './SidebarItemGroup'
-export { SidebarCollapse } from './SidebarCollapse'
-export { SidebarCta } from './SidebarCta'
+import { Sidebar as SidebarRoot } from './Sidebar'
+import { SidebarItem } from './SidebarItem'
+import { SidebarItemGroup } from './SidebarItemGroup'
+import { SidebarCollapse } from './SidebarCollapse'
+import { SidebarCta } from './SidebarCta'
+
 export { sidebarContext, useSidebarOpen } from './composables/use-open-sidebar'
+
+export const Sidebar = Object.assign(SidebarRoot, {
+  Item: SidebarItem,
+  ItemGroup: SidebarItemGroup,
+  Collapse: SidebarCollapse,
+  Cta: SidebarCta,
+})

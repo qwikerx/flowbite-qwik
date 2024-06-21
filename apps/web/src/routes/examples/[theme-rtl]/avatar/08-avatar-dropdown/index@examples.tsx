@@ -6,7 +6,7 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Avatar, Dropdown, DropdownItem } from 'flowbite-qwik'
+import { Avatar, Dropdown } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
@@ -21,14 +21,14 @@ export default component$(() => {
           />
         }
       >
-        <DropdownItem header>
+        <Dropdown.Item header>
           <span class="block text-sm">Bonnie Green</span>
           <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>
-        </DropdownItem>
-        <DropdownItem>Dashboard</DropdownItem>
-        <DropdownItem>Settings</DropdownItem>
-        <DropdownItem divider />
-        <DropdownItem>Sign out</DropdownItem>
+        </Dropdown.Item>
+        <Dropdown.Item>Dashboard</Dropdown.Item>
+        <Dropdown.Item>Settings</Dropdown.Item>
+        <Dropdown.Item divider />
+        <Dropdown.Item>Sign out</Dropdown.Item>
       </Dropdown>
     </div>
   )

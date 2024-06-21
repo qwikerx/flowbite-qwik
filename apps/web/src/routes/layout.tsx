@@ -1,19 +1,6 @@
 import { component$, PrefetchServiceWorker, Slot } from '@builder.io/qwik'
 import { Link, useLocation } from '@builder.io/qwik-city'
-import {
-  Badge,
-  Button,
-  Dropdown,
-  DropdownItem,
-  FlowbiteTheme,
-  Navbar,
-  NavbarBrand,
-  NavbarCollapse,
-  NavbarLink,
-  NavbarToggle,
-  useDark,
-  useFlowbiteThemable,
-} from 'flowbite-qwik'
+import { Badge, Button, Dropdown, FlowbiteTheme, Navbar, useDark, useFlowbiteThemable } from 'flowbite-qwik'
 import { IconCheckOutline, IconGithubSolid, IconMoonOutline, IconSunOutline } from 'flowbite-qwik-icons'
 import pkg from 'flowbite-qwik/package.json'
 
@@ -25,7 +12,7 @@ export default component$(() => {
   return (
     <div>
       <Navbar fluid rounded separator sticky id="header__navbar">
-        <NavbarBrand tag={Link} href="/">
+        <Navbar.Brand tag={Link} href="/">
           <img
             src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto,w_43,h_39/v1718461602/flowbite-qwik/q91266o4fonn7zg3jtpj.png"
             alt="Flowbite qwik small logo"
@@ -34,7 +21,7 @@ export default component$(() => {
             class="mr-3 h-6 sm:h-9 w-auto"
           />
           <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
-        </NavbarBrand>
+        </Navbar.Brand>
         <div class="flex md:order-2 items-center gap-2">
           <Button class="hidden md:block" square href="https://github.com/qwikerx/flowbite-qwik" color="light" title="View on GitHub">
             <IconGithubSolid class="h-4 w-4" />
@@ -71,7 +58,7 @@ export default component$(() => {
             }
           >
             {(['blue', 'green', 'red', 'pink', 'purple'] as FlowbiteTheme[]).map((theme) => (
-              <DropdownItem
+              <Dropdown.Item
                 key={theme}
                 onClick$={() => {
                   setThemeName(theme)
@@ -79,22 +66,22 @@ export default component$(() => {
               >
                 {theme}
                 {theme === themeName.value && <IconCheckOutline class="ml-2" />}
-              </DropdownItem>
+              </Dropdown.Item>
             ))}
           </Dropdown>
           <Badge class="hidden md:block" size="sm" type="dark" content={'v' + pkg.version} />
 
-          <NavbarToggle />
+          <Navbar.Toggle />
         </div>
-        <NavbarCollapse>
-          <NavbarLink href="/docs/getting-started/introduction" tag={Link} active={location.url.pathname === '/docs/getting-started/introduction'}>
+        <Navbar.Collapse>
+          <Navbar.Link href="/docs/getting-started/introduction" tag={Link} active={location.url.pathname === '/docs/getting-started/introduction'}>
             Docs
-          </NavbarLink>
-          <NavbarLink href="/docs/getting-started/quickstart" tag={Link} active={location.url.pathname === '/docs/getting-started/quickstart'}>
+          </Navbar.Link>
+          <Navbar.Link href="/docs/getting-started/quickstart" tag={Link} active={location.url.pathname === '/docs/getting-started/quickstart'}>
             Quickstart
-          </NavbarLink>
-          <NavbarLink href="https://flowbite.com">Flowbite</NavbarLink>
-        </NavbarCollapse>
+          </Navbar.Link>
+          <Navbar.Link href="https://flowbite.com">Flowbite</Navbar.Link>
+        </Navbar.Collapse>
       </Navbar>
 
       <main>

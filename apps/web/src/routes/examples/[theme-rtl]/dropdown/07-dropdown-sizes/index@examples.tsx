@@ -5,7 +5,7 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Dropdown, DropdownItem, DropdownSize } from 'flowbite-qwik'
+import { Dropdown, DropdownSize } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
@@ -14,16 +14,16 @@ export default component$(() => {
       <div class="flex gap-5">
         {(['s', 'm', 'l'] as DropdownSize[]).map((size) => (
           <Dropdown label="Dropdown button" size={size}>
-            <DropdownItem>Dashboard</DropdownItem>
-            <DropdownItem>Settings</DropdownItem>
+            <Dropdown.Item>Dashboard</Dropdown.Item>
+            <Dropdown.Item>Settings</Dropdown.Item>
           </Dropdown>
         ))}
       </div>
       <div class="flex gap-5 mt-4">
         {(['s', 'm', 'l'] as DropdownSize[]).map((size) => (
           <Dropdown label="Dropdown button" size={size} inline>
-            <DropdownItem>Dashboard</DropdownItem>
-            <DropdownItem>Settings</DropdownItem>
+            <Dropdown.Item>Dashboard</Dropdown.Item>
+            <Dropdown.Item>Settings</Dropdown.Item>
           </Dropdown>
         ))}
       </div>

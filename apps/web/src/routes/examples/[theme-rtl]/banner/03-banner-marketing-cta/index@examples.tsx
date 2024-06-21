@@ -6,7 +6,7 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Banner, BannerCollapseButton, Button } from 'flowbite-qwik'
+import { Banner, Button } from 'flowbite-qwik'
 import { IconCloseSolid } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
@@ -26,9 +26,9 @@ export default component$(() => {
           </div>
           <div class="flex shrink-0 items-center">
             <Button href="#">Sign up</Button>
-            <BannerCollapseButton color="light" class="border-0 bg-transparent text-gray-500 dark:text-gray-400">
+            <Banner.CollapseButton color="light" class="border-0 bg-transparent text-gray-500 dark:text-gray-400">
               <IconCloseSolid class="h-4 w-4" />
-            </BannerCollapseButton>
+            </Banner.CollapseButton>
           </div>
         </div>
       </Banner>

@@ -5,7 +5,7 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import { Footer, FooterCopyright, FooterLink, FooterLinkGroup, FooterBrand, FooterDivider, FooterTitle, FooterIcon } from 'flowbite-qwik'
+import { Footer } from 'flowbite-qwik'
 import { IconFacebookSolid, IconGithubSolid, IconDribbbleSolid, IconLinkedinSolid } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
@@ -16,40 +16,40 @@ export default component$(() => {
       <div class="w-full">
         <div class="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>
-            <FooterBrand href="https://flowbite.com" src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" name="Flowbite" />
+            <Footer.Brand href="https://flowbite.com" src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" name="Flowbite" />
           </div>
           <div class="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
             <div>
-              <FooterTitle title="about" />
-              <FooterLinkGroup col>
-                <FooterLink href="#">Flowbite</FooterLink>
-                <FooterLink href="#">Tailwind CSS</FooterLink>
-              </FooterLinkGroup>
+              <Footer.Title title="about" />
+              <Footer.LinkGroup col>
+                <Footer.Link href="#">Flowbite</Footer.Link>
+                <Footer.Link href="#">Tailwind CSS</Footer.Link>
+              </Footer.LinkGroup>
             </div>
             <div>
-              <FooterTitle title="Follow us" />
-              <FooterLinkGroup col>
-                <FooterLink href="#">Github</FooterLink>
-                <FooterLink href="#">Discord</FooterLink>
-              </FooterLinkGroup>
+              <Footer.Title title="Follow us" />
+              <Footer.LinkGroup col>
+                <Footer.Link href="#">Github</Footer.Link>
+                <Footer.Link href="#">Discord</Footer.Link>
+              </Footer.LinkGroup>
             </div>
             <div>
-              <FooterTitle title="Legal" />
-              <FooterLinkGroup col>
-                <FooterLink href="#">Privacy Policy</FooterLink>
-                <FooterLink href="#">Terms &amp; Conditions</FooterLink>
-              </FooterLinkGroup>
+              <Footer.Title title="Legal" />
+              <Footer.LinkGroup col>
+                <Footer.Link href="#">Privacy Policy</Footer.Link>
+                <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
+              </Footer.LinkGroup>
             </div>
           </div>
         </div>
-        <FooterDivider />
+        <Footer.Divider />
         <div class="w-full sm:flex sm:items-center sm:justify-between">
-          <FooterCopyright href="#" by="Flowbite™" />
+          <Footer.Copyright href="#" by="Flowbite™" />
           <div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-            <FooterIcon href="#" icon={IconFacebookSolid} />
-            <FooterIcon href="#" icon={IconGithubSolid} />
-            <FooterIcon href="#" icon={IconDribbbleSolid} />
-            <FooterIcon href="#" icon={IconLinkedinSolid} />
+            <Footer.Icon href="#" icon={IconFacebookSolid} />
+            <Footer.Icon href="#" icon={IconGithubSolid} />
+            <Footer.Icon href="#" icon={IconDribbbleSolid} />
+            <Footer.Icon href="#" icon={IconLinkedinSolid} />
           </div>
         </div>
       </div>

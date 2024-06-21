@@ -1,2 +1,6 @@
 export * from './dropdown-types'
-export { Dropdown, DropdownItem } from './Dropdown'
+import { Dropdown as DropdownRoot, DropdownItem } from './Dropdown'
+
+export const Dropdown = Object.assign(DropdownRoot, {
+  Item: DropdownItem,
+})

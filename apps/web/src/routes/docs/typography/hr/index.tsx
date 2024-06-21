@@ -13,7 +13,7 @@ export default component$(() => {
 })
 
 export const head = () => ({
-  title: 'Qwik HR - Flowbite',
+  title: 'Qwik Hr - Flowbite',
   meta: [
     {
       name: 'description',

@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { getChild } from '~/utils/children-inspector'
 import { JumbotronSubText } from './JumbotronSubText'
 
-type JumbotronProps = PropsOf<'div'> & {
+type JumbotronProps = Omit<PropsOf<'div'>, 'align'> & {
   align?: 'center' | 'left' | 'right'
 }
 

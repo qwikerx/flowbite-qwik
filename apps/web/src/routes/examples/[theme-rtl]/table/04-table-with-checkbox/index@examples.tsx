@@ -6,7 +6,7 @@
 
 import { component$, useSignal } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Checkbox, Link, Table, TableBody, TableCell, TableHead, TableHeadCell, TableRow } from 'flowbite-qwik'
+import { Checkbox, Link, Table } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
@@ -15,62 +15,62 @@ export default component$(() => {
   return (
     <div class="overflow-x-auto">
       <Table hoverable>
-        <TableHead>
-          <TableHeadCell class="p-4">
+        <Table.Head>
+          <Table.HeadCell class="p-4">
             <Checkbox bind:checked={choice} />
-          </TableHeadCell>
-          <TableHeadCell>Product name</TableHeadCell>
-          <TableHeadCell>Color</TableHeadCell>
-          <TableHeadCell>Category</TableHeadCell>
-          <TableHeadCell>Price</TableHeadCell>
-          <TableHeadCell>
+          </Table.HeadCell>
+          <Table.HeadCell>Product name</Table.HeadCell>
+          <Table.HeadCell>Color</Table.HeadCell>
+          <Table.HeadCell>Category</Table.HeadCell>
+          <Table.HeadCell>Price</Table.HeadCell>
+          <Table.HeadCell>
             <span class="sr-only">Edit</span>
-          </TableHeadCell>
-        </TableHead>
-        <TableBody class="divide-y">
-          <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell class="p-4">
+          </Table.HeadCell>
+        </Table.Head>
+        <Table.Body class="divide-y">
+          <Table.Row class="bg-white dark:border-gray-700 dark:bg-gray-800">
+            <Table.Cell class="p-4">
               <Checkbox bind:checked={choice} />
-            </TableCell>
-            <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">{'Apple MacBook Pro 17"'}</TableCell>
-            <TableCell>Sliver</TableCell>
-            <TableCell>Laptop</TableCell>
-            <TableCell>$2999</TableCell>
-            <TableCell>
+            </Table.Cell>
+            <Table.Cell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">{'Apple MacBook Pro 17"'}</Table.Cell>
+            <Table.Cell>Sliver</Table.Cell>
+            <Table.Cell>Laptop</Table.Cell>
+            <Table.Cell>$2999</Table.Cell>
+            <Table.Cell>
               <Link href="#" class="text-gray-9000">
                 Edit
               </Link>
-            </TableCell>
-          </TableRow>
-          <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell class="p-4">
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row class="bg-white dark:border-gray-700 dark:bg-gray-800">
+            <Table.Cell class="p-4">
               <Checkbox bind:checked={choice} />
-            </TableCell>
-            <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">Microsoft Surface Pro</TableCell>
-            <TableCell>White</TableCell>
-            <TableCell>Laptop PC</TableCell>
-            <TableCell>$1999</TableCell>
-            <TableCell>
+            </Table.Cell>
+            <Table.Cell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">Microsoft Surface Pro</Table.Cell>
+            <Table.Cell>White</Table.Cell>
+            <Table.Cell>Laptop PC</Table.Cell>
+            <Table.Cell>$1999</Table.Cell>
+            <Table.Cell>
               <Link href="#" class="text-gray-9000">
                 Edit
               </Link>
-            </TableCell>
-          </TableRow>
-          <TableRow class="bg-white dark:border-gray-700 dark:bg-gray-800">
-            <TableCell class="p-4">
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row class="bg-white dark:border-gray-700 dark:bg-gray-800">
+            <Table.Cell class="p-4">
               <Checkbox bind:checked={choice} />
-            </TableCell>
-            <TableCell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</TableCell>
-            <TableCell>Black</TableCell>
-            <TableCell>Accessories</TableCell>
-            <TableCell>$99</TableCell>
-            <TableCell>
+            </Table.Cell>
+            <Table.Cell class="whitespace-nowrap font-medium text-gray-900 dark:text-white">Magic Mouse 2</Table.Cell>
+            <Table.Cell>Black</Table.Cell>
+            <Table.Cell>Accessories</Table.Cell>
+            <Table.Cell>$99</Table.Cell>
+            <Table.Cell>
               <Link href="#" class="text-gray-9000">
                 Edit
               </Link>
-            </TableCell>
-          </TableRow>
-        </TableBody>
+            </Table.Cell>
+          </Table.Row>
+        </Table.Body>
       </Table>
     </div>
   )

@@ -37,7 +37,7 @@ export const Carousel: FunctionComponent<CarouselProps> = ({ children, ...props 
 
   getChild(children, [
     {
-      component: CarouselSlice,
+      component: CarouselSlide,
       foundComponentCallback: (child, index) => {
         const childrenIsArray = Array.isArray(child.children)
 
@@ -70,9 +70,9 @@ export const Carousel: FunctionComponent<CarouselProps> = ({ children, ...props 
   return <InnerCarousel components={components} {...props} />
 }
 
-type CarouselSliceProps = PropsOf<'div'>
+type CarouselSlideProps = PropsOf<'div'>
 
-export const CarouselSlice = component$<CarouselSliceProps>(() => {
+export const CarouselSlide = component$<CarouselSlideProps>(() => {
   return <Slot />
 })
 

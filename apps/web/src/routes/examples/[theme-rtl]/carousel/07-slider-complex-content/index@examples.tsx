@@ -6,14 +6,14 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Card, Carousel, CarouselSlice, Heading } from 'flowbite-qwik'
+import { Card, Carousel, Heading } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   return (
     <div class="h-96">
       <Carousel>
-        <CarouselSlice>
+        <Carousel.Slide>
           <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
             <Card href="#" class="max-w-sm">
               <Heading tag="h4">Noteworthy technology acquisitions 2021</Heading>
@@ -22,8 +22,8 @@ export default component$(() => {
               </p>
             </Card>
           </div>
-        </CarouselSlice>
-        <CarouselSlice>
+        </Carousel.Slide>
+        <Carousel.Slide>
           <div class="flex h-full items-center justify-center bg-blue-400 dark:bg-blue-700 dark:text-white">
             <Card href="#" class="max-w-sm">
               <Heading tag="h4">Crystal Clear Oasis</Heading>
@@ -32,8 +32,8 @@ export default component$(() => {
               </p>
             </Card>
           </div>
-        </CarouselSlice>
-        <CarouselSlice>
+        </Carousel.Slide>
+        <Carousel.Slide>
           <div class="flex h-full items-center justify-center bg-rose-400 dark:bg-rose-700 dark:text-white">
             <Card href="#" class="max-w-sm">
               <Heading tag="h4">Lost in the Sands</Heading>
@@ -42,7 +42,7 @@ export default component$(() => {
               </p>
             </Card>
           </div>
-        </CarouselSlice>
+        </Carousel.Slide>
       </Carousel>
     </div>
   )

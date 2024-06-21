@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
-import { Button, Heading, Jumbotron, JumbotronHeading, JumbotronSubText } from 'flowbite-qwik'
+import { Button, Heading, Jumbotron } from 'flowbite-qwik'
 import { IconArrowRightOutline } from 'flowbite-qwik-icons'
 
 export default component$(() => {
@@ -26,12 +26,12 @@ export default component$(() => {
   return (
     <div class="flex flex-col h-full">
       <Jumbotron>
-        <JumbotronHeading tag="h1">
+        <Jumbotron.Heading tag="h1">
           <span class="text-qwik">⚡ Flowbite Qwik </span> <span class="text-qwik-secondary">component library</span> based on Tailwind CSS
-        </JumbotronHeading>
-        <JumbotronSubText tag="h2">
+        </Jumbotron.Heading>
+        <Jumbotron.SubText tag="h2">
           Get started with the most popular open-source library of interactive UI components built with the utility classes from Tailwind CSS
-        </JumbotronSubText>
+        </Jumbotron.SubText>
         <div class="flex gap-2 justify-center">
           <Button href="/docs/getting-started/introduction" suffix={IconArrowRightOutline}>
             Get started

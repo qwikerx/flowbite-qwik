@@ -1,2 +1,6 @@
 export * from './tabs-types'
-export { Tabs, Tab } from './Tabs'
+import { Tabs as TabsRoot, Tab } from './Tabs'
+
+export const Tabs = Object.assign(TabsRoot, {
+  Tab,
+})

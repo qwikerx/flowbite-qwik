@@ -6,17 +6,17 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Accordion, AccordionContent, AccordionHeader, AccordionPanel, Heading, Link } from 'flowbite-qwik'
+import { Accordion, Heading, Link } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   return (
     <Accordion flush>
-      <AccordionPanel>
-        <AccordionHeader>
+      <Accordion.Panel>
+        <Accordion.Header>
           <Heading tag="h5">Accordion 1</Heading>
-        </AccordionHeader>
-        <AccordionContent>
+        </Accordion.Header>
+        <Accordion.Content>
           <div>
             <p class="mb-2 text-gray-500 dark:text-gray-400">
               Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars,
@@ -27,13 +27,13 @@ export default component$(() => {
               even faster with components on top of Tailwind CSS.
             </p>
           </div>
-        </AccordionContent>
-      </AccordionPanel>
-      <AccordionPanel>
-        <AccordionHeader>
+        </Accordion.Content>
+      </Accordion.Panel>
+      <Accordion.Panel>
+        <Accordion.Header>
           <Heading tag="h5">Accordion 2</Heading>
-        </AccordionHeader>
-        <AccordionContent>
+        </Accordion.Header>
+        <Accordion.Content>
           <div>
             <p class="mb-2 text-gray-500 dark:text-gray-400">
               Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars,
@@ -44,13 +44,13 @@ export default component$(() => {
               even faster with components on top of Tailwind CSS.
             </p>
           </div>
-        </AccordionContent>
-      </AccordionPanel>
-      <AccordionPanel>
-        <AccordionHeader>
+        </Accordion.Content>
+      </Accordion.Panel>
+      <Accordion.Panel>
+        <Accordion.Header>
           <Heading tag="h5">Accordion 3</Heading>
-        </AccordionHeader>
-        <AccordionContent>
+        </Accordion.Header>
+        <Accordion.Content>
           <div>
             <p class="mb-2 text-gray-500 dark:text-gray-400">
               Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars,
@@ -61,8 +61,8 @@ export default component$(() => {
               even faster with components on top of Tailwind CSS.
             </p>
           </div>
-        </AccordionContent>
-      </AccordionPanel>
+        </Accordion.Content>
+      </Accordion.Panel>
     </Accordion>
   )
 })

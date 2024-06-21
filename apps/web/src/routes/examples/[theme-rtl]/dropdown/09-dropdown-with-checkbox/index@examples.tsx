@@ -5,13 +5,13 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Dropdown, DropdownItem } from 'flowbite-qwik'
+import { Dropdown } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   return (
     <Dropdown label="Dropdown checkbox" closeWhenSelect={false}>
-      <DropdownItem>
+      <Dropdown.Item>
         <div class="flex items-center">
           <input
             id="checkbox-item-1"
@@ -23,8 +23,8 @@ export default component$(() => {
             Default checkbox
           </label>
         </div>
-      </DropdownItem>
-      <DropdownItem>
+      </Dropdown.Item>
+      <Dropdown.Item>
         <div class="flex items-center">
           <input
             checked
@@ -37,8 +37,8 @@ export default component$(() => {
             Checked state
           </label>
         </div>
-      </DropdownItem>
-      <DropdownItem>
+      </Dropdown.Item>
+      <Dropdown.Item>
         <div class="flex items-center">
           <input
             id="checkbox-item-3"
@@ -50,7 +50,7 @@ export default component$(() => {
             Default checkbox
           </label>
         </div>
-      </DropdownItem>
+      </Dropdown.Item>
     </Dropdown>
   )
 })

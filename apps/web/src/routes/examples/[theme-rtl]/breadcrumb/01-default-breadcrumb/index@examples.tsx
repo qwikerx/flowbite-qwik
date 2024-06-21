@@ -5,18 +5,18 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Breadcrumb, BreadcrumbItem } from 'flowbite-qwik'
+import { Breadcrumb } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   return (
     <div class="p-3">
       <Breadcrumb>
-        <BreadcrumbItem home href="#">
+        <Breadcrumb.Item home href="#">
           Home
-        </BreadcrumbItem>
-        <BreadcrumbItem href="#">Projects</BreadcrumbItem>
-        <BreadcrumbItem>Flowbite</BreadcrumbItem>
+        </Breadcrumb.Item>
+        <Breadcrumb.Item href="#">Projects</Breadcrumb.Item>
+        <Breadcrumb.Item>Flowbite</Breadcrumb.Item>
       </Breadcrumb>
     </div>
   )

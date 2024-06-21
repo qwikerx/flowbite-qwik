@@ -5,7 +5,7 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import { Footer, FooterCopyright, FooterLink, FooterLinkGroup, FooterTitle, FooterIcon } from 'flowbite-qwik'
+import { Footer } from 'flowbite-qwik'
 import { IconFacebookSolid, IconGithubSolid, IconDribbbleSolid, IconLinkedinSolid } from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
@@ -16,48 +16,48 @@ export default component$(() => {
       <div class="w-full">
         <div class="grid w-full grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
           <div>
-            <FooterTitle title="Company" />
-            <FooterLinkGroup col>
-              <FooterLink href="#">About</FooterLink>
-              <FooterLink href="#">Careers</FooterLink>
-              <FooterLink href="#">Brand Center</FooterLink>
-              <FooterLink href="#">Blog</FooterLink>
-            </FooterLinkGroup>
+            <Footer.Title title="Company" />
+            <Footer.LinkGroup col>
+              <Footer.Link href="#">About</Footer.Link>
+              <Footer.Link href="#">Careers</Footer.Link>
+              <Footer.Link href="#">Brand Center</Footer.Link>
+              <Footer.Link href="#">Blog</Footer.Link>
+            </Footer.LinkGroup>
           </div>
           <div>
-            <FooterTitle title="help center" />
-            <FooterLinkGroup col>
-              <FooterLink href="#">Discord Server</FooterLink>
-              <FooterLink href="#">Twitter</FooterLink>
-              <FooterLink href="#">Facebook</FooterLink>
-              <FooterLink href="#">Contact Us</FooterLink>
-            </FooterLinkGroup>
+            <Footer.Title title="help center" />
+            <Footer.LinkGroup col>
+              <Footer.Link href="#">Discord Server</Footer.Link>
+              <Footer.Link href="#">Twitter</Footer.Link>
+              <Footer.Link href="#">Facebook</Footer.Link>
+              <Footer.Link href="#">Contact Us</Footer.Link>
+            </Footer.LinkGroup>
           </div>
           <div>
-            <FooterTitle title="legal" />
-            <FooterLinkGroup col>
-              <FooterLink href="#">Privacy Policy</FooterLink>
-              <FooterLink href="#">Licensing</FooterLink>
-              <FooterLink href="#">Terms &amp; Conditions</FooterLink>
-            </FooterLinkGroup>
+            <Footer.Title title="legal" />
+            <Footer.LinkGroup col>
+              <Footer.Link href="#">Privacy Policy</Footer.Link>
+              <Footer.Link href="#">Licensing</Footer.Link>
+              <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
+            </Footer.LinkGroup>
           </div>
           <div>
-            <FooterTitle title="download" />
-            <FooterLinkGroup col>
-              <FooterLink href="#">iOS</FooterLink>
-              <FooterLink href="#">Android</FooterLink>
-              <FooterLink href="#">Windows</FooterLink>
-              <FooterLink href="#">MacOS</FooterLink>
-            </FooterLinkGroup>
+            <Footer.Title title="download" />
+            <Footer.LinkGroup col>
+              <Footer.Link href="#">iOS</Footer.Link>
+              <Footer.Link href="#">Android</Footer.Link>
+              <Footer.Link href="#">Windows</Footer.Link>
+              <Footer.Link href="#">MacOS</Footer.Link>
+            </Footer.LinkGroup>
           </div>
         </div>
         <div class="w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between">
-          <FooterCopyright href="#" by="Flowbite™" />
+          <Footer.Copyright href="#" by="Flowbite™" />
           <div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-            <FooterIcon href="#" icon={IconFacebookSolid} />
-            <FooterIcon href="#" icon={IconGithubSolid} />
-            <FooterIcon href="#" icon={IconDribbbleSolid} />
-            <FooterIcon href="#" icon={IconLinkedinSolid} />
+            <Footer.Icon href="#" icon={IconFacebookSolid} />
+            <Footer.Icon href="#" icon={IconGithubSolid} />
+            <Footer.Icon href="#" icon={IconDribbbleSolid} />
+            <Footer.Icon href="#" icon={IconLinkedinSolid} />
           </div>
         </div>
       </div>

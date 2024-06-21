@@ -6,13 +6,13 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Avatar, AvatarGroup, AvatarGroupCounter } from 'flowbite-qwik'
+import { Avatar } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   return (
     <div class="flex flex-wrap gap-2">
-      <AvatarGroup>
+      <Avatar.Group>
         <Avatar
           img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/on9fjbionkpt1fqhtbov.jpg"
           rounded
@@ -38,8 +38,8 @@ export default component$(() => {
           rounded
           stacked
         />
-      </AvatarGroup>
-      <AvatarGroup>
+      </Avatar.Group>
+      <Avatar.Group>
         <Avatar
           img="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/on9fjbionkpt1fqhtbov.jpg"
           rounded
@@ -60,8 +60,8 @@ export default component$(() => {
           rounded
           stacked
         />
-        <AvatarGroupCounter total={99} href="#" />
-      </AvatarGroup>
+        <Avatar.GroupCounter total={99} href="#" />
+      </Avatar.Group>
     </div>
   )
 })

@@ -5,20 +5,20 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import { Footer, FooterCopyright, FooterLink, FooterLinkGroup } from 'flowbite-qwik'
+import { Footer } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
 export default component$(() => {
   return (
     <Footer container>
-      <FooterCopyright href="#" by="Flowbite™" />
-      <FooterLinkGroup>
-        <FooterLink href="#">About</FooterLink>
-        <FooterLink href="#">Privacy Policy</FooterLink>
-        <FooterLink href="#">Licensing</FooterLink>
-        <FooterLink href="#">Contact</FooterLink>
-      </FooterLinkGroup>
+      <Footer.Copyright href="#" by="Flowbite™" />
+      <Footer.LinkGroup>
+        <Footer.Link href="#">About</Footer.Link>
+        <Footer.Link href="#">Privacy Policy</Footer.Link>
+        <Footer.Link href="#">Licensing</Footer.Link>
+        <Footer.Link href="#">Contact</Footer.Link>
+      </Footer.LinkGroup>
     </Footer>
   )
 })

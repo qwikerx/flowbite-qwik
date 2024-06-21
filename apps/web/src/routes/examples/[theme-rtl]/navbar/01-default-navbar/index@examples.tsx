@@ -5,29 +5,29 @@
  */
 
 import { component$ } from '@builder.io/qwik'
-import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from 'flowbite-qwik'
+import { Navbar } from 'flowbite-qwik'
 import { Link, StaticGenerateHandler } from '@builder.io/qwik-city'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   return (
     <Navbar fluid rounded separator>
-      <NavbarBrand tag={Link} href="https://flowbite-qwik.com/">
+      <Navbar.Brand tag={Link} href="https://flowbite-qwik.com/">
         <img src="/small-logo.png" alt="Flowbite qwik logo" width="215" height="195" class="mr-3 h-6 sm:h-9 w-auto" />
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
-      </NavbarBrand>
-      <NavbarToggle />
-      <NavbarCollapse>
-        <NavbarLink href="/navbars" active>
+      </Navbar.Brand>
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+        <Navbar.Link href="/navbars" active>
           Home
-        </NavbarLink>
-        <NavbarLink tag={Link} href="/navbars">
+        </Navbar.Link>
+        <Navbar.Link tag={Link} href="/navbars">
           About
-        </NavbarLink>
-        <NavbarLink href="/navbars">Services</NavbarLink>
-        <NavbarLink href="/navbars">Pricing</NavbarLink>
-        <NavbarLink href="/navbars">Contact</NavbarLink>
-      </NavbarCollapse>
+        </Navbar.Link>
+        <Navbar.Link href="/navbars">Services</Navbar.Link>
+        <Navbar.Link href="/navbars">Pricing</Navbar.Link>
+        <Navbar.Link href="/navbars">Contact</Navbar.Link>
+      </Navbar.Collapse>
     </Navbar>
   )
 })
