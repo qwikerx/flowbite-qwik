@@ -1,9 +1,9 @@
-import { $, component$, Slot, useOnDocument, useSignal, useStore, useStyles$, useVisibleTask$ } from '@builder.io/qwik'
+import { component$, Slot, useSignal, useStore, useStyles$ } from '@builder.io/qwik'
 import styles from './DocumentPage.css?inline'
-import { toSlug } from '~/utils/slug'
+// import { toSlug } from '~/utils/slug'
 import { TableOfContents } from '../TableOfContents/TableOfContents'
-import { useDebounce } from 'flowbite-qwik'
-import { scrollTo } from '~/utils/scroll-to'
+// import { useDebounce } from 'flowbite-qwik'
+// import { scrollTo } from '~/utils/scroll-to'
 
 export const DocumentPage = component$(() => {
   useStyles$(styles)
@@ -12,53 +12,53 @@ export const DocumentPage = component$(() => {
   const activeElement = useSignal<string>()
   const sections = useStore<Array<string>>([])
 
-  useVisibleTask$(() => {
-    const sectionsTitles = document.querySelectorAll('h2')
-    sectionsTitles.forEach((sectionTitle) => {
-      const slug = toSlug(sectionTitle.textContent || '')
-      sections.push(sectionTitle.textContent || '')
-      sectionTitle.setAttribute('id', slug)
-      sectionTitle.classList.add('group')
+  // useVisibleTask$(() => {
+  //   const sectionsTitles = document.querySelectorAll('h2')
+  //   sectionsTitles.forEach((sectionTitle) => {
+  //     const slug = toSlug(sectionTitle.textContent || '')
+  //     sections.push(sectionTitle.textContent || '')
+  //     sectionTitle.setAttribute('id', slug)
+  //     sectionTitle.classList.add('group')
 
-      const link = document.createElement('a')
-      link.href = `#${slug}`
-      link.textContent = '#'
-      link.classList.add('group-hover:inline')
-      link.classList.add('hidden')
-      link.classList.add('pl-2')
-      sectionTitle.appendChild(link)
-    })
+  //     const link = document.createElement('a')
+  //     link.href = `#${slug}`
+  //     link.textContent = '#'
+  //     link.classList.add('group-hover:inline')
+  //     link.classList.add('hidden')
+  //     link.classList.add('pl-2')
+  //     sectionTitle.appendChild(link)
+  //   })
 
-    const hash = document.location.hash
-    if (hash) {
-      scrollTo(hash)
-      activeElement.value = hash.slice(1)
-    } else if (sections.length > 0) {
-      activeElement.value = toSlug(sections[0])
-    }
-  })
+  //   const hash = document.location.hash
+  //   if (hash) {
+  //     scrollTo(hash)
+  //     activeElement.value = hash.slice(1)
+  //   } else if (sections.length > 0) {
+  //     activeElement.value = toSlug(sections[0])
+  //   }
+  // })
 
-  const handleScroll$ = $(() => {
-    const elements = page.value?.querySelectorAll('h2')
+  // const handleScroll$ = $(() => {
+  //   const elements = page.value?.querySelectorAll('h2')
 
-    if (elements) {
-      for (let i = 0; i < elements.length; i++) {
-        const element = elements[i] as HTMLElement
-        const rect = element.getBoundingClientRect()
+  //   if (elements) {
+  //     for (let i = 0; i < elements.length; i++) {
+  //       const element = elements[i] as HTMLElement
+  //       const rect = element.getBoundingClientRect()
 
-        if (rect.top < 300 && rect.bottom > 100) {
-          const slug = toSlug(sections[i])
-          history.replaceState(null, '', `#${slug}`)
-          activeElement.value = slug
-          break
-        }
-      }
-    }
-  })
+  //       if (rect.top < 300 && rect.bottom > 100) {
+  //         const slug = toSlug(sections[i])
+  //         history.replaceState(null, '', `#${slug}`)
+  //         activeElement.value = slug
+  //         break
+  //       }
+  //     }
+  //   }
+  // })
 
-  const debounceHandleScroll$ = useDebounce(handleScroll$, 100)
+  // const debounceHandleScroll$ = useDebounce(handleScroll$, 100)
 
-  useOnDocument('scroll', debounceHandleScroll$)
+  // useOnDocument('scroll', debounceHandleScroll$)
 
   return (
     <div class="flex">

@@ -1,10 +1,8 @@
-import { $, component$, Slot, useComputed$, useOnDocument, useSignal, useVisibleTask$ } from '@builder.io/qwik'
+import { component$, Slot, useComputed$, useSignal } from '@builder.io/qwik'
 import { Preview } from '~/components/Preview/Preview'
 import { TableOfContents } from '~/components/TableOfContents/TableOfContents'
-import { scrollTo } from '~/utils/scroll-to'
 import { examples } from '~/generated-examples'
-import { toSlug } from '~/utils/slug'
-import { Heading, useDebounce } from 'flowbite-qwik'
+import { Heading } from 'flowbite-qwik'
 
 interface Item {
   name: string
@@ -16,38 +14,38 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
   const tableOfContentItems = useComputed$(() => previewItems.value?.map((item) => item.title))
   const activeElement = useSignal<string>()
 
-  useVisibleTask$(() => {
-    const hash = document.location.hash
+  // useVisibleTask$(() => {
+  //   const hash = document.location.hash
 
-    if (hash) {
-      scrollTo(hash)
-      activeElement.value = hash.slice(1)
-    } else {
-      activeElement.value = toSlug(previewItems.value[0].title)
-    }
-  })
+  //   if (hash) {
+  //     scrollTo(hash)
+  //     activeElement.value = hash.slice(1)
+  //   } else {
+  //     activeElement.value = toSlug(previewItems.value[0].title)
+  //   }
+  // })
 
-  const handleScroll$ = $(() => {
-    const elements = previewElements.value?.querySelectorAll('[data-preview]')
+  // const handleScroll$ = $(() => {
+  //   const elements = previewElements.value?.querySelectorAll('[data-preview]')
 
-    if (elements) {
-      for (let i = 0; i < elements.length; i++) {
-        const element = elements[i] as HTMLElement
-        const rect = element.getBoundingClientRect()
+  //   if (elements) {
+  //     for (let i = 0; i < elements.length; i++) {
+  //       const element = elements[i] as HTMLElement
+  //       const rect = element.getBoundingClientRect()
 
-        if (rect.top < 300 && rect.bottom > 100) {
-          const slug = toSlug(previewItems.value[i].title)
-          history.replaceState(null, '', `#${slug}`)
-          activeElement.value = slug
-          break
-        }
-      }
-    }
-  })
+  //       if (rect.top < 300 && rect.bottom > 100) {
+  //         const slug = toSlug(previewItems.value[i].title)
+  //         history.replaceState(null, '', `#${slug}`)
+  //         activeElement.value = slug
+  //         break
+  //       }
+  //     }
+  //   }
+  // })
 
-  const debounceHandleScroll$ = useDebounce(handleScroll$, 100)
+  // const debounceHandleScroll$ = useDebounce(handleScroll$, 100)
 
-  useOnDocument('scroll', debounceHandleScroll$)
+  // useOnDocument('scroll', debounceHandleScroll$)
 
   return (
     <>
