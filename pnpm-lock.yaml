@@ -161,12 +161,6 @@ importers:
 
   packages/lib:
     dependencies:
-      '@builder.io/qwik':
-        specifier: 1.5.7
-        version: 1.5.7(@types/node@20.14.2)(undici@6.18.2)
-      '@builder.io/qwik-city':
-        specifier: 1.5.7
-        version: 1.5.7(@types/node@20.14.2)(rollup@4.18.0)
       '@floating-ui/dom':
         specifier: ^1.6.5
         version: 1.6.5
@@ -174,15 +168,18 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
       flowbite-qwik-icons:
-        specifier: ^0.1.5
-        version: 0.1.5(@builder.io/qwik-city@1.5.7(@types/node@20.14.2)(rollup@4.18.0))(@builder.io/qwik@1.5.7(@types/node@20.14.2)(undici@6.18.2))
+        specifier: ^0.1.6
+        version: 0.1.6
       tailwind-merge:
         specifier: ^2.3.0
         version: 2.3.0
-      tailwindcss:
-        specifier: ^3.4.4
-        version: 3.4.4(ts-node@10.9.1(@types/node@20.14.2)(typescript@5.4.5))
     devDependencies:
+      '@builder.io/qwik':
+        specifier: 1.5.7
+        version: 1.5.7(@types/node@20.14.2)(undici@6.18.2)
+      '@builder.io/qwik-city':
+        specifier: 1.5.7
+        version: 1.5.7(@types/node@20.14.2)(rollup@4.18.0)
       '@types/eslint':
         specifier: ^8.56.10
         version: 8.56.10
@@ -219,6 +216,9 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.4
         version: 0.6.4(prettier@3.3.2)
+      tailwindcss:
+        specifier: ^3.4.4
+        version: 3.4.4(ts-node@10.9.1(@types/node@20.14.2)(typescript@5.4.5))
       tsc-alias:
         specifier: ^1.8.10
         version: 1.8.10
@@ -3157,6 +3157,10 @@ packages:
     peerDependencies:
       '@builder.io/qwik': 1.5.5
       '@builder.io/qwik-city': 1.5.5
+
+  flowbite-qwik-icons@0.1.6:
+    resolution: {integrity: sha512-3EEcCZgPf3ovQMY3dpUjzatol+szIGYWokJf+xaC7lnUESm9EZgSSXYZ29KuHyVGSSH/eilILEK2AM7v96DcqQ==}
+    engines: {node: '>=20.0.0'}
 
   flowbite@2.3.0:
     resolution: {integrity: sha512-pm3JRo8OIJHGfFYWgaGpPv8E+UdWy0Z3gEAGufw+G/1dusaU/P1zoBLiQpf2/+bYAi+GBQtPVG86KYlV0W+AFQ==}
@@ -9779,6 +9783,8 @@ snapshots:
     dependencies:
       '@builder.io/qwik': 1.5.7(@types/node@20.14.2)(undici@6.18.2)
       '@builder.io/qwik-city': 1.5.7(@types/node@20.14.2)(rollup@4.18.0)
+
+  flowbite-qwik-icons@0.1.6: {}
 
   flowbite@2.3.0:
     dependencies:
