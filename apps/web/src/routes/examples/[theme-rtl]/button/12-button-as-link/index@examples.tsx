@@ -14,8 +14,8 @@ export default component$(() => {
       <Button href="https://google.com" target="_blank">
         Google.com
       </Button>
-      <Button href="/pages/getting-started">Quickstart</Button>
-      <Button href="/" tag={Link}>
+      <Button href="/examples/blue-ltr/button/11-button-disabled">Quickstart</Button>
+      <Button href="/examples/blue-ltr/button/13-button-full" tag={Link}>
         Internal link
       </Button>
     </div>

@@ -11,7 +11,6 @@ import {
   createElement,
   Fragment,
   Signal,
-  JSXNode,
 } from '@builder.io/qwik'
 import { getChild } from '~/utils/children-inspector'
 import { Button } from '~/components/Button/Button'
@@ -70,23 +69,6 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
     },
   ])
 
-  let triggerIsButton = false
-
-  getChild(Trigger, [
-    {
-      component: Button,
-      foundComponentCallback: () => {
-        triggerIsButton = true
-      },
-    },
-    {
-      component: 'button',
-      foundComponentCallback: () => {
-        triggerIsButton = true
-      },
-    },
-  ])
-
   return (
     <InnerDropdown
       components={components}
@@ -95,7 +77,6 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
       inline={inline}
       size={size}
       title={attrs.title}
-      triggerIsButton={triggerIsButton}
       trigger={Trigger}
     />
   )
@@ -123,11 +104,10 @@ type InnerDropdownProps = {
   inline: boolean
   size: DropdownSize
   title?: string
-  triggerIsButton?: boolean
   trigger?: JSXOutput
 }
 
-const InnerDropdown = component$<InnerDropdownProps>(({ label, trigger, triggerIsButton, title, closeWhenSelect, components, inline, size }) => {
+const InnerDropdown = component$<InnerDropdownProps>(({ label, trigger, title, closeWhenSelect, components, inline, size }) => {
   const { dropdownModalClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
@@ -143,14 +123,7 @@ const InnerDropdown = component$<InnerDropdownProps>(({ label, trigger, triggerI
   return (
     <div class="block max-w-max relative">
       {TriggerButtonAs.value ? (
-        <TriggerButtonAs.value
-          ref={triggerRef}
-          size={size}
-          inline={inline}
-          visible={visible.value}
-          triggerIsButton={triggerIsButton}
-          trigger={trigger}
-        />
+        <TriggerButtonAs.value ref={triggerRef} size={size} inline={inline} visible={visible.value} trigger={trigger} />
       ) : (
         <TriggerButton.value ref={triggerRef} title={title} label={label} size={size} inline={inline} visible={visible.value} />
       )}
@@ -289,7 +262,7 @@ type InnerTriggerAsProps = {
 }
 type CompProps = Partial<PropsOf<'button'>>
 
-const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, trigger, triggerIsButton, ref, title, inline, visible }) => {
+const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, trigger, ref, title, inline, visible }) => {
   const { triggerInlineClasses } = useDropdownClasses(
     useComputed$(() => size),
     useComputed$(() => inline),
@@ -304,15 +277,8 @@ const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, trigger, trigger
     }
   })
 
-  ;(trigger as JSXNode).props.ref = ref
-  ;(trigger as JSXNode).props.title = title
-  ;(trigger as JSXNode).props['aria-expanded'] = visible
-  ;(trigger as JSXNode).props['aria-haspopup'] = 'menu'
-
-  return triggerIsButton ? (
-    <>{trigger}</>
-  ) : (
-    <button {...internalProps.value} class={triggerInlineClasses.value}>
+  return (
+    <button {...internalProps.value} class={trigger ? '' : triggerInlineClasses.value}>
       {trigger}
     </button>
   )

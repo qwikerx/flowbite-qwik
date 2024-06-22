@@ -3,7 +3,7 @@ import { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } f
 import { useButtonClasses } from '~/components/Button/composables/use-button-classes'
 import { useButtonSpinner } from '~/components/Button/composables/use-button-spinner'
 import { Spinner } from '~/components/Spinner/Spinner'
-import { LinkProps } from '@builder.io/qwik-city'
+import { Link, LinkProps } from '@builder.io/qwik-city'
 import type { IconProps } from 'flowbite-qwik-icons'
 
 export type ButtonProps = PropsOf<'button'> &
@@ -38,7 +38,7 @@ export const Button = component$<ButtonProps>(
     loadingPosition = 'prefix',
     disabled = false,
     href,
-    tag = 'a',
+    tag = 'button',
     prefix: Prefix,
     suffix: Suffix,
     full = false,
@@ -73,15 +73,17 @@ export const Button = component$<ButtonProps>(
       outline,
     })
 
-    const LinkComponent = tag !== 'a' ? tag : 'a'
-    const ButtonComponent = href ? LinkComponent : 'button'
+    const isLinkTag = ['a', Link].includes(tag)
+    const LinkComponent = isLinkTag ? tag : 'a'
+    const staticComponent = isLinkTag ? 'button' : tag
+    const ButtonComponent = href ? LinkComponent : staticComponent
 
     return (
       <ButtonComponent
         class={bindClasses.value}
-        href={ButtonComponent !== 'button' ? href : undefined}
-        target={ButtonComponent !== 'button' ? attrs.target : undefined}
-        //@ts-expect-error does not exist on link
+        href={href}
+        target={href ? attrs.target : undefined}
+        //@ts-expect-error does not exist on other elements
         disabled={ButtonComponent === 'button' ? disabled : undefined}
         onClick$={attrs.onClick$}
         {...attrs}

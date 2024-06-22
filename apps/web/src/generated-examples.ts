@@ -505,7 +505,7 @@ export const examples: Record<string, Example[]> = {
       description: 'You can add a link to a Button component.',
       url: '/examples/[theme-rtl]/button/12-button-as-link',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Link, StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex gap-2 flex-wrap">\n      <Button href="https://google.com" target="_blank">\n        Google.com\n      </Button>\n      <Button href="/pages/getting-started">Quickstart</Button>\n      <Button href="/" tag={Link}>\n        Internal link\n      </Button>\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Link, StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex gap-2 flex-wrap">\n      <Button href="https://google.com" target="_blank">\n        Google.com\n      </Button>\n      <Button href="/examples/blue-ltr/button/11-button-disabled">Quickstart</Button>\n      <Button href="/examples/blue-ltr/button/13-button-full" tag={Link}>\n        Internal link\n      </Button>\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -538,6 +538,14 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/16-button-slot-suffix',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Button } from 'flowbite-qwik'\nimport { IconArrowRightOutline } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex gap-2 items-center flex-wrap\">\n      <Button suffix={IconArrowRightOutline}>Choose plan</Button>\n    </div>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Button with custom tag',
+      description: 'You can use a custom tag for the Button component.',
+      url: '/examples/[theme-rtl]/button/17-button-with-custom-tag',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex gap-2 items-center flex-wrap">\n      <Button tag="div">I\'am a div</Button>\n      <Button tag="span">I\'am a span</Button>\n    </div>\n  )\n})',
       height: '200',
     },
   ],
@@ -861,7 +869,8 @@ export const examples: Record<string, Example[]> = {
     },
     {
       title: 'User avatar',
-      description: 'This example can be used to show a list of menu items and options when a user is logged into your application.',
+      description:
+        'You can use the `as` prop to set the trigger element to an image. The trigger passed as props should not be a button element as Dropdown use button element internally. This example can be used to show a list of menu items and options when a user is logged into your application.',
       url: '/examples/[theme-rtl]/dropdown/06-dropdown-user-avatar',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Dropdown } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex gap-5">\n      <Dropdown\n        as={\n          <img\n            class="w-8 h-8 rounded-full"\n            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"\n            alt="user photo"\n          />\n        }\n      >\n        <Dropdown.Item header>\n          <span class="block text-sm">Bonnie Green</span>\n          <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>\n        </Dropdown.Item>\n        <Dropdown.Item>Dashboard</Dropdown.Item>\n        <Dropdown.Item>Settings</Dropdown.Item>\n        <Dropdown.Item divider />\n        <Dropdown.Item>Sign out</Dropdown.Item>\n      </Dropdown>\n\n      <Dropdown\n        as={\n          <img\n            class="w-8 h-8 rounded-full"\n            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"\n            alt="user photo"\n          />\n        }\n      >\n        <Dropdown.Item header>\n          <span class="block text-sm">Bonnie Green</span>\n          <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>\n        </Dropdown.Item>\n        <Dropdown.Item>Dashboard</Dropdown.Item>\n        <Dropdown.Item>Settings</Dropdown.Item>\n        <Dropdown.Item divider />\n        <Dropdown.Item>Sign out</Dropdown.Item>\n      </Dropdown>\n\n      <Dropdown\n        as={\n          <img\n            class="w-8 h-8 rounded-full"\n            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"\n            alt="user photo"\n          />\n        }\n      >\n        <Dropdown.Item header>\n          <span class="block text-sm">Bonnie Green</span>\n          <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>\n        </Dropdown.Item>\n        <Dropdown.Item>Dashboard</Dropdown.Item>\n        <Dropdown.Item>Settings</Dropdown.Item>\n        <Dropdown.Item divider />\n        <Dropdown.Item>Sign out</Dropdown.Item>\n      </Dropdown>\n    </div>\n  )\n})',
