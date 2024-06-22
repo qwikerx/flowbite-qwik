@@ -1,15 +1,4 @@
-import { JSXNode, JSXOutput, PropsOf, Signal, Slot, component$ } from '@builder.io/qwik'
-
-type RenderTriggerProps = PropsOf<'button'> & {
-  ref: Signal<HTMLElement | undefined>
-  triggerEl: JSXOutput
-}
-
-export const RenderFloatingTrigger = component$<RenderTriggerProps>((props) => {
-  ;(props.triggerEl as JSXNode).props.ref = props.ref
-
-  return <>{props.triggerEl}</>
-})
+import { PropsOf, Signal, Slot, component$ } from '@builder.io/qwik'
 
 type RenderFloatingElementProps = PropsOf<'div'> & {
   ref: Signal<HTMLDivElement | undefined>

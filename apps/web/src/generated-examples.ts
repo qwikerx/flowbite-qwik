@@ -505,7 +505,7 @@ export const examples: Record<string, Example[]> = {
       description: 'You can add a link to a Button component.',
       url: '/examples/[theme-rtl]/button/12-button-as-link',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Link, StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex gap-2 flex-wrap">\n      <Button href="https://google.com" target="_blank">\n        Google.com\n      </Button>\n      <Button href="/pages/getting-started">Quickstart</Button>\n      <Button href="/" tag={Link}>\n        Internal link\n      </Button>\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Link, StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex gap-2 flex-wrap">\n      <Button href="https://google.com" target="_blank">\n        Google.com\n      </Button>\n      <Button href="/examples/blue-ltr/button/11-button-disabled">Quickstart</Button>\n      <Button href="/examples/blue-ltr/button/13-button-full" tag={Link}>\n        Internal link\n      </Button>\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -538,6 +538,14 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/16-button-slot-suffix',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Button } from 'flowbite-qwik'\nimport { IconArrowRightOutline } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex gap-2 items-center flex-wrap\">\n      <Button suffix={IconArrowRightOutline}>Choose plan</Button>\n    </div>\n  )\n})",
+      height: '200',
+    },
+    {
+      title: 'Button with custom tag',
+      description: 'You can use a custom tag for the Button component.',
+      url: '/examples/[theme-rtl]/button/17-button-with-custom-tag',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex gap-2 items-center flex-wrap">\n      <Button tag="div">I\'am a div</Button>\n      <Button tag="span">I\'am a span</Button>\n    </div>\n  )\n})',
       height: '200',
     },
   ],
@@ -861,7 +869,8 @@ export const examples: Record<string, Example[]> = {
     },
     {
       title: 'User avatar',
-      description: 'This example can be used to show a list of menu items and options when a user is logged into your application.',
+      description:
+        'You can use the `as` prop to set the trigger element to an image. The trigger passed as props should not be a button element as Dropdown use button element internally. This example can be used to show a list of menu items and options when a user is logged into your application.',
       url: '/examples/[theme-rtl]/dropdown/06-dropdown-user-avatar',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Dropdown } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex gap-5">\n      <Dropdown\n        as={\n          <img\n            class="w-8 h-8 rounded-full"\n            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"\n            alt="user photo"\n          />\n        }\n      >\n        <Dropdown.Item header>\n          <span class="block text-sm">Bonnie Green</span>\n          <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>\n        </Dropdown.Item>\n        <Dropdown.Item>Dashboard</Dropdown.Item>\n        <Dropdown.Item>Settings</Dropdown.Item>\n        <Dropdown.Item divider />\n        <Dropdown.Item>Sign out</Dropdown.Item>\n      </Dropdown>\n\n      <Dropdown\n        as={\n          <img\n            class="w-8 h-8 rounded-full"\n            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"\n            alt="user photo"\n          />\n        }\n      >\n        <Dropdown.Item header>\n          <span class="block text-sm">Bonnie Green</span>\n          <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>\n        </Dropdown.Item>\n        <Dropdown.Item>Dashboard</Dropdown.Item>\n        <Dropdown.Item>Settings</Dropdown.Item>\n        <Dropdown.Item divider />\n        <Dropdown.Item>Sign out</Dropdown.Item>\n      </Dropdown>\n\n      <Dropdown\n        as={\n          <img\n            class="w-8 h-8 rounded-full"\n            src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"\n            alt="user photo"\n          />\n        }\n      >\n        <Dropdown.Item header>\n          <span class="block text-sm">Bonnie Green</span>\n          <span class="block truncate text-sm font-medium">bonnie@flowbite.com</span>\n        </Dropdown.Item>\n        <Dropdown.Item>Dashboard</Dropdown.Item>\n        <Dropdown.Item>Settings</Dropdown.Item>\n        <Dropdown.Item divider />\n        <Dropdown.Item>Sign out</Dropdown.Item>\n      </Dropdown>\n    </div>\n  )\n})',
@@ -1810,7 +1819,7 @@ export const examples: Record<string, Example[]> = {
         'Wrap the trigger component with the <Tooltip> component and pass the tooltip content to the content prop of the <Tooltip> component.',
       url: '/examples/[theme-rtl]/tooltip/01-default',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center p-8">\n      <Tooltip style="dark" trigger={<Button>Hover me</Button>} content={<div>This is a tooltip</div>} />\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center p-8">\n      <Tooltip style="dark">\n        <Button q:slot="trigger">Hover me</Button>\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -1818,7 +1827,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use the style prop to change the style of the tooltip. The default style is light and you can also use dark.',
       url: '/examples/[theme-rtl]/tooltip/02-styles',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip style="dark" trigger={<Button>Dark tooltip</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip style="light" trigger={<Button>Light tooltip</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip style="auto" trigger={<Button>Auto tooltip</Button>} content={<div>This is a tooltip</div>} />\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip style="dark">\n        <Button q:slot="trigger">Dark tooltip</Button>\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n      <Tooltip style="light">\n        <Button q:slot="trigger">Light tooltip</Button>\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n      <Tooltip style="auto">\n        <Button q:slot="trigger">Auto tooltip</Button>\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -1827,7 +1836,7 @@ export const examples: Record<string, Example[]> = {
         'Update the placement of the tooltip using the placement prop. The default placement is top and you can also use right, bottom, and left.',
       url: '/examples/[theme-rtl]/tooltip/03-placement',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip placement="top" trigger={<Button>Tooltip top</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip placement="right" trigger={<Button>Tooltip right</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip placement="bottom" trigger={<Button>Tooltip bottom</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip placement="left" trigger={<Button>Tooltip left</Button>} content={<div>This is a tooltip</div>} />\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip placement="top">\n        <Button q:slot="trigger">Tooltip top</Button>\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n      <Tooltip placement="right">\n        <Button q:slot="trigger">Tooltip right</Button>\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n      <Tooltip placement="bottom">\n        <Button q:slot="trigger">Tooltip bottom</Button>\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n      <Tooltip placement="left">\n        <Button q:slot="trigger">Tooltip left</Button>\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -1836,7 +1845,7 @@ export const examples: Record<string, Example[]> = {
         'Use the trigger prop to change the trigger type of the tooltip if you want to show the tooltip when clicking on the trigger element instead of hovering over it.',
       url: '/examples/[theme-rtl]/tooltip/04-trigger',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip triggerStrategy="hover" trigger={<Button>Tooltip hover</Button>} content={<div>This is a tooltip</div>} />\n\n      <Tooltip triggerStrategy="click" trigger={<Button>Tooltip click</Button>} content={<div>This is a tooltip</div>} />\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Button, Tooltip } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex text-center justify-center gap-3 p-8">\n      <Tooltip trigger="hover">\n        <Button q:slot="trigger">Tooltip hover</Button>\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n      <Tooltip trigger="click">\n        <Button q:slot="trigger">Tooltip click</Button>\n        <div q:slot="content">This is a tooltip</div>\n      </Tooltip>\n    </div>\n  )\n})',
       height: '200',
     },
   ],

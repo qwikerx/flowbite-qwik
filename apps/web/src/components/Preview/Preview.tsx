@@ -34,8 +34,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
 
   const fileUrl = useComputed$(() => `${liveDir}${url}`)
   const iframeSrc = useComputed$(() => {
-    let src = url.replace('[theme-rtl]', `${themeName.value}-${rtl.value ? 'rtl' : 'ltr'}`)
-    src += '?example=true'
+    const src = url.replace('[theme-rtl]', `${themeName.value}-${rtl.value ? 'rtl' : 'ltr'}`)
     return src
   })
 
