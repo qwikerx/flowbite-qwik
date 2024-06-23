@@ -11,6 +11,7 @@ import {
   createElement,
   Fragment,
   Signal,
+  JSXNode,
 } from '@builder.io/qwik'
 import { getChild } from '~/utils/children-inspector'
 import { Button } from '~/components/Button/Button'
@@ -255,19 +256,14 @@ type InnerTriggerAsProps = {
   size: DropdownSize
   inline: boolean
   visible: boolean
-  triggerIsButton?: boolean
   title?: string
   ref: Signal<HTMLElement | undefined>
   trigger?: JSXOutput
 }
+
 type CompProps = Partial<PropsOf<'button'>>
 
-const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, trigger, ref, title, inline, visible }) => {
-  const { triggerInlineClasses } = useDropdownClasses(
-    useComputed$(() => size),
-    useComputed$(() => inline),
-  )
-
+const InnerTriggerAs = component$<InnerTriggerAsProps>(({ trigger, ref, title, visible }) => {
   const internalProps = useComputed$<CompProps>(() => {
     return {
       'aria-expanded': visible,
@@ -277,11 +273,24 @@ const InnerTriggerAs = component$<InnerTriggerAsProps>(({ size, trigger, ref, ti
     }
   })
 
-  return (
-    <button {...internalProps.value} class={trigger ? '' : triggerInlineClasses.value}>
-      {trigger}
-    </button>
-  )
+  const jsxNodeTrigger = trigger as JSXNode
+
+  const internalTrigger = useComputed$(() => {
+    const isButton =
+      jsxNodeTrigger.type === Button ? jsxNodeTrigger.props?.tag === 'button' || !jsxNodeTrigger.props?.tag : jsxNodeTrigger.type === 'button'
+
+    const type = isButton ? (jsxNodeTrigger.type as string) : 'button'
+    const triggerProps = jsxNodeTrigger.props || {}
+    const children = isButton ? jsxNodeTrigger.children : trigger
+
+    return createElement(type, {
+      ...internalProps.value,
+      ...triggerProps,
+      children,
+    })
+  })
+
+  return internalTrigger.value
 })
 
 /**

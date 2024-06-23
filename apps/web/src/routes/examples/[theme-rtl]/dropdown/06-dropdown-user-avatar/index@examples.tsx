@@ -1,6 +1,6 @@
 /**
  * title: User avatar
- * description:  You can use the `as` prop to set the trigger element to an image. The trigger passed as props should not be a button element as Dropdown use button element internally. This example can be used to show a list of menu items and options when a user is logged into your application.
+ * description:  You can use the `as` prop to set the trigger element to an image.
  */
 
 import { component$ } from '@builder.io/qwik'
