@@ -62,7 +62,7 @@ export default {
       },
     },
   },
-  content: ['node_modules/flowbite-qwik/**/*.{cjs,mjs}'],
+  content: ['node_modules/flowbite-qwik/**/*.{cjs,mjs}', './src/**/*.{html,js,jsx,ts,tsx,mdx}'],
   plugins: [flowbitePlugin],
 }
               `}
