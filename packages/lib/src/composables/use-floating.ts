@@ -22,15 +22,8 @@ export function useFloating(placement: Placement = 'top', trigger = 'hover', noA
     }[placement.split('-')[0]] as 'top' | 'right' | 'bottom' | 'left'
   })
 
-  const updateElementsAccessibilityAttributes = $((val: boolean) => {
-    if (!triggerRef.value?.getAttribute('aria-expanded')) return
-
-    triggerRef.value.setAttribute('aria-expanded', val.toString())
-  })
-
   const set$ = $((val: boolean) => {
     isVisible.value = val
-    updateElementsAccessibilityAttributes(val)
   })
 
   useVisibleTask$(({ track, cleanup }) => {

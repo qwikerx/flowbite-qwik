@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import type { ButtonDuotoneGradient, ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '../button-types'
 import { ClassList, Component, HTMLAttributeAnchorTarget, Signal, useComputed$ } from '@builder.io/qwik'
 import type { IconProps } from 'flowbite-qwik-icons'
@@ -249,27 +250,23 @@ export function useButtonClasses(props: UseButtonClassesProps) {
       }
     }
 
-    return twMerge(
-      [
-        backgroundClass,
-        hoverClass,
-        shadowClass,
-        props.pill.value && '!rounded-full',
-        props.disabled.value && 'cursor-not-allowed opacity-50',
-        isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
-        (props.prefix || props.suffix || props.loading.value) && 'inline-flex items-center',
-        props.class?.value,
-        props.target?.value,
-        props.full.value && 'w-full',
-        'justify-center',
-      ]
-        .filter((str) => str)
-        .join(' '),
-    )
+    return twMerge([
+      backgroundClass,
+      hoverClass,
+      shadowClass,
+      props.pill.value && '!rounded-full',
+      props.disabled.value && 'cursor-not-allowed opacity-50',
+      isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
+      (props.prefix || props.suffix || props.loading.value) && 'inline-flex items-center',
+      clsx(props.class?.value),
+      props.target?.value,
+      props.full.value && 'w-full',
+      'justify-center',
+    ])
   })
 
   const spanClasses = useComputed$(() => {
-    let classes = ''
+    let classes: string[] = []
     if (!!props.gradient?.value && props.outline.value) {
       // ONLY FOR GRADIENT OUTLINE BUTTON
       classes = [
@@ -277,15 +274,12 @@ export function useButtonClasses(props: UseButtonClassesProps) {
         sizeClasses.value,
         !props.disabled.value ? 'group-hover:bg-opacity-0 transition-all ease-in duration-75' : '',
       ]
-        .filter((str) => str)
-        .join(' ')
     }
 
     return twMerge(classes)
   })
 
   return {
-    sizeClasses,
     bindClasses,
     spanClasses,
   }

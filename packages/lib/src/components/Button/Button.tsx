@@ -84,7 +84,7 @@ export const Button = component$<ButtonProps>(
         href={href}
         target={href ? attrs.target : undefined}
         //@ts-expect-error does not exist on other elements
-        disabled={ButtonComponent === 'button' ? disabled : undefined}
+        disabled={!href && ButtonComponent === 'button' ? disabled : undefined}
         onClick$={attrs.onClick$}
         {...attrs}
       >

@@ -39,7 +39,7 @@ export default component$(() => {
           <Dropdown
             title="Switch Flowbite theme"
             as={
-              <Button square color="light" title="Switch Flowbite theme" tag="span">
+              <Button square color="light" title="Switch Flowbite theme">
                 <svg
                   class="w-4 h-4 text-gray-800 dark:text-white"
                   aria-hidden="true"
