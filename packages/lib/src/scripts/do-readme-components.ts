@@ -26,6 +26,7 @@ const componentsNaming: Record<string, { folder: string; img: string; doc: strin
   Jumbotron: { folder: 'components', img: 'jumbotron', doc: 'jumbotron' },
   Kbd: { folder: 'components', img: 'kbd', doc: 'kbd' },
   Link: { folder: 'typography', img: 'link', doc: 'link' },
+  List: { folder: 'typography', img: 'lists', doc: 'list' },
   ListGroup: { folder: 'components', img: 'list-group', doc: 'list-group' },
   Modal: { folder: 'components', img: 'modal', doc: 'modal' },
   Navbar: { folder: 'components', img: 'navbar', doc: 'navbar' },

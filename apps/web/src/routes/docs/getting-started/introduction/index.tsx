@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik'
 import { Link } from '@builder.io/qwik-city'
-import { Button, Heading } from 'flowbite-qwik'
+import { Button, Heading, Hr } from 'flowbite-qwik'
 import { DocumentPage } from '~/components/DocumentPage/DocumentPages'
 
 export default component$(() => {
@@ -14,7 +14,7 @@ export default component$(() => {
             based on Tailwind CSS
           </p>
         </div>
-        <hr />
+        <Hr />
         <div>
           <p>
             <Link target="_blank" rel="noreferrer" href="https://github.com/qwikerx/flowbite-qwik">

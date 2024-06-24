@@ -53,12 +53,15 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
     <>
       {previewItems.value ? (
         <div class="flex" ref={previewElements}>
-          <div class="mx-auto flex min-w-0 max-w-6xl flex-col xl:px-4">
+          <div class="mx-auto flex min-w-0 max-w-4xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
             <section class="flex flex-col gap-8">
               <Heading tag="h1" class="capitalize">
-                {name}
+                Qwik {name} - Flowbite
               </Heading>
-              <Slot name="description" />
+
+              <div class="text-gray-600 dark:text-gray-400 mb-4">
+                <Slot name="description" />
+              </div>
 
               {previewItems.value?.map((item, i) => (
                 <Preview

@@ -6,16 +6,14 @@
 
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
-import { Accordion, Heading, Link } from 'flowbite-qwik'
+import { Accordion, Link } from 'flowbite-qwik'
 import { staticGenerateHandler } from '~/routes/examples/[theme-rtl]/layout'
 
 export default component$(() => {
   return (
     <Accordion flush>
       <Accordion.Panel>
-        <Accordion.Header>
-          <Heading tag="h5">Accordion 1</Heading>
-        </Accordion.Header>
+        <Accordion.Header>Accordion 1</Accordion.Header>
         <Accordion.Content>
           <div>
             <p class="mb-2 text-gray-500 dark:text-gray-400">
@@ -30,9 +28,7 @@ export default component$(() => {
         </Accordion.Content>
       </Accordion.Panel>
       <Accordion.Panel>
-        <Accordion.Header>
-          <Heading tag="h5">Accordion 2</Heading>
-        </Accordion.Header>
+        <Accordion.Header>Accordion 2</Accordion.Header>
         <Accordion.Content>
           <div>
             <p class="mb-2 text-gray-500 dark:text-gray-400">
@@ -47,9 +43,7 @@ export default component$(() => {
         </Accordion.Content>
       </Accordion.Panel>
       <Accordion.Panel>
-        <Accordion.Header>
-          <Heading tag="h5">Accordion 3</Heading>
-        </Accordion.Header>
+        <Accordion.Header>Accordion 3</Accordion.Header>
         <Accordion.Content>
           <div>
             <p class="mb-2 text-gray-500 dark:text-gray-400">
