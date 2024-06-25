@@ -258,6 +258,11 @@ export default component$(() => {
     </tr>
     <tr>
       <td>
+        <a href="https://flowbite-qwik.com/docs/typography/list">
+          <img alt="Qwik List" src="https://flowbite.s3.amazonaws.com/github/lists.jpg" />
+        </a>
+      </td>
+      <td>
         <a href="https://flowbite-qwik.com/docs/components/list-group">
           <img alt="Qwik ListGroup" src="https://flowbite.s3.amazonaws.com/github/list-group.jpg" />
         </a>
@@ -267,13 +272,13 @@ export default component$(() => {
           <img alt="Qwik Modal" src="https://flowbite.s3.amazonaws.com/github/modal.jpg" />
         </a>
       </td>
+    </tr>
+    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/components/navbar">
           <img alt="Qwik Navbar" src="https://flowbite.s3.amazonaws.com/github/navbar.jpg" />
         </a>
       </td>
-    </tr>
-    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/components/pagination">
           <img alt="Qwik Pagination" src="https://flowbite.s3.amazonaws.com/github/pagination.jpg" />
@@ -284,13 +289,13 @@ export default component$(() => {
           <img alt="Qwik Radio" src="https://flowbite.s3.amazonaws.com/github/radio.jpg" />
         </a>
       </td>
+    </tr>
+    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/components/rating">
           <img alt="Qwik Rating" src="https://flowbite.s3.amazonaws.com/github/rating.jpg" />
         </a>
       </td>
-    </tr>
-    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/forms/select">
           <img alt="Qwik Select" src="https://flowbite.s3.amazonaws.com/github/select.jpg" />
@@ -301,13 +306,13 @@ export default component$(() => {
           <img alt="Qwik Sidebar" src="https://flowbite.s3.amazonaws.com/github/sidebar.jpg" />
         </a>
       </td>
+    </tr>
+    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/components/spinner">
           <img alt="Qwik Spinner" src="https://flowbite.s3.amazonaws.com/github/spinner.jpg" />
         </a>
       </td>
-    </tr>
-    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/components/table">
           <img alt="Qwik Table" src="https://flowbite.s3.amazonaws.com/github/tables.jpg" />
@@ -318,13 +323,13 @@ export default component$(() => {
           <img alt="Qwik Tabs" src="https://flowbite.s3.amazonaws.com/github/tabs.jpg" />
         </a>
       </td>
+    </tr>
+    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/forms/textarea">
           <img alt="Qwik Textarea" src="https://flowbite.s3.amazonaws.com/github/textarea.jpg" />
         </a>
       </td>
-    </tr>
-    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/components/toast">
           <img alt="Qwik ToastList" src="https://flowbite.s3.amazonaws.com/github/toast.jpg" />
@@ -335,11 +340,15 @@ export default component$(() => {
           <img alt="Qwik Toggle" src="https://flowbite.s3.amazonaws.com/github/toggle.jpg" />
         </a>
       </td>
+    </tr>
+    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/components/tooltip">
           <img alt="Qwik Tooltip" src="https://flowbite.s3.amazonaws.com/github/tooltips.jpg" />
         </a>
       </td>
+      <td></td>
+      <td></td>
     </tr>
   </table>
 </div>

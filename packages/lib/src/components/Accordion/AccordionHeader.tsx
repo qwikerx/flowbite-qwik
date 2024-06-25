@@ -15,7 +15,7 @@ export const AccordionHeader = component$<AccordionHeaderProps>(
     return (
       <div class={attrs.class}>
         <button type="button" class={headerClasses.value} onClick$={() => id && onClick$?.(id)}>
-          <span class="w-full">
+          <span>
             <Slot />
           </span>
 

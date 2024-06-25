@@ -1,7 +1,8 @@
 import { Signal, useComputed$ } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 
-const baseHeaderClasses = 'flex items-center p-5 w-full font-medium text-left rtl:text-right border border-gray-200 dark:border-gray-700'
+const baseHeaderClasses =
+  'flex items-center justify-between p-5 w-full font-medium text-left rtl:text-right border border-gray-200 dark:border-gray-700'
 const nonFlushHeaderClasses = 'hover:bg-gray-100 dark:hover:bg-gray-800 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800'
 const baseArrowClasses = 'w-4 h-4 shrink-0'
 
