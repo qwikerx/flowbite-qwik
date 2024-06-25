@@ -17,7 +17,7 @@ export default component$(() => {
 
   return (
     <FlowbiteProvider theme={themeAndRtl.value.theme} toastPosition={toastPosition.value}>
-      <div class="p-4" dir={themeAndRtl.value.rtl}>
+      <div dir={themeAndRtl.value.rtl}>
         <Slot />
       </div>
     </FlowbiteProvider>

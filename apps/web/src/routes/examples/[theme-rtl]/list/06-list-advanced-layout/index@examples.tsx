@@ -1,7 +1,7 @@
 /**
  * title: Advanced layout
  * description: This example can be used to show more details for each list item such as the user’s name, email and profile picture.
- * height: 500
+ * height: 400
  */
 
 import { component$ } from '@builder.io/qwik'

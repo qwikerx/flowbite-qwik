@@ -15,7 +15,7 @@ export default component$(() => {
         <img src="/small-logo.png" alt="Flowbite qwik logo" width="215" height="195" class="mr-3 h-6 sm:h-9 w-auto" />
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
       </Navbar.Brand>
-      <div class="flex md:order-2">
+      <div class="flex items-center md:order-2">
         <Dropdown
           as={
             <img

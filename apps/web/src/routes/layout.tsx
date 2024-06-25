@@ -11,7 +11,7 @@ export default component$(() => {
 
   return (
     <div>
-      <Navbar fluid rounded separator sticky id="header__navbar">
+      <Navbar fluid rounded separator sticky withSidebar id="header__navbar">
         <Navbar.Brand tag={Link} href="/">
           <img
             src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto,w_43,h_39/v1718461602/flowbite-qwik/q91266o4fonn7zg3jtpj.png"
@@ -69,7 +69,7 @@ export default component$(() => {
               </Dropdown.Item>
             ))}
           </Dropdown>
-          <Badge class="hidden md:block" size="sm" type="dark" content={'v' + pkg.version} />
+          <Badge class="hidden lg:block" size="sm" type="dark" content={'v' + pkg.version} />
 
           <Navbar.Toggle />
         </div>
