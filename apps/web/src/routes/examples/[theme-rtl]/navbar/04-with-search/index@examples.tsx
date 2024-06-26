@@ -18,8 +18,14 @@ export default component$(() => {
         <img src="/small-logo.png" alt="Flowbite qwik logo" width="215" height="195" class="mr-3 h-6 sm:h-9 w-auto" />
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
       </Navbar.Brand>
-      <div class="flex md:order-2">
-        <Input bind:value={searchValue} placeholder="Search ..." prefix={<IconSearchOutline class="w-5 h-5 text-gray-500 dark:text-gray-400" />} />
+      <div class="flex md:order-2 items-center">
+        <IconSearchOutline class="w-5 h-5 me-1 text-gray-500 dark:text-gray-400 md:hidden" />
+        <Input
+          bind:value={searchValue}
+          placeholder="Search ..."
+          class="hidden md:block"
+          prefix={<IconSearchOutline class="w-5 h-5 text-gray-500 dark:text-gray-400" />}
+        />
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>

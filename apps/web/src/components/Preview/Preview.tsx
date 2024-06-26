@@ -1,8 +1,7 @@
-import { PropsOf, component$, useComputed$, useSignal, useTask$, useStyles$ } from '@builder.io/qwik'
-import { isBrowser } from '@builder.io/qwik/build'
+import { component$, PropsOf, useComputed$, useSignal, useStyles$, useTask$ } from '@builder.io/qwik'
 import styles from './preview.css?inline'
 import { toSlug } from '~/utils/slug'
-import { Button, Spinner, useDark, useMediaQuery, useFlowbiteThemable, useToggle, Heading, Link } from 'flowbite-qwik'
+import { Button, Heading, Link, useDark, useFlowbiteThemable, useToggle } from 'flowbite-qwik'
 import { IconDesktopPcOutline, IconGithubSolid, IconMobilePhoneOutline, IconTabletOutline } from 'flowbite-qwik-icons'
 import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
 
@@ -24,9 +23,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
   const { isDark } = useDark()
   const { themeName, textClasses } = useFlowbiteThemable()
 
-  const desktopScreen = useMediaQuery('(min-width: 1024px)')
-  const tabletScreen = useMediaQuery('(min-width: 768px)')
-  const displaySize = useSignal<PreviewDisplaySize | undefined>()
+  const displaySize = useSignal<PreviewDisplaySize>('desktop')
 
   const { value: rtl, toggle$ } = useToggle()
 
@@ -34,22 +31,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
 
   const fileUrl = useComputed$(() => `${liveDir}${url}`)
   const iframeSrc = useComputed$(() => {
-    const src = url.replace('[theme-rtl]', `${themeName.value}-${rtl.value ? 'rtl' : 'ltr'}`)
-    return src
-  })
-
-  useTask$(({ track }) => {
-    track(() => desktopScreen.value)
-    track(() => tabletScreen.value)
-
-    if (desktopScreen.value === null && tabletScreen.value === null) return
-    displaySize.value = desktopScreen.value ? 'desktop' : tabletScreen.value ? 'tablet' : 'mobile'
-  })
-
-  useTask$(() => {
-    if (isBrowser) {
-      displaySize.value = desktopScreen.value ? 'desktop' : tabletScreen.value ? 'tablet' : 'mobile'
-    }
+    return url.replace('[theme-rtl]', `${themeName.value}-${rtl.value ? 'rtl' : 'ltr'}`)
   })
 
   useTask$(({ track }) => {
@@ -71,31 +53,31 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
       <div class="flex relative justify-between p-4 bg-gray-50 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
         <ul>
           <li>
-            <Button color="light" href={fileUrl.value} prefix={IconGithubSolid} size="sm">
+            <Button color="light" href={fileUrl.value} prefix={IconGithubSolid} size="sm" class="dark:text-gray-400">
               Edit on GitHub
             </Button>
           </li>
         </ul>
-        <ul class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:flex gap-3 justify-center">
+        <ul class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:flex gap-3 justify-center">
           <li>
-            <Button color="light" square onClick$={() => (displaySize.value = 'mobile')} title="Toggle mobile view">
+            <Button color="light" square onClick$={() => (displaySize.value = 'mobile')} title="Toggle mobile view" class="dark:text-gray-400">
               <IconMobilePhoneOutline />
             </Button>
           </li>
           <li>
-            <Button color="light" square onClick$={() => (displaySize.value = 'tablet')} title="Toggle tablet view">
+            <Button color="light" square onClick$={() => (displaySize.value = 'tablet')} title="Toggle tablet view" class="dark:text-gray-400">
               <IconTabletOutline />
             </Button>
           </li>
           <li>
-            <Button color="light" square onClick$={() => (displaySize.value = 'desktop')} title="Toggle desktop view">
+            <Button color="light" square onClick$={() => (displaySize.value = 'desktop')} title="Toggle desktop view" class="dark:text-gray-400">
               <IconDesktopPcOutline />
             </Button>
           </li>
         </ul>
         <ul>
           <li>
-            <Button color="light" square size="sm" onClick$={toggle$} title={`Toggle RTL mode`}>
+            <Button color="light" square size="sm" onClick$={toggle$} title={`Toggle RTL mode`} class="dark:text-gray-400">
               {rtl.value ? 'LTR' : 'RTL'}
             </Button>
           </li>
@@ -107,21 +89,14 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
       >
         <div
           class={[
-            'w-full mx-auto p-5',
+            'w-full mx-auto',
             {
-              'max-w-md': displaySize.value === 'mobile',
-              'max-w-screen-md': displaySize.value === 'tablet',
-              'max-w-screen-lg': displaySize.value === 'desktop',
+              'max-w-sm': displaySize.value === 'mobile',
+              'max-w-lg': displaySize.value === 'tablet',
             },
           ]}
         >
-          {displaySize.value ? (
-            <iframe loading="lazy" ref={iframe} src={iframeSrc.value} height={height} {...props} title={title} class={['w-full', classNames]} />
-          ) : (
-            <div class="flex justify-center w-full mx-auto items-center" style={{ height: `${height}px` }}>
-              {<Spinner size="6" />}
-            </div>
-          )}
+          <iframe loading="lazy" ref={iframe} src={iframeSrc.value} height={height} {...props} title={title} class={['w-full', classNames]} />
         </div>
       </div>
 
