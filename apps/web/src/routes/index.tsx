@@ -1,7 +1,8 @@
-import { component$ } from '@builder.io/qwik'
+import { component$, PrefetchServiceWorker } from '@builder.io/qwik'
 import { DocFooter } from '~/components/Footer/Footer'
 import { Button, Card, Heading, Jumbotron } from 'flowbite-qwik'
 import { IconArrowRightOutline } from 'flowbite-qwik-icons'
+import { NavbarPage } from '~/components/NavbarPage/NavbarPage'
 
 export default component$(() => {
   const boxes = [
@@ -24,35 +25,48 @@ export default component$(() => {
   ]
 
   return (
-    <div class="flex h-full flex-col">
-      <Jumbotron>
-        <Jumbotron.Heading tag="h1">
-          <span class="text-qwik">⚡ Flowbite Qwik </span> <span class="text-qwik-secondary">component library</span> based on Tailwind CSS
-        </Jumbotron.Heading>
-        <Jumbotron.SubText tag="h2">
-          Get started with the most popular open-source library of interactive UI components built with the utility classes from Tailwind CSS
-        </Jumbotron.SubText>
-        <div class="flex justify-center gap-2">
-          <Button href="/docs/getting-started/introduction" suffix={IconArrowRightOutline}>
-            Get started
-          </Button>
-          <Button color="alternative" href="https://github.com/qwikerx/flowbite-qwik">
-            View on GitHub
-          </Button>
-        </div>
-      </Jumbotron>
+    <div>
+      <NavbarPage withCollapse />
 
-      <section class="flex-1">
-        <div class="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-4">
-          {boxes.map((box) => (
-            <Card key={box.title}>
-              <Heading tag="h3">{box.title}</Heading>
-              <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{box.text}</p>
-            </Card>
-          ))}
+      <main>
+        <div class="flex h-full flex-col">
+          <Jumbotron>
+            <Jumbotron.Heading tag="h1">
+              <span class="text-qwik">⚡ Flowbite Qwik </span> <span class="text-qwik-secondary">component library</span> based on Tailwind CSS
+            </Jumbotron.Heading>
+            <Jumbotron.SubText tag="h2">
+              Get started with the most popular open-source library of interactive UI components built with the utility classes from Tailwind CSS
+            </Jumbotron.SubText>
+            <div class="flex justify-center gap-2">
+              <Button href="/docs/getting-started/introduction" suffix={IconArrowRightOutline}>
+                Get started
+              </Button>
+              <Button color="alternative" href="https://github.com/qwikerx/flowbite-qwik">
+                View on GitHub
+              </Button>
+            </div>
+          </Jumbotron>
+
+          <section class="flex-1">
+            <div class="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-4">
+              {boxes.map((box) => (
+                <Card key={box.title}>
+                  <Heading tag="h3">{box.title}</Heading>
+                  <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{box.text}</p>
+                </Card>
+              ))}
+            </div>
+          </section>
+          <DocFooter class="mt-16" />
         </div>
-      </section>
-      <DocFooter class="mt-16" />
+      </main>
+
+      {import.meta.env.PROD && (
+        <>
+          <PrefetchServiceWorker />
+          {/*<PrefetchGraph />*/}
+        </>
+      )}
     </div>
   )
 })
