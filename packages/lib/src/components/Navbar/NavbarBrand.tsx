@@ -9,7 +9,7 @@ type NavbarBrandProps = PropsOf<'a'> & {
 
 export const NavbarBrand = component$<NavbarBrandProps>(({ tag: Component = 'a', class: classNames, ...props }) => {
   return (
-    <Component class={twMerge('flex items-center', clsx(classNames))} {...props}>
+    <Component class={twMerge('flex items-center space-x-3 rtl:space-x-reverse', clsx(classNames))} {...props}>
       <Slot />
     </Component>
   )

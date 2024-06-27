@@ -4,6 +4,7 @@ import clsx from 'clsx'
 import { navbarContext } from '~/components/Navbar/composables/use-navbar-context'
 import { useSidebarOpen } from '~/components/Sidebar'
 import { IconChartBars3FromLeftSolid, IconCloseSolid } from 'flowbite-qwik-icons'
+import { Button } from '~/components/Button'
 
 type NavbarProps = PropsOf<'nav'> & {
   withSidebar?: boolean
@@ -13,6 +14,7 @@ type NavbarProps = PropsOf<'nav'> & {
   border?: boolean
   sticky?: boolean
   separator?: boolean
+  fullWidth?: boolean
 }
 
 export const Navbar = component$<NavbarProps>(
@@ -24,6 +26,7 @@ export const Navbar = component$<NavbarProps>(
     separator = false,
     menuOpen = false,
     rounded = false,
+    fullWidth = false,
     class: classNames,
     ...props
   }) => {
@@ -34,7 +37,7 @@ export const Navbar = component$<NavbarProps>(
       <>
         <nav
           class={twMerge(
-            'bg-white px-2 py-4 h-[4.5rem] md:h-16 dark:border-gray-700 dark:bg-gray-800 md:px-4 flex items-center',
+            'h-[4.5rem] border-gray-200 bg-white dark:bg-gray-900',
             border && 'border',
             rounded && 'rounded',
             sticky && 'fixed top-0 z-50 w-full',
@@ -43,20 +46,20 @@ export const Navbar = component$<NavbarProps>(
           )}
           {...props}
         >
-          <div class={twMerge('mx-auto flex flex-wrap items-center w-full justify-between', !fluid && 'container')}>
+          <div class={twMerge('mx-auto flex flex-wrap items-center justify-between p-4', !fluid && 'container', fullWidth ? '' : 'max-w-screen-xl')}>
             {withSidebar && (
-              <div class="lg:hidden">
-                <button
-                  onClick$={() => {
-                    setIsOpen(!isOpen.value)
-                  }}
-                  type="button"
-                  class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                >
-                  {isOpen.value ? <IconCloseSolid class="w-5 h-5" /> : <IconChartBars3FromLeftSolid class="w-5 h-5" />}
-                  <span class="sr-only">Open sidebar</span>
-                </button>
-              </div>
+              <Button
+                color="light"
+                square
+                noBorder
+                class="lg:hidden"
+                onClick$={() => {
+                  setIsOpen(!isOpen.value)
+                }}
+              >
+                {isOpen.value ? <IconCloseSolid class="h-5 w-5" /> : <IconChartBars3FromLeftSolid class="h-5 w-5" />}
+                <span class="sr-only">Open sidebar</span>
+              </Button>
             )}
 
             <Slot />

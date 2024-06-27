@@ -15,16 +15,16 @@ export default component$(() => {
   return (
     <Navbar fluid rounded>
       <Navbar.Brand tag={Link} href="https://flowbite-qwik.com/">
-        <img src="/small-logo.png" alt="Flowbite qwik logo" width="215" height="195" class="mr-3 h-6 sm:h-9 w-auto" />
+        <img src="/small-logo.png" alt="Flowbite qwik logo" width="215" height="195" class="h-8 w-auto" />
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
       </Navbar.Brand>
-      <div class="flex md:order-2 items-center">
-        <IconSearchOutline class="w-5 h-5 me-1 text-gray-500 dark:text-gray-400 md:hidden" />
+      <div class="flex items-center md:order-2">
+        <IconSearchOutline class="me-1 h-5 w-5 text-gray-500 dark:text-gray-400 md:hidden" />
         <Input
           bind:value={searchValue}
           placeholder="Search ..."
           class="hidden md:block"
-          prefix={<IconSearchOutline class="w-5 h-5 text-gray-500 dark:text-gray-400" />}
+          prefix={<IconSearchOutline class="h-5 w-5 text-gray-500 dark:text-gray-400" />}
         />
         <Navbar.Toggle />
       </div>
