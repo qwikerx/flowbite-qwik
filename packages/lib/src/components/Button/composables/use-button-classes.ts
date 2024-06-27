@@ -181,7 +181,6 @@ export type UseButtonClassesProps = {
   target?: Signal<HTMLAttributeAnchorTarget | undefined>
   prefix?: Signal<Component<IconProps> | undefined>
   suffix?: Signal<Component<IconProps> | undefined>
-  noBorder: Signal<boolean>
 }
 
 const simpleGradients = ['blue', 'green', 'cyan', 'teal', 'lime', 'red', 'pink', 'purple']
@@ -262,7 +261,6 @@ export function useButtonClasses(props: UseButtonClassesProps) {
       clsx(props.class?.value),
       props.target?.value,
       props.full.value && 'w-full',
-      props.noBorder.value && 'border-none',
       'justify-center',
     ])
   })

@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { navbarContext } from '~/components/Navbar/composables/use-navbar-context'
 import { useSidebarOpen } from '~/components/Sidebar'
 import { IconChartBars3FromLeftSolid, IconCloseSolid } from 'flowbite-qwik-icons'
-import { Button } from '~/components/Button'
+import { NavbarBurgerButton } from '~/components/Navbar/NavbarBurgerButton'
 
 type NavbarProps = PropsOf<'nav'> & {
   withSidebar?: boolean
@@ -48,10 +48,7 @@ export const Navbar = component$<NavbarProps>(
         >
           <div class={twMerge('mx-auto flex flex-wrap items-center justify-between p-4', !fluid && 'container', fullWidth ? '' : 'max-w-screen-xl')}>
             {withSidebar && (
-              <Button
-                color="light"
-                square
-                noBorder
+              <NavbarBurgerButton
                 class="lg:hidden"
                 onClick$={() => {
                   setIsOpen(!isOpen.value)
@@ -59,7 +56,7 @@ export const Navbar = component$<NavbarProps>(
               >
                 {isOpen.value ? <IconCloseSolid class="h-5 w-5" /> : <IconChartBars3FromLeftSolid class="h-5 w-5" />}
                 <span class="sr-only">Open sidebar</span>
-              </Button>
+              </NavbarBurgerButton>
             )}
 
             <Slot />
