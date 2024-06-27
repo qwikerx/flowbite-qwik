@@ -14,10 +14,11 @@ export default component$(() => {
     }
   })
   const toastPosition = useContext(toastPositionContext)
+  const isNavbarExamples = location.url.pathname.includes('navbar')
 
   return (
     <FlowbiteProvider theme={themeAndRtl.value.theme} toastPosition={toastPosition.value}>
-      <div dir={themeAndRtl.value.rtl}>
+      <div class={!isNavbarExamples && 'p-5'} dir={themeAndRtl.value.rtl}>
         <Slot />
       </div>
     </FlowbiteProvider>
