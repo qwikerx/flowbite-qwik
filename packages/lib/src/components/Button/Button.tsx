@@ -20,6 +20,7 @@ export type ButtonProps = PropsOf<'button'> &
     disabled?: boolean
     href?: string
     full?: boolean
+    noBorder?: boolean
     tag?: Component<LinkProps> | string
     prefix?: Component<IconProps>
     suffix?: Component<IconProps>
@@ -42,6 +43,7 @@ export const Button = component$<ButtonProps>(
     prefix: Prefix,
     suffix: Suffix,
     full = false,
+    noBorder = false,
     ...attrs
   }) => {
     const { bindClasses, spanClasses } = useButtonClasses({
@@ -59,6 +61,7 @@ export const Button = component$<ButtonProps>(
       class: useComputed$(() => attrs.class),
       target: useComputed$(() => attrs.target),
       full: useComputed$(() => full),
+      noBorder: useComputed$(() => noBorder),
     })
 
     const isOutlineGradient = useComputed$(() => outline && gradient)

@@ -24,7 +24,7 @@ export default component$(() => {
   ]
 
   return (
-    <div class="flex flex-col h-full">
+    <div class="flex h-full flex-col">
       <Jumbotron>
         <Jumbotron.Heading tag="h1">
           <span class="text-qwik">⚡ Flowbite Qwik </span> <span class="text-qwik-secondary">component library</span> based on Tailwind CSS
@@ -32,7 +32,7 @@ export default component$(() => {
         <Jumbotron.SubText tag="h2">
           Get started with the most popular open-source library of interactive UI components built with the utility classes from Tailwind CSS
         </Jumbotron.SubText>
-        <div class="flex gap-2 justify-center">
+        <div class="flex justify-center gap-2">
           <Button href="/docs/getting-started/introduction" suffix={IconArrowRightOutline}>
             Get started
           </Button>
@@ -43,9 +43,9 @@ export default component$(() => {
       </Jumbotron>
 
       <section class="flex-1">
-        <div class="grid p-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 mx-auto max-w-6xl">
+        <div class="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-6 p-6 md:grid-cols-2 lg:grid-cols-4">
           {boxes.map((box) => (
-            <Card>
+            <Card key={box.title}>
               <Heading tag="h3">{box.title}</Heading>
               <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">{box.text}</p>
             </Card>
