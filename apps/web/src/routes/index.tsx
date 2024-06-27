@@ -3,6 +3,10 @@ import { DocFooter } from '~/components/Footer/Footer'
 import { Button, Card, Heading, Jumbotron } from 'flowbite-qwik'
 import { IconArrowRightOutline } from 'flowbite-qwik-icons'
 import { NavbarPage } from '~/components/NavbarPage/NavbarPage'
+import { TailwindSection } from '~/components/homepage/TailwindSection/TailwindSection'
+import { SocialProofSection } from '~/components/homepage/SocialProofSection/SocialProofSection'
+import { FigmaSection } from '~/components/homepage/FigmaSection/FigmaSection'
+import { ContributorSection } from '~/components/homepage/ContributorSection/ContributorSection'
 
 export default component$(() => {
   const boxes = [
@@ -57,6 +61,12 @@ export default component$(() => {
               ))}
             </div>
           </section>
+
+          <TailwindSection />
+          <SocialProofSection />
+          <FigmaSection />
+          <ContributorSection />
+
           <DocFooter class="mt-16" />
         </div>
       </main>
