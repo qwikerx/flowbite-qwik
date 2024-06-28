@@ -8,6 +8,8 @@ export const TailwindSection = component$(() => {
         <div class="flex w-full flex-row self-stretch py-6 lg:gap-16 lg:py-10">
           <div class="hidden w-1/2 items-center lg:flex">
             <img
+              loading="lazy"
+              decoding="async"
               src="https://res.cloudinary.com/dkht4mwqi/image/upload/v1719500049/flowbite-qwik/tailwind.png"
               class="dark:hidden"
               alt="Tailwind CSS with Qwik code"
@@ -15,6 +17,8 @@ export const TailwindSection = component$(() => {
               height={496}
             />
             <img
+              loading="lazy"
+              decoding="async"
               src="https://res.cloudinary.com/dkht4mwqi/image/upload/v1719500027/flowbite-qwik/tailwind_dark.png"
               class="hidden dark:block"
               alt="Tailwind CSS with Qwik code (dark mode)"

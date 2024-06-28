@@ -5,17 +5,18 @@ import { IconCheckOutline, IconGithubSolid, IconLayersSolid, IconMoonOutline, Ic
 import pkg from 'flowbite-qwik/package.json'
 
 type NavbarPageProps = {
+  fullWidth?: boolean
   withSidebar?: boolean
   withCollapse?: boolean
 }
 
-export const NavbarPage = component$<NavbarPageProps>(({ withCollapse = false, withSidebar = false }) => {
+export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, withCollapse = false, withSidebar = false }) => {
   const { isDark, setDarkModeValue } = useDark()
   const location = useLocation()
   const { themeName, setThemeName } = useFlowbiteThemable()
 
   return (
-    <Navbar fluid fullWidth rounded separator withSidebar={withSidebar} sticky id="header__navbar">
+    <Navbar fluid fullWidth={fullWidth} rounded separator withSidebar={withSidebar} sticky id="header__navbar">
       <Navbar.Brand tag={Link} href="/">
         <img
           src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto,w_43,h_39/v1718461602/flowbite-qwik/q91266o4fonn7zg3jtpj.png"

@@ -259,7 +259,7 @@ export default component$(() => {
     <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/typography/list">
-          <img alt="Qwik List" src="https://flowbite.s3.amazonaws.com/github/lists.jpg" />
+          <img alt="Qwik List" src="https://flowbite.s3.amazonaws.com/github/list.jpg" />
         </a>
       </td>
       <td>

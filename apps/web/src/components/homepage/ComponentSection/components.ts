@@ -1,9 +1,4 @@
-import fs from 'fs'
-import prettier from 'prettier'
-
-const componentsToExclude = ['Floating', 'FlowbiteProvider', 'FlowbiteThemable']
-
-const componentsNaming: Record<string, { folder: string; img: string; doc: string }> = {
+export const componentsNaming: Record<string, { folder: string; img: string; doc: string }> = {
   Accordion: { folder: 'components', img: 'accordion', doc: 'accordion' },
   Alert: { folder: 'components', img: 'alerts', doc: 'alert' },
   Avatar: { folder: 'components', img: 'avatar', doc: 'avatar' },
@@ -42,58 +37,3 @@ const componentsNaming: Record<string, { folder: string; img: string; doc: strin
   Toggle: { folder: 'forms', img: 'toggle', doc: 'toggle' },
   Tooltip: { folder: 'components', img: 'tooltips', doc: 'tooltip' },
 }
-
-const regex = /<!-- @qwikerx start -->([\s\S]*?)<!-- @qwikerx end -->/
-
-export function generate() {
-  console.log('Generating components documentation...')
-
-  const readmeFile = fs.readFileSync('./README.md').toString()
-
-  const components = fs
-    .readdirSync('./src/components')
-    .filter((component) => !componentsToExclude.includes(component) && fs.lstatSync(`./src/components/${component}`).isDirectory())
-
-  function chunkArray(array: string[], chunkSize: number) {
-    const chunks = []
-    for (let i = 0; i < array.length; i += chunkSize) {
-      chunks.push(array.slice(i, i + chunkSize))
-    }
-    return chunks
-  }
-
-  const groupedComponents = chunkArray(components, 3)
-
-  const componentsTable = `
-    <table>
-      ${groupedComponents
-        .map(
-          (group) => `<tr>
-          ${group
-            .map(
-              (comp: string) => `<td>
-            <a href="https://flowbite-qwik.com/docs/${componentsNaming[comp].folder}/${componentsNaming[comp].doc}">
-              <img alt="Qwik ${comp}" src="https://flowbite.s3.amazonaws.com/github/${componentsNaming[comp].img}.jpg" />
-              </a>
-          </td>`,
-            )
-            .join('')}
-          ${group.length < 3 ? '<td></td>'.repeat(3 - group.length) : ''}
-        </tr>
-      `,
-        )
-        .join('')}
-    </table>
-    `
-
-  const componentsGrid = `
-  <div style="display:flex;">\n${componentsTable}\n</div>`
-
-  prettier.format(componentsGrid, { semi: false, singleQuote: true, trailingComma: 'all', printWidth: 150, parser: 'html' }).then((content) => {
-    const newReadmeFile = readmeFile.replace(regex, `<!-- @qwikerx start -->\n${content}\n<!-- @qwikerx end -->`)
-    fs.writeFileSync('./README.md', newReadmeFile)
-    fs.writeFileSync('../../README.md', newReadmeFile)
-  })
-}
-
-generate()

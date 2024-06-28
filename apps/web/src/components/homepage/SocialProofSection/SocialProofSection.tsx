@@ -8,6 +8,8 @@ const numberWithCommas = (x: string | number) => {
 export const SocialProofSection = component$(() => {
   const socialResource = useResource$(async () => {
     try {
+      if (!import.meta.env.PROD) return {}
+
       const [stargazers, npmDownloads, discordMembers] = await Promise.all([
         fetchSafe<{ stargazers_count: string }>('https://api.github.com/repos/qwikerx/flowbite-qwik'),
         fetchSafe<{ downloads: string }>('https://api.npmjs.org/downloads/point/2021-01-01:2100-01-01/flowbite-qwik'),
@@ -55,6 +57,8 @@ export const SocialProofSection = component$(() => {
                     </div>
                     <div class="flex flex-row items-center gap-3.5 self-stretch">
                       <img
+                        loading="lazy"
+                        decoding="async"
                         src="https://res.cloudinary.com/dkht4mwqi/image/upload/v1719501978/flowbite-qwik/eugene_fedorenko.jpg"
                         class="size-6 rounded-full bg-gray-100 text-gray-600 dark:bg-gray-600 dark:text-gray-300"
                         alt="Eugene Fedorenko Avatar"

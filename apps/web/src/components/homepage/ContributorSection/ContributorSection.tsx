@@ -13,6 +13,8 @@ interface Contributor {
 export const ContributorSection = component$(() => {
   const contributorResource = useResource$(async () => {
     try {
+      if (!import.meta.env.PROD) return { contributors: [] }
+
       const contributors = await fetchSafe<Contributor[]>('https://api.github.com/repos/qwikerx/flowbite-qwik/contributors?per_page=21')
 
       return {
@@ -35,7 +37,7 @@ export const ContributorSection = component$(() => {
                 <div class="flex max-w-2xl flex-col items-center justify-center gap-4">
                   <h2 class="text-center text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white lg:text-4xl">Community contributors</h2>
                   <p class="text-center text-lg font-normal">
-                    Join a community of open-source contributors by tuning in with the Flowbite React community and become one of the highlighted
+                    Join a community of open-source contributors by tuning in with the Flowbite Qwik community and become one of the highlighted
                     members
                   </p>
                 </div>
@@ -45,6 +47,8 @@ export const ContributorSection = component$(() => {
                       <Tooltip style="dark">
                         <Link q:slot="trigger" href={contributor.html_url} rel="nofollow noreferrer noopener" target="_blank">
                           <img
+                            loading="lazy"
+                            decoding="async"
                             src={contributor.avatar_url}
                             alt={`${contributor.login} avatar`}
                             class="size-10 rounded-full bg-gray-100 text-gray-600 dark:bg-gray-600 dark:text-gray-300 sm:size-12 lg:size-16"
