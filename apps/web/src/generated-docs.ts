@@ -33,6 +33,6 @@ export const allDocs = {
     'tooltip',
   ],
   forms: ['checkbox', 'input', 'radio', 'select', 'textarea', 'toggle'],
-  'getting-started': ['introduction', 'quickstart'],
+  'getting-started': ['introduction', 'license', 'quickstart'],
   typography: ['blockquote', 'heading', 'hr', 'link', 'list'],
 }

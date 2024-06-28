@@ -848,6 +848,14 @@ export const examples: Record<string, Example[]> = {
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <div className="grid w-full max-w-80 pt-8">\n      <div class="relative">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />\n\n        <Clipboard.WithIconText valueToCopy="npm install flowbite-react" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />\n      </div>\n    </div>\n  )\n})',
       height: '200',
     },
+    {
+      title: 'Custom Tooltip',
+      description: 'Use the props `tooltipCopyLabel` and `tooltipCopiedLabel` to customize the tooltip labels of the Clipboard component.',
+      url: '/examples/[theme-rtl]/clipboard/04-custom-tooltip',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <>\n      <div class="flex gap-3 pt-8 max-w-80">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="block w-full" />\n        <Clipboard\n          valueToCopy="npm install flowbite-react"\n          label="Copy"\n          class="h-full"\n          tooltipCopiedLabel="It\'s copied"\n          tooltipCopyLabel="Copy that"\n        />\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
   ],
   drawer: [
     {
