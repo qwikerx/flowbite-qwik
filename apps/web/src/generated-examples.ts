@@ -813,6 +813,34 @@ export const examples: Record<string, Example[]> = {
       height: '100',
     },
   ],
+  clipboard: [
+    {
+      title: 'Default copy to clipboard',
+      description: 'Use this example to copy the content of an input text field by clicking on a button and update the button text.',
+      url: '/examples/[theme-rtl]/clipboard/01-default',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <>\n      <div class="flex gap-3 pt-8 max-w-80">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="block w-full" />\n        <Clipboard valueToCopy="npm install flowbite-react" label="Copy" class="h-full" />\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Input with copy button',
+      description:
+        'This example can be used to copy the content of an input field by clicking on a button with an icon positioned inside the form element and also show a tooltip with a message when the text has been copied.',
+      url: '/examples/[theme-rtl]/clipboard/02-with-icon',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <div class="grid w-full max-w-64 pt-8">\n      <div class="relative">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />\n\n        <Clipboard.WithIcon valueToCopy="npm install flowbite-react" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />\n      </div>\n    </div>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'Copy button with text',
+      description:
+        'Use this example to show a copy button inside the input field with a text label and icon that updates to a success state when the text has been copied.',
+      url: '/examples/[theme-rtl]/clipboard/03-with-icon-text',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <div className="grid w-full max-w-80 pt-8">\n      <div class="relative">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />\n\n        <Clipboard.WithIconText valueToCopy="npm install flowbite-react" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />\n      </div>\n    </div>\n  )\n})',
+      height: '200',
+    },
+  ],
   drawer: [
     {
       title: 'Drawer',

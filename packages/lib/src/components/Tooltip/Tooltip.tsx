@@ -12,13 +12,13 @@ type TooltipProps = PropsOf<'div'> & {
   noArrow?: boolean
 }
 
-export const Tooltip = component$<TooltipProps>(({ placement = 'top', trigger = 'hover', style = 'auto', noArrow = false }) => {
+export const Tooltip = component$<TooltipProps>(({ placement = 'top', class: className, trigger = 'hover', style = 'auto', noArrow = false }) => {
   const isVisible = useSignal(false)
   const { floatingRef, arrowRef, triggerRef } = useFloating(placement, trigger, noArrow, isVisible)
 
   return (
     <>
-      <div ref={triggerRef}>
+      <div ref={triggerRef} class={className}>
         <Slot name="trigger" />
       </div>
 
@@ -27,7 +27,7 @@ export const Tooltip = component$<TooltipProps>(({ placement = 'top', trigger = 
         ref={floatingRef}
         isVisible={isVisible.value}
         class={[
-          'inline-block px-3 py-2 text-sm font-medium transition-opacity duration-300 rounded-lg shadow-sm',
+          'inline-block min-w-max rounded-lg px-3 py-2 text-sm font-medium shadow-sm transition-opacity duration-300',
           {
             'bg-gray-900 text-white dark:bg-gray-700': style === 'dark',
             'border border-gray-200 bg-white text-gray-900': style === 'light',

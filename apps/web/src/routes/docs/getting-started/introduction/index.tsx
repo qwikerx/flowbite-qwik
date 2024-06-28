@@ -20,17 +20,27 @@ export default component$(() => {
             <Link target="_blank" rel="noreferrer" href="https://github.com/qwikerx/flowbite-qwik">
               Flowbite Qwik
             </Link>{' '}
-            is a free and open-source UI component library based on the core{' '}
+            is a free and open-source UI component library based on the core Flowbite components and built with native Qwik components and
+            interactivity handling.
             <Link href="https://flowbite.com/" target="_blank" rel="noreferrer">
               Flowbite
             </Link>{' '}
             components and built with Qwik components and interactivity handling.
           </p>
+          <p>
+            This library features hundreds of interactive elements such as navbars, dropdowns, modals, and sidebars all handled by Svelte and based on
+            the utility classes from Tailwind CSS.
+          </p>
+          <Heading tag="h2">Getting started</Heading>
+          <p>
+            Learn how to get started with Flowbite Qwik by following the quickstart guide and start leveraging the interactive Qwik components coupled
+            with Flowbite and Tailwind CSS.
+          </p>
+          <Button tag={Link} href="/docs/getting-started/quickstart" size="lg">
+            Get started
+          </Button>
         </div>
       </DocumentPage>
-      <Button tag={Link} href="/docs/getting-started/quickstart" class="mt-8">
-        Quickstart
-      </Button>
     </>
   )
 })

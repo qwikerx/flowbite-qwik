@@ -14,6 +14,7 @@ export const allDocs = {
     'button-group',
     'card',
     'carousel',
+    'clipboard',
     'drawer',
     'dropdown',
     'footer',

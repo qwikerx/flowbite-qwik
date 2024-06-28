@@ -13,8 +13,9 @@ export const DocumentPage = component$(() => {
   const sections = useStore<Array<string>>([])
 
   useVisibleTask$(() => {
-    const sectionsTitles = document.querySelectorAll('h2')
-    sectionsTitles.forEach((sectionTitle) => {
+    const sectionsTitles = page.value?.querySelectorAll('h2')
+
+    sectionsTitles?.forEach((sectionTitle) => {
       const slug = toSlug(sectionTitle.textContent || '')
       sections.push(sectionTitle.textContent || '')
       sectionTitle.setAttribute('id', slug)

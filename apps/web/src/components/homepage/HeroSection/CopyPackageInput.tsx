@@ -1,34 +1,18 @@
-import { Input, Tooltip } from 'flowbite-qwik'
-import { $, component$, useSignal } from '@builder.io/qwik'
-import { IconClipboardCheckSolid } from 'flowbite-qwik-icons'
+import { Input, Clipboard } from 'flowbite-qwik'
+import { component$, useSignal } from '@builder.io/qwik'
 
 type CopyPackageInputProps = {
   value: string
 }
 
 export const CopyPackageInput = component$<CopyPackageInputProps>(({ value }) => {
-  const copy = useSignal('')
-  const justCopied = useSignal(false)
-
-  const copyToClipboard = $(() => {
-    justCopied.value = true
-    navigator.clipboard.writeText(value)
-    setTimeout(() => (justCopied.value = false), 2000)
-  })
+  const inputValue = useSignal('')
 
   return (
-    <Tooltip style="dark">
-      <Input
-        bind:value={copy}
-        q:slot="trigger"
-        onClick$={copyToClipboard}
-        placeholder={value}
-        readOnly
-        suffix={<IconClipboardCheckSolid />}
-        size="md"
-      />
+    <div class="w-full relative">
+      <Input placeholder={value} bind:value={inputValue} disabled readOnly class="w-full" />
 
-      <div q:slot="content">{justCopied.value ? 'Copied!' : 'Copy to clipboard'}</div>
-    </Tooltip>
+      <Clipboard.WithIcon valueToCopy={value} class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />
+    </div>
   )
 })

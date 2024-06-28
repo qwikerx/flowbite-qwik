@@ -11,6 +11,7 @@ export const componentsNaming: Record<string, { folder: string; img: string; doc
   Card: { folder: 'components', img: 'cards', doc: 'card' },
   Carousel: { folder: 'components', img: 'carousel', doc: 'carousel' },
   Checkbox: { folder: 'forms', img: 'checkbox', doc: 'checkbox' },
+  Clipboard: { folder: 'components', img: 'clipboard', doc: 'clipboard' },
   Drawer: { folder: 'components', img: 'drawer', doc: 'drawer' },
   Dropdown: { folder: 'components', img: 'dropdown', doc: 'dropdown' },
   Footer: { folder: 'components', img: 'footer', doc: 'footer' },
