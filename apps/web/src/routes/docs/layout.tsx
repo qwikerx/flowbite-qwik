@@ -9,7 +9,7 @@ import { NavbarPage } from '~/components/NavbarPage/NavbarPage'
 export default component$(() => {
   return (
     <div>
-      <NavbarPage withSidebar />
+      <NavbarPage fullWidth withSidebar />
 
       <main>
         <Sidebar withNavbar>
@@ -47,7 +47,7 @@ export default component$(() => {
 
         <div class="lg:ml-64">
           <Slot />
-          <DocFooter />
+          <DocFooter class="bg-white dark:bg-gray-900" />
         </div>
       </main>
 

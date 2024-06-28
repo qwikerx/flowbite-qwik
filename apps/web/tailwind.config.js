@@ -23,6 +23,9 @@ export default {
           secondary: '#AC7EF4',
         },
       },
+      maxWidth: {
+        '8xl': '90rem',
+      },
     },
   },
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', 'node_modules/flowbite-qwik/**/*.{cjs,mjs}'],

@@ -10,7 +10,7 @@ export const FigmaSection = component$(() => {
               <h2 class="text-3xl font-extrabold leading-none text-gray-900 dark:text-white lg:text-4xl">Design with Figma</h2>
               <p class="text-lg">
                 Get started with the most popular and definitive design system built in Figma and used by thousands of designers and agencies that is
-                compatible across multiple frameworks in the Flowbite ecosystem including React, Vue, Svelte, and Flowbite.
+                compatible across multiple frameworks in the Flowbite ecosystem including Qwik, Vue, Svelte, and Qwik.
               </p>
             </div>
             <div class="flex flex-col items-center gap-4">
@@ -159,6 +159,8 @@ export const FigmaSection = component$(() => {
           <div class="hidden h-full flex-col items-center justify-center lg:flex">
             <div class="relative rounded-xl dark:hidden">
               <img
+                loading="lazy"
+                decoding="async"
                 src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1719502440/flowbite-qwik/flowbite-figma.webp"
                 class="w-full"
                 alt="Flowbite Figma Design System mockup"
@@ -168,6 +170,8 @@ export const FigmaSection = component$(() => {
             </div>
             <div class="relative hidden dark:block">
               <img
+                loading="lazy"
+                decoding="async"
                 src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1719502440/flowbite-qwik/flowbite-figma-dark.webp"
                 class="w-full rounded-xl"
                 alt="Flowbite Figma Design System mockup (dark mode)"
