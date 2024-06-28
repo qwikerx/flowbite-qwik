@@ -686,8 +686,8 @@ export const examples: Record<string, Example[]> = {
       height: '600',
     },
     {
-      title: 'Custom theme card',
-      description: 'Use the theme prop to customize styles of the component',
+      title: 'Custom theme',
+      description: 'Use the theme prop to customize styles of the component : root/image/content',
       url: '/examples/[theme-rtl]/card/11-card-custom-theme',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Card, Heading } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Card\n      class="max-w-sm"\n      imgAlt="Meaningful alt text for an image that is not purely decorative"\n      imgSrc="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/mqvec5i4xq0lmxr7yh4k.jpg"\n      theme={{ root: \'bg-red-100 dark:bg-orange-800\', image: \'opacity-30 dark:opacity-80\', content: \'p-2\' }}\n    >\n      <Heading tag="h4">Noteworthy technology acquisitions 2021</Heading>\n      <p class="font-normal text-gray-700 dark:text-gray-400">\n        Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.\n      </p>\n    </Card>\n  )\n})',
@@ -827,7 +827,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use this example to copy the content of an input text field by clicking on a button and update the button text.',
       url: '/examples/[theme-rtl]/clipboard/01-default',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <>\n      <div class="flex gap-3 pt-8 max-w-80">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="block w-full" />\n        <Clipboard valueToCopy="npm install flowbite-react" label="Copy" class="h-full" />\n      </div>\n    </>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <>\n      <div class="flex max-w-80 gap-3 pt-8">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="block w-full" />\n        <Clipboard valueToCopy="npm install flowbite-qwik" label="Copy" class="h-full" />\n      </div>\n    </>\n  )\n})',
       height: '200',
     },
     {
@@ -836,7 +836,7 @@ export const examples: Record<string, Example[]> = {
         'This example can be used to copy the content of an input field by clicking on a button with an icon positioned inside the form element and also show a tooltip with a message when the text has been copied.',
       url: '/examples/[theme-rtl]/clipboard/02-with-icon',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <div class="grid w-full max-w-64 pt-8">\n      <div class="relative">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />\n\n        <Clipboard.WithIcon valueToCopy="npm install flowbite-react" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />\n      </div>\n    </div>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <div class="grid w-full max-w-64 pt-8">\n      <div class="relative">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />\n\n        <Clipboard.WithIcon valueToCopy="npm install flowbite-qwik" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />\n      </div>\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -845,7 +845,7 @@ export const examples: Record<string, Example[]> = {
         'Use this example to show a copy button inside the input field with a text label and icon that updates to a success state when the text has been copied.',
       url: '/examples/[theme-rtl]/clipboard/03-with-icon-text',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <div className="grid w-full max-w-80 pt-8">\n      <div class="relative">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />\n\n        <Clipboard.WithIconText valueToCopy="npm install flowbite-react" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />\n      </div>\n    </div>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <div class="grid w-full max-w-80 pt-8">\n      <div class="relative">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />\n\n        <Clipboard.WithIconText valueToCopy="npm install flowbite-qwik" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />\n      </div>\n    </div>\n  )\n})',
       height: '200',
     },
     {
@@ -853,7 +853,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use the props `tooltipCopyLabel` and `tooltipCopiedLabel` to customize the tooltip labels of the Clipboard component.',
       url: '/examples/[theme-rtl]/clipboard/04-custom-tooltip',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <>\n      <div class="flex gap-3 pt-8 max-w-80">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="block w-full" />\n        <Clipboard\n          valueToCopy="npm install flowbite-react"\n          label="Copy"\n          class="h-full"\n          tooltipCopiedLabel="It\'s copied"\n          tooltipCopyLabel="Copy that"\n        />\n      </div>\n    </>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <>\n      <div class="flex max-w-80 gap-3 pt-8">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="block w-full" />\n        <Clipboard\n          valueToCopy="npm install flowbite-qwik"\n          label="Copy"\n          class="h-full"\n          tooltipCopiedLabel="It\'s copied"\n          tooltipCopyLabel="Copy that"\n        />\n      </div>\n    </>\n  )\n})',
       height: '200',
     },
   ],
@@ -1539,6 +1539,61 @@ export const examples: Record<string, Example[]> = {
       content:
         "import { component$, useSignal, Slot } from '@builder.io/qwik'\nimport { Pagination, PaginationButtonProps } from 'flowbite-qwik'\nimport { twMerge } from 'tailwind-merge'\n\nconst CustomButton = component$<PaginationButtonProps>(({ active, ...props }) => {\n  return (\n    <button\n      type=\"button\"\n      class={twMerge(\n        'h-10 w-12 border border-gray-300 bg-white py-2 leading-tight text-gray-500 enabled:hover:bg-gray-100 enabled:hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 enabled:dark:hover:bg-gray-700 enabled:dark:hover:text-white',\n        active &&\n          'bg-orange-500 text-white hover:bg-orange-600 hover:text-white dark:bg-orange-500 dark:text-white dark:hover:bg-orange-600 dark:hover:text-white',\n      )}\n      {...props}\n    >\n      <Slot />\n    </button>\n  )\n})\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class=\"flex gap-3 p-3 text-center\">\n        <Pagination totalPages={100} currentPage={currentPage} paginationButton={CustomButton} />\n      </div>\n    </>\n  )\n})",
       height: '200',
+    },
+  ],
+  'progress-bar': [
+    {
+      title: 'Default progress bar',
+      description:
+        'Use this example to show a progress bar where you can set the progress rate using the progress prop from Qwik which should be a number from 1 to 100.',
+      url: '/examples/[theme-rtl]/progress-bar/01-default-progress-bar',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { ProgressBar } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return <ProgressBar progress={45} />\n})",
+      height: '100',
+    },
+    {
+      title: 'Progress bar with labels',
+      description:
+        'Use this example to show a progress bar with a label. You can set the label text using the textLabel prop and the progress text using the labelText prop.',
+      url: '/examples/[theme-rtl]/progress-bar/02-progress-bar-with-label',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { ProgressBar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return <ProgressBar progress={50} textLabel="Flowbite" size="lg" labelProgress labelText />\n})',
+      height: '100',
+    },
+    {
+      title: 'Label positioning',
+      description:
+        'This example shows how you can position the label text inside the progress bar by using the Qwik props called progressLabelPosition and textLabelPosition on the <ProgressBar> component in Qwik.',
+      url: '/examples/[theme-rtl]/progress-bar/03-progress-bar-label-positioning',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { ProgressBar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <ProgressBar progress={45} progressLabelPosition="inside" textLabel="Flowbite" textLabelPosition="outside" size="lg" labelProgress labelText />\n  )\n})',
+      height: '100',
+    },
+    {
+      title: 'Sizing',
+      description:
+        'The size prop from Qwik can be used on the <ProgressBar> component to set the size of the progress bar. You can choose from sm, md, lg and xl.',
+      url: '/examples/[theme-rtl]/progress-bar/04-progress-bar-sizing',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { ProgressBar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-col gap-2">\n      <div class="text-base font-medium dark:text-white">Small</div>\n      <ProgressBar progress={45} size="sm" color="dark" />\n      <div class="text-base font-medium dark:text-white">Default</div>\n      <ProgressBar progress={45} size="md" color="dark" />\n      <div class="text-lg font-medium dark:text-white">Large</div>\n      <ProgressBar progress={45} size="lg" color="dark" />\n      <div class="text-lg font-medium dark:text-white">Extra Large</div>\n      <ProgressBar progress={45} size="xl" color="dark" />\n    </div>\n  )\n})',
+      height: '300',
+    },
+    {
+      title: 'Colors',
+      description:
+        'Set your own custom colors for the progress bar component by using the color prop from React and the utility classes from Tailwind CSS.',
+      url: '/examples/[theme-rtl]/progress-bar/05-progress-bar-colors',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { ProgressBar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-col gap-2">\n      <div class="text-base font-medium">Dark</div>\n      <ProgressBar progress={45} color="dark" />\n      <div class="text-base font-medium text-blue-700">Blue</div>\n      <ProgressBar progress={45} color="blue" />\n      <div class="text-base font-medium text-red-700">Red</div>\n      <ProgressBar progress={45} color="red" />\n      <div class="text-base font-medium text-green-700">Green</div>\n      <ProgressBar progress={45} color="green" />\n      <div class="text-base font-medium text-yellow-700">Yellow</div>\n      <ProgressBar progress={45} color="yellow" />\n      <div class="text-base font-medium text-indigo-700">Indigo</div>\n      <ProgressBar progress={45} color="indigo" />\n      <div class="text-base font-medium text-purple-700">Purple</div>\n      <ProgressBar progress={45} color="purple" />\n      <div class="text-base font-medium text-cyan-700">Cyan</div>\n      <ProgressBar progress={45} color="cyan" />\n      <div class="text-base font-medium text-gray-700">Gray</div>\n      <ProgressBar progress={45} color="gray" />\n      <div class="text-base font-medium text-lime-700">Lime</div>\n      <ProgressBar progress={45} color="lime" />\n      <div class="text-base font-medium text-pink-700">Pink</div>\n      <ProgressBar progress={45} color="pink" />\n      <div class="text-base font-medium text-teal-700">Teal</div>\n      <ProgressBar progress={45} color="teal" />\n    </div>\n  )\n})',
+      height: '650',
+    },
+    {
+      title: 'Custom theme',
+      description: 'Use the theme prop to customize styles of the component : root/bar/label',
+      url: '/examples/[theme-rtl]/progress-bar/06-progress-bar-custom-theme',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { ProgressBar } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return <ProgressBar progress={50} textLabel=\"Flowbite\" size=\"lg\" labelProgress labelText theme={{ root: 'p-4', bar: 'italic rounded-none' }} />\n})",
+      height: '150',
     },
   ],
   radio: [

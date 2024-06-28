@@ -1,6 +1,6 @@
 /**
- * title: Custom theme card
- * description: Use the theme prop to customize styles of the component
+ * title: Custom theme
+ * description: Use the theme prop to customize styles of the component : root/image/content
  * height: 600
  */
 

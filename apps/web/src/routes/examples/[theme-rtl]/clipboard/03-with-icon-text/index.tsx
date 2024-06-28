@@ -12,11 +12,11 @@ import { Clipboard, Input } from 'flowbite-qwik'
 export default component$(() => {
   const inputValue = useSignal('')
   return (
-    <div className="grid w-full max-w-80 pt-8">
+    <div class="grid w-full max-w-80 pt-8">
       <div class="relative">
         <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />
 
-        <Clipboard.WithIconText valueToCopy="npm install flowbite-react" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />
+        <Clipboard.WithIconText valueToCopy="npm install flowbite-qwik" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />
       </div>
     </div>
   )

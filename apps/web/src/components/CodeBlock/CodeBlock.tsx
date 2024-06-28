@@ -8,7 +8,12 @@ import styles from './code-block.css?inline'
 import { Button, useToggle } from 'flowbite-qwik'
 import { IconCopySolid } from 'flowbite-qwik-icons'
 
-type CodeBlockProps = { content: string; language: string; expandable?: boolean }
+type CodeBlockProps = {
+  content: string
+  language: string
+  expandable?: boolean
+  minimalist?: boolean
+}
 
 async function highlight(content: string, language: string) {
   // Escape angle brackets using HTML character entities
@@ -24,7 +29,7 @@ async function highlight(content: string, language: string) {
   return String(file)
 }
 
-export const CodeBlock = component$<CodeBlockProps>(({ content, language, expandable = true }) => {
+export const CodeBlock = component$<CodeBlockProps>(({ content, language, expandable = true, minimalist = false }) => {
   useStyles$(styles)
   const { value: isCollapsed, toggle$ } = useToggle(true)
 
@@ -44,34 +49,36 @@ export const CodeBlock = component$<CodeBlockProps>(({ content, language, expand
   })
 
   return (
-    <div class="border-gray-200 border-y border-x dark:border-gray-600 rounded-b-lg">
-      <div class="flex text-sm font-medium text-center justify-between text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-700 border-gray-200 dark:border-gray-600 border-b">
-        <div class="inline-block p-2 px-3 text-gray-800 bg-gray-100 border-r border-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600">
-          {language}
+    <div class={['border-x border-y border-gray-200 dark:border-gray-600', !minimalist && 'rounded-b-lg']}>
+      {!minimalist && (
+        <div class="flex justify-between border-b border-gray-200 bg-gray-50 text-center text-sm font-medium text-gray-500 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400">
+          <div class="inline-block border-r border-gray-200 bg-gray-100 p-2 px-3 text-gray-800 dark:border-gray-600 dark:bg-gray-800 dark:text-white">
+            {language}
+          </div>
+          <div class="flex justify-end">
+            <Button
+              onClick$={copy$}
+              color="light"
+              size="xs"
+              class="rounded-l-none rounded-r-none border-b-0 border-r-0 border-t-0"
+              prefix={IconCopySolid}
+              title="Copy to clipboard"
+            >
+              {copyLabel}
+            </Button>
+          </div>
         </div>
-        <div class="flex justify-end">
-          <Button
-            onClick$={copy$}
-            color="light"
-            size="xs"
-            class="rounded-r-none border-t-0 border-r-0 border-b-0 rounded-l-none"
-            prefix={IconCopySolid}
-            title="Copy to clipboard"
-          >
-            {copyLabel}
-          </Button>
-        </div>
-      </div>
+      )}
       <pre
         dangerouslySetInnerHTML={highlightedContent.value}
-        class={['p-4 overflow-auto', isCollapsed.value && expandable ? 'max-h-48' : 'max-h-none']}
+        class={['overflow-auto', !minimalist && 'p-4', isCollapsed.value && expandable ? 'max-h-48' : 'max-h-none']}
       />
-      {expandable && (
+      {expandable && !minimalist && (
         <Button
           color="light"
           size="md"
           full
-          class="rounded-t-none border-t text-gray-800 bg-gray-100 border-gray-200 dark:text-white dark:bg-gray-800 dark:border-gray-600"
+          class="rounded-t-none border-t border-gray-200 bg-gray-100 text-gray-800 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
           onClick$={toggle$}
         >
           {isCollapsed.value ? 'Expand code' : 'Collapse code'}
