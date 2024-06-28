@@ -73,8 +73,12 @@ export default {
           <p>
             To use it, wrap the root component with the <em>FlowbiteProvider</em>, and specify the wanted toast position and theme.
           </p>
-          <p>Actual available colors theme are : 'blue', 'green', 'red', 'pink' and 'purple'</p>
-          <p>Available toast positions are : 'top-right', 'top-left', 'bottom-right', 'bottom-left'</p>
+          <p>
+            Actual available colors theme are : <em>blue</em>, <em>green</em>, <em>red</em>, <em>pink</em> and <em>purple</em>
+          </p>
+          <p>
+            Available toast positions are : <em>top-right</em>, <em>top-left</em>, <em>bottom-right</em>, <em>bottom-left</em>
+          </p>
           <p>
             If you use dark theme, also add <em>FlowbiteProviderHeader</em> into your head element
           </p>

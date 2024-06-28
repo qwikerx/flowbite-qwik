@@ -31,5 +31,5 @@
 }
 
 .doc-page em {
-  @apply italic text-gray-700 dark:text-gray-300;
+  @apply text-blue-700 dark:text-blue-300 not-italic;
 }
