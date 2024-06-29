@@ -66,7 +66,6 @@ export function generate() {
   }
 
   const groupedComponents = chunkArray(components, 3)
-  console.log({ groupedComponents })
 
   const componentsTable = `
     <table>
@@ -74,14 +73,14 @@ export function generate() {
         .map(
           (group) => `<tr>
           ${group
-            .map((comp: string) => {
-              console.log({ comp })
-              return `<td>
+            .map(
+              (comp: string) =>
+                `<td>
             <a href="https://flowbite-qwik.com/docs/${componentsNaming[comp].folder}/${componentsNaming[comp].doc}">
               <img alt="Qwik ${comp}" src="https://flowbite.s3.amazonaws.com/github/${componentsNaming[comp].img}.jpg" />
               </a>
-          </td>`
-            })
+          </td>`,
+            )
             .join('')}
           ${group.length < 3 ? '<td></td>'.repeat(3 - group.length) : ''}
         </tr>
