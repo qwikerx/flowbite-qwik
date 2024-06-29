@@ -14,28 +14,35 @@ export default component$(() => {
       <main>
         <Sidebar withNavbar>
           <Sidebar.ItemGroup>
-            <Sidebar.Collapse label="Getting Started" opened>
+            <Sidebar.Collapse label={'Getting Started'.toUpperCase()} opened class="text-sm tracking-wide">
               {allDocs['getting-started'].map((component) => (
                 <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/getting-started/${component}`}>
                   {component}
                 </Sidebar.Item>
               ))}
             </Sidebar.Collapse>
-            <Sidebar.Collapse label={`Components (${allDocs.components.length})`} opened>
+            <Sidebar.Collapse label={'Customize'.toUpperCase()} class="text-sm tracking-wide">
+              {allDocs['customize'].map((component) => (
+                <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/customize/${component}`}>
+                  {component}
+                </Sidebar.Item>
+              ))}
+            </Sidebar.Collapse>
+            <Sidebar.Collapse label={`Components (${allDocs.components.length})`.toUpperCase()} opened class="text-sm tracking-wide">
               {allDocs.components.map((component) => (
                 <Sidebar.Item key={component} tag={NavLink} href={`/docs/components/${component}`}>
                   {toPascalCase(component)}
                 </Sidebar.Item>
               ))}
             </Sidebar.Collapse>
-            <Sidebar.Collapse label={`Forms (${allDocs.forms.length})`}>
+            <Sidebar.Collapse label={`Forms (${allDocs.forms.length})`.toUpperCase()} class="text-sm tracking-wide">
               {allDocs.forms.map((component) => (
                 <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/forms/${component}`}>
                   {component}
                 </Sidebar.Item>
               ))}
             </Sidebar.Collapse>
-            <Sidebar.Collapse label={`Typography (${allDocs.typography.length})`}>
+            <Sidebar.Collapse label={`Typography (${allDocs.typography.length})`.toUpperCase()} class="text-sm tracking-wide">
               {allDocs.typography.map((component) => (
                 <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/typography/${component}`}>
                   {component}

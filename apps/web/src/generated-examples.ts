@@ -1900,6 +1900,25 @@ export const examples: Record<string, Example[]> = {
       height: '200',
     },
   ],
+  timeline: [
+    {
+      title: 'Default timeline',
+      description:
+        'Use the <Timeline> Qwik component and the child components to create a list of items inside the timeline component featuring the date, title, description and even a button.',
+      url: '/examples/[theme-rtl]/timeline/01-default-timeline',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Button, Timeline } from 'flowbite-qwik'\nimport { IconArrowRightOutline } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <Timeline>\n      <Timeline.Item>\n        <Timeline.Point />\n        <Timeline.Content>\n          <Timeline.Time>February 2022</Timeline.Time>\n          <Timeline.Title>Application UI code in Tailwind CSS</Timeline.Title>\n          <Timeline.Body>\n            Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.\n          </Timeline.Body>\n          <Button color=\"light\" suffix={IconArrowRightOutline}>\n            Learn More\n          </Button>\n        </Timeline.Content>\n      </Timeline.Item>\n      <Timeline.Item>\n        <Timeline.Point />\n        <Timeline.Content>\n          <Timeline.Time>March 2022</Timeline.Time>\n          <Timeline.Title>Marketing UI design in Figma</Timeline.Title>\n          <Timeline.Body>\n            All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.\n          </Timeline.Body>\n        </Timeline.Content>\n      </Timeline.Item>\n      <Timeline.Item>\n        <Timeline.Point />\n        <Timeline.Content>\n          <Timeline.Time>April 2022</Timeline.Time>\n          <Timeline.Title>E-Commerce UI code in Tailwind CSS</Timeline.Title>\n          <Timeline.Body>Get started with dozens of web components and interactive elements built on top of Tailwind CSS.</Timeline.Body>\n        </Timeline.Content>\n      </Timeline.Item>\n    </Timeline>\n  )\n})",
+      height: '500',
+    },
+    {
+      title: 'Horizontal timeline',
+      description: 'Use the horizontal prop to show the timeline component and the child components in a horizontal alignment.',
+      url: '/examples/[theme-rtl]/timeline/02-timeline-horizontal',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { Button, Timeline } from 'flowbite-qwik'\nimport { IconArrowRightSolid, IconCalendarMonthOutline } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <Timeline horizontal>\n      <Timeline.Item>\n        <Timeline.Point icon={IconCalendarMonthOutline} />\n        <Timeline.Content>\n          <Timeline.Time>February 2022</Timeline.Time>\n          <Timeline.Title>Application UI code in Tailwind CSS</Timeline.Title>\n          <Timeline.Body>\n            Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.\n          </Timeline.Body>\n          <Button color=\"light\" suffix={IconArrowRightSolid}>\n            Learn More\n          </Button>\n        </Timeline.Content>\n      </Timeline.Item>\n      <Timeline.Item>\n        <Timeline.Point icon={IconCalendarMonthOutline} />\n        <Timeline.Content>\n          <Timeline.Time>March 2022</Timeline.Time>\n          <Timeline.Title>Marketing UI design in Figma</Timeline.Title>\n          <Timeline.Body>\n            All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.\n          </Timeline.Body>\n        </Timeline.Content>\n      </Timeline.Item>\n      <Timeline.Item>\n        <Timeline.Point icon={IconCalendarMonthOutline} />\n        <Timeline.Content>\n          <Timeline.Time>April 2022</Timeline.Time>\n          <Timeline.Title>E-Commerce UI code in Tailwind CSS</Timeline.Title>\n          <Timeline.Body>Get started with dozens of web components and interactive elements built on top of Tailwind CSS.</Timeline.Body>\n        </Timeline.Content>\n      </Timeline.Item>\n    </Timeline>\n  )\n})",
+      height: '500',
+    },
+  ],
   toast: [
     {
       title: 'Props type',

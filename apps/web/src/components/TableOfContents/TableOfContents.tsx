@@ -17,8 +17,8 @@ export const TableOfContents = component$<TableOfContentsProps>((props) => {
   })
 
   return (
-    <div class="fixed top-18 flex flex-col pb-10 h-full overflow-y-auto">
-      <Heading tag="h5" class="my-3 pl-2.5">
+    <div class="fixed flex h-full flex-col overflow-y-auto pb-10">
+      <Heading tag="h4" class="my-3 pl-2.5 text-sm uppercase tracking-wide">
         On this page
       </Heading>
       <nav id="visible-table-of-contents">
@@ -27,8 +27,8 @@ export const TableOfContents = component$<TableOfContentsProps>((props) => {
             <li key={content.label} class="pt-4">
               <a
                 class={[
-                  "hover:after:content-['#'] after:ml-2 pl-3 text-gray-700 dark:text-gray-400 inline-block border-l-2 border-white dark:border-[#111827] transition-none duration-75 hover:border-gray-200 dark:hover:border-gray-400 hover:text-black dark:hover:text-white",
-                  { "after:content-['#'] !border-gray-200 dark:border-gray-400 text-black dark:text-white": content.active },
+                  "inline-block border-l-2 border-white pl-3 text-gray-700 transition-none duration-75 after:ml-2 hover:border-gray-200 hover:text-black hover:after:content-['#'] dark:border-[#111827] dark:text-gray-400 dark:hover:border-gray-400 dark:hover:text-white",
+                  { "!border-gray-200 text-black after:content-['#'] dark:border-gray-400 dark:text-white": content.active },
                 ]}
                 href={content.href}
               >

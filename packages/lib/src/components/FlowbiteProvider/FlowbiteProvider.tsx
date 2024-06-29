@@ -2,7 +2,7 @@ import { Slot, component$, useContextProvider, useSignal, useStore } from '@buil
 import { toastContext } from '../ToastList/composables/use-toast'
 import { ToastList } from '../ToastList/ToastList'
 import { ToastPosition } from '~/components/ToastList'
-import { darkModeContext } from '~/composables/use-dark'
+import { darkModeContext } from '~/composables/use-dark-mode'
 import { FlowbiteTheme } from '~/components/FlowbiteThemable'
 import { FlowbiteThemable } from '../FlowbiteThemable/FlowbiteThemable'
 import { sidebarContext } from '~/components/Sidebar'

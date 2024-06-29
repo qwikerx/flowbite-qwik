@@ -33,11 +33,11 @@ export const InnerSidebarItem = component$<SidebarItemProps>(
         href={href}
         {...attrs}
         class={[
-          'flex w-full items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group',
+          'group flex w-full items-center rounded-lg p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700',
           classNames,
           isCollapse ? 'pl-11' : '',
         ]}
-        // @ts-expect-error
+        // @ts-expect-error fine
         activeClass="bg-gray-200 dark:bg-gray-600"
         onClick$={() => {
           if (href) setIsOpen(false)
@@ -45,7 +45,7 @@ export const InnerSidebarItem = component$<SidebarItemProps>(
         }}
       >
         {!!Icon && !isCollapse && (
-          <Icon class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+          <Icon class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
         )}
         <span class={['flex-1 whitespace-nowrap text-left', Icon ? 'ml-3' : '']}>
           <Slot />

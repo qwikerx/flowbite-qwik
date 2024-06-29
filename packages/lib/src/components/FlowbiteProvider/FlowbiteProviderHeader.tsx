@@ -1,4 +1,4 @@
-import { DARK_MODE_LOCAL_STORAGE_KEY } from '~/composables/use-dark'
+import { DARK_MODE_LOCAL_STORAGE_KEY } from '~/composables/use-dark-mode'
 
 export const FlowbiteProviderHeader = () => {
   const themeScript = `

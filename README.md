@@ -343,6 +343,11 @@ export default component$(() => {
     </tr>
     <tr>
       <td>
+        <a href="https://flowbite-qwik.com/docs/components/timeline">
+          <img alt="Qwik Timeline" src="https://flowbite.s3.amazonaws.com/github/timeline.jpg" />
+        </a>
+      </td>
+      <td>
         <a href="https://flowbite-qwik.com/docs/components/toast">
           <img alt="Qwik ToastList" src="https://flowbite.s3.amazonaws.com/github/toast.jpg" />
         </a>
@@ -352,11 +357,15 @@ export default component$(() => {
           <img alt="Qwik Toggle" src="https://flowbite.s3.amazonaws.com/github/toggle.jpg" />
         </a>
       </td>
+    </tr>
+    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/components/tooltip">
           <img alt="Qwik Tooltip" src="https://flowbite.s3.amazonaws.com/github/tooltips.jpg" />
         </a>
       </td>
+      <td></td>
+      <td></td>
     </tr>
   </table>
 </div>
@@ -366,7 +375,7 @@ export default component$(() => {
 ## Composables / hooks
 
 - useToasts
-- useDark
+- useDarkMode
 - useDebounce
 - useMediaQuery
 - useOuterClick

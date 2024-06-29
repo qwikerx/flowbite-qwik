@@ -1,7 +1,7 @@
 import fs from 'fs'
 import prettier from 'prettier'
 
-const componentsToExclude = ['Floating', 'FlowbiteProvider', 'FlowbiteThemable']
+const componentsToExclude = ['DarkModeToggle', 'Floating', 'FlowbiteProvider', 'FlowbiteThemable']
 
 const componentsNaming: Record<string, { folder: string; img: string; doc: string }> = {
   Accordion: { folder: 'components', img: 'accordion', doc: 'accordion' },
@@ -40,6 +40,7 @@ const componentsNaming: Record<string, { folder: string; img: string; doc: strin
   Table: { folder: 'components', img: 'tables', doc: 'table' },
   Tabs: { folder: 'components', img: 'tabs', doc: 'tabs' },
   Textarea: { folder: 'forms', img: 'textarea', doc: 'textarea' },
+  Timeline: { folder: 'components', img: 'timeline', doc: 'timeline' },
   ToastList: { folder: 'components', img: 'toast', doc: 'toast' },
   Toggle: { folder: 'forms', img: 'toggle', doc: 'toggle' },
   Tooltip: { folder: 'components', img: 'tooltips', doc: 'tooltip' },
@@ -73,7 +74,8 @@ export function generate() {
           (group) => `<tr>
           ${group
             .map(
-              (comp: string) => `<td>
+              (comp: string) =>
+                `<td>
             <a href="https://flowbite-qwik.com/docs/${componentsNaming[comp].folder}/${componentsNaming[comp].doc}">
               <img alt="Qwik ${comp}" src="https://flowbite.s3.amazonaws.com/github/${componentsNaming[comp].img}.jpg" />
               </a>

@@ -35,6 +35,7 @@ export const componentsNaming: Record<string, { folder: string; img: string; doc
   Table: { folder: 'components', img: 'tables', doc: 'table' },
   Tabs: { folder: 'components', img: 'tabs', doc: 'tabs' },
   Textarea: { folder: 'forms', img: 'textarea', doc: 'textarea' },
+  Timeline: { folder: 'components', img: 'timeline', doc: 'timeline' },
   ToastList: { folder: 'components', img: 'toast', doc: 'toast' },
   Toggle: { folder: 'forms', img: 'toggle', doc: 'toggle' },
   Tooltip: { folder: 'components', img: 'tooltips', doc: 'tooltip' },
