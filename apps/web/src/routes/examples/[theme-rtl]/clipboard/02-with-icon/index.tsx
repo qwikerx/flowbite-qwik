@@ -16,7 +16,7 @@ export default component$(() => {
       <div class="relative">
         <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />
 
-        <Clipboard.WithIcon valueToCopy="npm install flowbite-react" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />
+        <Clipboard.WithIcon valueToCopy="npm install flowbite-qwik" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />
       </div>
     </div>
   )

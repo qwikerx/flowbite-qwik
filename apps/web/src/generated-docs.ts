@@ -24,6 +24,7 @@ export const allDocs = {
     'modal',
     'navbar',
     'pagination',
+    'progress-bar',
     'rating',
     'sidebar',
     'spinner',

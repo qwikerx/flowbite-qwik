@@ -26,6 +26,7 @@ export const componentsNaming: Record<string, { folder: string; img: string; doc
   Modal: { folder: 'components', img: 'modal', doc: 'modal' },
   Navbar: { folder: 'components', img: 'navbar', doc: 'navbar' },
   Pagination: { folder: 'components', img: 'pagination', doc: 'pagination' },
+  ProgressBar: { folder: 'components', img: 'progress', doc: 'progress-bar' },
   Radio: { folder: 'forms', img: 'radio', doc: 'radio' },
   Rating: { folder: 'components', img: 'rating', doc: 'rating' },
   Select: { folder: 'forms', img: 'select', doc: 'select' },
