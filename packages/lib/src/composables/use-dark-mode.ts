@@ -9,7 +9,7 @@ type darkModeTheme = 'light' | 'dark' | undefined
 
 export const darkModeContext = createContextId<Signal<darkModeTheme>>(DARK_MODE_CONTEXT)
 
-export function useDark() {
+export function useDarkMode() {
   const darkModeTheme = useContext(darkModeContext)
 
   const isPreferredDark = useMediaQuery('(prefers-color-scheme: dark)')

@@ -112,7 +112,7 @@ export default {
             language="tsx"
             expandable={false}
             content={`
-const { isDark, setDarkModeValue } = useDark()
+const { isDark, setDarkModeValue } = useDarkMode()
 
 <Button
   square

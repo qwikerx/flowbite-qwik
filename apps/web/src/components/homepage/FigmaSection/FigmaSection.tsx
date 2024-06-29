@@ -3,14 +3,14 @@ import { component$ } from '@builder.io/qwik'
 export const FigmaSection = component$(() => {
   return (
     <section class="bg-gray-50 dark:bg-gray-800">
-      <div class="max-w-8xl mx-auto px-4 py-8 lg:px-20 lg:py-24">
-        <div class="max-w-8xl mx-auto grid grid-cols-1 items-start justify-between gap-24 py-1 lg:grid-cols-2">
+      <div class="mx-auto max-w-8xl px-4 py-8 lg:px-20 lg:py-24">
+        <div class="mx-auto grid max-w-8xl grid-cols-1 items-start justify-between gap-24 py-1 lg:grid-cols-2">
           <div class="flex flex-col gap-8">
             <div class="flex w-full flex-col items-start justify-center gap-6">
               <h2 class="text-3xl font-extrabold leading-none text-gray-900 dark:text-white lg:text-4xl">Design with Figma</h2>
               <p class="text-lg">
                 Get started with the most popular and definitive design system built in Figma and used by thousands of designers and agencies that is
-                compatible across multiple frameworks in the Flowbite ecosystem including Qwik, Vue, Svelte, and Qwik.
+                compatible across multiple frameworks in the Flowbite ecosystem including React, Vue, Svelte, and Qwik.
               </p>
             </div>
             <div class="flex flex-col items-center gap-4">

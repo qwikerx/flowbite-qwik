@@ -1,9 +1,9 @@
 import { component$ } from '@builder.io/qwik'
-import { Button, useDark } from 'flowbite-qwik'
+import { Button, useDarkMode } from 'flowbite-qwik'
 import { IconMoonSolid, IconSunSolid } from 'flowbite-qwik-icons'
 
 export const DarkModeSwitcher = component$(() => {
-  const { isDark, setDarkModeValue } = useDark()
+  const { isDark, setDarkModeValue } = useDarkMode()
 
   return (
     <div class="flex flex-row gap-8 text-cyan-500">

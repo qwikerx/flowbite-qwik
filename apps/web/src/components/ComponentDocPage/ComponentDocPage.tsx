@@ -59,7 +59,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
                 Qwik {name} - Flowbite
               </Heading>
 
-              <div class="text-gray-600 dark:text-gray-400 mb-4">
+              <div class="mb-4 text-gray-600 dark:text-gray-400">
                 <Slot name="description" />
               </div>
 
@@ -77,7 +77,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
             </section>
           </div>
 
-          <div class="right-0 hidden w-64 flex-none pl-8 xl:block xl:text-sm">
+          <div class="right-0 hidden w-64 flex-none pl-8 pt-2 xl:block xl:text-sm">
             <TableOfContents items={tableOfContentItems.value} activeElement={activeElement.value} />
           </div>
         </div>

@@ -37,7 +37,7 @@ export const Navbar = component$<NavbarProps>(
       <>
         <nav
           class={twMerge(
-            'h-[4.5rem] border-gray-200 bg-white dark:bg-gray-900',
+            'h-16 border-gray-200 bg-white md:h-16 dark:bg-gray-900',
             border && 'border',
             rounded && 'rounded',
             sticky && 'fixed top-0 z-50 w-full',
@@ -62,7 +62,7 @@ export const Navbar = component$<NavbarProps>(
             <Slot />
           </div>
         </nav>
-        {sticky && <div class="h-[4.5rem] md:h-16" />}
+        {sticky && <div class="h-16" />}
       </>
     )
   },

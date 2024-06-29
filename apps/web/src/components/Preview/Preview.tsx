@@ -1,7 +1,7 @@
 import { component$, PropsOf, useComputed$, useSignal, useStyles$, useTask$ } from '@builder.io/qwik'
 import styles from './preview.css?inline'
 import { toSlug } from '~/utils/slug'
-import { Button, Heading, Link, useDark, useFlowbiteThemable, useToggle } from 'flowbite-qwik'
+import { Button, Heading, Link, useDarkMode, useFlowbiteThemable, useToggle } from 'flowbite-qwik'
 import { IconDesktopPcOutline, IconGithubSolid, IconMobilePhoneOutline, IconTabletOutline } from 'flowbite-qwik-icons'
 import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
 
@@ -20,7 +20,7 @@ const liveDir = 'https://github.com/qwikerx/flowbite-qwik/tree/main/apps/web/src
 export const Preview = component$<PreviewProps>(({ url, class: classNames, height = 200, title, codeContent, ...props }) => {
   useStyles$(styles)
 
-  const { isDark } = useDark()
+  const { isDark } = useDarkMode()
   const { themeName, textClasses } = useFlowbiteThemable()
 
   const displaySize = useSignal<PreviewDisplaySize>('desktop')
@@ -43,14 +43,14 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
 
   return (
     <div>
-      <Heading tag="h2" class="group scroll-mt-20 mb-3" id={toSlug(title)}>
+      <Heading tag="h2" class="group mb-3 scroll-mt-20" id={toSlug(title)}>
         {title}
-        <Link class={['group-hover:inline hidden pl-2', textClasses.value]} href={`#${toSlug(title)}`}>
+        <Link class={['hidden pl-2 group-hover:inline', textClasses.value]} href={`#${toSlug(title)}`}>
           #
         </Link>
       </Heading>
-      {props.description && <p class="text-gray-600 dark:text-gray-400 mb-4">{props.description}</p>}
-      <div class="flex relative justify-between p-4 bg-gray-50 w-full border border-gray-200 rounded-t-xl dark:border-gray-600 dark:bg-gray-700">
+      {props.description && <p class="mb-4 text-gray-600 dark:text-gray-400">{props.description}</p>}
+      <div class="relative flex w-full justify-between rounded-t-xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700">
         <ul>
           <li>
             <Button color="light" href={fileUrl.value} prefix={IconGithubSolid} size="sm" class="dark:text-gray-400">
@@ -58,7 +58,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
             </Button>
           </li>
         </ul>
-        <ul class="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:flex gap-3 justify-center">
+        <ul class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 justify-center gap-3 md:flex">
           <li>
             <Button color="light" square onClick$={() => (displaySize.value = 'mobile')} title="Toggle mobile view" class="dark:text-gray-400">
               <IconMobilePhoneOutline />
@@ -85,11 +85,11 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
       </div>
       <div
         data-el="preview__viewer"
-        class="flex p-0 bg-white border-gray-200 bg-gradient-to-r code-preview dark:bg-gray-900 border-x dark:border-gray-600"
+        class="code-preview flex border-x border-gray-200 bg-white bg-gradient-to-r p-0 dark:border-gray-600 dark:bg-gray-900"
       >
         <div
           class={[
-            'w-full mx-auto',
+            'mx-auto w-full',
             {
               'max-w-sm': displaySize.value === 'mobile',
               'max-w-lg': displaySize.value === 'tablet',

@@ -1,6 +1,6 @@
 import { component$ } from '@builder.io/qwik'
 import { Link, useLocation } from '@builder.io/qwik-city'
-import { Badge, Button, Dropdown, FlowbiteTheme, Navbar, useDark, useFlowbiteThemable } from 'flowbite-qwik'
+import { Badge, Button, Dropdown, FlowbiteTheme, Navbar, useDarkMode, useFlowbiteThemable } from 'flowbite-qwik'
 import { IconCheckOutline, IconGithubSolid, IconLayersSolid, IconMoonOutline, IconSunOutline } from 'flowbite-qwik-icons'
 import pkg from 'flowbite-qwik/package.json'
 
@@ -11,7 +11,7 @@ type NavbarPageProps = {
 }
 
 export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, withCollapse = false, withSidebar = false }) => {
-  const { isDark, setDarkModeValue } = useDark()
+  const { isDark, setDarkModeValue } = useDarkMode()
   const location = useLocation()
   const { themeName, setThemeName } = useFlowbiteThemable()
 

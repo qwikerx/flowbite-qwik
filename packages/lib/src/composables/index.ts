@@ -1,4 +1,4 @@
-export { useDark } from './use-dark'
+export { useDarkMode } from './use-dark-mode'
 export { useDebounce } from './use-debounce'
 export { useMediaQuery } from './use-media-query'
 export { useDocumentOuterClick, useComponentOuterClick } from './use-outer-click'
