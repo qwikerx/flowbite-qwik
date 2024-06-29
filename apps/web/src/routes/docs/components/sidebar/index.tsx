@@ -1,12 +1,27 @@
 import { component$ } from '@builder.io/qwik'
 import { ComponentDocPage } from '~/components/ComponentDocPage/ComponentDocPage'
+import { Hr } from 'flowbite-qwik'
+import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
 
 export default component$(() => {
   return (
     <ComponentDocPage name="sidebar">
       <div q:slot="description">
-        The sidebar component can be used as a complementary element relative to the navbar shown on either the left or right side of the page used
-        for the navigation on your web application, including menu items, multi-level menu items, call to actions elements, and more.
+        <p>
+          Use the sidebar component to show a list of menu items including multi-level dropdown menu on the left or right side of your page for admin
+          dashboards and applications
+        </p>
+        <Hr />
+        <p>
+          The sidebar component is an UI component that you can use for the navigation mechanism in your website or application that you would
+          position to the left or right side of your page.
+        </p>
+        <p>
+          A sidebar can include content such as menu list items, dropdown, user profile information, CTA buttons, and more - you can use the custom
+          props from Qwik to customize the options and the utility classes from Tailwind CSS to update the styles.
+        </p>
+        <p>To start using the sidebar component make sure you import it from flowbite-qwik :</p>
+        <CodeBlock minimalist content='import { Sidebar } from "flowbite-qwik"' language="tsx" />
       </div>
     </ComponentDocPage>
   )

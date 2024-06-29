@@ -1,8 +1,10 @@
-import { Signal, useComputed$ } from '@builder.io/qwik'
+import { useComputed$ } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
-import { DropdownSize } from '~/components/Dropdown/dropdown-types'
+import { useDropdownContext } from '~/components/Dropdown/composables/use-dropdown-context'
 
-export function useDropdownClasses(size: Signal<DropdownSize>, inline: Signal<boolean>) {
+export function useDropdownClasses() {
+  const { size, inline } = useDropdownContext()
+
   const dropdownModalClasses = useComputed$(() => {
     return twMerge(
       'min-w-max inline-block w-full rounded shadow focus:outline-none border border-gray-200 bg-white text-gray-900 dark:border-none dark:bg-gray-700 dark:text-white',
