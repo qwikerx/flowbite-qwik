@@ -58,10 +58,10 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
             </Button>
           </li>
         </ul>
-        <ul class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 justify-center gap-3 md:flex">
+        <ul class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 justify-center gap-3 lg:flex">
           <li>
-            <Button color="light" square onClick$={() => (displaySize.value = 'mobile')} title="Toggle mobile view" class="dark:text-gray-400">
-              <IconMobilePhoneOutline />
+            <Button color="light" square onClick$={() => (displaySize.value = 'desktop')} title="Toggle desktop view" class="dark:text-gray-400">
+              <IconDesktopPcOutline />
             </Button>
           </li>
           <li>
@@ -70,8 +70,8 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
             </Button>
           </li>
           <li>
-            <Button color="light" square onClick$={() => (displaySize.value = 'desktop')} title="Toggle desktop view" class="dark:text-gray-400">
-              <IconDesktopPcOutline />
+            <Button color="light" square onClick$={() => (displaySize.value = 'mobile')} title="Toggle mobile view" class="dark:text-gray-400">
+              <IconMobilePhoneOutline />
             </Button>
           </li>
         </ul>
@@ -92,8 +92,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
             'mx-auto w-full',
             {
               'max-w-sm': displaySize.value === 'mobile',
-              'max-w-screen-md': displaySize.value === 'tablet',
-              'min-w-screen-lg': displaySize.value === 'desktop',
+              'max-w-lg': displaySize.value === 'tablet',
             },
           ]}
         >

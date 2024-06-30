@@ -49,7 +49,7 @@ export const Navbar = component$<NavbarProps>(
           <div class={twMerge('mx-auto flex flex-wrap items-center justify-between p-4', !fluid && 'container', fullWidth ? '' : 'max-w-screen-xl')}>
             {withSidebar && (
               <NavbarBurgerButton
-                class="lg:hidden"
+                class="sm:hidden"
                 onClick$={() => {
                   setIsOpen(!isOpen.value)
                 }}

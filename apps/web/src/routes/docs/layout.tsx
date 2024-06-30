@@ -52,7 +52,7 @@ export default component$(() => {
           </Sidebar.ItemGroup>
         </Sidebar>
 
-        <div class="lg:ml-64">
+        <div class="sm:ml-64">
           <Slot />
           <DocFooter class="bg-white dark:bg-gray-900" />
         </div>

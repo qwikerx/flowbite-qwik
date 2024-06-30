@@ -35,7 +35,7 @@ export const allDocs = {
     'tooltip',
   ],
   customize: ['dark-mode', 'theme'],
-  forms: ['checkbox', 'input', 'radio', 'select', 'textarea', 'toggle'],
+  forms: ['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle'],
   'getting-started': ['introduction', 'license', 'quickstart'],
   typography: ['blockquote', 'heading', 'hr', 'link', 'list'],
 }
