@@ -1,6 +1,6 @@
 /**
  * title: Colors
- * description: Set your own custom colors for the progress bar component by using the color prop from React and the utility classes from Tailwind CSS.
+ * description: Set your own custom colors for the progress bar component by using the color prop from Qwik and the utility classes from Tailwind CSS.
  * height: 650
  */
 

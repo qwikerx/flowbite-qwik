@@ -31,9 +31,9 @@ const InternalSidebar = component$<SidebarProps>(({ highlight = false, withNavba
       <aside
         ref={sidebar}
         class={twMerge(
-          'fixed left-0 z-40 h-full w-64 max-w-64 border-r border-gray-100 bg-white transition-transform lg:translate-x-0 dark:border-gray-700 dark:bg-gray-900',
+          'fixed left-0 z-40 h-screen w-64 max-w-64 border-r border-gray-200 bg-white transition-transform sm:translate-x-0 dark:border-gray-700 dark:bg-gray-800',
           isOpen.value ? 'translate-x-0' : '-translate-x-full',
-          withNavbar ? 'top-16 pb-14 xl:top-14' : 'top-0',
+          withNavbar ? 'pb-14' : 'top-0',
           clsx(classNames),
         )}
         aria-label="Sidebar"
@@ -48,7 +48,7 @@ const InternalSidebar = component$<SidebarProps>(({ highlight = false, withNavba
             class="absolute right-0 top-0 block p-3 text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 sm:hidden dark:text-gray-400 dark:hover:text-gray-300 dark:focus:ring-gray-600"
           >
             <span class="sr-only">Close sidebar</span>
-            <IconCloseOutline />
+            <IconCloseOutline class="h-3 w-3" />
           </button>
         )}
         <nav

@@ -33,6 +33,7 @@ const componentsNaming: Record<string, { folder: string; img: string; doc: strin
   Pagination: { folder: 'components', img: 'pagination', doc: 'pagination' },
   ProgressBar: { folder: 'components', img: 'progress', doc: 'progress-bar' },
   Radio: { folder: 'forms', img: 'radio', doc: 'radio' },
+  Range: { folder: 'forms', img: 'range-slider', doc: 'range' },
   Rating: { folder: 'components', img: 'rating', doc: 'rating' },
   Select: { folder: 'forms', img: 'select', doc: 'select' },
   Sidebar: { folder: 'components', img: 'sidebar', doc: 'sidebar' },

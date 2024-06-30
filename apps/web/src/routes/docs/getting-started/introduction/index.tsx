@@ -23,7 +23,7 @@ export default component$(() => {
           handling.
         </p>
         <p>
-          This library features dozen of interactive elements such as navbars, dropdowns, modals, and sidebars all handled by Svelte and based on the
+          This library features dozen of interactive elements such as navbars, dropdowns, modals, and sidebars all handled by Qwik and based on the
           utility classes from Tailwind CSS.
         </p>
         <Heading tag="h2">Getting started</Heading>
