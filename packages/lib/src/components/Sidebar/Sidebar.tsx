@@ -22,7 +22,7 @@ const InternalSidebar = component$<SidebarProps>(({ highlight = false, withNavba
     <>
       {isOpen.value && (
         <div
-          class="bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-30"
+          class="fixed inset-0 z-30 bg-gray-900/50 dark:bg-gray-900/80"
           onClick$={() => {
             setIsOpen(false)
           }}
@@ -31,9 +31,9 @@ const InternalSidebar = component$<SidebarProps>(({ highlight = false, withNavba
       <aside
         ref={sidebar}
         class={twMerge(
-          'left-0 w-64 h-full fixed z-40 max-w-64 transition-transform bg-white dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 lg:translate-x-0',
+          'fixed left-0 z-40 h-full w-64 max-w-64 border-r border-gray-100 bg-white transition-transform lg:translate-x-0 dark:border-gray-700 dark:bg-gray-900',
           isOpen.value ? 'translate-x-0' : '-translate-x-full',
-          withNavbar ? 'top-16 xl:top-14 pb-14' : 'top-0',
+          withNavbar ? 'top-16 pb-14 xl:top-14' : 'top-0',
           clsx(classNames),
         )}
         aria-label="Sidebar"
@@ -45,7 +45,7 @@ const InternalSidebar = component$<SidebarProps>(({ highlight = false, withNavba
               setIsOpen(false)
             }}
             type="button"
-            class="block sm:hidden absolute top-0 right-0 p-3 text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:focus:ring-gray-600"
+            class="absolute right-0 top-0 block p-3 text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 sm:hidden dark:text-gray-400 dark:hover:text-gray-300 dark:focus:ring-gray-600"
           >
             <span class="sr-only">Close sidebar</span>
             <IconCloseOutline />
@@ -53,7 +53,7 @@ const InternalSidebar = component$<SidebarProps>(({ highlight = false, withNavba
         )}
         <nav
           class={[
-            'h-full px-3 py-4 overflow-y-auto',
+            'h-full overflow-y-auto px-3 py-4',
             {
               'bg-white dark:bg-gray-900': !highlight,
               'bg-gray-50 dark:bg-gray-800': highlight,
