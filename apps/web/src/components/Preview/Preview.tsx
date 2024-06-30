@@ -92,7 +92,8 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
             'mx-auto w-full',
             {
               'max-w-sm': displaySize.value === 'mobile',
-              'max-w-lg': displaySize.value === 'tablet',
+              'max-w-screen-md': displaySize.value === 'tablet',
+              'min-w-screen-lg': displaySize.value === 'desktop',
             },
           ]}
         >

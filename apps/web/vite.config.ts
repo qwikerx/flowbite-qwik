@@ -26,8 +26,12 @@ const isDuringVercelDeployment = Boolean(process.env.VERCEL)
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
     plugins: [
-      qwikCity(),
-      qwikVite(),
+      qwikCity({ trailingSlash: false }),
+      qwikVite({
+        devTools: {
+          clickToSource: false,
+        },
+      }),
       tsconfigPaths(),
       !isDuringVercelDeployment && watchExamplesRoutes(),
       !isDuringVercelDeployment && watchDocsRoutes(),

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
+  "name": "flowbite-qwik",
+  "short_name": "Flowbite Qwik",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#19B5F6",
+  "description": "Flowbite Qwik is an open-source UI component library built on top of Tailwind CSS with Qwik components and based on the Flowbite Design System."
+}

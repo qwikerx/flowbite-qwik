@@ -23,6 +23,9 @@ export default {
           secondary: '#AC7EF4',
         },
       },
+      minWidth: {
+        'screen-lg': '1024px',
+      },
       maxWidth: {
         '8xl': '90rem',
       },
