@@ -17,12 +17,12 @@ html {
 
 /* width */
 ::-webkit-scrollbar {
-  @apply w-2;
+  @apply w-2 h-2;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-[#f1f1f1];
+  @apply bg-[#f1f1f1] rounded-sm;
 }
 
 /* Handle */

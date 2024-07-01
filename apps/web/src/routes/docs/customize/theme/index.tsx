@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik'
-import { Alert, Heading, Hr } from 'flowbite-qwik'
+import { Alert, Button, FlowbiteProvider, Heading, Hr } from 'flowbite-qwik'
 import { DocumentPage } from '~/components/DocumentPage/DocumentPages'
 import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
 
@@ -12,13 +12,53 @@ export default component$(() => {
       </div>
       <Hr />
       <div>
-        <p>
-          Flowbite Qwik is built on top of Tailwind CSS and it uses Tailwind CSS classes to style the components. This means that you can customize
-          the components by changing the Tailwind CSS classes used by the components.
-        </p>
-        <p>You have a few options, and each has its own pros and cons.</p>
+        <Heading tag="h2">Global color customization</Heading>
 
-        <Heading tag="h2">Option 1: Change the Tailwind CSS classes directly in the component</Heading>
+        <p>
+          Flowbite Qwik allows you to set the default theme color for all components. You can do this by setting the theme prop on the
+          FlowbiteProvider. This prop will set the default theme color for all components.
+        </p>
+        <p>In some cases you might want to set the theme color for a specific component only or on some section of your website.</p>
+        <p>
+          For example, you can wrap a section of your website with a FlowbiteProvider and set the theme prop to pink. This will set the default theme
+          color as pink for all components inside the FlowbiteProvider.
+        </p>
+
+        <CodeBlock
+          language="tsx"
+          expandable={false}
+          content={`import { Button, FlowbiteProvider } from "flowbite-qwik"
+
+export default component$(() => {
+  return (
+   <FlowbiteProvider theme="pink">
+      <Button>I'm using a pink theme</Button>
+    </FlowbiteProvider>
+  )
+})
+`}
+        />
+        <div class="mt-5">
+          <FlowbiteProvider theme="pink">
+            <p>
+              As you can see, you can can change the global theme in the header but this component bellow will never be affected as it's listening to
+              it's own theme reference.
+            </p>
+            <Button>I'm using a pink theme</Button>
+          </FlowbiteProvider>
+        </div>
+
+        <Heading tag="h2">Component customization</Heading>
+
+        <div>
+          <p>
+            Flowbite Qwik is built on top of Tailwind CSS and it uses Tailwind CSS classes to style the components. This means that you can customize
+            the components by changing the Tailwind CSS classes used by the components.
+          </p>
+          <p>You have a few options, and each has its own pros and cons.</p>
+        </div>
+
+        <Heading tag="h3">Option 1: Change the Tailwind CSS classes directly in the component</Heading>
         <p>
           This is the easiest way to customize the components. You can change the Tailwind CSS classes directly in the component via the class prop.
         </p>
@@ -37,7 +77,7 @@ export const CustomButton = component$(() => {
           Also, some components have nested elements that are not directly exposed, which in some cases makes this approach impossible.
         </p>
 
-        <Heading tag="h2">Option 2: Create a reusable component with a custom theme</Heading>
+        <Heading tag="h3">Option 2: Create a reusable component with a custom theme</Heading>
         <p>
           You can also pass theme={} directly to any component, which will override the theme for that component, but not its children. This is useful
           if you want to create a reusable component with a custom theme.
