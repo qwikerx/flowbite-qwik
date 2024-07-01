@@ -22,8 +22,8 @@ export default component$(() => {
 
         <Heading tag="h2">Toggle dark mode</Heading>
         <p>
-          Surround the contents of your app with the &lt;FlowbiteProviderHeader&gt; component, and add the &lt;DarkThemeToggle&gt; component inside
-          it. The &lt;DarkModeToggle&gt; component will automatically detect the current theme and display the correct icon, and allow the user to
+          Surround the contents of your app with the <em>FlowbiteProviderHeader</em> component, and add the <em>DarkThemeToggle</em> component inside
+          it. The <em>DarkModeToggle</em> component will automatically detect the current theme and display the correct icon, and allow the user to
           switch between themes as they like.
         </p>
         <p>
@@ -49,7 +49,9 @@ export default component$(() => {
         <Heading tag="h2">useDarkMode</Heading>
         <p>useDarkMode is the hook reponsible for changing, detecting and persisting the dark mode.</p>
         <p>Theme mode persistence is by default located in the browsers LocalStorage.</p>
-        <p>The &lt;DarkModeToggle&gt; component uses useDarkMode hook under the hood.</p>
+        <p>
+          The <em>DarkModeToggle</em> component uses useDarkMode hook under the hood.
+        </p>
         <CodeBlock
           language="tsx"
           expandable={false}
