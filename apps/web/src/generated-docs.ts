@@ -36,6 +36,6 @@ export const allDocs = {
   ],
   customize: ['dark-mode', 'theme'],
   forms: ['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle'],
-  'getting-started': ['introduction', 'license', 'quickstart'],
+  'getting-started': ['introduction', 'quickstart', 'license'],
   typography: ['blockquote', 'heading', 'hr', 'link', 'list'],
 }
