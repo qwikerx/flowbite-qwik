@@ -27,6 +27,8 @@ import { useToggle } from '~/composables'
 import { useFloating } from '~/composables/use-floating'
 import { RenderFloatingElement } from '../Floating/Floating'
 import { DropdownContext, useDropdownContext } from '~/components/Dropdown/composables/use-dropdown-context'
+import { twMerge } from 'tailwind-merge'
+import clsx from 'clsx'
 
 interface ComponentType {
   id: string
@@ -74,15 +76,7 @@ export const Dropdown: FunctionComponent<DropdownProps> = ({
   ])
 
   return (
-    <InnerDropdown
-      components={components}
-      label={label}
-      closeWhenSelect={closeWhenSelect}
-      inline={inline}
-      size={size}
-      title={attrs.title}
-      trigger={Trigger}
-    />
+    <InnerDropdown components={components} label={label} closeWhenSelect={closeWhenSelect} inline={inline} size={size} trigger={Trigger} {...attrs} />
   )
 }
 
@@ -101,7 +95,7 @@ export const DropdownItem = component$<DropdownItemProps>(() => {
  * InnerDropdown
  */
 
-type InnerDropdownProps = {
+type InnerDropdownProps = PropsOf<'div'> & {
   label?: string
   closeWhenSelect: boolean
   components: ComponentType[]
@@ -111,54 +105,61 @@ type InnerDropdownProps = {
   trigger?: JSXOutput
 }
 
-const InnerDropdown = component$<InnerDropdownProps>(({ label, trigger, title, closeWhenSelect, components, inline, size }) => {
-  useContextProvider(DropdownContext, useStore({ size, inline }))
+const InnerDropdown = component$<InnerDropdownProps>(
+  ({ label, trigger, title, closeWhenSelect, components, inline, size, class: classNames, ...attrs }) => {
+    useContextProvider(DropdownContext, useStore({ size, inline }))
 
-  const { dropdownModalClasses } = useDropdownClasses()
+    const { dropdownModalClasses } = useDropdownClasses()
 
-  const { value: visible, toggle$ } = useToggle(false)
+    const { value: visible, toggle$ } = useToggle(false)
 
-  const TriggerButton = useComputed$(() => (inline ? InnerTriggerInline : InnerTriggerButton))
-  const TriggerButtonAs = useComputed$(() => (!!trigger ? InnerTriggerAs : undefined))
+    const TriggerButton = useComputed$(() => (inline ? InnerTriggerInline : InnerTriggerButton))
+    const TriggerButtonAs = useComputed$(() => (!!trigger ? InnerTriggerAs : undefined))
 
-  const { floatingRef, triggerRef } = useFloating('bottom', 'click', false, visible)
+    const { floatingRef, triggerRef } = useFloating('bottom', 'click', false, visible)
 
-  return (
-    <div class="relative block max-w-max">
-      {TriggerButtonAs.value ? (
-        <TriggerButtonAs.value ref={triggerRef} visible={visible.value} trigger={trigger} />
-      ) : (
-        <TriggerButton.value ref={triggerRef} title={title} label={label} visible={visible.value} />
-      )}
+    return (
+      <div class={twMerge('relative block max-w-max', clsx(classNames))} {...attrs}>
+        {TriggerButtonAs.value ? (
+          <TriggerButtonAs.value ref={triggerRef} visible={visible.value} trigger={trigger} />
+        ) : (
+          <TriggerButton.value ref={triggerRef} title={title} label={label} visible={visible.value} />
+        )}
 
-      <RenderFloatingElement tabIndex={0} isVisible={visible.value} ref={floatingRef} class={['py-1 focus:outline-none', dropdownModalClasses.value]}>
-        <ul>
-          {components.map((comp) => (
-            <li role="menuitem" key={comp.id}>
-              {comp.header ? (
-                <InnerDropdownHeader>{comp.content}</InnerDropdownHeader>
-              ) : comp.divider ? (
-                <InnerDropdownDivider />
-              ) : (
-                <InnerDropdownItem
-                  icon={comp.icon}
-                  onClick$={$(() => {
-                    comp.onClick$?.()
-                    if (closeWhenSelect) {
-                      toggle$()
-                    }
-                  })}
-                >
-                  {comp.content}
-                </InnerDropdownItem>
-              )}
-            </li>
-          ))}
-        </ul>
-      </RenderFloatingElement>
-    </div>
-  )
-})
+        <RenderFloatingElement
+          tabIndex={0}
+          isVisible={visible.value}
+          ref={floatingRef}
+          class={['py-1 focus:outline-none', dropdownModalClasses.value]}
+        >
+          <ul>
+            {components.map((comp) => (
+              <li role="menuitem" key={comp.id}>
+                {comp.header ? (
+                  <InnerDropdownHeader>{comp.content}</InnerDropdownHeader>
+                ) : comp.divider ? (
+                  <InnerDropdownDivider />
+                ) : (
+                  <InnerDropdownItem
+                    icon={comp.icon}
+                    onClick$={$(() => {
+                      comp.onClick$?.()
+                      if (closeWhenSelect) {
+                        toggle$()
+                      }
+                    })}
+                  >
+                    {comp.content}
+                  </InnerDropdownItem>
+                )}
+              </li>
+            ))}
+          </ul>
+        </RenderFloatingElement>
+      </div>
+    )
+  },
+)
 
 /**
  * InnerDropdownHeader

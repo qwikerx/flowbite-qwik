@@ -1,8 +1,10 @@
-import { component$ } from '@builder.io/qwik'
+import { component$, useVisibleTask$ } from '@builder.io/qwik'
 import { Link, useLocation } from '@builder.io/qwik-city'
 import { Badge, Button, Dropdown, FlowbiteTheme, Navbar, useDarkMode, useFlowbiteThemable } from 'flowbite-qwik'
 import { IconCheckOutline, IconGithubSolid, IconLayersSolid, IconMoonOutline, IconSunOutline } from 'flowbite-qwik-icons'
 import pkg from 'flowbite-qwik/package.json'
+import './NavbarPage.css'
+import docsearch from '@docsearch/js'
 
 type NavbarPageProps = {
   fullWidth?: boolean
@@ -14,6 +16,15 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
   const { isDark, setDarkModeValue } = useDarkMode()
   const location = useLocation()
   const { themeName, setThemeName } = useFlowbiteThemable()
+
+  useVisibleTask$(() => {
+    docsearch({
+      appId: 'KGN2EXYVMH',
+      apiKey: '8127bdcdbef32915ef573c0759c118b3',
+      indexName: 'flowbite-qwik',
+      container: '#docsearch',
+    })
+  })
 
   return (
     <Navbar fluid fullWidth={fullWidth} rounded separator withSidebar={withSidebar} sticky id="header__navbar">
@@ -27,6 +38,7 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
         />
         <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
       </Navbar.Brand>
+
       <div class="flex items-center gap-2 md:order-2">
         <Button class="hidden md:block" square href="https://github.com/qwikerx/flowbite-qwik" color="light" title="View on GitHub">
           <IconGithubSolid class="h-4 w-4" />
@@ -35,6 +47,7 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
           square
           color="light"
           title="Toggle dark mode"
+          class="hidden sm:block"
           onClick$={() => {
             setDarkModeValue(isDark.value ? 'light' : 'dark')
           }}
@@ -61,8 +74,8 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
             </Dropdown.Item>
           ))}
         </Dropdown>
+        <div id="docsearch" />
         <Badge class="hidden lg:block" size="sm" type="dark" content={'v' + pkg.version} />
-
         {withCollapse && <Navbar.Toggle />}
       </div>
       {withCollapse && (
