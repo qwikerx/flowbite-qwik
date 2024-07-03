@@ -1,5 +1,11 @@
 @import '@docsearch/css';
 
+@media (max-width: 768px) {
+  .DocSearch-Container {
+    position: fixed !important;
+  }
+}
+
 .DocSearch .DocSearch-Modal {
   @apply mx-auto mt-[1rem] max-h-[calc(100vh-2rem)] w-full max-w-[calc(100vw-2rem)] overflow-hidden rounded-lg lg:mt-[4rem] lg:max-h-none lg:max-w-xl;
 }
