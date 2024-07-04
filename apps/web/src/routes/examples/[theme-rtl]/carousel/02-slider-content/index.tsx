@@ -11,25 +11,23 @@ import { staticGenerateHandler } from '~/routes/examples/layout'
 
 export default component$(() => {
   return (
-    <div class="h-56 sm:h-64 xl:h-80 2xl:h-96">
-      <Carousel>
-        <Carousel.Slide>
-          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 1</div>
-        </Carousel.Slide>
-        <Carousel.Slide>
-          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 2</div>
-        </Carousel.Slide>
-        <Carousel.Slide>
-          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 3</div>
-        </Carousel.Slide>
-        <Carousel.Slide>
-          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 4</div>
-        </Carousel.Slide>
-        <Carousel.Slide>
-          <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 5</div>
-        </Carousel.Slide>
-      </Carousel>
-    </div>
+    <Carousel>
+      <Carousel.Slide>
+        <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 1</div>
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 2</div>
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 3</div>
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 4</div>
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">Slide 5</div>
+      </Carousel.Slide>
+    </Carousel>
   )
 })
 

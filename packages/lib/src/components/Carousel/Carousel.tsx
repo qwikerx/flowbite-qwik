@@ -16,6 +16,8 @@ import { getChild } from '~/utils/children-inspector'
 import uuid from '~/utils/uuid'
 import { IconAngleLeftSolid, IconAngleRightOutline } from 'flowbite-qwik-icons'
 import styles from './Carousel.css?inline'
+import { twMerge } from 'tailwind-merge'
+import clsx from 'clsx'
 
 interface ComponentType {
   id: number
@@ -50,9 +52,8 @@ export const Carousel: FunctionComponent<CarouselProps> = ({ children, ...props 
           computedChildren = createElement(
             cc.type as string,
             {
-              class: cc.immutableProps?.['class'] + ' ' + classesToAdd,
-              alt: cc.immutableProps?.['alt'],
-              src: cc.immutableProps?.['src'],
+              ...cc.immutableProps,
+              class: cc.immutableProps?.['class'] ? twMerge(cc.immutableProps['class'] as string, classesToAdd) : classesToAdd,
               key: cc.key,
             },
             cc.children,
@@ -108,6 +109,7 @@ const InnerCarousel = component$<InnerCarouselProps>(
     scrollable = false,
     slideAuto = true,
     slideInterval = 3000,
+    class: className,
   }) => {
     useStyles$(styles)
 
@@ -191,7 +193,7 @@ const InnerCarousel = component$<InnerCarouselProps>(
     })
 
     return (
-      <div class="relative h-full w-full">
+      <div class={twMerge('relative h-56 w-full sm:h-64 xl:h-80 2xl:h-96', clsx(className))}>
         <div
           ref={carouselContainer}
           onScroll$={onScroll}
@@ -202,7 +204,7 @@ const InnerCarousel = component$<InnerCarouselProps>(
             state.mouseLeave()
           }}
           class={[
-            'snap-x flex h-full snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg',
+            'flex h-full snap-x snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg',
             {
               'overflow-hidden !overflow-x-hidden [scrollbar-width:none]': !scrollable,
               '[&::-webkit-scrollbar]:[-webkit-appearance:none !important] [&::-webkit-scrollbar]:!hidden [&::-webkit-scrollbar]:!h-0 [&::-webkit-scrollbar]:!w-0 [&::-webkit-scrollbar]:!bg-transparent':
@@ -218,14 +220,14 @@ const InnerCarousel = component$<InnerCarouselProps>(
           ))}
         </div>
         {!noIndicators && (
-          <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
+          <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3">
             {components.map((comp, i) => (
               <button
                 key={comp.id}
                 aria-label={'Slide ' + comp.id}
                 class={[
-                  i === state.currentPicture ? 'bg-white dark:bg-gray-800' : 'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800',
-                  'w-3 h-3 rounded-full',
+                  i === state.currentPicture ? 'bg-white dark:bg-gray-800' : 'bg-white/50 hover:bg-white dark:bg-gray-800/50 dark:hover:bg-gray-800',
+                  'h-3 w-3 rounded-full',
                 ]}
                 aria-current={false}
                 type="button"
@@ -239,26 +241,26 @@ const InnerCarousel = component$<InnerCarouselProps>(
         {!noControls && !scrollable && (
           <>
             <button
-              class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+              class="group absolute left-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
               type="button"
               onClick$={() => {
                 state.previousPicture()
               }}
             >
-              <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <IconAngleLeftSolid class="w-4 h-4 text-white sm:w-5 sm:h-5 dark:text-gray-800" />
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white sm:h-10 sm:w-10 dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
+                <IconAngleLeftSolid class="h-4 w-4 text-white sm:h-5 sm:w-5 dark:text-gray-800" />
                 <span class="sr-only">Previous</span>
               </span>
             </button>
             <button
-              class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+              class="group absolute right-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
               type="button"
               onClick$={() => {
                 state.nextPicture()
               }}
             >
-              <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <IconAngleRightOutline class="w-4 h-4 text-white sm:w-5 sm:h-5 dark:text-gray-800" />
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white sm:h-10 sm:w-10 dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
+                <IconAngleRightOutline class="h-4 w-4 text-white sm:h-5 sm:w-5 dark:text-gray-800" />
                 <span class="sr-only">Next</span>
               </span>
             </button>
