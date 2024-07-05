@@ -1,7 +1,7 @@
 import { component$, useVisibleTask$ } from '@builder.io/qwik'
 import { Link, useLocation } from '@builder.io/qwik-city'
 import { Badge, Button, Dropdown, FlowbiteTheme, Navbar, useDarkMode, useFlowbiteThemable } from 'flowbite-qwik'
-import { IconCheckOutline, IconGithubSolid, IconLayersSolid, IconMoonOutline, IconSunOutline } from 'flowbite-qwik-icons'
+import { IconCheckOutline, IconGithubSolid, IconLayersSolid, IconMoonOutline, IconSearchOutline, IconSunOutline } from 'flowbite-qwik-icons'
 import pkg from 'flowbite-qwik/package.json'
 import './NavbarPage.css'
 import docsearch from '@docsearch/js'
@@ -74,7 +74,15 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
             </Dropdown.Item>
           ))}
         </Dropdown>
-        <div id="docsearch" />
+        <div class="relative">
+          <button type="button" class="DocSearch DocSearch-Button" disabled>
+            <span class="DocSearch-Button-Container">
+              <IconSearchOutline class="DocSearch-Search-Icon" />
+              <span class="DocSearch-Button-Placeholder">Search</span>
+            </span>
+          </button>
+          <div id="docsearch" class="absolute left-0 top-0"></div>
+        </div>
         <Badge class="hidden lg:block" size="sm" type="dark" content={'v' + pkg.version} />
         {withCollapse && <Navbar.Toggle />}
       </div>
