@@ -12,6 +12,7 @@ export const componentsNaming: Record<string, { folder: string; img: string; doc
   Carousel: { folder: 'components', img: 'carousel', doc: 'carousel' },
   Checkbox: { folder: 'forms', img: 'checkbox', doc: 'checkbox' },
   Clipboard: { folder: 'components', img: 'clipboard', doc: 'clipboard' },
+  DatePicker: { folder: 'components', img: 'datepicker', doc: 'date-picker' },
   Drawer: { folder: 'components', img: 'drawer', doc: 'drawer' },
   Dropdown: { folder: 'components', img: 'dropdown', doc: 'dropdown' },
   Footer: { folder: 'components', img: 'footer', doc: 'footer' },

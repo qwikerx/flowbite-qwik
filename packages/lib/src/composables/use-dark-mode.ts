@@ -2,7 +2,7 @@ import { createContextId, $, Signal, useContext, useOnDocument, useComputed$ } f
 import { useMediaQuery } from './use-media-query'
 import { isBrowser } from '@builder.io/qwik/build'
 
-const DARK_MODE_CONTEXT = 'FLOWBITE_DARK_MODE_CONTEXT'
+const DARK_MODE_CONTEXT = 'FLOWBITE_QWIK_DARK_MODE_CONTEXT'
 export const DARK_MODE_LOCAL_STORAGE_KEY = DARK_MODE_CONTEXT
 
 type darkModeTheme = 'light' | 'dark' | undefined

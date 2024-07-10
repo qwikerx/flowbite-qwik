@@ -33,3 +33,7 @@ export function staticGenerateHandler() {
     params: themes.flatMap((theme) => rtls.map((rtl) => ({ 'theme-rtl': `${theme}-${rtl}` }))),
   }
 }
+
+export const head = () => ({
+  meta: [{ name: 'robots', content: 'none' }],
+})
