@@ -3,7 +3,7 @@ import { createContextId } from '@builder.io/qwik'
 import uuid from '~/utils/uuid'
 import { ToastType } from '../toast-type'
 
-export const TOAST_CONTEXT = 'FLOWBITE_TOAST_CONTEXT'
+export const TOAST_CONTEXT = 'FLOWBITE_QWIK_TOAST_CONTEXT'
 
 export type ToastItem = {
   time?: number // ms

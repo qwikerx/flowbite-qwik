@@ -15,6 +15,7 @@ export const allDocs = {
     'card',
     'carousel',
     'clipboard',
+    'date-picker',
     'drawer',
     'dropdown',
     'footer',

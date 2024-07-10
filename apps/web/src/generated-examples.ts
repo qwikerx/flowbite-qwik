@@ -857,6 +857,74 @@ export const examples: Record<string, Example[]> = {
       height: '200',
     },
   ],
+  'date-picker': [
+    {
+      title: 'Default Datepicker',
+      description: 'Use this example to show a simple datepicker component.',
+      url: '/examples/[theme-rtl]/date-picker/01-default-datepicker',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { DatePicker } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const date = useSignal<Date>()\n\n  return (\n    <>\n      <p class=\"mb-2\">Reactive date : {date.value?.toDateString()}</p>\n      <DatePicker\n        onSelectedDateChanged$={(selectedDate: Date) => {\n          date.value = selectedDate\n        }}\n      />\n    </>\n  )\n})",
+      height: '500',
+    },
+    {
+      title: 'Localization',
+      description:
+        'Use the language prop to set the language of the datepicker component. The labelTodayButton and labelClearButton can also be used to update the text of the buttons.',
+      url: '/examples/[theme-rtl]/date-picker/02-datepicker-localization',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { DatePicker } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return <DatePicker language="pt-BR" labelTodayButton="Hoje" labelClearButton="Limpar" />\n})',
+      height: '500',
+    },
+    {
+      title: 'Limit the date',
+      description: 'By using the minDate and maxDate props you can limit the date range that the user can select.',
+      url: '/examples/[theme-rtl]/date-picker/03-datepicker-limit-date',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { DatePicker } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return <DatePicker minDate={new Date(2023, 0, 1)} maxDate={new Date(2023, 3, 30)} />\n})",
+      height: '500',
+    },
+    {
+      title: 'Week start',
+      description: 'The weekStart prop can be used to set the first day of the week inside the datepicker component.',
+      url: '/examples/[theme-rtl]/date-picker/04-datepicker-week-start',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { DatePicker } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <DatePicker\n      weekStart={1} // Monday\n    />\n  )\n})",
+      height: '500',
+    },
+    {
+      title: 'Auto hide',
+      description:
+        'By setting the autoHide prop you can either enable or disable automatically hiding the datepicker component when selecting a value.',
+      url: '/examples/[theme-rtl]/date-picker/05-datepicker-auto-hide',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { DatePicker } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return <DatePicker autoHide={false} />\n})",
+      height: '500',
+    },
+    {
+      title: 'Title',
+      description: 'You can use the title prop to set a title for the datepicker component.',
+      url: '/examples/[theme-rtl]/date-picker/06-datepicker-title',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { DatePicker } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return <DatePicker title=\"Flowbite Datepicker\" />\n})",
+      height: '500',
+    },
+    {
+      title: 'Inline',
+      description: 'Use the inline prop to show the datepicker component without having to click inside an input field.',
+      url: '/examples/[theme-rtl]/date-picker/07-datepicker-inline',
+      content:
+        "import { component$ } from '@builder.io/qwik'\nimport { DatePicker } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return <DatePicker inline />\n})",
+      height: '500',
+    },
+    {
+      title: 'Init date',
+      description: 'Use this example to show a simple datepicker component with a default date specified for calendar',
+      url: '/examples/[theme-rtl]/date-picker/08-datepicker-init-date',
+      content:
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { DatePicker } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const date = useSignal<Date>()\n\n  const fiveDaysBefore = new Date()\n  fiveDaysBefore.setDate(fiveDaysBefore.getDate() - 5)\n\n  return (\n    <>\n      <p class=\"mb-2\">Reactive date : {date.value?.toDateString()}</p>\n      <DatePicker\n        defaultDate={fiveDaysBefore}\n        onSelectedDateChanged$={(selectedDate: Date) => {\n          date.value = selectedDate\n        }}\n      />\n    </>\n  )\n})",
+      height: '500',
+    },
+  ],
   drawer: [
     {
       title: 'Drawer',

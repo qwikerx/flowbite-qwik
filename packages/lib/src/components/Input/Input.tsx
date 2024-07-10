@@ -60,8 +60,8 @@ export const Input = component$<InputProps>(
             {required ? `${label} *` : label}
           </label>
         )}
-        <div class="flex relative">
-          {Boolean(prefix) && <div class="w-10 flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none overflow-hidden">{prefix}</div>}
+        <div class="relative flex">
+          {Boolean(prefix) && <div class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center overflow-hidden pl-3">{prefix}</div>}
           <input
             id={id}
             {...props}

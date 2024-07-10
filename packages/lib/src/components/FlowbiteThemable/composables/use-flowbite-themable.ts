@@ -57,7 +57,7 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
   },
 }
 
-export const THEME_CONTEXT = 'FLOWBITE_THEME_CONTEXT'
+export const THEME_CONTEXT = 'FLOWBITE_QWIK_THEME_CONTEXT'
 
 export const themeContext = createContextId<Signal<FlowbiteTheme>>(THEME_CONTEXT)
 
