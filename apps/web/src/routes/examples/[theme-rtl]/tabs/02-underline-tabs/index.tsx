@@ -1,6 +1,6 @@
 /**
- * title: Tabs with icons
- * description: This is an example of the tabs component where you can also use a SVG powered icon to complement the text within the navigational tabs.
+ * title: Tabs with underline
+ * description: Use this alternative tabs component style with an underline instead of a background when hovering and being active on a certain page.
  * height: 400
  */
 import { component$ } from '@builder.io/qwik'
