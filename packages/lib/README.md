@@ -1,5 +1,5 @@
 <div style="text-align: center">
-  <h1>Flowbite Qwik Components</h1>
+  <h1>Flowbite Qwik - UI Component Library</h1>
 
   <div>
     <a href="https://flowbite-qwik.com">
