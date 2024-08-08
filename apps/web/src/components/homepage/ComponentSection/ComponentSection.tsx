@@ -1,4 +1,4 @@
-import { Button } from 'flowbite-qwik'
+import { Button, useDarkMode } from 'flowbite-qwik'
 import { component$, PropsOf } from '@builder.io/qwik'
 import { Link } from '@builder.io/qwik-city'
 import { componentsNaming } from '~/components/homepage/ComponentSection/components'
@@ -7,7 +7,7 @@ import { IconArrowUpRightFromSquareOutline } from 'flowbite-qwik-icons'
 export const ComponentsSection = component$(() => {
   return (
     <section>
-      <div class="max-w-8xl mx-auto flex flex-col gap-8 px-4 py-8 sm:gap-12 lg:px-20 lg:pt-24">
+      <div class="mx-auto flex max-w-8xl flex-col gap-8 px-4 py-8 sm:gap-12 lg:px-20 lg:pt-24">
         <div class="flex flex-col items-center gap-4 sm:gap-4">
           <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white lg:text-4xl">Qwik UI Components</h2>
           <p class="mx-auto max-w-3xl text-center text-lg font-normal text-gray-500 dark:text-gray-400">
@@ -39,6 +39,8 @@ type ComponentCardProps = PropsOf<'div'> & {
 }
 
 const ComponentCard = component$<ComponentCardProps>(({ folder, name, img, doc }) => {
+  const { isDark } = useDarkMode()
+
   return (
     <Link
       href={`https://flowbite-qwik.com/docs/${folder}/${doc}`}
@@ -51,15 +53,13 @@ const ComponentCard = component$<ComponentCardProps>(({ folder, name, img, doc }
         </span>
       </div>
       <div class="flex h-52 items-center justify-center">
-        <div class="relative h-4/6 w-56 dark:hidden">
-          <img loading="lazy" decoding="async" src={`https://flowbite.s3.amazonaws.com/github/${img}.jpg`} alt={`${name} component thumbnail`} />
-        </div>
-        <div class="relative hidden h-4/6 w-56 dark:block">
+        <div class="relative h-4/6 w-56">
           <img
             loading="lazy"
             decoding="async"
-            src={`https://flowbite.s3.amazonaws.com/github/${img}.jpg`}
-            alt={`${name} dark mode component thumbnail`}
+            src={`/thumbnails/website/${img}-${isDark.value ? 'dark' : 'light'}.svg`}
+            alt={`${name} component thumbnail`}
+            class={'absolute inset-0 h-full w-full text-transparent'}
           />
         </div>
       </div>
