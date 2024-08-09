@@ -1,15 +1,7 @@
 import { component$, useVisibleTask$ } from '@builder.io/qwik'
 import { Link, useLocation } from '@builder.io/qwik-city'
-import { Badge, Dropdown, FlowbiteTheme, Navbar, Tooltip, useDarkMode, useFlowbiteThemable } from 'flowbite-qwik'
-import {
-  IconCheckOutline,
-  IconDiscordSolid,
-  IconGithubSolid,
-  IconLayersSolid,
-  IconMoonSolid,
-  IconSearchOutline,
-  IconSunSolid,
-} from 'flowbite-qwik-icons'
+import { Badge, Navbar, Tooltip, useDarkMode } from 'flowbite-qwik'
+import { IconDiscordSolid, IconGithubSolid, IconMoonSolid, IconSearchOutline, IconSunSolid } from 'flowbite-qwik-icons'
 import pkg from 'flowbite-qwik/package.json'
 import './NavbarPage.css'
 import docsearch from '@docsearch/js'
@@ -23,7 +15,6 @@ type NavbarPageProps = {
 export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, withCollapse = false, withSidebar = false }) => {
   const { isDark, setDarkModeValue } = useDarkMode()
   const location = useLocation()
-  const { themeName, setThemeName } = useFlowbiteThemable()
 
   useVisibleTask$(() => {
     docsearch({
@@ -112,34 +103,6 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
               {isDark.value ? <IconSunSolid class="h-4 w-4" /> : <IconMoonSolid class="h-4 w-4" />}
             </button>
             <span q:slot="content">Toggle dark mode</span>
-          </Tooltip>
-          <Tooltip placement="bottom">
-            <span q:slot="content">Change theme</span>
-            <Dropdown
-              title="Switch Flowbite theme"
-              class="hidden lg:block"
-              q:slot="trigger"
-              as={
-                <button
-                  class="rounded-lg p-2.5 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                  title="Switch Flowbite theme"
-                >
-                  <IconLayersSolid />
-                </button>
-              }
-            >
-              {(['blue', 'green', 'red', 'pink', 'purple'] as FlowbiteTheme[]).map((theme) => (
-                <Dropdown.Item
-                  key={theme}
-                  onClick$={() => {
-                    setThemeName(theme)
-                  }}
-                >
-                  {theme}
-                  {theme === themeName.value && <IconCheckOutline class="ml-2" />}
-                </Dropdown.Item>
-              ))}
-            </Dropdown>
           </Tooltip>
 
           <Badge size="sm" type="purple" content={'v' + pkg.version} />

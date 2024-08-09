@@ -1,7 +1,8 @@
-import { Button, Link } from 'flowbite-qwik'
+import { Button, Link, useDarkMode } from 'flowbite-qwik'
 import { component$ } from '@builder.io/qwik'
 import { Link as LinkCity } from '@builder.io/qwik-city'
-import { IconArrowRightSolid, IconCheckCircleSolid } from 'flowbite-qwik-icons'
+import { IconArrowRightSolid } from 'flowbite-qwik-icons'
+import { CheckedIcon } from '~/components/homepage/CheckedIcon/CheckedIcon'
 
 const feature_list = [
   'Huge collection of UI components built with Qwik',
@@ -13,26 +14,18 @@ const feature_list = [
 ]
 
 export const QwikSection = component$(() => {
+  const { isDark } = useDarkMode()
+
   return (
     <section class="bg-gray-50 dark:bg-gray-800">
-      <div class="max-w-8xl mx-auto w-full px-4 py-8 lg:px-20 lg:py-24">
+      <div class="mx-auto w-full max-w-8xl px-4 py-8 lg:px-20 lg:py-24">
         <div class="flex w-full flex-row self-stretch py-6 lg:gap-16 lg:py-10">
           <div class="hidden w-1/2 items-center lg:flex">
             <img
               loading="lazy"
               decoding="async"
-              src="https://res.cloudinary.com/dkht4mwqi/image/upload/v1719559271/flowbite-qwik/qwik.png"
-              class="dark:hidden"
+              src={`/qwik/qwik-${isDark.value ? 'dark' : 'light'}.svg`}
               alt="Qwik UI component code preview"
-              width={608}
-              height={535}
-            />
-            <img
-              loading="lazy"
-              decoding="async"
-              src="https://res.cloudinary.com/dkht4mwqi/image/upload/v1719559271/flowbite-qwik/qwik_dark.png"
-              class="hidden dark:block"
-              alt="Qwik UI component code preview (dark mode)"
               width={608}
               height={535}
             />
@@ -41,8 +34,10 @@ export const QwikSection = component$(() => {
             <div class="flex flex-col items-start gap-3 self-stretch sm:gap-4">
               <h2 class="text-3xl font-extrabold leading-tight text-gray-900 dark:text-white lg:text-4xl">Qwik UI components</h2>
               <p class="text-lg text-gray-500 dark:text-gray-400">
-                <Link href="">Flowbite Qwik</Link> is a free and open-source UI component library based on accessible Qwik components and Tailwind
-                CSS.
+                <Link href="" class="text-black underline dark:text-white">
+                  Flowbite Qwik
+                </Link>{' '}
+                is a free and open-source UI component library based on accessible Qwik components and Tailwind CSS.
               </p>
               <p class="text-lg text-gray-500 dark:text-gray-400">
                 Get started building modern web applications using the Qwik UI components from Flowbite based on Tailwind CSS and the Flowbite design
@@ -56,7 +51,7 @@ export const QwikSection = component$(() => {
               <ul class="mb-6 list-inside list-none space-y-4 font-medium text-gray-900 dark:text-white lg:mb-8">
                 {feature_list.map((f, i) => (
                   <li key={i} class="flex items-center gap-2">
-                    <IconCheckCircleSolid />
+                    <CheckedIcon />
                     {f}
                   </li>
                 ))}

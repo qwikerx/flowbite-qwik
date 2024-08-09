@@ -17,12 +17,6 @@ export default {
           '100%': { transform: 'translateX(0)' },
         },
       },
-      colors: {
-        qwik: {
-          DEFAULT: '#19B5F6',
-          secondary: '#AC7EF4',
-        },
-      },
       minWidth: {
         'screen-lg': '1024px',
       },
