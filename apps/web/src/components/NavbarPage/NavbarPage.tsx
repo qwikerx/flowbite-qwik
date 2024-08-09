@@ -37,7 +37,7 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
         </Navbar.Brand>
       </div>
 
-      <div class="flex justify-between lg:ml-8 lg:flex-1">
+      <div class="flex items-center justify-between lg:ml-8 lg:flex-1">
         <div class="relative hidden lg:block">
           <button type="button" class="DocSearch DocSearch-Button" disabled>
             <span class="DocSearch-Button-Container">
