@@ -33,7 +33,7 @@ export const SocialProofSection = component$(() => {
       onResolved={(data) => {
         return (
           <section>
-            <div class="max-w-8xl mx-auto px-4 py-8 lg:px-20">
+            <div class="mx-auto max-w-screen-xl px-4 py-8 xl:px-3">
               <div class="flex flex-col gap-4 lg:flex-row lg:gap-20">
                 <div class="mb-4 flex w-full flex-col items-start justify-center gap-3 md:gap-5 lg:mb-0">
                   <div class="flex w-full flex-col items-start justify-center gap-6">

@@ -1,7 +1,8 @@
 import { DarkModeSwitcher } from './DarkModeSwitcher'
 import { component$ } from '@builder.io/qwik'
-import { Link } from 'flowbite-qwik'
-import { IconArrowRightSolid, IconCheckCircleSolid } from 'flowbite-qwik-icons'
+import { Link, useDarkMode } from 'flowbite-qwik'
+import { IconArrowRightSolid } from 'flowbite-qwik-icons'
+import { CheckedIcon } from '~/components/homepage/CheckedIcon/CheckedIcon'
 
 const feature_list = [
   'Increased accessibility based on room brightness',
@@ -11,26 +12,18 @@ const feature_list = [
 ]
 
 export const DarkModeSection = component$(() => {
+  const { isDark } = useDarkMode()
+
   return (
     <section class="bg-gray-50 dark:bg-gray-800">
-      <div class="mx-auto w-full max-w-8xl px-4 py-8 lg:px-20 lg:py-24">
+      <div class="mx-auto w-full max-w-screen-xl px-4 py-8 lg:py-24 xl:px-3">
         <div class="flex w-full flex-row-reverse self-stretch py-6 lg:gap-16 lg:py-10">
           <div class="hidden w-1/2 items-center lg:flex">
             <img
               loading="lazy"
               decoding="async"
-              src="https://res.cloudinary.com/dkht4mwqi/image/upload/v1719521491/flowbite-qwik/dark-mode.webp"
-              class="dark:hidden"
+              src={`/dark-mode/dark-mode-${isDark.value ? 'dark' : 'light'}.svg`}
               alt="Qwik dark mode preview"
-              width={608}
-              height={443}
-            />
-            <img
-              loading="lazy"
-              decoding="async"
-              src="https://res.cloudinary.com/dkht4mwqi/image/upload/v1719521490/flowbite-qwik/dark-mode_dark.webp"
-              class="hidden dark:block"
-              alt="Qwik dark mode preview (inverted colors)"
               width={608}
               height={443}
             />
@@ -40,8 +33,11 @@ export const DarkModeSection = component$(() => {
               <DarkModeSwitcher />
               <h2 class="text-3xl font-extrabold leading-tight text-gray-900 dark:text-white lg:text-4xl">Dark mode integration</h2>
               <p class="text-lg text-gray-500 dark:text-gray-400">
-                Flowbite Qwik has native built-in support for <Link href="/docs/customize/dark-mode">dark mode</Link> by using Tailwind CSS and the
-                Flowbite design system.
+                Flowbite Qwik has native built-in support for{' '}
+                <Link href="/docs/customize/dark-mode" class="text-black underline dark:text-white">
+                  dark mode
+                </Link>{' '}
+                by using Tailwind CSS and the Flowbite design system.
               </p>
               <p class="text-lg text-gray-500 dark:text-gray-400">
                 All of the UI components from Flowbite Qwik will automatically invert the colors when activating dark mode via browser settings or
@@ -52,7 +48,7 @@ export const DarkModeSection = component$(() => {
               <ul class="mb-6 list-inside list-none space-y-4 font-medium text-gray-900 dark:text-white lg:mb-8">
                 {feature_list.map((f, i) => (
                   <li key={i} class="flex items-center gap-2">
-                    <IconCheckCircleSolid />
+                    <CheckedIcon />
                     {f}
                   </li>
                 ))}

@@ -3,7 +3,7 @@ import { component$ } from '@builder.io/qwik'
 export const FigmaSection = component$(() => {
   return (
     <section class="bg-gray-50 dark:bg-gray-800">
-      <div class="mx-auto max-w-8xl px-4 py-8 lg:px-20 lg:py-24">
+      <div class="mx-auto max-w-screen-xl px-4 py-8 lg:py-24 xl:px-3">
         <div class="mx-auto grid max-w-8xl grid-cols-1 items-start justify-between gap-24 py-1 lg:grid-cols-2">
           <div class="flex flex-col gap-8">
             <div class="flex w-full flex-col items-start justify-center gap-6">

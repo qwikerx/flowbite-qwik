@@ -20,7 +20,7 @@ export default component$(() => {
         <FlowbiteProviderHeader />
       </head>
       <body>
-        <FlowbiteProvider toastPosition={toastPosition.value} theme="blue">
+        <FlowbiteProvider toastPosition={toastPosition.value} theme="purple">
           <RouterOutlet />
         </FlowbiteProvider>
       </body>

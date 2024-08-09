@@ -46,7 +46,13 @@ export const Navbar = component$<NavbarProps>(
           )}
           {...props}
         >
-          <div class={twMerge('mx-auto flex flex-wrap items-center justify-between p-4', !fluid && 'container', fullWidth ? '' : 'max-w-screen-xl')}>
+          <div
+            class={twMerge(
+              'mx-auto flex flex-wrap items-center justify-between px-4 py-3',
+              !fluid && 'container',
+              fullWidth ? '' : 'max-w-screen-xl',
+            )}
+          >
             {withSidebar && (
               <NavbarBurgerButton
                 class="sm:hidden"

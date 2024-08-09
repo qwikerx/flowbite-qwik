@@ -1,5 +1,4 @@
 import { component$, PrefetchServiceWorker, Slot, useComputed$ } from '@builder.io/qwik'
-import { DocFooter } from '~/components/Footer/Footer'
 import { Sidebar } from 'flowbite-qwik'
 import { NavLink } from '~/components/NavLink/NavLink'
 import { allDocs } from '~/generated-docs'
@@ -16,6 +15,12 @@ export default component$(() => {
   const isFormsOpened = useComputed$(() => location.url.pathname.startsWith('/docs/forms'))
   const isTypographyOpened = useComputed$(() => location.url.pathname.startsWith('/docs/typography'))
 
+  const collapseClasses = 'text-sm tracking-wide hover:bg-transparent dark:hover:bg-transparent hover:text-purple-600 dark:hover:text-purple-400'
+  const itemClasses =
+    'bg-transparent pl-2 text-sm capitalize text-gray-500 hover:bg-transparent hover:text-gray-900 dark:bg-transparent dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-white'
+  const itemActiveClasses =
+    'text-purple-600 dark:text-purple-400 dark:hover:text-purple-400 hover:text-purple-600 bg-transparent hover:bg-transparent'
+
   return (
     <div>
       <NavbarPage fullWidth withSidebar />
@@ -23,45 +28,63 @@ export default component$(() => {
       <main>
         <Sidebar withNavbar>
           <Sidebar.ItemGroup>
-            <Sidebar.Collapse label={'Getting Started'.toUpperCase()} class="text-sm tracking-wide" opened={isGettingStartedOpened.value}>
+            <Sidebar.Collapse label={'Getting Started'.toUpperCase()} class={collapseClasses} opened={isGettingStartedOpened.value}>
               {allDocs['getting-started'].map((component) => (
-                <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/getting-started/${component}`}>
+                <Sidebar.Item
+                  class={itemClasses}
+                  activeClass={itemActiveClasses}
+                  key={component}
+                  tag={NavLink}
+                  href={`/docs/getting-started/${component}`}
+                >
                   {component}
                 </Sidebar.Item>
               ))}
             </Sidebar.Collapse>
-            <Sidebar.Collapse label={'Customize'.toUpperCase()} class="text-sm tracking-wide" opened={isCustomizeOpened.value}>
+            <Sidebar.Collapse label={'Customize'.toUpperCase()} class={collapseClasses} opened={isCustomizeOpened.value}>
               {allDocs['customize'].map((component) => (
-                <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/customize/${component}`}>
+                <Sidebar.Item class={itemClasses} activeClass={itemActiveClasses} key={component} tag={NavLink} href={`/docs/customize/${component}`}>
                   {component}
                 </Sidebar.Item>
               ))}
             </Sidebar.Collapse>
             <Sidebar.Collapse
               label={`Components (${allDocs.components.length})`.toUpperCase()}
-              class="text-sm tracking-wide"
+              class={collapseClasses}
               opened={isComponentsOpened.value}
             >
               {allDocs.components.map((component) => (
-                <Sidebar.Item key={component} tag={NavLink} href={`/docs/components/${component}`}>
+                <Sidebar.Item
+                  key={component}
+                  tag={NavLink}
+                  href={`/docs/components/${component}`}
+                  class={itemClasses}
+                  activeClass={itemActiveClasses}
+                >
                   {toPascalCase(component)}
                 </Sidebar.Item>
               ))}
             </Sidebar.Collapse>
-            <Sidebar.Collapse label={`Forms (${allDocs.forms.length})`.toUpperCase()} class="text-sm tracking-wide" opened={isFormsOpened.value}>
+            <Sidebar.Collapse label={`Forms (${allDocs.forms.length})`.toUpperCase()} class={collapseClasses} opened={isFormsOpened.value}>
               {allDocs.forms.map((component) => (
-                <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/forms/${component}`}>
+                <Sidebar.Item class={itemClasses} activeClass={itemActiveClasses} key={component} tag={NavLink} href={`/docs/forms/${component}`}>
                   {component}
                 </Sidebar.Item>
               ))}
             </Sidebar.Collapse>
             <Sidebar.Collapse
               label={`Typography (${allDocs.typography.length})`.toUpperCase()}
-              class="text-sm tracking-wide"
+              class={collapseClasses}
               opened={isTypographyOpened.value}
             >
               {allDocs.typography.map((component) => (
-                <Sidebar.Item class="capitalize" key={component} tag={NavLink} href={`/docs/typography/${component}`}>
+                <Sidebar.Item
+                  class={itemClasses}
+                  activeClass={itemActiveClasses}
+                  key={component}
+                  tag={NavLink}
+                  href={`/docs/typography/${component}`}
+                >
                   {component}
                 </Sidebar.Item>
               ))}
@@ -71,7 +94,6 @@ export default component$(() => {
 
         <div class="sm:ml-64">
           <Slot />
-          <DocFooter class="bg-white dark:bg-gray-900" />
         </div>
       </main>
 
