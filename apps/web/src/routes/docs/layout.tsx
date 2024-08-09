@@ -1,5 +1,4 @@
 import { component$, PrefetchServiceWorker, Slot, useComputed$ } from '@builder.io/qwik'
-import { DocFooter } from '~/components/Footer/Footer'
 import { Sidebar } from 'flowbite-qwik'
 import { NavLink } from '~/components/NavLink/NavLink'
 import { allDocs } from '~/generated-docs'
@@ -71,7 +70,6 @@ export default component$(() => {
 
         <div class="sm:ml-64">
           <Slot />
-          <DocFooter class="bg-white dark:bg-gray-900" />
         </div>
       </main>
 
