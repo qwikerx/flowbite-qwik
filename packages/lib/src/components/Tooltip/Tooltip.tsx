@@ -54,17 +54,7 @@ export const Tooltip = component$<TooltipProps>(
         >
           <Slot name="content" />
 
-          {!noArrow && (
-            <RenderFloatingArrow
-              ref={arrowRef}
-              class={twMerge([
-                style === 'dark' && 'bg-gray-900 dark:bg-gray-700',
-                style === 'light' && 'bg-white',
-                style === 'auto' && 'bg-white dark:bg-gray-700',
-                clsx(theme?.arrow),
-              ])}
-            />
-          )}
+          {!noArrow && <RenderFloatingArrow ref={arrowRef} class={twMerge(['bg-inherit', clsx(theme?.arrow)])} />}
         </RenderFloatingElement>
       </>
     )

@@ -59,7 +59,6 @@ export const NavbarPage = component$(() => {
             placement="bottom"
             theme={{
               element: 'bg-black dark:bg-black text-white dark:text-white',
-              arrow: 'bg-black dark:bg-black text-white dark:text-white',
             }}
           >
             <span q:slot="content">Join Discord Community</span>
@@ -78,7 +77,6 @@ export const NavbarPage = component$(() => {
             placement="bottom"
             theme={{
               element: 'bg-black dark:bg-black text-white dark:text-white',
-              arrow: 'bg-black dark:bg-black text-white dark:text-white',
             }}
           >
             <span q:slot="content">View on GitHub</span>
@@ -97,7 +95,6 @@ export const NavbarPage = component$(() => {
             placement="bottom"
             theme={{
               element: 'bg-black dark:bg-black text-white dark:text-white',
-              arrow: 'bg-black dark:bg-black text-white dark:text-white',
             }}
           >
             <button
