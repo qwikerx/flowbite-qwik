@@ -1,6 +1,7 @@
 /**
  * title: Button loading
  * description: Use the Spinner components to indicate a loader animation inside buttons:
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

@@ -1,6 +1,7 @@
 /**
  * title: Outlined with icon
  * description: Group a series of buttons together on a single line or stack them in a vertical column.
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

@@ -1,6 +1,7 @@
 /**
  * title: Pagination with icons
  * description: Add next and previous icons to the pagination component by passing the showIcons prop.
+ * height: 150
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

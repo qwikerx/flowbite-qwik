@@ -1,6 +1,7 @@
 /**
  * title: Badges as links
  * description: You can also use badges as anchor elements to link to another page. Prop – href
+ * height: 100
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

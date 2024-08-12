@@ -1,6 +1,7 @@
 /**
  * title: Button slot suffix
  * description: Add suffix content inside the button
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

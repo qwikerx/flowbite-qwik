@@ -1,6 +1,7 @@
 /**
  * title: With custom button
  * description: Customize the pagination buttons by passing a custom button component.
+ * height: 150
  */
 
 import { component$, useSignal, Slot } from '@builder.io/qwik'

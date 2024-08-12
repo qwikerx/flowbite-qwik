@@ -1,6 +1,7 @@
 /**
  * title: Button group with icons
  * description: Import one of the icons from the flowbite-qwik-icons library and add it as a child element to the <Button> component to create multiple buttons with icons grouped together.
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

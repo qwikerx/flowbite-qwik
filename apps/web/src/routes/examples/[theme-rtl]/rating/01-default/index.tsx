@@ -1,6 +1,7 @@
 /**
  * title: Default rating
  * description: Use this simple example of a star rating component for showing review results.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

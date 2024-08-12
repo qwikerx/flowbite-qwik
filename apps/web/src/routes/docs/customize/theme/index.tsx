@@ -40,10 +40,7 @@ export default component$(() => {
         />
         <div class="mt-5">
           <FlowbiteProvider theme="pink">
-            <p>
-              As you can see, you can can change the global theme in the header but this component bellow will never be affected as it's listening to
-              it's own theme reference.
-            </p>
+            <p>The Theme provider is a component that allows you to set a default theme for all of its child components.</p>
             <Button>I'm using a pink theme</Button>
           </FlowbiteProvider>
         </div>

@@ -1,6 +1,7 @@
 /**
  * title: Spinner colors
  * description: Update the colors of the loading spinner by using the color Qwik prop.
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

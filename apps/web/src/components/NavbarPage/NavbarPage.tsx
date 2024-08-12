@@ -1,20 +1,16 @@
-import { component$, useVisibleTask$ } from '@builder.io/qwik'
+import { component$, Slot, useComputed$, useVisibleTask$ } from '@builder.io/qwik'
 import { Link, useLocation } from '@builder.io/qwik-city'
 import { Badge, Navbar, Tooltip, useDarkMode } from 'flowbite-qwik'
-import { IconDiscordSolid, IconGithubSolid, IconMoonSolid, IconSearchOutline, IconSunSolid } from 'flowbite-qwik-icons'
+import { IconDiscordSolid, IconGithubSolid, IconMoonSolid, IconSunSolid } from 'flowbite-qwik-icons'
 import pkg from 'flowbite-qwik/package.json'
 import './NavbarPage.css'
 import docsearch from '@docsearch/js'
 
-type NavbarPageProps = {
-  fullWidth?: boolean
-  withSidebar?: boolean
-  withCollapse?: boolean
-}
-
-export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, withCollapse = false, withSidebar = false }) => {
+export const NavbarPage = component$(() => {
   const { isDark, setDarkModeValue } = useDarkMode()
   const location = useLocation()
+
+  const isHomePage = useComputed$(() => location.url.pathname === '/')
 
   useVisibleTask$(() => {
     docsearch({
@@ -26,47 +22,47 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
   })
 
   return (
-    <Navbar fluid fullWidth={fullWidth} rounded separator withSidebar={withSidebar} sticky id="header__navbar">
+    <Navbar
+      fluid
+      separator
+      sticky
+      id="header__navbar"
+      theme={{
+        link: {
+          main: 'text-sm font-medium',
+        },
+        toggle: !isHomePage.value && 'hidden',
+      }}
+    >
       <div class="flex gap-2">
-        {withCollapse && <Navbar.Toggle />}
+        <Slot name="action" />
+        <Navbar.Toggle />
         <Navbar.Brand tag={Link} href="/">
           <img src="/logo.svg" alt="Flowbite qwik small logo" width="36" height="36" class="h-8 w-auto" />
-          <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Flowbite <span class="hidden sm:inline">Qwik</span>
-          </span>
+          <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
         </Navbar.Brand>
       </div>
 
       <div class="flex items-center justify-between lg:ml-8 lg:flex-1">
-        <div class="relative hidden lg:block">
-          <button type="button" class="DocSearch DocSearch-Button" disabled>
-            <span class="DocSearch-Button-Container">
-              <IconSearchOutline class="DocSearch-Search-Icon" />
-              <span class="DocSearch-Button-Placeholder">Search</span>
-            </span>
-          </button>
-          <div id="docsearch" class="absolute left-0 top-0" />
-        </div>
+        <div id="docsearch" />
         <div class="flex items-center gap-1 lg:gap-2">
-          {withCollapse && (
-            <Navbar.Collapse class="absolute left-0 top-12 md:relative md:top-0">
-              <Navbar.Link
-                href="/docs/getting-started/introduction"
-                tag={Link}
-                active={location.url.pathname === '/docs/getting-started/introduction'}
-              >
-                Docs
-              </Navbar.Link>
-              <Navbar.Link href="/docs/getting-started/quickstart" tag={Link} active={location.url.pathname === '/docs/getting-started/quickstart'}>
-                Quickstart
-              </Navbar.Link>
-              <Navbar.Link href="https://flowbite.com" target="_blank">
-                Flowbite
-              </Navbar.Link>
-            </Navbar.Collapse>
-          )}
-
-          <Tooltip placement="bottom">
+          <Navbar.Collapse class="absolute left-0 top-12 md:relative md:top-0">
+            <Navbar.Link href="/docs/getting-started/introduction" tag={Link} active={location.url.pathname === '/docs/getting-started/introduction'}>
+              Docs
+            </Navbar.Link>
+            <Navbar.Link href="/docs/getting-started/quickstart" tag={Link} active={location.url.pathname === '/docs/getting-started/quickstart'}>
+              Quickstart
+            </Navbar.Link>
+            <Navbar.Link href="https://flowbite.com" target="_blank">
+              Flowbite
+            </Navbar.Link>
+          </Navbar.Collapse>
+          <Tooltip
+            placement="bottom"
+            theme={{
+              element: 'bg-black dark:bg-black text-white dark:text-white',
+            }}
+          >
             <span q:slot="content">Join Discord Community</span>
             <a
               q:slot="trigger"
@@ -79,7 +75,12 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
               <IconDiscordSolid aria-hidden class="size-5" />
             </a>
           </Tooltip>
-          <Tooltip placement="bottom">
+          <Tooltip
+            placement="bottom"
+            theme={{
+              element: 'bg-black dark:bg-black text-white dark:text-white',
+            }}
+          >
             <span q:slot="content">View on GitHub</span>
             <a
               q:slot="trigger"
@@ -92,7 +93,12 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
               <IconGithubSolid aria-hidden class="size-5" />
             </a>
           </Tooltip>
-          <Tooltip placement="bottom">
+          <Tooltip
+            placement="bottom"
+            theme={{
+              element: 'bg-black dark:bg-black text-white dark:text-white',
+            }}
+          >
             <button
               q:slot="trigger"
               class="rounded-lg p-2.5 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
@@ -104,8 +110,7 @@ export const NavbarPage = component$<NavbarPageProps>(({ fullWidth = false, with
             </button>
             <span q:slot="content">Toggle dark mode</span>
           </Tooltip>
-
-          <Badge size="sm" type="purple" content={'v' + pkg.version} />
+          <Badge class="hidden lg:block" size="sm" type="purple" content={'v' + pkg.version} />
         </div>
       </div>
     </Navbar>

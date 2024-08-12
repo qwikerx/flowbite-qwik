@@ -1,6 +1,7 @@
 /**
  * title: Button sizes
  * description: Use these examples if you want to use smaller or larger buttons.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

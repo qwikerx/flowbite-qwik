@@ -30,7 +30,7 @@ const inactiveClasses: Record<FlowbiteTheme, string> = {
 }
 
 export const NavbarLink = component$<NavbarLinkProps>(({ active = false, tag: Component = 'a', disabled, class: classNames, ...props }) => {
-  const { setIsOpen } = useNavbarContext()
+  const { setIsOpen, theme } = useNavbarContext()
   const { themeName } = useFlowbiteThemable()
 
   const handleClick = $(() => {
@@ -41,10 +41,14 @@ export const NavbarLink = component$<NavbarLinkProps>(({ active = false, tag: Co
     <li>
       <Component
         class={twMerge(
-          'block py-2 pl-3 pr-4 md:p-0 rounded',
+          'block rounded py-2 pl-3 pr-4 md:p-0',
           active && activeClasses[themeName.value],
           !active && !disabled && inactiveClasses[themeName.value],
           disabled && 'text-gray-400 hover:cursor-not-allowed dark:text-gray-600',
+          clsx(theme.value?.link?.main),
+          active && clsx(theme.value?.link?.active),
+          !active && !disabled && clsx(theme.value?.link?.inactive),
+          disabled && clsx(theme.value?.link?.disabled),
           clsx(classNames),
         )}
         onClick$={handleClick}

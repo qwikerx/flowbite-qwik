@@ -1,64 +1,75 @@
-import { FunctionComponent, PropsOf, component$, useSignal, Slot } from '@builder.io/qwik'
+import { FunctionComponent, PropsOf, component$, useSignal, Slot, ClassList, useContextProvider, useStore, Signal } from '@builder.io/qwik'
 import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { getChild } from '~/utils/children-inspector'
 import { SidebarItemGroup } from './SidebarItemGroup'
 import { SidebarItem } from './SidebarItem'
 import { SidebarCollapse } from './SidebarCollapse'
-import { useSidebarOpen } from './composables/use-open-sidebar'
-import { IconCloseOutline } from 'flowbite-qwik-icons'
+import { sidebarContext, useSidebarContext } from './composables/use-sidebar-context'
+
+export type SidebarTheme = {
+  aside?: ClassList
+  nav?: ClassList
+  collapse?: {
+    main?: ClassList
+    itemGroup?: ClassList
+    icon?: ClassList
+  }
+  item?: {
+    main?: ClassList
+    active?: ClassList
+  }
+}
 
 type SidebarProps = PropsOf<'aside'> & {
   highlight?: boolean
-  closeButton?: boolean
-  withNavbar?: boolean
+  collapsed?: Signal<boolean>
+  theme?: SidebarTheme
 }
 
-const InternalSidebar = component$<SidebarProps>(({ highlight = false, withNavbar = false, closeButton = false, class: classNames, ...attrs }) => {
-  const { isOpen, setIsOpen } = useSidebarOpen()
+const InternalSidebar = component$<SidebarProps>(({ theme, ...attrs }) => {
+  useContextProvider(sidebarContext, useStore({ theme }))
+
+  return (
+    <InternalSidebarDeep {...attrs}>
+      <Slot />
+    </InternalSidebarDeep>
+  )
+})
+
+const InternalSidebarDeep = component$<SidebarProps>(({ highlight = false, collapsed = useSignal(false), class: classNames, ...attrs }) => {
+  const { theme } = useSidebarContext()
+
   const sidebar = useSignal<HTMLElement>()
 
   return (
     <>
-      {isOpen.value && (
+      {collapsed.value && (
         <div
           class="fixed inset-0 z-30 bg-gray-900/50 dark:bg-gray-900/80"
           onClick$={() => {
-            setIsOpen(false)
+            collapsed.value = false
           }}
         />
       )}
       <aside
         ref={sidebar}
         class={twMerge(
-          'fixed left-0 z-40 h-screen w-64 max-w-64 border-r border-gray-200 bg-white transition-transform sm:translate-x-0 dark:border-gray-700 dark:bg-gray-800',
-          isOpen.value ? 'translate-x-0' : '-translate-x-full',
-          withNavbar ? 'pb-14' : 'top-0',
+          'fixed left-0 top-0 z-40 h-screen w-full max-w-64 border-r border-gray-200 bg-white transition-transform sm:translate-x-0 dark:border-gray-700 dark:bg-gray-800',
+          collapsed.value ? 'translate-x-0' : '-translate-x-full',
           clsx(classNames),
+          clsx(theme.value?.aside),
         )}
         aria-label="Sidebar"
         {...attrs}
       >
-        {closeButton && (
-          <button
-            onClick$={() => {
-              setIsOpen(false)
-            }}
-            type="button"
-            class="absolute right-0 top-0 block p-3 text-gray-500 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 sm:hidden dark:text-gray-400 dark:hover:text-gray-300 dark:focus:ring-gray-600"
-          >
-            <span class="sr-only">Close sidebar</span>
-            <IconCloseOutline class="h-3 w-3" />
-          </button>
-        )}
+        <Slot name="closeButton" />
         <nav
-          class={[
+          class={twMerge(
             'h-full overflow-y-auto px-3 py-4',
-            {
-              'bg-white dark:bg-gray-900': !highlight,
-              'bg-gray-50 dark:bg-gray-800': highlight,
-            },
-          ]}
+            highlight ? 'bg-gray-50 dark:bg-gray-800' : 'bg-white dark:bg-gray-900',
+            clsx(theme.value?.nav),
+          )}
         >
           <Slot />
         </nav>

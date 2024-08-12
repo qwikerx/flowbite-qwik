@@ -1,6 +1,7 @@
 /**
  * title: Button outline
  * description: This incorporates an outline border
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

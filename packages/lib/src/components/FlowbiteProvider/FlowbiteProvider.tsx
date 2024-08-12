@@ -5,7 +5,6 @@ import { ToastPosition } from '~/components/ToastList'
 import { darkModeContext } from '~/composables/use-dark-mode'
 import { FlowbiteTheme } from '~/components/FlowbiteThemable'
 import { FlowbiteThemable } from '../FlowbiteThemable/FlowbiteThemable'
-import { sidebarContext } from '~/components/Sidebar'
 
 type FlowbiteProviderProps = {
   toastPosition?: ToastPosition
@@ -15,7 +14,6 @@ type FlowbiteProviderProps = {
 export const FlowbiteProvider = component$<FlowbiteProviderProps>(({ toastPosition, theme }) => {
   useContextProvider(toastContext, useStore([]))
   useContextProvider(darkModeContext, useSignal(undefined))
-  useContextProvider(sidebarContext, useStore({ isOpen: false }))
 
   return (
     <FlowbiteThemable theme={theme}>

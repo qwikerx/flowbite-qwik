@@ -4,8 +4,6 @@ import { SidebarItemGroup } from './SidebarItemGroup'
 import { SidebarCollapse } from './SidebarCollapse'
 import { SidebarCta } from './SidebarCta'
 
-export { sidebarContext, useSidebarOpen } from './composables/use-open-sidebar'
-
 export const Sidebar = Object.assign(SidebarRoot, {
   Item: SidebarItem,
   ItemGroup: SidebarItemGroup,

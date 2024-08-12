@@ -1,7 +1,7 @@
 /**
  * title: Input with copy button
  * description: This example can be used to copy the content of an input field by clicking on a button with an icon positioned inside the form element and also show a tooltip with a message when the text has been copied.
- * height: 200
+ * height: 150
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

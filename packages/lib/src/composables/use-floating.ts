@@ -2,25 +2,10 @@ import { $, Signal, useComputed$, useSignal, useVisibleTask$ } from '@builder.io
 import { useDocumentOuterClick } from './use-outer-click'
 import { computePosition, arrow, flip, shift, offset, Placement, autoUpdate } from '@floating-ui/dom'
 
-export function useFloating(placement: Placement = 'top', trigger = 'hover', noArrow = false, isVisible: Signal<boolean>) {
+export function useFloating(internalPlacement: Placement = 'top', trigger = 'hover', noArrow = false, isVisible: Signal<boolean>) {
   const floatingRef = useSignal<HTMLDivElement>()
   const arrowRef = useSignal<HTMLDivElement>()
   const triggerRef = useSignal<HTMLElement>()
-
-  const leftPosition = useSignal(0)
-  const topPosition = useSignal(0)
-
-  const arrowLeftPosition = useSignal()
-  const arrowTopPosition = useSignal()
-
-  const staticSide = useComputed$(() => {
-    return {
-      top: 'bottom',
-      right: 'left',
-      bottom: 'top',
-      left: 'right',
-    }[placement.split('-')[0]] as 'top' | 'right' | 'bottom' | 'left'
-  })
 
   const set$ = $((val: boolean) => {
     isVisible.value = val
@@ -72,26 +57,34 @@ export function useFloating(placement: Placement = 'top', trigger = 'hover', noA
       if (!floatingRef.value || !triggerRef.value) return
 
       computePosition(triggerRef.value, floatingRef.value, {
-        placement,
+        placement: internalPlacement,
         middleware: [
+          flip(),
+          shift(),
           !noArrow &&
             !!arrowRef.value &&
             arrow({
               element: arrowRef.value,
             }),
-          flip(),
-          shift(),
+
           offset(8),
         ],
-      }).then(({ x, y, middlewareData }) => {
+      }).then(({ x, y, middlewareData, placement }) => {
         if (floatingRef.value) {
           floatingRef.value.style.left = `${x}px`
           floatingRef.value.style.top = `${y}px`
         }
         if (arrowRef.value) {
+          const staticSide = {
+            top: 'bottom',
+            right: 'left',
+            bottom: 'top',
+            left: 'right',
+          }[placement.split('-')[0]] as 'top' | 'bottom' | 'left' | 'right'
+
           arrowRef.value.style.left = `${middlewareData.arrow?.x}px`
           arrowRef.value.style.top = `${middlewareData.arrow?.y}px`
-          arrowRef.value.style[staticSide.value] = '-4px'
+          arrowRef.value.style[staticSide] = '-4px'
         }
       })
     }
@@ -106,11 +99,6 @@ export function useFloating(placement: Placement = 'top', trigger = 'hover', noA
   )
 
   return {
-    leftPosition,
-    topPosition,
-    arrowLeftPosition,
-    arrowTopPosition,
-    staticSide,
     floatingRef,
     arrowRef,
     triggerRef,

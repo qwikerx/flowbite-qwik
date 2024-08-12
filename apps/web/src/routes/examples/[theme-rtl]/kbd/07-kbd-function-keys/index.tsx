@@ -1,6 +1,7 @@
 /**
  * title: Function keys
  * description: This example can be used to denote function keys inside the KBD component.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

@@ -1,6 +1,7 @@
 /**
  * title: Default blockquote
  * description: Use this example to quote an external source inside a <Blockquote> component.
+ *
  */
 
 import { component$ } from '@builder.io/qwik'

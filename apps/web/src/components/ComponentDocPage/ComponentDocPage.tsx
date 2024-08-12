@@ -53,31 +53,33 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
     <>
       {previewItems.value ? (
         <div class="flex" ref={previewElements}>
-          <div class="mx-auto flex min-w-0 max-w-4xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
-            <section class="flex flex-col gap-8">
-              <Heading tag="h1" class="capitalize">
+          <div class="mx-auto flex min-w-0 max-w-3xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
+            <section class="flex flex-col">
+              <Heading tag="h1" class="mb-2 text-3xl font-extrabold capitalize">
                 Qwik {name} - Flowbite
               </Heading>
 
-              <div class="mb-4 text-gray-600 dark:text-gray-400">
+              <div class="mb-8 text-gray-600 dark:text-gray-400">
                 <Slot name="description" />
               </div>
 
-              {previewItems.value?.map((item, i) => (
-                <Preview
-                  key={i + item.title}
-                  title={item.title}
-                  url={item.url}
-                  description={item.description}
-                  codeContent={item.content}
-                  height={item.height}
-                  data-preview={item.title}
-                />
-              ))}
+              <div class="flex flex-col gap-8">
+                {previewItems.value?.map((item, i) => (
+                  <Preview
+                    key={i + item.title}
+                    title={item.title}
+                    url={item.url}
+                    description={item.description}
+                    codeContent={item.content}
+                    height={item.height}
+                    data-preview={item.title}
+                  />
+                ))}
+              </div>
             </section>
           </div>
 
-          <div class="right-0 hidden w-64 flex-none pl-8 pt-2 xl:block xl:text-sm">
+          <div class="right-0 hidden w-64 flex-none pl-4 pt-2 xl:block xl:text-sm">
             <TableOfContents items={tableOfContentItems.value} activeElement={activeElement.value} />
           </div>
         </div>

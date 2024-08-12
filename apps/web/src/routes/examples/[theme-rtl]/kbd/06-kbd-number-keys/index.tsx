@@ -1,6 +1,7 @@
 /**
  * title: Number Keys
  * description: Use this example to show a key inside a KBD component from the english numeral system.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

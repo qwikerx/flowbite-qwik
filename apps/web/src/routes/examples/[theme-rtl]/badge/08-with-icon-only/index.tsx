@@ -1,6 +1,7 @@
 /**
  * title: Badge with Icon only
  * description: You can also use badge with only icon.
+ * height: 100
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

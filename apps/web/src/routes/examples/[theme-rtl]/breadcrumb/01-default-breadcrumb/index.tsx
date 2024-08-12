@@ -1,6 +1,7 @@
 /**
  * title: Default Breadcrumb
  * description: Use the following breadcrumb example to show the hierarchical structure of pages.
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

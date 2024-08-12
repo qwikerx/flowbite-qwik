@@ -1,6 +1,7 @@
 /**
  * title: Stars sizes
  * description: Check out the different sizing options for the star review component from small, medium, and large.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

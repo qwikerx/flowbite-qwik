@@ -1,7 +1,7 @@
 /**
  * title: Custom Tooltip
  * description: Use the props `tooltipCopyLabel` and `tooltipCopiedLabel` to customize the tooltip labels of the Clipboard component.
- * height: 200
+ * height: 150
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

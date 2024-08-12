@@ -79,7 +79,7 @@ export function generate() {
               (comp: string) =>
                 `<td>
             <a href="https://flowbite-qwik.com/docs/${componentsNaming[comp].folder}/${componentsNaming[comp].doc}">
-              <img alt="Qwik ${comp}" src="https://flowbite-qwik.com/thumbnails/website/${componentsNaming[comp].img}.svg" />
+              <img alt="Qwik ${comp}" src="https://flowbite-qwik.com/thumbnails/website/${componentsNaming[comp].img}-light.svg" />
               </a>
           </td>`,
             )

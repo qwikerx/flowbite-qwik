@@ -14,7 +14,7 @@ export default component$(() => {
   return (
     <div class="h-[440px]">
       <Banner sticky="top">
-        <div class="flex w-[calc(100%-2rem)] flex-col justify-between rounded-lg border border-gray-100 bg-white p-4 shadow-sm dark:border-gray-600 dark:bg-gray-700 md:flex-row lg:max-w-7xl">
+        <div class="mx-auto mt-2 flex w-[calc(100%-2rem)] flex-col justify-between rounded-lg border border-gray-100 bg-white p-4 shadow-sm dark:border-gray-600 dark:bg-gray-700 md:flex-row lg:max-w-7xl">
           <div class="mb-3 mr-4 flex flex-col items-start md:mb-0 md:flex-row md:items-center">
             <a href="https://flowbite.com/" class="mb-2 flex items-center border-gray-200 dark:border-gray-600 md:mb-0 md:mr-4 md:border-r md:pr-4">
               <img src="https://flowbite.com/docs/images/logo.svg" class="mr-2 h-6" alt="Flowbite Logo" />
@@ -24,9 +24,9 @@ export default component$(() => {
               Build websites even faster with components on top of Tailwind CSS
             </p>
           </div>
-          <div class="flex shrink-0 items-center">
+          <div class="flex shrink-0 items-center gap-2">
             <Button href="#">Sign up</Button>
-            <Banner.CollapseButton color="light" class="border-0 bg-transparent text-gray-500 dark:text-gray-400">
+            <Banner.CollapseButton color="light" class="border-0 bg-transparent text-gray-500 dark:bg-transparent dark:text-gray-400">
               <IconCloseSolid class="h-4 w-4" />
             </Banner.CollapseButton>
           </div>

@@ -11,7 +11,7 @@
 }
 
 .DocSearch.DocSearch-Button {
-  @apply m-0 ml-0 flex h-[34px] w-[34px] !border !border-gray-300 border-solid dark:text-white items-center justify-center rounded-lg bg-white shadow-none hover:bg-gray-100 hover:shadow-none focus:shadow-none focus:outline-none focus:ring-4 focus:ring-gray-200 md:mr-0 md:w-52 md:justify-between md:border-solid md:border-gray-300 md:bg-gray-50 xl:w-64 xl:pl-4;
+  @apply m-0 ml-0 flex h-[34px] w-[34px] items-center justify-center rounded-lg !border border-solid !border-gray-300 bg-white shadow-none hover:bg-gray-100 hover:shadow-none focus:shadow-none focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-white max-sm:border-none md:mr-8 md:w-40 md:justify-between md:border-solid md:border-gray-300 md:bg-gray-50 xl:w-64 xl:pl-4;
 }
 
 .DocSearch .DocSearch-Button-Placeholder {
@@ -48,11 +48,11 @@
 }
 
 .DocSearch .DocSearch-Hits mark {
-  @apply text-cyan-600 decoration-cyan-600 decoration-2 underline-offset-2;
+  @apply text-purple-600 decoration-purple-600 decoration-2 underline-offset-2;
 }
 
 .DocSearch .DocSearch-Hit[aria-selected='true'] a {
-  @apply bg-cyan-700;
+  @apply bg-purple-700;
 }
 
 .DocSearch .DocSearch-Hit-source {
@@ -143,7 +143,8 @@
 /* DARK MODE */
 .dark {
   .DocSearch.DocSearch-Button {
-    @apply bg-gray-800 hover:bg-gray-600 focus:bg-gray-600 focus:ring-gray-700 !border md:bg-gray-700 !border-gray-600;
+    background: #111827;
+    @apply !border !border-gray-600 hover:bg-gray-600 focus:bg-gray-600 focus:ring-gray-700 md:bg-gray-700;
   }
 
   .DocSearch .DocSearch-Button-Placeholder {

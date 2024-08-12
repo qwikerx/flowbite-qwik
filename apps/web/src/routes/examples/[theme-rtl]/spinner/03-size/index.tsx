@@ -1,6 +1,7 @@
 /**
  * title: Sizing options
  * description: Make the size of the spinner smaller or larger by using the size prop. Choose from xs, sm, md, lg, or xl.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

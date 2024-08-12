@@ -1,6 +1,7 @@
 /**
  * title: Button colored shadows
  * description: These beautiful button elements with color shadows can be used since the release of Tailwind v3.0.
+ * height: 200
  */
 
 import { component$ } from '@builder.io/qwik'

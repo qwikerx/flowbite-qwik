@@ -11,7 +11,7 @@ export const Banner = component$<BannerProps>(({ sticky, class: className, ...pr
     <div
       role="banner"
       tabIndex={-1}
-      class={twMerge(sticky && 'fixed z-50 w-full', sticky === 'top' && 'top-0', sticky === 'bottom' && 'bottom-0', clsx(className))}
+      class={twMerge(sticky && 'fixed left-0 z-50 w-full', sticky === 'top' && 'top-0', sticky === 'bottom' && 'bottom-0', clsx(className))}
       {...props}
     >
       <Slot />

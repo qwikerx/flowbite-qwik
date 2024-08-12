@@ -1,7 +1,7 @@
 /**
  * title: Override image element
  * description: You can override the default image element by passing the img prop to the <Avatar> component. This is useful if you want to use a different image element like <Image>
- * height: 200
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

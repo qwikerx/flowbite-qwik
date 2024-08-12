@@ -1,6 +1,7 @@
 /**
  * title: Button full option
  * description: Display a button taking the full width of its container
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

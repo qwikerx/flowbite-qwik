@@ -1,8 +1,9 @@
-import { Component, component$, JSXOutput, PropsOf, Slot } from '@builder.io/qwik'
+import { Component, component$, JSXOutput, PropsOf, Slot, useComputed$ } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
 import type { IconProps } from 'flowbite-qwik-icons'
 import { IconCloseSolid } from 'flowbite-qwik-icons'
+import { useFlowbiteThemable } from '../FlowbiteThemable'
 
 type AlertColor =
   | 'info'
@@ -74,12 +75,15 @@ const AlertColorsClasses: Record<AlertColor, string> = {
 }
 
 export const Alert = component$<AlertProps>(
-  ({ additionalContent, class: className, color = 'info', icon: Icon, onDismiss$, rounded = true, withBorderAccent, ...attrs }) => {
+  ({ additionalContent, class: className, color, icon: Icon, onDismiss$, rounded = true, withBorderAccent, ...attrs }) => {
+    const { themeName } = useFlowbiteThemable()
+
+    const internalColor = useComputed$(() => color ?? (AlertColorsClasses.hasOwnProperty(themeName.value) ? (themeName.value as AlertColor) : 'info'))
     return (
       <div
         class={twMerge(
           'flex flex-col gap-2 p-4 text-sm',
-          AlertColorsClasses[color],
+          AlertColorsClasses[internalColor.value],
           rounded && 'rounded-lg',
           withBorderAccent && 'border-t-4',
           clsx(className),
@@ -95,7 +99,7 @@ export const Alert = component$<AlertProps>(
           {onDismiss$ && (
             <button
               aria-label="Dismiss"
-              class={twMerge('-m-1.5 ml-auto inline-flex h-8 w-8 rounded-lg p-1.5 focus:ring-2', AlertCloseButtonColorsClasses[color])}
+              class={twMerge('-m-1.5 ml-auto inline-flex h-8 w-8 rounded-lg p-1.5 focus:ring-2', AlertCloseButtonColorsClasses[internalColor.value])}
               onClick$={onDismiss$}
               type="button"
             >

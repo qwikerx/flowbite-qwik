@@ -1,7 +1,7 @@
 /**
  * title: Default with Logo
  * description: Use this component to show your brand’s logo, a few website links and the copyright notice on a second row.
- * height: 400
+ * height: 200
  */
 
 import { component$ } from '@builder.io/qwik'
