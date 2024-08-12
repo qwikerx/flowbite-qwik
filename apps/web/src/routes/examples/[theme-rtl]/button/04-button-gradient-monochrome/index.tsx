@@ -1,6 +1,7 @@
 /**
  * title: Button gradient monochrome
  * description: These beautifully colored buttons built with the gradient color stops utility classes from Tailwind CSS can be used as a creative alternative to the default button styles.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

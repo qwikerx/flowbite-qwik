@@ -1,6 +1,7 @@
 /**
  * title: Default button group
  * description: Use this example of the <ButtonGroup> component by adding the Button component as a child element and stack them together. You can also use the color prop to change the color of the buttons.
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

@@ -1,6 +1,7 @@
 /**
  * title: Button group event handler
  * description: You can use onClick$ option of the Button component to know which one is clicked
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

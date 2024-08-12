@@ -1,6 +1,7 @@
 /**
  * title: Pagination with custom icons
  * description: Add custom icons to the pagination component by passing the showIcons prop and no labels.
+ * height: 150
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

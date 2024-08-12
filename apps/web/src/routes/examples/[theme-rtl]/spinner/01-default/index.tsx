@@ -1,6 +1,7 @@
 /**
  * title: Default spinner
  * description: Use the default spinner element by adding the <Spinner> Qwik component inside your code and integrate the aria-label attribute to allow screen readers parse the component for accessibility
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

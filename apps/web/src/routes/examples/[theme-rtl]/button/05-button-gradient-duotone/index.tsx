@@ -1,6 +1,7 @@
 /**
  * title: Button gradient duotone
  * description: These buttons use a style that includes two contrasted colors creating an impressive mesh gradient effect.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

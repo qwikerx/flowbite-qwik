@@ -1,17 +1,17 @@
 .doc-page h1 {
-  @apply mb-2;
+  @apply mb-2 text-3xl font-extrabold;
 }
 
 .doc-page h2 {
-  @apply mt-8 mb-2 scroll-m-16;
+  @apply mb-2 mt-8 scroll-m-16 text-2xl font-bold;
 }
 
 .doc-page h3 {
-  @apply mt-8 mb-2;
+  @apply mb-2 mt-8 text-xl;
 }
 
 .doc-page h4 {
-  @apply mt-8 mb-2;
+  @apply mb-2 mt-8 text-lg;
 }
 
 .doc-page p {
@@ -19,11 +19,11 @@
 }
 
 .doc-page ul {
-  @apply mt-4 list-disc list-inside;
+  @apply mt-4 list-inside list-disc;
 }
 
 .doc-page ol {
-  @apply mt-4 list-decimal list-inside;
+  @apply mt-4 list-inside list-decimal;
 }
 
 .doc-page hr {
@@ -31,5 +31,5 @@
 }
 
 .doc-page em {
-  @apply text-purple-700 dark:text-purple-300 not-italic;
+  @apply not-italic text-purple-700 dark:text-purple-300;
 }

@@ -1,6 +1,7 @@
 /**
  * title: Button pills
  * description: The button pills can be used as an alternative style by using fully rounded edges.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

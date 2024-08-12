@@ -1,6 +1,7 @@
 /**
  * title: Button square
  * description: Sometimes you need a button to indicate an action using only an icon.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

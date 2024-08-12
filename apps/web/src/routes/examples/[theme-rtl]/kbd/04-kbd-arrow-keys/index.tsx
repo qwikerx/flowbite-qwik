@@ -1,6 +1,7 @@
 /**
  * title: Arrow keys
  * description: Use this example to show arrow keys inside the KBD styled element.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

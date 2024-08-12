@@ -14,7 +14,7 @@ import { HeroSection } from '~/components/homepage/HeroSection/HeroSection'
 export default component$(() => {
   return (
     <div>
-      <NavbarPage withCollapse />
+      <NavbarPage />
       <main class="min-w-0 flex-auto divide-y dark:divide-gray-700">
         <HeroSection />
         <FeaturedSection />

@@ -1,6 +1,7 @@
 /**
  * title: Rating with review link
  * description: Aggregate more results by using this example to show the amount of reviews and the average score.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

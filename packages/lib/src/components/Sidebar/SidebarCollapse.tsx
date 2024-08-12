@@ -41,7 +41,7 @@ export const InternalSidebarCollapse = component$<SidebarCollapseProps>(({ label
         tag="button"
         onClick$={toggle$}
         id={`flowbite-sidebar-collapse-${id}`}
-        class={twMerge('font-medium', clsx(className), clsx(theme.value?.collapse?.main))}
+        class={twMerge('flex gap-1 font-medium', clsx(className), clsx(theme.value?.collapse?.main))}
       >
         {label}
         <IconAngleDownSolid q:slot="suffix" class={twMerge(isOpen.value && 'rotate-180 transform', clsx(theme.value?.collapse?.icon))} />

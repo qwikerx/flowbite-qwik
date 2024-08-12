@@ -6,11 +6,7 @@ import pkg from 'flowbite-qwik/package.json'
 import './NavbarPage.css'
 import docsearch from '@docsearch/js'
 
-type NavbarPageProps = {
-  withCollapse?: boolean
-}
-
-export const NavbarPage = component$<NavbarPageProps>(({ withCollapse = false }) => {
+export const NavbarPage = component$(() => {
   const { isDark, setDarkModeValue } = useDarkMode()
   const location = useLocation()
 
@@ -33,12 +29,12 @@ export const NavbarPage = component$<NavbarPageProps>(({ withCollapse = false })
         link: {
           main: 'text-sm font-medium',
         },
+        toggle: 'hidden',
       }}
     >
-      <Slot name="action" />
-
       <div class="flex gap-2">
-        {withCollapse && <Navbar.Toggle />}
+        <Slot name="action" />
+        <Navbar.Toggle />
         <Navbar.Brand tag={Link} href="/">
           <img src="/logo.svg" alt="Flowbite qwik small logo" width="36" height="36" class="h-8 w-auto" />
           <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
@@ -48,25 +44,24 @@ export const NavbarPage = component$<NavbarPageProps>(({ withCollapse = false })
       <div class="flex items-center justify-between lg:ml-8 lg:flex-1">
         <div id="docsearch" />
         <div class="flex items-center gap-1 lg:gap-2">
-          {withCollapse && (
-            <Navbar.Collapse class="absolute left-0 top-12 md:relative md:top-0">
-              <Navbar.Link
-                href="/docs/getting-started/introduction"
-                tag={Link}
-                active={location.url.pathname === '/docs/getting-started/introduction'}
-              >
-                Docs
-              </Navbar.Link>
-              <Navbar.Link href="/docs/getting-started/quickstart" tag={Link} active={location.url.pathname === '/docs/getting-started/quickstart'}>
-                Quickstart
-              </Navbar.Link>
-              <Navbar.Link href="https://flowbite.com" target="_blank">
-                Flowbite
-              </Navbar.Link>
-            </Navbar.Collapse>
-          )}
-
-          <Tooltip placement="bottom">
+          <Navbar.Collapse class="absolute left-0 top-12 md:relative md:top-0">
+            <Navbar.Link href="/docs/getting-started/introduction" tag={Link} active={location.url.pathname === '/docs/getting-started/introduction'}>
+              Docs
+            </Navbar.Link>
+            <Navbar.Link href="/docs/getting-started/quickstart" tag={Link} active={location.url.pathname === '/docs/getting-started/quickstart'}>
+              Quickstart
+            </Navbar.Link>
+            <Navbar.Link href="https://flowbite.com" target="_blank">
+              Flowbite
+            </Navbar.Link>
+          </Navbar.Collapse>
+          <Tooltip
+            placement="bottom"
+            theme={{
+              element: 'bg-black dark:bg-black text-white dark:text-white',
+              arrow: 'bg-black dark:bg-black text-white dark:text-white',
+            }}
+          >
             <span q:slot="content">Join Discord Community</span>
             <a
               q:slot="trigger"
@@ -79,7 +74,13 @@ export const NavbarPage = component$<NavbarPageProps>(({ withCollapse = false })
               <IconDiscordSolid aria-hidden class="size-5" />
             </a>
           </Tooltip>
-          <Tooltip placement="bottom">
+          <Tooltip
+            placement="bottom"
+            theme={{
+              element: 'bg-black dark:bg-black text-white dark:text-white',
+              arrow: 'bg-black dark:bg-black text-white dark:text-white',
+            }}
+          >
             <span q:slot="content">View on GitHub</span>
             <a
               q:slot="trigger"
@@ -92,7 +93,13 @@ export const NavbarPage = component$<NavbarPageProps>(({ withCollapse = false })
               <IconGithubSolid aria-hidden class="size-5" />
             </a>
           </Tooltip>
-          <Tooltip placement="bottom">
+          <Tooltip
+            placement="bottom"
+            theme={{
+              element: 'bg-black dark:bg-black text-white dark:text-white',
+              arrow: 'bg-black dark:bg-black text-white dark:text-white',
+            }}
+          >
             <button
               q:slot="trigger"
               class="rounded-lg p-2.5 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
@@ -104,7 +111,6 @@ export const NavbarPage = component$<NavbarPageProps>(({ withCollapse = false })
             </button>
             <span q:slot="content">Toggle dark mode</span>
           </Tooltip>
-
           <Badge class="hidden lg:block" size="sm" type="purple" content={'v' + pkg.version} />
         </div>
       </div>

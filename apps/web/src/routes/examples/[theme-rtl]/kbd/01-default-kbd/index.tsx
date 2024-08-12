@@ -1,6 +1,7 @@
 /**
  * title: Default KBD
  * description: Here’s a list of KBD components that you can use inside any other element.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

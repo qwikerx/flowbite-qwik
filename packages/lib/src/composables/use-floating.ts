@@ -84,6 +84,7 @@ export function useFloating(placement: Placement = 'top', trigger = 'hover', noA
           offset(8),
         ],
       }).then(({ x, y, middlewareData }) => {
+        console.log(middlewareData, arrowRef.value)
         if (floatingRef.value) {
           floatingRef.value.style.left = `${x}px`
           floatingRef.value.style.top = `${y}px`

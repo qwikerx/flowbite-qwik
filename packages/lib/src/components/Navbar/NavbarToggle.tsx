@@ -11,14 +11,14 @@ type NavbarToggleProps = PropsOf<'button'> & {
 }
 
 export const NavbarToggle = component$<NavbarToggleProps>(({ class: className, barIcon: BarIcon = IconBarsOutline }) => {
-  const { setIsOpen, isOpen } = useNavbarContext()
+  const { setIsOpen, isOpen, theme } = useNavbarContext()
 
   const handleClick = $(() => {
     setIsOpen(!isOpen.value)
   })
 
   return (
-    <NavbarBurgerButton class={twMerge('md:hidden', clsx(className))} onClick$={handleClick}>
+    <NavbarBurgerButton class={twMerge('md:hidden', clsx(theme.value?.toggle), clsx(className))} onClick$={handleClick}>
       <span class="sr-only">Open main menu</span>
       <BarIcon aria-hidden class="h-4 w-4 shrink-0" />
     </NavbarBurgerButton>

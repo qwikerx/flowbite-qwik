@@ -11,6 +11,7 @@ export type NavbarTheme = {
     inactive?: ClassList
     disabled?: ClassList
   }
+  toggle?: ClassList
 }
 
 type NavbarProps = PropsOf<'nav'> & {

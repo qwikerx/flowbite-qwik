@@ -1,6 +1,7 @@
 /**
  * title: Chips (dismissible badges)
  * description: This example can be used to make badges dismissible by adding a close button.
+ * height: 200
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

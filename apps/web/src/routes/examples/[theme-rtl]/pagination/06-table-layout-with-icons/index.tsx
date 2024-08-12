@@ -1,6 +1,7 @@
 /**
  * title: Table data navigation with icons
  * description: Show icons for the next and previous control buttons for table navigation by passing the showIcons prop.
+ * height: 150
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

@@ -1,6 +1,7 @@
 /**
  * title: Default pagination
  * description: Use the following list of pagination items based on two sizes powered by Tailwind CSS utility classes to indicate a series of content for your website.
+ * height: 150
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

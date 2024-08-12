@@ -1,6 +1,7 @@
 /**
  * title: Bordered badge
  * description: This example can be used to add a border accent to the badge component.
+ * height: 100
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

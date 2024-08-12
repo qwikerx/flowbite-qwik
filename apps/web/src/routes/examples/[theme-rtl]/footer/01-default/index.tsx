@@ -1,7 +1,7 @@
 /**
  * title: Default footer
  * description: Use this footer component to show a copyright notice and some helpful website links.
- * height: 400
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'
@@ -13,6 +13,7 @@ export default component$(() => {
   return (
     <Footer container>
       <Footer.Copyright href="#" by="Flowbite™" />
+
       <Footer.LinkGroup>
         <Footer.Link href="#">About</Footer.Link>
         <Footer.Link href="#">Privacy Policy</Footer.Link>

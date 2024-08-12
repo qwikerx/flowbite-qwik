@@ -1,6 +1,7 @@
 /**
  * title: Button slot prefix
  * description: Add prefix content inside the button
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

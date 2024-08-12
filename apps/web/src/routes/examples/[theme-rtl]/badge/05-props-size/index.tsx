@@ -1,6 +1,7 @@
 /**
  * title: Large badge
  * description: Use size prop to change the size of the badge component.
+ * height: 100
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

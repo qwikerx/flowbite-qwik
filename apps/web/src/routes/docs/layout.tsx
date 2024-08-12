@@ -37,11 +37,11 @@ export default component$(() => {
         </button>
       </NavbarPage>
 
-      <main class="mx-auto max-w-screen-xl lg:flex">
+      <main class="mx-auto max-w-screen-xl sm:flex">
         <Sidebar
           collapsed={collapsed}
           theme={{
-            aside: 'lg:sticky lg:top-16 lg:block',
+            aside: 'sm:sticky sm:top-16 sm:block',
             nav: 'max-sm:px-0 max-sm:pl-2 max-sm:pt-20',
             collapse: {
               main: 'text-sm font-semibold tracking-wide hover:bg-transparent text-gray-900 dark:hover:bg-transparent hover:text-purple-600 dark:hover:text-purple-400',

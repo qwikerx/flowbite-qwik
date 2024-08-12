@@ -1,6 +1,7 @@
 /**
  * title: Button slot default
  * description: Add content inside the button as default
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

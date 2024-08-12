@@ -209,7 +209,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/avatar/11-avatar-override-image',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Avatar } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Avatar\n        img={\n          <picture>\n            <source\n              media="(min-width: 900px)"\n              srcset="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/jpnykkz8ojq7ojgg4qta.jpg"\n            />\n            <source\n              media="(min-width: 480px)"\n              srcset="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462568/flowbite-qwik/v0w8f2cf2xxxas8ad1jl.jpg"\n            />\n            <img\n              alt=""\n              src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/zqvjllre0haavqbwqw0f.jpg"\n              height="48"\n              width="48"\n            />\n          </picture>\n        }\n      />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
   ],
   badge: [
@@ -219,7 +219,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/badge/01-default-badge',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Badge } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2 p-6">\n      <Badge type="default" content="Default" />\n      <Badge type="dark" content="Dark" />\n      <Badge type="red" content="Red" />\n      <Badge type="green" content="Green" />\n      <Badge type="yellow" content="Yellow" />\n      <Badge type="indigo" content="Indigo" />\n      <Badge type="purple" content="Purple" />\n      <Badge type="pink" content="Pink" />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Bordered badge',
@@ -227,7 +227,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/badge/02-props-bordered',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Badge } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2 p-6">\n      <Badge size="sm" bordered content="Default" />\n      <Badge size="sm" bordered type="dark" content="Dark" />\n      <Badge size="sm" bordered type="red" content="Red" />\n      <Badge size="sm" bordered type="green" content="Green" />\n      <Badge size="sm" bordered type="yellow" content="Yellow" />\n      <Badge size="sm" bordered type="indigo" content="Indigo" />\n      <Badge size="sm" bordered type="purple" content="Purple" />\n      <Badge size="sm" bordered type="pink" content="Pink" />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Pills badge',
@@ -235,7 +235,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/badge/03-props-pills',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Badge } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2 p-6">\n      <Badge pills content="Default" />\n      <Badge pills type="dark" content="Dark" />\n      <Badge pills type="red" content="Red" />\n      <Badge pills type="green" content="Green" />\n      <Badge pills type="yellow" content="Yellow" />\n      <Badge pills type="indigo" content="Indigo" />\n      <Badge pills type="purple" content="Purple" />\n      <Badge pills type="pink" content="Pink" />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Badges as links',
@@ -243,7 +243,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/badge/04-as-link',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Badge } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2 p-6">\n      <Badge href="#" content="Link" bordered />\n      <Badge href="#" size="sm" content="Link" />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Large badge',
@@ -251,7 +251,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/badge/05-props-size',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Badge } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2 p-6">\n      <Badge size="xs" content="Default" />\n      <Badge size="xs" type="dark" content="Dark" />\n      <Badge size="xs" type="red" content="Red" />\n      <Badge size="sm" type="green" content="Green" />\n      <Badge size="sm" type="yellow" content="Yellow" />\n      <Badge size="sm" type="indigo" content="Indigo" />\n      <Badge size="sm" type="purple" content="Purple" />\n      <Badge size="sm" type="pink" content="Pink" />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Badge with Icon',
@@ -259,7 +259,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/badge/06-with-icon',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Badge } from \'flowbite-qwik\'\nimport { IconRocketOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2 p-6">\n      <Badge icon={IconRocketOutline} content="Icon" />\n      <Badge icon={IconRocketOutline} size="sm" content="Icon" />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Chips (dismissible badges)',
@@ -275,7 +275,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/badge/08-with-icon-only',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Badge } from \'flowbite-qwik\'\nimport { IconRocketOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2 p-6">\n      <Badge icon={IconRocketOutline} size="sm" />\n      <Badge type="dark" icon={IconRocketOutline} size="sm" />\n      <Badge type="green" icon={IconRocketOutline} size="sm" />\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
   ],
   banner: [
@@ -302,7 +302,7 @@ export const examples: Record<string, Example[]> = {
         'Use this free example to show a text message for announcement with a CTA link, an icon element and a close button to dismiss the banner. Set a different width by using the max-w-{*} utility classes from Tailwind CSS.',
       url: '/examples/[theme-rtl]/banner/03-banner-marketing-cta',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Banner, Button } from \'flowbite-qwik\'\nimport { IconCloseSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <div class="h-[440px]">\n      <Banner sticky="top">\n        <div class="flex w-[calc(100%-2rem)] flex-col justify-between rounded-lg border border-gray-100 bg-white p-4 shadow-sm dark:border-gray-600 dark:bg-gray-700 md:flex-row lg:max-w-7xl">\n          <div class="mb-3 mr-4 flex flex-col items-start md:mb-0 md:flex-row md:items-center">\n            <a href="https://flowbite.com/" class="mb-2 flex items-center border-gray-200 dark:border-gray-600 md:mb-0 md:mr-4 md:border-r md:pr-4">\n              <img src="https://flowbite.com/docs/images/logo.svg" class="mr-2 h-6" alt="Flowbite Logo" />\n              <span class="self-center whitespace-nowrap text-lg font-semibold dark:text-white md:pr-6">Flowbite</span>\n            </a>\n            <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">\n              Build websites even faster with components on top of Tailwind CSS\n            </p>\n          </div>\n          <div class="flex shrink-0 items-center">\n            <Button href="#">Sign up</Button>\n            <Banner.CollapseButton color="light" class="border-0 bg-transparent text-gray-500 dark:text-gray-400">\n              <IconCloseSolid class="h-4 w-4" />\n            </Banner.CollapseButton>\n          </div>\n        </div>\n      </Banner>\n      <div class="mx-auto max-w-lg">\n        <div role="status" class="my-7 animate-pulse">\n          <div class="mb-4 h-2.5 w-48 rounded-full bg-gray-300 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[380px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="mb-7 max-w-lg animate-pulse">\n          <div class="flex h-48 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">\n            <svg class="h-12 w-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">\n              <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"></path>\n            </svg>\n          </div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="my-6 animate-pulse">\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[380px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="my-6 animate-pulse">\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n      </div>\n    </div>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Banner, Button } from \'flowbite-qwik\'\nimport { IconCloseSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <div class="h-[440px]">\n      <Banner sticky="top">\n        <div class="mx-auto mt-2 flex w-[calc(100%-2rem)] flex-col justify-between rounded-lg border border-gray-100 bg-white p-4 shadow-sm dark:border-gray-600 dark:bg-gray-700 md:flex-row lg:max-w-7xl">\n          <div class="mb-3 mr-4 flex flex-col items-start md:mb-0 md:flex-row md:items-center">\n            <a href="https://flowbite.com/" class="mb-2 flex items-center border-gray-200 dark:border-gray-600 md:mb-0 md:mr-4 md:border-r md:pr-4">\n              <img src="https://flowbite.com/docs/images/logo.svg" class="mr-2 h-6" alt="Flowbite Logo" />\n              <span class="self-center whitespace-nowrap text-lg font-semibold dark:text-white md:pr-6">Flowbite</span>\n            </a>\n            <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">\n              Build websites even faster with components on top of Tailwind CSS\n            </p>\n          </div>\n          <div class="flex shrink-0 items-center gap-2">\n            <Button href="#">Sign up</Button>\n            <Banner.CollapseButton color="light" class="border-0 bg-transparent text-gray-500 dark:bg-transparent dark:text-gray-400">\n              <IconCloseSolid class="h-4 w-4" />\n            </Banner.CollapseButton>\n          </div>\n        </div>\n      </Banner>\n      <div class="mx-auto max-w-lg">\n        <div role="status" class="my-7 animate-pulse">\n          <div class="mb-4 h-2.5 w-48 rounded-full bg-gray-300 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[380px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="mb-7 max-w-lg animate-pulse">\n          <div class="flex h-48 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">\n            <svg class="h-12 w-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">\n              <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"></path>\n            </svg>\n          </div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="my-6 animate-pulse">\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[380px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="my-6 animate-pulse">\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n      </div>\n    </div>\n  )\n})',
       height: '450',
     },
     {
@@ -311,7 +311,7 @@ export const examples: Record<string, Example[]> = {
         'This example can be used to encourage your website visitors to sign up to your email newsletter by showing an inline form inside the sticky banner on the top side of your page.',
       url: '/examples/[theme-rtl]/banner/04-banner-newsletter-signup',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Banner, Button, Input } from \'flowbite-qwik\'\nimport { IconCloseSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  const email = useSignal(\'\')\n\n  return (\n    <div class="h-[440px]">\n      <Banner sticky="bottom">\n        <div class="flex w-full items-center justify-between border-b border-gray-200 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700">\n          <div class="mx-auto flex w-full shrink-0 items-center sm:w-auto">\n            <form action="#" class="flex w-full flex-col items-center md:flex-row md:gap-x-3">\n              <label for="email" class="mb-2 mr-auto shrink-0 text-sm font-medium text-gray-500 dark:text-gray-400 md:m-0 md:mb-0">\n                Sign up for our newsletter\n              </label>\n              <Input bind:value={email} id="email" placeholder="Enter your email" required type="email" />\n              <Button type="submit">Subscribe</Button>\n            </form>\n          </div>\n          <Banner.CollapseButton color="light" class="border-0 bg-transparent text-gray-500 dark:text-gray-400">\n            <IconCloseSolid class="h-4 w-4" />\n          </Banner.CollapseButton>\n        </div>\n      </Banner>\n      <div class="mx-auto max-w-lg">\n        <div role="status" class="my-7 animate-pulse">\n          <div class="mb-4 h-2.5 w-48 rounded-full bg-gray-300 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[380px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="mb-7 max-w-lg animate-pulse">\n          <div class="flex h-48 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">\n            <svg class="h-12 w-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">\n              <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"></path>\n            </svg>\n          </div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="my-6 animate-pulse">\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[380px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="my-6 animate-pulse">\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n      </div>\n    </div>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Banner, Button, Input } from \'flowbite-qwik\'\nimport { IconCloseSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  const email = useSignal(\'\')\n\n  return (\n    <div class="h-[440px]">\n      <Banner sticky="bottom">\n        <div class="flex w-full items-center justify-between border-b border-gray-200 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700">\n          <div class="mx-auto flex w-full shrink-0 items-center md:w-auto">\n            <form action="#" class="flex w-full flex-col items-center gap-x-2 md:flex-row md:gap-x-3">\n              <label for="email" class="mb-2 mr-auto w-full shrink-0 text-sm font-medium text-gray-500 dark:text-gray-400 md:m-0 md:mb-0">\n                Sign up for our newsletter\n              </label>\n              <Input bind:value={email} id="email" placeholder="Enter your email" required type="email" class="w-full" />\n              <Button type="submit" full>\n                Subscribe\n              </Button>\n            </form>\n          </div>\n          <Banner.CollapseButton\n            color="light"\n            class="absolute right-1 top-1 border-0 bg-transparent text-gray-500 dark:bg-transparent dark:text-gray-400"\n          >\n            <IconCloseSolid class="h-4 w-4" />\n          </Banner.CollapseButton>\n        </div>\n      </Banner>\n      <div class="mx-auto max-w-lg">\n        <div role="status" class="my-7 animate-pulse">\n          <div class="mb-4 h-2.5 w-48 rounded-full bg-gray-300 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[380px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="mb-7 max-w-lg animate-pulse">\n          <div class="flex h-48 w-full items-center justify-center rounded bg-gray-300 dark:bg-gray-700">\n            <svg class="h-12 w-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512">\n              <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"></path>\n            </svg>\n          </div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="my-6 animate-pulse">\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[380px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n        <div role="status" class="my-6 animate-pulse">\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[450px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[460px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <div class="mb-2.5 h-2 max-w-[500px] rounded-full bg-gray-200 dark:bg-gray-700"></div>\n          <span class="sr-only">Loading...</span>\n        </div>\n      </div>\n    </div>\n  )\n})',
       height: '450',
     },
   ],
@@ -389,7 +389,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/breadcrumb/01-default-breadcrumb',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Breadcrumb } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="p-3">\n      <Breadcrumb>\n        <Breadcrumb.Item home href="#">\n          Home\n        </Breadcrumb.Item>\n        <Breadcrumb.Item href="#">Projects</Breadcrumb.Item>\n        <Breadcrumb.Item>Flowbite</Breadcrumb.Item>\n      </Breadcrumb>\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Solid Breadcrumb',
@@ -397,7 +397,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/breadcrumb/02-solid-breadcrumb',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Breadcrumb } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="p-3">\n      <Breadcrumb solid>\n        <Breadcrumb.Item home href="#">\n          Home\n        </Breadcrumb.Item>\n        <Breadcrumb.Item href="#">Projects</Breadcrumb.Item>\n        <Breadcrumb.Item>Flowbite</Breadcrumb.Item>\n      </Breadcrumb>\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Breadcrumb with Custom Icons',
@@ -405,7 +405,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/breadcrumb/03-custom-icons',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Breadcrumb } from \'flowbite-qwik\'\nimport { IconArrowLeftOutline, IconBarsOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <div class="p-3">\n      <Breadcrumb solid>\n        <Breadcrumb.Item home href="#" homeIcon={IconBarsOutline}>\n          Home\n        </Breadcrumb.Item>\n        <Breadcrumb.Item href="#" arrowIcon={IconArrowLeftOutline}>\n          Projects\n        </Breadcrumb.Item>\n        <Breadcrumb.Item arrowIcon={IconArrowLeftOutline}>Flowbite</Breadcrumb.Item>\n      </Breadcrumb>\n    </div>\n  )\n})',
-      height: '200',
+      height: '100',
     },
   ],
   button: [
@@ -415,7 +415,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/01-default-button',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Button>Default</Button>\n      <Button color="alternative">Alternative</Button>\n      <Button color="dark">Dark</Button>\n      <Button color="light">Light</Button>\n      <Button color="green">Green</Button>\n      <Button color="red">Red</Button>\n      <Button color="yellow">Yellow</Button>\n      <Button color="purple">Purple</Button>\n      <Button color="pink">Pink</Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button sizes',
@@ -423,7 +423,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/02-button-size',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap items-center gap-2">\n      <Button size="xs">Extra Small - xs</Button>\n      <Button size="sm">Small - sm</Button>\n      <Button size="md">Medium - md</Button>\n      <Button size="lg">Large - lg</Button>\n      <Button size="xl">Extra Large - xl</Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button pills',
@@ -431,7 +431,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/03-button-pill',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Button color="default" pill>\n        Default\n      </Button>\n      <Button color="alternative" pill>\n        Alternative\n      </Button>\n      <Button color="dark" pill>\n        Dark\n      </Button>\n      <Button color="light" pill>\n        Light\n      </Button>\n      <Button color="green" pill>\n        Green\n      </Button>\n      <Button color="red" pill>\n        Red\n      </Button>\n      <Button color="yellow" pill>\n        Yellow\n      </Button>\n      <Button color="purple" pill>\n        Purple\n      </Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button gradient monochrome',
@@ -440,7 +440,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/04-button-gradient-monochrome',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Button gradient="blue">Blue</Button>\n      <Button gradient="cyan">Cyan</Button>\n      <Button gradient="green">Green</Button>\n      <Button gradient="lime">Lime</Button>\n      <Button gradient="pink">Pink</Button>\n      <Button gradient="purple">Purple</Button>\n      <Button gradient="red">Red</Button>\n      <Button gradient="teal">Teal</Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button gradient duotone',
@@ -448,7 +448,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/05-button-gradient-duotone',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Button gradient="purple-blue">Purple to blue</Button>\n      <Button gradient="cyan-blue">Cyan to blue</Button>\n      <Button gradient="green-blue">Green to blue</Button>\n      <Button gradient="purple-pink">Purple to pink</Button>\n      <Button gradient="pink-orange">Pink to orange</Button>\n      <Button gradient="teal-lime">Teal to lime</Button>\n      <Button gradient="red-yellow">Red to yellow</Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button outline',
@@ -456,7 +456,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/06-button-outline',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Button color="default" outline>\n        Default\n      </Button>\n      <Button color="dark" outline>\n        Dark\n      </Button>\n      <Button color="green" outline>\n        Green\n      </Button>\n      <Button color="red" outline>\n        Red\n      </Button>\n      <Button color="yellow" outline>\n        Yellow\n      </Button>\n      <Button color="purple" outline>\n        Purple\n      </Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button outline gradient',
@@ -465,7 +465,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/07-button-outline-gradient',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Button gradient="purple-blue" outline>\n        Purple to blue\n      </Button>\n      <Button gradient="cyan-blue" outline>\n        Cyan to blue\n      </Button>\n      <Button gradient="green-blue" outline>\n        Green to blue\n      </Button>\n      <Button gradient="purple-pink" outline>\n        Purple to pink\n      </Button>\n      <Button gradient="pink-orange" outline>\n        Pink to orange\n      </Button>\n      <Button gradient="teal-lime" outline>\n        Teal to lime\n      </Button>\n      <Button gradient="red-yellow" outline>\n        Red to yellow\n      </Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button colored shadows',
@@ -481,7 +481,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/09-button-square',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\nimport { IconArrowLeftOutline, IconArrowRightOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Button gradient="red-yellow" square>\n        <IconArrowRightOutline class="h-5 w-5" />\n      </Button>\n      <Button color="default" pill square>\n        <IconArrowRightOutline class="h-5 w-5" />\n      </Button>\n      <Button color="dark" outline square>\n        <IconArrowLeftOutline class="h-5 w-5" />\n      </Button>\n      <Button color="yellow" outline pill square>\n        <IconArrowLeftOutline class="h-5 w-5" />\n      </Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button loading',
@@ -489,7 +489,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/10-button-loading',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button, useToggle } from \'flowbite-qwik\'\nimport { IconArrowLeftOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  const { value: loading, toggle$ } = useToggle()\n\n  return (\n    <div class="flex flex-wrap items-center gap-2">\n      <Button disabled={loading.value} loading={loading.value} gradient="purple-blue" outline size="xs" onClick$={toggle$}>\n        Click me\n      </Button>\n      <Button loading={loading.value} gradient="red-yellow" size="sm" onClick$={toggle$}>\n        Click me\n      </Button>\n      <Button loading={loading.value} color="default" loadingPosition="suffix" outline onClick$={toggle$} suffix={IconArrowLeftOutline}>\n        Click me\n      </Button>\n      <Button loading={loading.value} gradient="green-blue" size="lg" onClick$={toggle$}>\n        Click me\n      </Button>\n      <Button loading={loading.value} gradient="pink" size="xl" onClick$={toggle$}>\n        Click me\n      </Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button disabled',
@@ -498,7 +498,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/11-button-disabled',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Button color="default" disabled>\n        Default\n      </Button>\n      <Button color="default" outline disabled>\n        Default outline\n      </Button>\n      <Button gradient="red" disabled>\n        Red gradient\n      </Button>\n      <Button gradient="red-yellow" disabled>\n        Red to yellow gradient\n      </Button>\n      <Button gradient="red-yellow" outline disabled>\n        Red to yellow outline\n      </Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button as link',
@@ -506,7 +506,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/12-button-as-link',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Link, StaticGenerateHandler } from \'@builder.io/qwik-city\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap gap-2">\n      <Button href="https://google.com" target="_blank">\n        Google.com\n      </Button>\n      <Button href="/examples/blue-ltr/button/11-button-disabled">Quickstart</Button>\n      <Button href="/examples/blue-ltr/button/13-button-full" tag={Link}>\n        Internal link\n      </Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button full option',
@@ -514,7 +514,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/13-button-full',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Button } from 'flowbite-qwik'\nimport { IconHomeOutline } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap items-center gap-2\">\n      <Button prefix={IconHomeOutline} full>\n        Buy\n      </Button>\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button slot default',
@@ -522,7 +522,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/14-button-slot-default',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\nimport { IconArrowRightOutline, IconArrowRightSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap items-center gap-2">\n      <Button gradient="purple-blue" square>\n        <IconArrowRightSolid class="h-5 w-5" />\n      </Button>\n      <Button color="default" pill square>\n        <IconArrowRightSolid class="h-5 w-5" />\n      </Button>\n      <Button gradient="green-blue" square>\n        Close something\n      </Button>\n      <Button color="default" outline pill square suffix={IconArrowRightOutline}>\n        Open something\n      </Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button slot prefix',
@@ -530,7 +530,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/15-button-slot-prefix',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Button } from 'flowbite-qwik'\nimport { IconHomeOutline } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap items-center gap-2\">\n      <Button prefix={IconHomeOutline}>Buy</Button>\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button slot suffix',
@@ -538,7 +538,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/16-button-slot-suffix',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Button } from 'flowbite-qwik'\nimport { IconArrowRightOutline } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap items-center gap-2\">\n      <Button suffix={IconArrowRightOutline}>Choose plan</Button>\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Button with custom tag',
@@ -546,7 +546,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button/17-button-with-custom-tag',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="flex flex-wrap items-center gap-2">\n      <Button tag="div">I\'am a div</Button>\n      <Button tag="span">I\'am a span</Button>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
   ],
   'button-group': [
@@ -557,7 +557,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button-group/01-default-button-group',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup>\n      <Button color="light">Profile</Button>\n      <Button color="light">Settings</Button>\n      <Button color="light">Messages</Button>\n    </ButtonGroup>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Button group with icons',
@@ -566,7 +566,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button-group/02-button-group-with-icons',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\nimport { IconDownloadOutline, IconFileSearchOutline, IconProfileCardOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup>\n      <Button color="light" prefix={IconProfileCardOutline}>\n        Profile\n      </Button>\n      <Button color="light" prefix={IconFileSearchOutline}>\n        Settings\n      </Button>\n      <Button color="light" prefix={IconDownloadOutline}>\n        Messages\n      </Button>\n    </ButtonGroup>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Button group as links',
@@ -574,7 +574,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button-group/03-button-group-as-links',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\nimport { IconDownloadOutline, IconFileSearchOutline, IconProfileCardOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup>\n      <Button href="#profile" color="light" prefix={IconProfileCardOutline}>\n        Profile\n      </Button>\n      <Button href="#settings" color="light" prefix={IconFileSearchOutline}>\n        Settings\n      </Button>\n      <Button href="#messages" color="light" prefix={IconDownloadOutline}>\n        Messages\n      </Button>\n    </ButtonGroup>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Button group Outline',
@@ -582,7 +582,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button-group/04-button-group-outline',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup outline>\n      <Button color="blue">Profile</Button>\n      <Button color="blue">Settings</Button>\n      <Button color="blue">Messages</Button>\n    </ButtonGroup>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Outlined with icon',
@@ -590,7 +590,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button-group/05-button-group-outline-with-icons',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\nimport { IconDownloadOutline, IconFileSearchOutline, IconProfileCardOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup outline>\n      <Button color="red" prefix={IconProfileCardOutline}>\n        Profile\n      </Button>\n      <Button color="red" prefix={IconFileSearchOutline}>\n        Settings\n      </Button>\n      <Button color="red" prefix={IconDownloadOutline}>\n        Messages\n      </Button>\n    </ButtonGroup>\n  )\n})',
-      height: '200',
+      height: '100',
     },
     {
       title: 'Button group event handler',
@@ -598,7 +598,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/button-group/06-button-group-event-handler',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Button, ButtonGroup } from \'flowbite-qwik\'\nimport { IconDownloadOutline, IconFileSearchOutline, IconProfileCardOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <ButtonGroup>\n      <Button onClick$={() => alert(\'clicked!\')} href="#profile" color="light" prefix={IconProfileCardOutline}>\n        Profile\n      </Button>\n      <Button onClick$={() => alert(\'clicked!\')} href="#settings" color="light" prefix={IconFileSearchOutline}>\n        Settings\n      </Button>\n      <Button onClick$={() => alert(\'clicked!\')} href="#messages" color="light" prefix={IconDownloadOutline}>\n        Messages\n      </Button>\n    </ButtonGroup>\n  )\n})',
-      height: '200',
+      height: '100',
     },
   ],
   card: [
@@ -828,7 +828,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/clipboard/01-default',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <>\n      <div class="flex max-w-80 gap-3 pt-8">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="block w-full" />\n        <Clipboard valueToCopy="npm install flowbite-qwik" label="Copy" class="h-full" />\n      </div>\n    </>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Input with copy button',
@@ -837,7 +837,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/clipboard/02-with-icon',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <div class="grid w-full max-w-64 pt-8">\n      <div class="relative">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />\n\n        <Clipboard.WithIcon valueToCopy="npm install flowbite-qwik" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />\n      </div>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Copy button with text',
@@ -846,7 +846,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/clipboard/03-with-icon-text',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <div class="grid w-full max-w-80 pt-8">\n      <div class="relative">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="col-span-6 block w-full" />\n\n        <Clipboard.WithIconText valueToCopy="npm install flowbite-qwik" class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />\n      </div>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Custom Tooltip',
@@ -854,7 +854,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/clipboard/04-custom-tooltip',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Clipboard, Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const inputValue = useSignal(\'\')\n  return (\n    <>\n      <div class="flex max-w-80 gap-3 pt-8">\n        <Input placeholder="npm install flowbite-qwik" bind:value={inputValue} disabled readOnly class="block w-full" />\n        <Clipboard\n          valueToCopy="npm install flowbite-qwik"\n          label="Copy"\n          class="h-full"\n          tooltipCopiedLabel="It\'s copied"\n          tooltipCopyLabel="Copy that"\n        />\n      </div>\n    </>\n  )\n})',
-      height: '200',
+      height: '150',
     },
   ],
   'date-picker': [
@@ -1034,8 +1034,8 @@ export const examples: Record<string, Example[]> = {
       description: 'Use this footer component to show a copyright notice and some helpful website links.',
       url: '/examples/[theme-rtl]/footer/01-default',
       content:
-        'import { component$ } from \'@builder.io/qwik\'\nimport { Footer } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Footer container>\n      <Footer.Copyright href="#" by="Flowbite™" />\n      <Footer.LinkGroup>\n        <Footer.Link href="#">About</Footer.Link>\n        <Footer.Link href="#">Privacy Policy</Footer.Link>\n        <Footer.Link href="#">Licensing</Footer.Link>\n        <Footer.Link href="#">Contact</Footer.Link>\n      </Footer.LinkGroup>\n    </Footer>\n  )\n})',
-      height: '400',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Footer } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Footer container>\n      <Footer.Copyright href="#" by="Flowbite™" />\n\n      <Footer.LinkGroup>\n        <Footer.Link href="#">About</Footer.Link>\n        <Footer.Link href="#">Privacy Policy</Footer.Link>\n        <Footer.Link href="#">Licensing</Footer.Link>\n        <Footer.Link href="#">Contact</Footer.Link>\n      </Footer.LinkGroup>\n    </Footer>\n  )\n})',
+      height: '150',
     },
     {
       title: 'Default with Logo',
@@ -1043,7 +1043,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/footer/02-footer-with-logo',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Footer } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <Footer container>\n      <div class="w-full text-center">\n        <div class="w-full justify-between sm:flex sm:items-center sm:justify-between">\n          <Footer.Brand href="https://flowbite.com" src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" name="Flowbite" />\n          <Footer.LinkGroup>\n            <Footer.Link href="#">About</Footer.Link>\n            <Footer.Link href="#">Privacy Policy</Footer.Link>\n            <Footer.Link href="#">Licensing</Footer.Link>\n            <Footer.Link href="#">Contact</Footer.Link>\n          </Footer.LinkGroup>\n        </div>\n        <Footer.Divider />\n        <Footer.Copyright href="#" by="Flowbite™" />\n      </div>\n    </Footer>\n  )\n})',
-      height: '400',
+      height: '200',
     },
     {
       title: 'Social media icons',
@@ -1052,7 +1052,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/footer/03-footer-with-sitemap-links',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Footer } from \'flowbite-qwik\'\nimport { IconFacebookSolid, IconGithubSolid, IconDribbbleSolid, IconLinkedinSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <Footer container>\n      <div class="w-full">\n        <div class="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">\n          <div>\n            <Footer.Brand href="https://flowbite.com" src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo" name="Flowbite" />\n          </div>\n          <div class="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">\n            <div>\n              <Footer.Title title="about" />\n              <Footer.LinkGroup col>\n                <Footer.Link href="#">Flowbite</Footer.Link>\n                <Footer.Link href="#">Tailwind CSS</Footer.Link>\n              </Footer.LinkGroup>\n            </div>\n            <div>\n              <Footer.Title title="Follow us" />\n              <Footer.LinkGroup col>\n                <Footer.Link href="#">Github</Footer.Link>\n                <Footer.Link href="#">Discord</Footer.Link>\n              </Footer.LinkGroup>\n            </div>\n            <div>\n              <Footer.Title title="Legal" />\n              <Footer.LinkGroup col>\n                <Footer.Link href="#">Privacy Policy</Footer.Link>\n                <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>\n              </Footer.LinkGroup>\n            </div>\n          </div>\n        </div>\n        <Footer.Divider />\n        <div class="w-full sm:flex sm:items-center sm:justify-between">\n          <Footer.Copyright href="#" by="Flowbite™" />\n          <div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">\n            <Footer.Icon href="#" icon={IconFacebookSolid} />\n            <Footer.Icon href="#" icon={IconGithubSolid} />\n            <Footer.Icon href="#" icon={IconDribbbleSolid} />\n            <Footer.Icon href="#" icon={IconLinkedinSolid} />\n          </div>\n        </div>\n      </div>\n    </Footer>\n  )\n})',
-      height: '400',
+      height: '300',
     },
     {
       title: 'Sitemap links',
@@ -1061,7 +1061,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/footer/04-footer-with-socials',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Footer } from \'flowbite-qwik\'\nimport { IconFacebookSolid, IconGithubSolid, IconDribbbleSolid, IconLinkedinSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <Footer bgDark>\n      <div class="w-full">\n        <div class="grid w-full grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">\n          <div>\n            <Footer.Title title="Company" />\n            <Footer.LinkGroup col>\n              <Footer.Link href="#">About</Footer.Link>\n              <Footer.Link href="#">Careers</Footer.Link>\n              <Footer.Link href="#">Brand Center</Footer.Link>\n              <Footer.Link href="#">Blog</Footer.Link>\n            </Footer.LinkGroup>\n          </div>\n          <div>\n            <Footer.Title title="help center" />\n            <Footer.LinkGroup col>\n              <Footer.Link href="#">Discord Server</Footer.Link>\n              <Footer.Link href="#">Twitter</Footer.Link>\n              <Footer.Link href="#">Facebook</Footer.Link>\n              <Footer.Link href="#">Contact Us</Footer.Link>\n            </Footer.LinkGroup>\n          </div>\n          <div>\n            <Footer.Title title="legal" />\n            <Footer.LinkGroup col>\n              <Footer.Link href="#">Privacy Policy</Footer.Link>\n              <Footer.Link href="#">Licensing</Footer.Link>\n              <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>\n            </Footer.LinkGroup>\n          </div>\n          <div>\n            <Footer.Title title="download" />\n            <Footer.LinkGroup col>\n              <Footer.Link href="#">iOS</Footer.Link>\n              <Footer.Link href="#">Android</Footer.Link>\n              <Footer.Link href="#">Windows</Footer.Link>\n              <Footer.Link href="#">MacOS</Footer.Link>\n            </Footer.LinkGroup>\n          </div>\n        </div>\n        <div class="w-full bg-gray-700 px-4 py-6 sm:flex sm:items-center sm:justify-between">\n          <Footer.Copyright href="#" by="Flowbite™" />\n          <div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">\n            <Footer.Icon href="#" icon={IconFacebookSolid} />\n            <Footer.Icon href="#" icon={IconGithubSolid} />\n            <Footer.Icon href="#" icon={IconDribbbleSolid} />\n            <Footer.Icon href="#" icon={IconLinkedinSolid} />\n          </div>\n        </div>\n      </div>\n    </Footer>\n  )\n})',
-      height: '400',
+      height: '600',
     },
   ],
   heading: [
@@ -1266,7 +1266,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/kbd/01-default-kbd',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd>Shift</Kbd>\n      <Kbd>Ctrl</Kbd>\n      <Kbd>Tab</Kbd>\n      <Kbd>Caps Lock</Kbd>\n      <Kbd>Esc</Kbd>\n      <Kbd>Spacebar</Kbd>\n      <Kbd>Enter</Kbd>\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'KBD inside text',
@@ -1274,7 +1274,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/kbd/02-kbd-inside-text',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <>\n      Please press <Kbd>Ctrl</Kbd> + <Kbd>Shift</Kbd> + <Kbd>R</Kbd> to re-render an MDN page.\n    </>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'KBD inside table',
@@ -1290,7 +1290,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/kbd/04-kbd-arrow-keys',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\nimport { IconAngleDownSolid, IconAngleLeftSolid, IconAngleRightSolid, IconAngleUpSolid } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd icon={IconAngleUpSolid} />\n      <Kbd icon={IconAngleDownSolid} />\n      <Kbd icon={IconAngleLeftSolid} />\n      <Kbd icon={IconAngleRightSolid} />\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Letter Keys',
@@ -1298,7 +1298,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/kbd/05-kbd-letter-keys',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd>Q</Kbd>\n      <Kbd>W</Kbd>\n      <Kbd>E</Kbd>\n      <Kbd>R</Kbd>\n      <Kbd>T</Kbd>\n      <Kbd>Y</Kbd>\n      <Kbd>I</Kbd>\n      <Kbd>O</Kbd>\n      <Kbd>P</Kbd>\n      <Kbd>A</Kbd>\n      <Kbd>S</Kbd>\n      <Kbd>D</Kbd>\n      <Kbd>F</Kbd>\n      <Kbd>G</Kbd>\n      <Kbd>H</Kbd>\n      <Kbd>J</Kbd>\n      <Kbd>K</Kbd>\n      <Kbd>L</Kbd>\n      <Kbd>Z</Kbd>\n      <Kbd>X</Kbd>\n      <Kbd>C</Kbd>\n      <Kbd>V</Kbd>\n      <Kbd>B</Kbd>\n      <Kbd>N</Kbd>\n      <Kbd>M</Kbd>\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Number Keys',
@@ -1306,7 +1306,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/kbd/06-kbd-number-keys',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd>1</Kbd>\n      <Kbd>2</Kbd>\n      <Kbd>3</Kbd>\n      <Kbd>4</Kbd>\n      <Kbd>5</Kbd>\n      <Kbd>6</Kbd>\n      <Kbd>7</Kbd>\n      <Kbd>8</Kbd>\n      <Kbd>9</Kbd>\n      <Kbd>0</Kbd>\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Function keys',
@@ -1314,7 +1314,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/kbd/07-kbd-function-keys',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Kbd } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-wrap gap-1\">\n      <Kbd>F1</Kbd>\n      <Kbd>F2</Kbd>\n      <Kbd>F3</Kbd>\n      <Kbd>F4</Kbd>\n      <Kbd>F5</Kbd>\n      <Kbd>F6</Kbd>\n      <Kbd>F7</Kbd>\n      <Kbd>F8</Kbd>\n      <Kbd>F9</Kbd>\n      <Kbd>F10</Kbd>\n      <Kbd>F11</Kbd>\n      <Kbd>F12</Kbd>\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
   ],
   link: [
@@ -1558,7 +1558,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/pagination/01-default',
       content:
         "import { component$, useSignal } from '@builder.io/qwik'\nimport { Pagination } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class=\"flex gap-3 p-3 text-center\">\n        <Pagination totalPages={100} currentPage={currentPage} />\n      </div>\n    </>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Pagination with icons',
@@ -1566,7 +1566,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/pagination/02-with-icons',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Pagination } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class="flex gap-3 p-3 text-center">\n        <Pagination totalPages={100} currentPage={currentPage} showIcons previousLabel="Go back" nextLabel="Go forward" />\n      </div>\n    </>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Pagination with icons only',
@@ -1574,7 +1574,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/pagination/03-with-icons-only',
       content:
         "import { component$, useSignal } from '@builder.io/qwik'\nimport { Pagination } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class=\"flex gap-3 p-3 text-center\">\n        <Pagination totalPages={100} currentPage={currentPage} showIcons />\n      </div>\n    </>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Pagination with custom icons',
@@ -1582,7 +1582,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/pagination/04-with-custom-icons',
       content:
         "import { component$, useSignal } from '@builder.io/qwik'\nimport { Pagination } from 'flowbite-qwik'\nimport { IconArrowLeftSolid, IconArrowRightSolid } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class=\"flex gap-3 p-3 text-center\">\n        <Pagination totalPages={100} currentPage={currentPage} showIcons nextIcon={IconArrowRightSolid} previousIcon={IconArrowLeftSolid} />\n      </div>\n    </>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Table data navigation',
@@ -1590,7 +1590,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/pagination/05-table-layout',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Pagination } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class="flex gap-3 p-3 text-center">\n        <Pagination layout="table" totalPages={100} currentPage={currentPage} />\n      </div>\n    </>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Table data navigation with icons',
@@ -1598,7 +1598,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/pagination/06-table-layout-with-icons',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Pagination } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class="flex gap-3 p-3 text-center">\n        <Pagination layout="table" totalPages={100} currentPage={currentPage} />\n      </div>\n    </>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'With custom button',
@@ -1606,7 +1606,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/pagination/07-with-custom-button',
       content:
         "import { component$, useSignal, Slot } from '@builder.io/qwik'\nimport { Pagination, PaginationButtonProps } from 'flowbite-qwik'\n\nconst CustomButton = component$<PaginationButtonProps>(({ active, ...props }) => {\n  return (\n    <button\n      type=\"button\"\n      class={[\n        'h-10 w-12 border border-gray-300 bg-white py-2 leading-tight text-gray-500 enabled:hover:bg-gray-100 enabled:hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 enabled:dark:hover:bg-gray-700 enabled:dark:hover:text-white',\n        {\n          'bg-orange-500 text-white hover:bg-orange-600 hover:text-white dark:bg-orange-500 dark:text-white dark:hover:bg-orange-600 dark:hover:text-white':\n            active,\n        },\n      ]}\n      {...props}\n    >\n      <Slot />\n    </button>\n  )\n})\nexport default component$(() => {\n  const currentPage = useSignal(1)\n\n  return (\n    <>\n      <div class=\"flex gap-3 p-3 text-center\">\n        <Pagination totalPages={100} currentPage={currentPage} paginationButton={CustomButton} />\n      </div>\n    </>\n  )\n})",
-      height: '200',
+      height: '150',
     },
   ],
   'progress-bar': [
@@ -1755,7 +1755,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/rating/01-default',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Rating } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"p-3\">\n      <Rating rating={4} />\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Rating with text',
@@ -1763,7 +1763,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/rating/02-with-text',
       content:
         'import { component$ } from \'@builder.io/qwik\'\nimport { Rating } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <div class="p-3">\n      <Rating rating={4}>\n        <p q:slot="besideText" class="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">\n          4.75 out of 5\n        </p>\n      </Rating>\n    </div>\n  )\n})',
-      height: '200',
+      height: '150',
     },
     {
       title: 'Rating with review link',
@@ -1771,7 +1771,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/rating/03-with-review-link',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Rating } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"p-3\">\n      <Rating rating={4} reviewLink={{ href: '#', text: '73 reviews' }} />\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
     {
       title: 'Stars sizes',
@@ -1779,7 +1779,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/rating/04-with-sizes',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Rating, RatingSize } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex flex-col gap-3 p-3\">\n      {(['sm', 'md', 'lg'] as RatingSize[]).map((size) => (\n        <Rating rating={4} size={size} />\n      ))}\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
   ],
   select: [
@@ -1868,7 +1868,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/spinner/01-default',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Spinner } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex gap-3 p-3\">\n      <Spinner />\n    </div>\n  )\n})",
-      height: '200',
+      height: '100',
     },
     {
       title: 'Spinner colors',
@@ -1876,7 +1876,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/spinner/02-color',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Spinner, SpinnerColor } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex gap-3 p-3\">\n      {(['blue', 'gray', 'green', 'red', 'yellow', 'pink', 'purple', 'white'] as SpinnerColor[]).map((color) => (\n        <Spinner size=\"6\" color={color} />\n      ))}\n    </div>\n  )\n})",
-      height: '200',
+      height: '100',
     },
     {
       title: 'Sizing options',
@@ -1884,7 +1884,7 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/spinner/03-size',
       content:
         "import { component$ } from '@builder.io/qwik'\nimport { Spinner, SpinnerSize } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <div class=\"flex gap-3 p-3\">\n      {(['0', '0.5', '1', '1.5', '2', '2.5', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as SpinnerSize[]).map((size) => (\n        <Spinner size={size} />\n      ))}\n    </div>\n  )\n})",
-      height: '200',
+      height: '150',
     },
   ],
   table: [

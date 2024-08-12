@@ -17,16 +17,21 @@ export default component$(() => {
     <div class="h-[440px]">
       <Banner sticky="bottom">
         <div class="flex w-full items-center justify-between border-b border-gray-200 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700">
-          <div class="mx-auto flex w-full shrink-0 items-center sm:w-auto">
-            <form action="#" class="flex w-full flex-col items-center md:flex-row md:gap-x-3">
-              <label for="email" class="mb-2 mr-auto shrink-0 text-sm font-medium text-gray-500 dark:text-gray-400 md:m-0 md:mb-0">
+          <div class="mx-auto flex w-full shrink-0 items-center md:w-auto">
+            <form action="#" class="flex w-full flex-col items-center gap-x-2 md:flex-row md:gap-x-3">
+              <label for="email" class="mb-2 mr-auto w-full shrink-0 text-sm font-medium text-gray-500 dark:text-gray-400 md:m-0 md:mb-0">
                 Sign up for our newsletter
               </label>
-              <Input bind:value={email} id="email" placeholder="Enter your email" required type="email" />
-              <Button type="submit">Subscribe</Button>
+              <Input bind:value={email} id="email" placeholder="Enter your email" required type="email" class="w-full" />
+              <Button type="submit" full>
+                Subscribe
+              </Button>
             </form>
           </div>
-          <Banner.CollapseButton color="light" class="border-0 bg-transparent text-gray-500 dark:text-gray-400">
+          <Banner.CollapseButton
+            color="light"
+            class="absolute right-1 top-1 border-0 bg-transparent text-gray-500 dark:bg-transparent dark:text-gray-400"
+          >
             <IconCloseSolid class="h-4 w-4" />
           </Banner.CollapseButton>
         </div>

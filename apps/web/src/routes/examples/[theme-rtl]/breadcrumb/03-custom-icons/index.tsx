@@ -1,6 +1,7 @@
 /**
  * title: Breadcrumb with Custom Icons
  * description: You can customize the icons for the home and arrow icons in the breadcrumb component.
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

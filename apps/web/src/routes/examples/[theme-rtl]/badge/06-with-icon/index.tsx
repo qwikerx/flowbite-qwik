@@ -1,6 +1,7 @@
 /**
  * title: Badge with Icon
  * description: You can also use SVG icons inside the badge elements.
+ * height: 100
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

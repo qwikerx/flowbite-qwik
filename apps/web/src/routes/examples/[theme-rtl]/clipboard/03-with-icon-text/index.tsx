@@ -1,7 +1,7 @@
 /**
  * title: Copy button with text
  * description: Use this example to show a copy button inside the input field with a text label and icon that updates to a success state when the text has been copied.
- * height: 200
+ * height: 150
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

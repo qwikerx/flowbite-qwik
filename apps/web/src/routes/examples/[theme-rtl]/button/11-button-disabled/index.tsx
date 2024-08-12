@@ -1,6 +1,7 @@
 /**
  * title: Button disabled
  * description: Use the following styles to indicate a disabled button. This can be often used inside form elements to disable the submit button before all the form elements have been completed and validated.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

@@ -1,6 +1,7 @@
 /**
  * title: Button outline gradient
  * description: This is a special button style that incorporates a gradient color for the outline that can be used as a secondary style to the fully colored gradient buttons.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

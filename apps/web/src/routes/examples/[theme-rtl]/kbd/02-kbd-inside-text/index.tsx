@@ -1,6 +1,7 @@
 /**
  * title: KBD inside text
  * description: Use this example by nesting an inline KBD component inside a paragraph.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

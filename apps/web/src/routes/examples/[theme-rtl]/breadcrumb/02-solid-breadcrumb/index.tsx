@@ -1,6 +1,7 @@
 /**
  * title: Solid Breadcrumb
  * description: You can alternatively also use the breadcrumb components with a solid background.
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

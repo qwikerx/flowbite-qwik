@@ -1,6 +1,7 @@
 /**
  * title: Button as link
  * description: You can add a link to a Button component.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

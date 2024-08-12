@@ -1,6 +1,7 @@
 /**
  * title: Button group as links
  * description: You can also use the button group component as links.
+ * height: 100
  */
 
 import { component$ } from '@builder.io/qwik'

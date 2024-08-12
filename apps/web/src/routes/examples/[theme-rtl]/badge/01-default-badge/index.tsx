@@ -1,6 +1,7 @@
 /**
  * title: Default Badge
  * description: Use the following badge elements to indicate counts or labels inside or outside components.
+ * height: 100
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

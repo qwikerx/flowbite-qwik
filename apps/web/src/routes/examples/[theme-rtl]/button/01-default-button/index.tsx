@@ -1,6 +1,7 @@
 /**
  * title: Default button
  * description: Use these default button styles with multiple colors to indicate an action or link within your website.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

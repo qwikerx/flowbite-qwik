@@ -1,6 +1,7 @@
 /**
  * title: Pills badge
  * description: Use this example to make the corners even more rounded like pills for the badge component.
+ * height: 100
  */
 import { component$ } from '@builder.io/qwik'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'

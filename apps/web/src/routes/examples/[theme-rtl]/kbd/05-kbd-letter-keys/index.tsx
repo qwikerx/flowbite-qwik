@@ -1,6 +1,7 @@
 /**
  * title: Letter Keys
  * description: Use this example to show letter keys inside the KBD styled element.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

@@ -1,6 +1,7 @@
 /**
  * title: Rating with text
  * description: If you also want to show a text near the stars you can use this example as a reference.
+ * height: 150
  */
 
 import { component$ } from '@builder.io/qwik'

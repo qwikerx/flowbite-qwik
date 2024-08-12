@@ -1,6 +1,7 @@
 /**
  * title: Table data navigation
  * description: Use this example show table data navigation by using the layout="table" prop.
+ * height: 150
  */
 
 import { component$, useSignal } from '@builder.io/qwik'

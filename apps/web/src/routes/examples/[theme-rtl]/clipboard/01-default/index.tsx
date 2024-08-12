@@ -1,7 +1,7 @@
 /**
  * title: Default copy to clipboard
  * description: Use this example to copy the content of an input text field by clicking on a button and update the button text.
- * height: 200
+ * height: 150
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
