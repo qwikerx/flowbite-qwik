@@ -1,13 +1,19 @@
-import { component$, PropsOf, Slot, useContextProvider, useStore } from '@builder.io/qwik'
+import { ClassList, component$, PropsOf, Slot, useContextProvider, useStore } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
 import { navbarContext } from '~/components/Navbar/composables/use-navbar-context'
-import { useSidebarOpen } from '~/components/Sidebar'
-import { IconChartBars3FromLeftSolid, IconCloseSolid } from 'flowbite-qwik-icons'
-import { NavbarBurgerButton } from '~/components/Navbar/NavbarBurgerButton'
+
+export type NavbarTheme = {
+  nav?: ClassList
+  link?: {
+    main?: ClassList
+    active?: ClassList
+    inactive?: ClassList
+    disabled?: ClassList
+  }
+}
 
 type NavbarProps = PropsOf<'nav'> & {
-  withSidebar?: boolean
   menuOpen?: boolean
   fluid?: boolean
   rounded?: boolean
@@ -15,11 +21,11 @@ type NavbarProps = PropsOf<'nav'> & {
   sticky?: boolean
   separator?: boolean
   fullWidth?: boolean
+  theme?: NavbarTheme
 }
 
 export const Navbar = component$<NavbarProps>(
   ({
-    withSidebar = false,
     border = false,
     fluid = false,
     sticky = false,
@@ -28,10 +34,10 @@ export const Navbar = component$<NavbarProps>(
     rounded = false,
     fullWidth = false,
     class: classNames,
+    theme,
     ...props
   }) => {
-    useContextProvider(navbarContext, useStore({ isOpen: menuOpen }))
-    const { setIsOpen, isOpen } = useSidebarOpen()
+    useContextProvider(navbarContext, useStore({ isOpen: menuOpen, theme }))
 
     return (
       <>
@@ -42,29 +48,15 @@ export const Navbar = component$<NavbarProps>(
             rounded && 'rounded',
             sticky && 'fixed top-0 z-50 w-full',
             separator && 'border-b border-gray-200 dark:border-gray-600',
+            clsx(theme?.nav),
             clsx(classNames),
           )}
           {...props}
         >
           <div
-            class={twMerge(
-              'mx-auto flex flex-wrap items-center justify-between px-4 py-3',
-              !fluid && 'container',
-              fullWidth ? '' : 'max-w-screen-xl',
-            )}
+            class={twMerge('mx-auto flex flex-wrap items-center justify-between px-4 py-3', !fluid && 'container', !fullWidth && 'max-w-screen-xl')}
           >
-            {withSidebar && (
-              <NavbarBurgerButton
-                class="sm:hidden"
-                onClick$={() => {
-                  setIsOpen(!isOpen.value)
-                }}
-              >
-                {isOpen.value ? <IconCloseSolid class="h-5 w-5" /> : <IconChartBars3FromLeftSolid class="h-5 w-5" />}
-                <span class="sr-only">Open sidebar</span>
-              </NavbarBurgerButton>
-            )}
-
+            <Slot name="action" />
             <Slot />
           </div>
         </nav>

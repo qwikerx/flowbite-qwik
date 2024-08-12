@@ -4,6 +4,8 @@
 
 html {
   @apply scroll-smooth;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
 }
 
 .dark {

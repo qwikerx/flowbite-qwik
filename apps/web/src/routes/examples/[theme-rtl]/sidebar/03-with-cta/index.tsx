@@ -5,7 +5,7 @@
  */
 
 import { component$, useSignal } from '@builder.io/qwik'
-import { Sidebar, Badge, useSidebarOpen } from 'flowbite-qwik'
+import { Sidebar, Badge } from 'flowbite-qwik'
 import {
   IconHomeOutline,
   IconInboxOutline,
@@ -23,13 +23,13 @@ import { StaticGenerateHandler } from '@builder.io/qwik-city'
 
 export default component$(() => {
   const isCtaVisible = useSignal(true)
-  const { setIsOpen } = useSidebarOpen()
+  const collapsed = useSignal(false)
 
   return (
     <div class="p-3">
       <button
         onClick$={() => {
-          setIsOpen(true)
+          collapsed.value = true
         }}
         type="button"
         class="ms-3 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
@@ -37,7 +37,7 @@ export default component$(() => {
         <span class="sr-only">Open sidebar</span>
         <IconChartBars3FromLeftSolid />
       </button>
-      <Sidebar highlight>
+      <Sidebar highlight collapsed={collapsed}>
         <Sidebar.ItemGroup>
           <Sidebar.Item icon={IconHomeOutline}>Dashboard</Sidebar.Item>
           <Sidebar.Item icon={IconInboxOutline}>inbox</Sidebar.Item>

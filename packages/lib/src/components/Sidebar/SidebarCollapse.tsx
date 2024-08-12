@@ -7,6 +7,7 @@ import { getChild } from '~/utils/children-inspector'
 import { useToggle } from '~/composables'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
+import { useSidebarContext } from '~/components/Sidebar/composables/use-sidebar-context'
 
 type SidebarCollapseProps = PropsOf<'div'> & {
   label: string
@@ -31,6 +32,7 @@ export const SidebarCollapse: FunctionComponent<SidebarCollapseProps> = ({ child
 export const InternalSidebarCollapse = component$<SidebarCollapseProps>(({ label, opened = false, icon, class: className }) => {
   const { value: isOpen, toggle$ } = useToggle(opened)
   const id = useId()
+  const { theme } = useSidebarContext()
 
   return (
     <li>
@@ -39,19 +41,14 @@ export const InternalSidebarCollapse = component$<SidebarCollapseProps>(({ label
         tag="button"
         onClick$={toggle$}
         id={`flowbite-sidebar-collapse-${id}`}
-        class={twMerge('font-medium', clsx(className))}
+        class={twMerge('font-medium', clsx(className), clsx(theme.value?.collapse?.main))}
       >
         {label}
-        <IconAngleDownSolid
-          q:slot="suffix"
-          class={{
-            'rotate-180 transform': isOpen.value,
-          }}
-        />
+        <IconAngleDownSolid q:slot="suffix" class={twMerge(isOpen.value && 'rotate-180 transform', clsx(theme.value?.collapse?.icon))} />
       </InnerSidebarItem>
       <SidebarItemGroup
         aria-labelledby={`flowbite-sidebar-collapse-${id}`}
-        class={['space-y-2 overflow-hidden py-2 duration-300', isOpen.value ? 'block' : 'hidden']}
+        class={twMerge('space-y-2 overflow-hidden py-2 duration-300', isOpen.value ? 'block' : 'hidden', clsx(theme.value?.collapse?.itemGroup))}
       >
         <Slot />
       </SidebarItemGroup>

@@ -17,9 +17,11 @@ export const ComponentsSection = component$(() => {
           </p>
         </div>
         <div class="grid grid-cols-1 items-center justify-center gap-4 sm:grid-cols-2 sm:gap-8 xl:grid-cols-3">
-          {Object.keys(componentsNaming).map((name, i) => {
-            return <>{i < 18 && <ComponentCard key={name} name={name} {...componentsNaming[name]} />}</>
-          })}
+          {Object.keys(componentsNaming)
+            .filter((_, i) => i < 18)
+            .map((name) => {
+              return <ComponentCard key={name} name={name} {...componentsNaming[name]} />
+            })}
         </div>
         <div class="mb-4 flex w-full justify-center text-center">
           <Button tag={Link} href="/docs/components/accordion" color="light">

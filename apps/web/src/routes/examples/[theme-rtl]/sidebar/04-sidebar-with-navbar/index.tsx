@@ -4,19 +4,45 @@
  * height: 500
  */
 
-import { component$ } from '@builder.io/qwik'
+import { component$, useSignal } from '@builder.io/qwik'
 import { Sidebar } from 'flowbite-qwik'
-import { IconHomeOutline, IconInboxOutline, IconUserCircleOutline, IconShoppingBagOutline } from 'flowbite-qwik-icons'
+import {
+  IconHomeOutline,
+  IconInboxOutline,
+  IconUserCircleOutline,
+  IconShoppingBagOutline,
+  IconCloseSolid,
+  IconChartBars3FromLeftSolid,
+} from 'flowbite-qwik-icons'
 import { staticGenerateHandler } from '~/routes/examples/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 import { NavbarPage } from '~/components/NavbarPage/NavbarPage'
 
 export default component$(() => {
+  const collapsed = useSignal(false)
+
   return (
     <>
-      <NavbarPage fullWidth withSidebar />
+      <NavbarPage>
+        <button
+          q:slot="action"
+          class="sm:hidden"
+          onClick$={() => {
+            collapsed.value = !collapsed.value
+          }}
+        >
+          {collapsed.value ? <IconCloseSolid class="size-5" /> : <IconChartBars3FromLeftSolid class="size-5" />}
+          <span class="sr-only">Open sidebar</span>
+        </button>
+      </NavbarPage>
 
-      <Sidebar withNavbar highlight>
+      <Sidebar
+        collapsed={collapsed}
+        highlight
+        theme={{
+          nav: 'pt-20',
+        }}
+      >
         <Sidebar.ItemGroup>
           <Sidebar.Item icon={IconHomeOutline}>Dashboard</Sidebar.Item>
           <Sidebar.Item icon={IconInboxOutline}>inbox</Sidebar.Item>
