@@ -1,4 +1,4 @@
-import { component$, Slot, useVisibleTask$ } from '@builder.io/qwik'
+import { component$, Slot, useComputed$, useVisibleTask$ } from '@builder.io/qwik'
 import { Link, useLocation } from '@builder.io/qwik-city'
 import { Badge, Navbar, Tooltip, useDarkMode } from 'flowbite-qwik'
 import { IconDiscordSolid, IconGithubSolid, IconMoonSolid, IconSunSolid } from 'flowbite-qwik-icons'
@@ -9,6 +9,8 @@ import docsearch from '@docsearch/js'
 export const NavbarPage = component$(() => {
   const { isDark, setDarkModeValue } = useDarkMode()
   const location = useLocation()
+
+  const isHomePage = useComputed$(() => location.url.pathname === '/')
 
   useVisibleTask$(() => {
     docsearch({
@@ -29,7 +31,7 @@ export const NavbarPage = component$(() => {
         link: {
           main: 'text-sm font-medium',
         },
-        toggle: 'hidden',
+        toggle: !isHomePage.value && 'hidden',
       }}
     >
       <div class="flex gap-2">

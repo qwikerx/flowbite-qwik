@@ -53,31 +53,49 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
       <div class="relative flex w-full justify-between rounded-t-xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700">
         <ul>
           <li>
-            <Button color="light" href={fileUrl.value} prefix={IconGithubSolid} size="sm" class="dark:text-gray-400">
+            <Button color="light" href={fileUrl.value} prefix={IconGithubSolid} size="sm" class="hover:text-purple-600 dark:text-gray-400">
               Edit on GitHub
             </Button>
           </li>
         </ul>
         <ul class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 justify-center gap-3 lg:flex">
           <li>
-            <Button color="light" square onClick$={() => (displaySize.value = 'desktop')} title="Toggle desktop view" class="dark:text-gray-400">
+            <Button
+              color="light"
+              square
+              onClick$={() => (displaySize.value = 'desktop')}
+              title="Toggle desktop view"
+              class="hover:text-purple-600 dark:text-gray-400"
+            >
               <IconDesktopPcOutline />
             </Button>
           </li>
           <li>
-            <Button color="light" square onClick$={() => (displaySize.value = 'tablet')} title="Toggle tablet view" class="dark:text-gray-400">
+            <Button
+              color="light"
+              square
+              onClick$={() => (displaySize.value = 'tablet')}
+              title="Toggle tablet view"
+              class="hover:text-purple-600 dark:text-gray-400"
+            >
               <IconTabletOutline />
             </Button>
           </li>
           <li>
-            <Button color="light" square onClick$={() => (displaySize.value = 'mobile')} title="Toggle mobile view" class="dark:text-gray-400">
+            <Button
+              color="light"
+              square
+              onClick$={() => (displaySize.value = 'mobile')}
+              title="Toggle mobile view"
+              class="hover:text-purple-600 dark:text-gray-400"
+            >
               <IconMobilePhoneOutline />
             </Button>
           </li>
         </ul>
         <ul>
           <li>
-            <Button color="light" square size="sm" onClick$={toggle$} title={`Toggle RTL mode`} class="dark:text-gray-400">
+            <Button color="light" square size="sm" onClick$={toggle$} title={`Toggle RTL mode`} class="hover:text-purple-600 dark:text-gray-400">
               {rtl.value ? 'LTR' : 'RTL'}
             </Button>
           </li>

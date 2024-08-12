@@ -79,7 +79,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
             </section>
           </div>
 
-          <div class="right-0 hidden w-64 flex-none pt-2 xl:block xl:text-sm">
+          <div class="right-0 hidden w-64 flex-none pl-4 pt-2 xl:block xl:text-sm">
             <TableOfContents items={tableOfContentItems.value} activeElement={activeElement.value} />
           </div>
         </div>

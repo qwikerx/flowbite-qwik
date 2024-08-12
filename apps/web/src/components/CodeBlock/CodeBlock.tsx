@@ -60,7 +60,7 @@ export const CodeBlock = component$<CodeBlockProps>(({ content, language, expand
               onClick$={copy$}
               color="light"
               size="xs"
-              class="rounded-l-none rounded-r-none border-b-0 border-r-0 border-t-0"
+              class="rounded-l-none rounded-r-none border-b-0 border-r-0 border-t-0 hover:text-purple-600"
               prefix={IconCopySolid}
               title="Copy to clipboard"
             >
@@ -78,7 +78,7 @@ export const CodeBlock = component$<CodeBlockProps>(({ content, language, expand
           color="light"
           size="md"
           full
-          class="rounded-t-none border-t border-gray-200 bg-gray-100 text-gray-800 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
+          class="rounded-t-none border-t border-gray-200 bg-gray-100 text-gray-800 hover:text-purple-600 dark:border-gray-600 dark:bg-gray-800 dark:text-white"
           onClick$={toggle$}
         >
           {isCollapsed.value ? 'Expand code' : 'Collapse code'}

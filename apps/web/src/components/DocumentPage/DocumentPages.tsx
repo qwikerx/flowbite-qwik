@@ -64,13 +64,13 @@ export const DocumentPage = component$(() => {
 
   return (
     <div class="flex">
-      <div class="mx-auto flex min-w-0 max-w-4xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
+      <div class="mx-auto flex min-w-0 max-w-3xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
         <div ref={page} class="doc-page">
           <Slot />
         </div>
         <DocFooter class="mt-16 border-t bg-white px-0 dark:border-gray-700 dark:bg-gray-900" />
       </div>
-      <div class="right-0 hidden w-64 flex-none pl-8 pt-2 xl:block xl:text-sm">
+      <div class="right-0 hidden w-64 flex-none pl-4 pt-2 xl:block xl:text-sm">
         {sections.length > 0 && <TableOfContents items={sections} activeElement={activeElement.value} />}
       </div>
     </div>
