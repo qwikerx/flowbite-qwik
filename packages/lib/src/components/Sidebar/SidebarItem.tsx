@@ -5,12 +5,13 @@ import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
 import { useSidebarContext } from '~/components/Sidebar/composables/use-sidebar-context'
 
-type SidebarItemProps = PropsOf<'a'> &
+export type SidebarItemProps = PropsOf<'a'> &
   PropsOf<'button'> & {
     href?: string
     tag?: Component<LinkProps> | 'a' | 'button'
     icon?: Component<IconProps>
     isCollapse?: boolean
+    isActive?: boolean
     onClick$?: () => void
   }
 
@@ -25,7 +26,7 @@ export const SidebarItem = component$<SidebarItemProps>((attrs) => {
 })
 
 export const InnerSidebarItem = component$<SidebarItemProps>(
-  ({ tag: Tag = 'a', class: classNames, href, isCollapse, icon: Icon, onClick$, ...attrs }) => {
+  ({ tag: Tag = 'a', isActive = false, class: classNames, href, isCollapse, icon: Icon, onClick$, ...attrs }) => {
     const { theme } = useSidebarContext()
 
     const InternalTag = href ? Tag : 'button'
@@ -36,12 +37,12 @@ export const InnerSidebarItem = component$<SidebarItemProps>(
         {...attrs}
         class={twMerge(
           'group flex w-full items-center rounded-lg p-2 text-gray-900 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700',
-          isCollapse ? 'pl-11' : '',
+          isCollapse && 'pl-11',
           clsx(theme.value?.item?.main),
+          isActive && 'bg-gray-200 dark:bg-gray-600',
+          isActive && clsx(theme.value?.item?.active),
           clsx(classNames),
         )}
-        // @ts-expect-error fine
-        activeClass={twMerge('bg-gray-200 dark:bg-gray-600', clsx(theme.value?.item?.active))}
         onClick$={onClick$}
       >
         {!!Icon && !isCollapse && (

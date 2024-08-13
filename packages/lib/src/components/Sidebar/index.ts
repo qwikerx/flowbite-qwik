@@ -4,6 +4,7 @@ import { SidebarItemGroup } from './SidebarItemGroup'
 import { SidebarCollapse } from './SidebarCollapse'
 import { SidebarCta } from './SidebarCta'
 
+export type { SidebarItemProps } from './SidebarItem'
 export const Sidebar = Object.assign(SidebarRoot, {
   Item: SidebarItem,
   ItemGroup: SidebarItemGroup,

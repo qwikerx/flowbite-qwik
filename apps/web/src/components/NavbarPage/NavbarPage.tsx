@@ -60,7 +60,7 @@ export const NavbarPage = component$(() => {
           <Tooltip
             placement="bottom"
             theme={{
-              element: 'bg-black dark:bg-black text-white dark:text-white',
+              element: 'bg-gray-800 dark:bg-gray-800 text-white dark:text-white',
             }}
           >
             <span q:slot="content">Join Discord Community</span>
@@ -78,7 +78,7 @@ export const NavbarPage = component$(() => {
           <Tooltip
             placement="bottom"
             theme={{
-              element: 'bg-black dark:bg-black text-white dark:text-white',
+              element: 'bg-gray-800 dark:bg-gray-800 text-white dark:text-white',
             }}
           >
             <span q:slot="content">View on GitHub</span>
@@ -96,7 +96,7 @@ export const NavbarPage = component$(() => {
           <Tooltip
             placement="bottom"
             theme={{
-              element: 'bg-black dark:bg-black text-white dark:text-white',
+              element: 'bg-gray-800 dark:bg-gray-800 text-white dark:text-white',
             }}
           >
             <button
