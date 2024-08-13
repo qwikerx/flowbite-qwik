@@ -41,7 +41,7 @@ export default component$(() => {
         <Sidebar
           collapsed={collapsed}
           theme={{
-            aside: 'sm:sticky sm:top-16 sm:block',
+            aside: 'sm:sticky sm:top-16 sm:block border-none',
             nav: 'max-sm:px-0 max-sm:pl-2 max-sm:pt-20 pt-8 lg:-mt-1',
             collapse: {
               main: 'text-sm font-semibold tracking-wide hover:bg-transparent text-gray-900 dark:hover:bg-transparent hover:text-purple-600 dark:hover:text-purple-600',

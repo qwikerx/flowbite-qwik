@@ -817,7 +817,7 @@ export const examples: Record<string, Example[]> = {
       description: 'This example can be used for the color of the checkbox component by applying the color attribute to the input element.',
       url: '/examples/[theme-rtl]/checkbox/06-colors',
       content:
-        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox, FlowbiteTheme } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(true)\n\n  return (\n    <>\n      <div class=\"flex gap-3 p-3\">\n        {(['blue', 'green', 'red', 'pink', 'purple'] as FlowbiteTheme[]).map((color) => (\n          <Checkbox bind:checked={val} color={color}>\n            {color}\n          </Checkbox>\n        ))}\n      </div>\n    </>\n  )\n})",
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox, FlowbiteTheme } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(true)\n\n  return (\n    <>\n      <div class=\"flex flex-wrap gap-3 p-3\">\n        {(['blue', 'green', 'red', 'pink', 'purple'] as FlowbiteTheme[]).map((color) => (\n          <Checkbox bind:checked={val} color={color}>\n            {color}\n          </Checkbox>\n        ))}\n      </div>\n    </>\n  )\n})",
       height: '100',
     },
   ],
