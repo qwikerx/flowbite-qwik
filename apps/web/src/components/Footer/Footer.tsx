@@ -4,7 +4,7 @@ import { Footer, Link } from 'flowbite-qwik'
 export const DocFooter = component$<PropsOf<'footer'>>(({ class: className }) => {
   return (
     <Footer class={['rounded-none bg-gray-50 px-4 pb-8 pt-16 shadow-none', className]}>
-      <div class="mx-auto w-full max-w-screen-xl">
+      <div class="mx-auto w-full max-w-8xl">
         <div class="grid w-full justify-between gap-8 md:grid-cols-2">
           <div class="mb-4 max-w-sm lg:mb-0">
             <Link href="/" class="flex items-center gap-3">

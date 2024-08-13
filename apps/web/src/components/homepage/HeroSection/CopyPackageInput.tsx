@@ -9,10 +9,15 @@ export const CopyPackageInput = component$<CopyPackageInputProps>(({ value }) =>
   const inputValue = useSignal('')
 
   return (
-    <div class="w-full relative">
-      <Input placeholder={value} bind:value={inputValue} disabled readOnly class="w-full" />
-
-      <Clipboard.WithIcon valueToCopy={value} class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />
+    <div class="relative w-full">
+      <Input
+        placeholder={value}
+        bind:value={inputValue}
+        disabled
+        readOnly
+        class="w-full"
+        suffix={<Clipboard.WithIcon valueToCopy={value} class="absolute end-2 top-1/2 inline-flex -translate-y-1/2" />}
+      />
     </div>
   )
 })

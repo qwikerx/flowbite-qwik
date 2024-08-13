@@ -28,6 +28,7 @@ export const NavbarPage = component$(() => {
       sticky
       id="header__navbar"
       theme={{
+        nav: { wrapper: 'max-w-8xl' },
         link: {
           main: 'text-sm font-medium',
         },
@@ -86,7 +87,7 @@ export const NavbarPage = component$(() => {
               q:slot="trigger"
               rel="noopener"
               target="_blank"
-              href="https://github.com/themesberg/flowbite-react"
+              href="https://github.com/qwikerx/flowbite-qwik"
               aria-label="View on GitHub"
               class="hidden rounded-lg p-2.5 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700 lg:block"
             >

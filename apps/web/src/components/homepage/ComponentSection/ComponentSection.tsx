@@ -7,7 +7,7 @@ import { IconArrowUpRightFromSquareOutline } from 'flowbite-qwik-icons'
 export const ComponentsSection = component$(() => {
   return (
     <section>
-      <div class="mx-auto flex max-w-screen-xl flex-col gap-8 px-4 py-8 sm:gap-12 lg:pt-24 xl:px-3">
+      <div class="mx-auto flex max-w-8xl flex-col gap-8 px-4 py-8 sm:gap-12 lg:pt-24 xl:px-3">
         <div class="flex flex-col items-center gap-4 sm:gap-4">
           <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white lg:text-4xl">Qwik UI Components</h2>
           <p class="mx-auto max-w-3xl text-center text-lg font-normal text-gray-500 dark:text-gray-400">

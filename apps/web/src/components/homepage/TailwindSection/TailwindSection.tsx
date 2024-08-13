@@ -6,7 +6,7 @@ export const TailwindSection = component$(() => {
 
   return (
     <section class="bg-gray-50 dark:bg-gray-800">
-      <div class="mx-auto w-full max-w-screen-xl px-4 py-8 lg:py-24 xl:px-3">
+      <div class="mx-auto w-full max-w-8xl px-4 py-8 lg:py-24 xl:px-3">
         <div class="flex w-full flex-row self-stretch py-6 lg:gap-16 lg:py-10">
           <div class="hidden w-1/2 items-center lg:flex">
             <img
