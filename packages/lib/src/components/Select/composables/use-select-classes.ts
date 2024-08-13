@@ -1,6 +1,6 @@
 import { twMerge } from 'tailwind-merge'
 import { Signal, useComputed$ } from '@builder.io/qwik'
-import { InputSize, ValidationStatus, validationStatusMap } from '~/index'
+import { InputSize, useFlowbiteThemable, ValidationStatus, validationStatusMap } from '~/index'
 
 // LABEL
 const baseLabelClasses = 'block mb-2 text-sm font-medium'
@@ -34,6 +34,8 @@ export function useSelectClasses(props: UseSelectClassesProps): {
   labelClasses: Signal<string>
   validationWrapperClasses: Signal<string>
 } {
+  const { focusClasses, focusInputClasses } = useFlowbiteThemable()
+
   const selectClasses = useComputed$(() => {
     const vs = props.validationStatus.value
 
@@ -49,6 +51,8 @@ export function useSelectClasses(props: UseSelectClassesProps): {
       props.disabled.value && disabledSelectClasses,
       props.underline.value ? underlineSelectClasses : 'border border-gray-300 rounded-lg',
       props.underline.value && underlineByStatus,
+      focusClasses.value,
+      focusInputClasses.value,
     )
   })
 
