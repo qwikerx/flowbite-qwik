@@ -8,6 +8,7 @@ type FlowbiteThemeMap = {
   border: string
   disabled: string
   focus: string
+  focusInput: string
   hover: string
   text: string
 }
@@ -22,6 +23,7 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
     text: 'text-blue-600 dark:text-blue-500',
     border: 'border-blue-600 dark:border-blue-500',
     focus: 'focus:ring-blue-300 dark:focus:ring-blue-800',
+    focusInput: 'focus:border-blue-300 dark:focus:border-blue-900',
   },
   green: {
     background: 'bg-green-700 dark:bg-green-600',
@@ -30,6 +32,7 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
     text: 'text-green-600 dark:text-green-500',
     border: 'border-green-600 dark:border-green-500',
     focus: 'focus:ring-green-300 dark:focus:ring-green-800',
+    focusInput: 'focus:border-green-300 dark:focus:border-green-900',
   },
   pink: {
     background: 'bg-pink-700 dark:bg-pink-600',
@@ -38,6 +41,7 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
     text: 'text-pink-600 dark:text-pink-500',
     border: 'border-pink-600 dark:border-pink-500',
     focus: 'focus:ring-pink-300 dark:focus:ring-pink-900',
+    focusInput: 'focus:border-pink-300 dark:focus:border-pink-900',
   },
   purple: {
     background: 'bg-purple-700 dark:bg-purple-600',
@@ -46,6 +50,7 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
     text: 'text-purple-600 dark:text-purple-500',
     border: 'border-purple-600 dark:border-purple-500',
     focus: 'focus:ring-purple-300 dark:focus:ring-purple-900',
+    focusInput: 'focus:border-purple-300 dark:focus:border-purple-900',
   },
   red: {
     background: 'bg-red-700 dark:bg-red-600',
@@ -54,6 +59,7 @@ const flowbiteThemeClasses: FlowbiteThemes<FlowbiteTheme> = {
     text: 'text-red-600 dark:text-red-500',
     border: 'border-red-600 dark:border-red-500',
     focus: 'focus:ring-red-300 dark:focus:ring-red-900',
+    focusInput: 'focus:border-red-300 dark:focus:border-red-900',
   },
 }
 
@@ -68,19 +74,21 @@ export function useFlowbiteThemable() {
     theme.value = name
   })
 
-  const backgroundClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.background ?? ''))
+  const backgroundClasses = useComputed$(() => (!theme.value ? '' : (flowbiteThemeClasses[theme.value]?.background ?? '')))
 
-  const borderClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.border ?? ''))
+  const borderClasses = useComputed$(() => (!theme.value ? '' : (flowbiteThemeClasses[theme.value]?.border ?? '')))
 
   const color = useComputed$(() => theme || undefined)
 
-  const disabledClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.disabled ?? ''))
+  const disabledClasses = useComputed$(() => (!theme.value ? '' : (flowbiteThemeClasses[theme.value]?.disabled ?? '')))
 
-  const focusClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.focus ?? ''))
+  const focusClasses = useComputed$(() => (!theme.value ? '' : (flowbiteThemeClasses[theme.value]?.focus ?? '')))
 
-  const hoverClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.hover ?? ''))
+  const focusInputClasses = useComputed$(() => (!theme.value ? '' : (flowbiteThemeClasses[theme.value]?.focusInput ?? '')))
 
-  const textClasses = useComputed$(() => (!theme.value ? '' : flowbiteThemeClasses[theme.value]?.text ?? ''))
+  const hoverClasses = useComputed$(() => (!theme.value ? '' : (flowbiteThemeClasses[theme.value]?.hover ?? '')))
+
+  const textClasses = useComputed$(() => (!theme.value ? '' : (flowbiteThemeClasses[theme.value]?.text ?? '')))
 
   return {
     backgroundClasses,
@@ -88,6 +96,7 @@ export function useFlowbiteThemable() {
     color,
     disabledClasses,
     focusClasses,
+    focusInputClasses,
     hoverClasses,
     textClasses,
     themeName: theme,

@@ -4,7 +4,10 @@ import clsx from 'clsx'
 import { navbarContext } from '~/components/Navbar/composables/use-navbar-context'
 
 export type NavbarTheme = {
-  nav?: ClassList
+  nav?: {
+    main?: ClassList
+    wrapper?: ClassList
+  }
   link?: {
     main?: ClassList
     active?: ClassList
@@ -49,13 +52,18 @@ export const Navbar = component$<NavbarProps>(
             rounded && 'rounded',
             sticky && 'fixed top-0 z-50 w-full',
             separator && 'border-b border-gray-200 dark:border-gray-600',
-            clsx(theme?.nav),
+            clsx(theme?.nav?.main),
             clsx(classNames),
           )}
           {...props}
         >
           <div
-            class={twMerge('mx-auto flex flex-wrap items-center justify-between px-4 py-3', !fluid && 'container', !fullWidth && 'max-w-screen-xl')}
+            class={twMerge(
+              'mx-auto flex flex-wrap items-center justify-between px-4 py-3',
+              !fluid && 'container',
+              !fullWidth && 'max-w-screen-xl',
+              clsx(theme?.nav?.wrapper),
+            )}
           >
             <Slot name="action" />
             <Slot />

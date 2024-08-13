@@ -63,7 +63,7 @@ export const DocumentPage = component$(() => {
 
   return (
     <div class="flex">
-      <div class="mx-auto flex min-w-0 max-w-3xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
+      <div class="mx-auto flex min-w-0 max-w-4xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
         <div ref={page} class="doc-page">
           <Slot />
         </div>

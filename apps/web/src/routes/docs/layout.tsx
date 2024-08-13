@@ -37,7 +37,7 @@ export default component$(() => {
         </button>
       </NavbarPage>
 
-      <main class="mx-auto max-w-screen-xl sm:flex">
+      <main class="mx-auto max-w-8xl sm:flex">
         <Sidebar
           collapsed={collapsed}
           theme={{

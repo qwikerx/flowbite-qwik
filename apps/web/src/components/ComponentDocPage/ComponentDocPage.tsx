@@ -56,7 +56,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
     <>
       {previewItems.value ? (
         <div class="flex" ref={previewElements}>
-          <div class="mx-auto flex min-w-0 max-w-3xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
+          <div class="mx-auto flex min-w-0 max-w-4xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
             <section class="flex flex-col">
               <Heading tag="h1" class="mb-2 text-3xl font-extrabold capitalize">
                 Qwik {name} - Flowbite

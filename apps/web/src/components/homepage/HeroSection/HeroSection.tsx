@@ -8,7 +8,7 @@ export const HeroSection = component$(() => {
   const { isDark } = useDarkMode()
 
   return (
-    <section class="mx-auto flex max-w-screen-xl flex-col overflow-hidden px-4 py-6 sm:py-8 lg:pb-24 lg:pt-16 xl:px-3">
+    <section class="mx-auto flex max-w-8xl flex-col overflow-hidden px-4 py-6 sm:py-8 lg:pb-24 lg:pt-16 xl:px-3">
       <div class="flex flex-col gap-20">
         <div class="grid gap-10 md:grid-cols-2">
           <div class="flex flex-col justify-start gap-4 xl:max-w-[676px]">

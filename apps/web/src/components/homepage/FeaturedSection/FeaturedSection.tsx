@@ -3,7 +3,7 @@ import { component$ } from '@builder.io/qwik'
 export const FeaturedSection = component$(() => {
   return (
     <section>
-      <div class="mx-auto max-w-screen-xl px-4 py-8 xl:px-3">
+      <div class="mx-auto max-w-8xl px-4 py-8 xl:px-3">
         <div class="flex flex-col items-center justify-center gap-2 lg:flex-row lg:gap-8">
           <div class="mx-auto mb-4 text-base tracking-tight lg:mx-0 lg:mb-0">Featured in:</div>
           <div class="flex flex-wrap items-center justify-center gap-8">
