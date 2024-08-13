@@ -1,16 +1,19 @@
-import { $, component$, Slot, useComputed$, useOnDocument, useSignal, useVisibleTask$ } from '@builder.io/qwik'
+import { $, component$, Slot, useComputed$, useOnDocument, useSignal, useStyles$, useVisibleTask$ } from '@builder.io/qwik'
 import { Preview } from '~/components/Preview/Preview'
 import { TableOfContents } from '~/components/TableOfContents/TableOfContents'
 import { scrollTo } from '~/utils/scroll-to'
 import { examples } from '~/generated-examples'
 import { toSlug } from '~/utils/slug'
 import { Heading, useDebounce } from 'flowbite-qwik'
+import styles from './ComponentDocPage.css?inline'
 
 interface Item {
   name: string
 }
 
 export const ComponentDocPage = component$<Item>(({ name }) => {
+  useStyles$(styles)
+
   const previewElements = useSignal<HTMLDivElement>()
   const previewItems = useComputed$(() => examples[name])
   const tableOfContentItems = useComputed$(() => previewItems.value?.map((item) => item.title))
@@ -59,7 +62,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
                 Qwik {name} - Flowbite
               </Heading>
 
-              <div class="mb-8 text-gray-600 dark:text-gray-400">
+              <div data-el="component-doc-page__description" class="mb-8 text-gray-600 dark:text-gray-400">
                 <Slot name="description" />
               </div>
 
@@ -79,7 +82,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
             </section>
           </div>
 
-          <div class="right-0 hidden w-64 flex-none pl-4 pt-2 xl:block xl:text-sm">
+          <div class="right-0 hidden w-64 flex-none p-4 xl:block xl:text-sm">
             <TableOfContents items={tableOfContentItems.value} activeElement={activeElement.value} />
           </div>
         </div>
