@@ -1,0 +1,3 @@
+[data-el="component-doc-page__description"] p:first-child {
+  @apply font-medium;
+}

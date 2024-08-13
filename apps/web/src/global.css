@@ -29,10 +29,10 @@ html {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply rounded-sm bg-[#888];
+  @apply rounded-sm bg-[#ccc] dark:bg-[#888];
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-[#555];
+  @apply bg-[#888] dark:bg-[#555];
 }

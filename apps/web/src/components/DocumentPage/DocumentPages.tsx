@@ -2,12 +2,13 @@ import { $, component$, Slot, useOnDocument, useSignal, useStore, useStyles$, us
 import styles from './DocumentPage.css?inline'
 import { toSlug } from '~/utils/slug'
 import { TableOfContents } from '../TableOfContents/TableOfContents'
-import { useDebounce } from 'flowbite-qwik'
+import { useDebounce, useFlowbiteThemable } from 'flowbite-qwik'
 import { scrollTo } from '~/utils/scroll-to'
 import { DocFooter } from '~/components/Footer/Footer'
 
 export const DocumentPage = component$(() => {
   useStyles$(styles)
+  const { textClasses } = useFlowbiteThemable()
 
   const page = useSignal<HTMLElement>()
   const activeElement = useSignal<string>()
@@ -25,9 +26,7 @@ export const DocumentPage = component$(() => {
       const link = document.createElement('a')
       link.href = `#${slug}`
       link.textContent = '#'
-      link.classList.add('group-hover:inline')
-      link.classList.add('hidden')
-      link.classList.add('pl-2')
+      link.classList.add('group-hover:inline', 'hidden', 'pl-2', 'font-medium', 'hover:underline', ...textClasses.value.split(' '))
       sectionTitle.appendChild(link)
     })
 
@@ -70,7 +69,7 @@ export const DocumentPage = component$(() => {
         </div>
         <DocFooter class="mt-16 border-t bg-white px-0 dark:border-gray-700 dark:bg-gray-900" />
       </div>
-      <div class="right-0 hidden w-64 flex-none pl-4 pt-2 xl:block xl:text-sm">
+      <div class="right-0 hidden w-64 flex-none p-4 xl:block xl:text-sm">
         {sections.length > 0 && <TableOfContents items={sections} activeElement={activeElement.value} />}
       </div>
     </div>

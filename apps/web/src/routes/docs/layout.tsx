@@ -42,19 +42,19 @@ export default component$(() => {
           collapsed={collapsed}
           theme={{
             aside: 'sm:sticky sm:top-16 sm:block',
-            nav: 'max-sm:px-0 max-sm:pl-2 max-sm:pt-20',
+            nav: 'max-sm:px-0 max-sm:pl-2 max-sm:pt-20 pt-2',
             collapse: {
-              main: 'text-sm font-semibold tracking-wide hover:bg-transparent text-gray-900 dark:hover:bg-transparent hover:text-purple-600 dark:hover:text-purple-400',
+              main: 'text-sm font-semibold tracking-wide hover:bg-transparent text-gray-900 dark:hover:bg-transparent hover:text-purple-600 dark:hover:text-purple-600',
               itemGroup: 'space-y-0',
               icon: 'size-2',
             },
             item: {
-              main: 'bg-transparent pl-2 text-sm capitalize font-medium text-gray-500 hover:bg-transparent hover:text-gray-900 dark:bg-transparent dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-white',
-              active: 'text-purple-600 dark:text-purple-400 dark:hover:text-purple-400 hover:text-purple-600 bg-transparent hover:bg-transparent',
+              main: 'bg-transparent pl-2 text-sm capitalize font-medium text-gray-600 hover:bg-transparent hover:text-gray-900 dark:bg-transparent dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-white',
+              active: 'text-purple-600 dark:text-purple-600 dark:hover:text-purple-600 hover:text-purple-600 bg-transparent hover:bg-transparent',
             },
           }}
         >
-          <Sidebar.ItemGroup>
+          <Sidebar.ItemGroup class="space-y-1">
             <Sidebar.Collapse label={'Getting Started'.toUpperCase()} opened={isGettingStartedOpened.value}>
               {allDocs['getting-started'].map((component) => (
                 <Sidebar.Item key={component} tag={NavLink} href={`/docs/getting-started/${component}`}>
