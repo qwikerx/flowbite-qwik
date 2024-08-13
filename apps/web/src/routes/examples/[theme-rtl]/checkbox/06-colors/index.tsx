@@ -14,7 +14,7 @@ export default component$(() => {
 
   return (
     <>
-      <div class="flex gap-3 p-3">
+      <div class="flex flex-wrap gap-3 p-3">
         {(['blue', 'green', 'red', 'pink', 'purple'] as FlowbiteTheme[]).map((color) => (
           <Checkbox bind:checked={val} color={color}>
             {color}

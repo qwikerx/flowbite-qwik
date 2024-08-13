@@ -69,9 +69,9 @@ export const Input = component$<InputProps>(
             type={type}
             disabled={disabled}
             required={required}
-            class={[inputClasses.value, prefix ? 'pl-10' : '']}
+            class={twMerge(inputClasses.value, prefix && 'pl-10', suffix && 'pr-11')}
           />
-          {Boolean(suffix) && <div class="absolute right-2.5 top-1/2 -translate-y-1/2 pr-11">{suffix}</div>}
+          {Boolean(suffix) && <div class="absolute right-2.5 top-1/2 -translate-y-1/2">{suffix}</div>}
         </div>
         {Boolean(validationMessage) && <p class={validationWrapperClasses}>{validationMessage}</p>}
 
