@@ -1,7 +1,7 @@
 import { component$, PropsOf, useComputed$, useSignal, useStyles$, useTask$ } from '@builder.io/qwik'
 import styles from './preview.css?inline'
 import { toSlug } from '~/utils/slug'
-import { Button, Heading, Link, useDarkMode, useFlowbiteThemable, useToggle } from 'flowbite-qwik'
+import { Button, Heading, Link, Tooltip, useDarkMode, useFlowbiteThemable, useToggle } from 'flowbite-qwik'
 import { IconDesktopPcOutline, IconGithubSolid, IconMobilePhoneOutline, IconTabletOutline } from 'flowbite-qwik-icons'
 import { CodeBlock } from '~/components/CodeBlock/CodeBlock'
 
@@ -60,44 +60,76 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
         </ul>
         <ul class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 justify-center gap-3 lg:flex">
           <li>
-            <Button
-              color="light"
-              square
-              onClick$={() => (displaySize.value = 'desktop')}
-              title="Toggle desktop view"
-              class="hover:text-purple-600 dark:text-gray-400"
+            <Tooltip
+              placement="top"
+              theme={{
+                element: 'bg-gray-800 dark:bg-gray-800 text-white dark:text-white',
+              }}
             >
-              <IconDesktopPcOutline />
-            </Button>
+              <span q:slot="content">Toggle desktop view</span>
+              <Button
+                q:slot="trigger"
+                color="light"
+                square
+                onClick$={() => (displaySize.value = 'desktop')}
+                class="hover:text-purple-600 dark:text-gray-400"
+              >
+                <IconDesktopPcOutline />
+              </Button>
+            </Tooltip>
           </li>
           <li>
-            <Button
-              color="light"
-              square
-              onClick$={() => (displaySize.value = 'tablet')}
-              title="Toggle tablet view"
-              class="hover:text-purple-600 dark:text-gray-400"
+            <Tooltip
+              placement="top"
+              theme={{
+                element: 'bg-gray-800 dark:bg-gray-800 text-white dark:text-white',
+              }}
             >
-              <IconTabletOutline />
-            </Button>
+              <span q:slot="content">Toggle tablet view</span>
+              <Button
+                q:slot="trigger"
+                color="light"
+                square
+                onClick$={() => (displaySize.value = 'tablet')}
+                class="hover:text-purple-600 dark:text-gray-400"
+              >
+                <IconTabletOutline />
+              </Button>
+            </Tooltip>
           </li>
           <li>
-            <Button
-              color="light"
-              square
-              onClick$={() => (displaySize.value = 'mobile')}
-              title="Toggle mobile view"
-              class="hover:text-purple-600 dark:text-gray-400"
+            <Tooltip
+              placement="top"
+              theme={{
+                element: 'bg-gray-800 dark:bg-gray-800 text-white dark:text-white',
+              }}
             >
-              <IconMobilePhoneOutline />
-            </Button>
+              <span q:slot="content">Toggle mobile view</span>
+              <Button
+                q:slot="trigger"
+                color="light"
+                square
+                onClick$={() => (displaySize.value = 'mobile')}
+                class="hover:text-purple-600 dark:text-gray-400"
+              >
+                <IconMobilePhoneOutline />
+              </Button>
+            </Tooltip>
           </li>
         </ul>
         <ul>
           <li>
-            <Button color="light" square size="sm" onClick$={toggle$} title={`Toggle RTL mode`} class="hover:text-purple-600 dark:text-gray-400">
-              {rtl.value ? 'LTR' : 'RTL'}
-            </Button>
+            <Tooltip
+              placement="top"
+              theme={{
+                element: 'bg-gray-800 dark:bg-gray-800 text-white dark:text-white',
+              }}
+            >
+              <span q:slot="content">Toggle RTL mode</span>
+              <Button q:slot="trigger" color="light" square size="sm" onClick$={toggle$} class="hover:text-purple-600 dark:text-gray-400">
+                {rtl.value ? 'LTR' : 'RTL'}
+              </Button>
+            </Tooltip>
           </li>
         </ul>
       </div>

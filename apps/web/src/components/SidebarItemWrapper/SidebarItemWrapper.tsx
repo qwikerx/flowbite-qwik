@@ -1,9 +1,9 @@
 import { Slot, component$ } from '@builder.io/qwik'
-import { Link, useLocation, type LinkProps } from '@builder.io/qwik-city'
+import { Link, useLocation } from '@builder.io/qwik-city'
+import { Sidebar } from 'flowbite-qwik'
+import type { SidebarItemProps } from 'flowbite-qwik'
 
-export type NavLinkProps = LinkProps & { activeClass?: string }
-
-export const NavLink = component$(({ activeClass, ...props }: NavLinkProps) => {
+export const SidebarItemWrapper = component$<SidebarItemProps>((props) => {
   const location = useLocation()
 
   function removeTrailingSlash(path: string) {
@@ -13,8 +13,8 @@ export const NavLink = component$(({ activeClass, ...props }: NavLinkProps) => {
   const isActive = removeTrailingSlash(location.url.pathname) === removeTrailingSlash(props.href ?? '')
 
   return (
-    <Link {...props} class={[props.class, isActive ? activeClass : '']}>
+    <Sidebar.Item {...props} tag={Link} isActive={isActive}>
       <Slot />
-    </Link>
+    </Sidebar.Item>
   )
 })
