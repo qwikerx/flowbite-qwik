@@ -6,6 +6,8 @@ import { examples } from '~/generated-examples'
 import { toSlug } from '~/utils/slug'
 import { Heading, useDebounce } from 'flowbite-qwik'
 import styles from './ComponentDocPage.css?inline'
+import { DocFooter } from '~/components/Footer/Footer'
+import { DocumentPageContent } from '~/components/DocumentPageContent/DocumentPageContent'
 
 interface Item {
   name: string
@@ -56,35 +58,38 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
     <>
       {previewItems.value ? (
         <div class="flex" ref={previewElements}>
-          <div class="mx-auto flex min-w-0 max-w-4xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
-            <section class="flex flex-col">
-              <Heading tag="h1" class="mb-2 text-3xl font-extrabold capitalize">
-                Qwik {name} - Flowbite
-              </Heading>
+          <DocumentPageContent>
+            <div q:slot="top">
+              <section class="flex flex-col">
+                <Heading tag="h1" class="mb-2 text-3xl font-extrabold capitalize">
+                  Qwik {name} - Flowbite
+                </Heading>
 
-              <div data-el="component-doc-page__description" class="mb-8 text-gray-600 dark:text-gray-400">
-                <Slot name="description" />
-              </div>
+                <div data-el="component-doc-page__description" class="mb-8 text-gray-600 dark:text-gray-400">
+                  <Slot name="description" />
+                </div>
 
-              <div class="flex flex-col gap-8">
-                {previewItems.value?.map((item, i) => (
-                  <Preview
-                    key={i + item.title}
-                    title={item.title}
-                    url={item.url}
-                    description={item.description}
-                    codeContent={item.content}
-                    height={item.height}
-                    data-preview={item.title}
-                  />
-                ))}
-              </div>
-            </section>
-          </div>
+                <div class="flex flex-col gap-8">
+                  {previewItems.value?.map((item, i) => (
+                    <Preview
+                      key={i + item.title}
+                      title={item.title}
+                      url={item.url}
+                      description={item.description}
+                      codeContent={item.content}
+                      height={item.height}
+                      data-preview={item.title}
+                    />
+                  ))}
+                </div>
+              </section>
+              <DocFooter class="mt-16 border-t bg-white px-0 dark:border-gray-700 dark:bg-gray-900" />
+            </div>
 
-          <div class="right-0 hidden w-64 flex-none py-8 xl:block xl:text-sm">
-            <TableOfContents items={tableOfContentItems.value} activeElement={activeElement.value} />
-          </div>
+            {tableOfContentItems.value.length > 0 && (
+              <TableOfContents q:slot="bottom" items={tableOfContentItems.value} activeElement={activeElement.value} />
+            )}
+          </DocumentPageContent>
         </div>
       ) : (
         <Heading tag="h2" class="text-center">
