@@ -8,6 +8,12 @@ html {
   font-optical-sizing: auto;
 }
 
+html,body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  width: 100%;
+}
+
 .dark {
   color-scheme: dark;
   background: #111827;

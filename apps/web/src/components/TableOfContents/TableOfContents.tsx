@@ -18,7 +18,7 @@ export const TableOfContents = component$<TableOfContentsProps>((props) => {
 
   return (
     <div class="fixed flex h-full flex-col overflow-y-auto pb-10">
-      <Heading tag="h4" class="mb-1 text-sm uppercase tracking-wide">
+      <Heading tag="h4" class="mb-1 text-sm font-semibold uppercase tracking-wide">
         On this page
       </Heading>
       <nav id="visible-table-of-contents">
