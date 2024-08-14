@@ -4,13 +4,13 @@
 
 html {
   @apply scroll-smooth;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
 }
 
-html,body {
+body,
+html {
   max-width: 100vw;
-  overflow-x: hidden;
   width: 100%;
 }
 
@@ -25,12 +25,12 @@ html,body {
 
 /* width */
 ::-webkit-scrollbar {
-  @apply w-2 h-2;
+  @apply h-2 w-2;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-[#f1f1f1] rounded-sm;
+  @apply rounded-sm bg-[#f1f1f1];
 }
 
 /* Handle */
