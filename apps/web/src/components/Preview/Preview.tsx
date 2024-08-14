@@ -51,13 +51,10 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
       </Heading>
       {props.description && <p class="mb-8 text-gray-600 dark:text-gray-400">{props.description}</p>}
       <div class="relative flex w-full justify-between rounded-t-xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700">
-        <ul>
-          <li>
-            <Button color="light" href={fileUrl.value} prefix={IconGithubSolid} size="sm" class="hover:text-purple-600 dark:text-gray-400">
-              Edit on GitHub
-            </Button>
-          </li>
-        </ul>
+        <Button color="light" href={fileUrl.value} prefix={IconGithubSolid} size="sm" class="hover:text-purple-600 dark:text-gray-400">
+          Edit on GitHub
+        </Button>
+
         <ul class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 justify-center gap-3 lg:flex">
           <li>
             <Tooltip
