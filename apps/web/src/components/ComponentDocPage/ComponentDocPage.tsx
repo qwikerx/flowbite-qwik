@@ -57,40 +57,37 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
   return (
     <>
       {previewItems.value ? (
-        <div class="flex" ref={previewElements}>
-          <DocumentPageContent>
-            <div q:slot="top">
-              <section class="flex flex-col">
-                <Heading tag="h1" class="mb-2 text-3xl font-extrabold capitalize">
-                  Qwik {name} - Flowbite
-                </Heading>
+        <DocumentPageContent ref={previewElements}>
+          <section class="flex flex-col" q:slot="top">
+            <Heading tag="h1" class="mb-2 text-3xl font-extrabold capitalize">
+              Qwik {name} - Flowbite
+            </Heading>
 
-                <div data-el="component-doc-page__description" class="mb-8 text-gray-600 dark:text-gray-400">
-                  <Slot name="description" />
-                </div>
-
-                <div class="flex flex-col gap-8">
-                  {previewItems.value?.map((item, i) => (
-                    <Preview
-                      key={i + item.title}
-                      title={item.title}
-                      url={item.url}
-                      description={item.description}
-                      codeContent={item.content}
-                      height={item.height}
-                      data-preview={item.title}
-                    />
-                  ))}
-                </div>
-              </section>
-              <DocFooter class="mt-16 border-t bg-white px-0 dark:border-gray-700 dark:bg-gray-900" />
+            <div data-el="component-doc-page__description" class="mb-8 text-gray-600 dark:text-gray-400">
+              <Slot name="description" />
             </div>
 
-            {tableOfContentItems.value.length > 0 && (
-              <TableOfContents q:slot="bottom" items={tableOfContentItems.value} activeElement={activeElement.value} />
-            )}
-          </DocumentPageContent>
-        </div>
+            <div class="flex flex-col gap-8">
+              {previewItems.value?.map((item, i) => (
+                <Preview
+                  key={i + item.title}
+                  title={item.title}
+                  url={item.url}
+                  description={item.description}
+                  codeContent={item.content}
+                  height={item.height}
+                  data-preview={item.title}
+                />
+              ))}
+            </div>
+
+            <DocFooter class="mt-16 border-t bg-white px-0 dark:border-gray-700 dark:bg-gray-900" />
+          </section>
+
+          {tableOfContentItems.value.length > 0 && (
+            <TableOfContents q:slot="bottom" items={tableOfContentItems.value} activeElement={activeElement.value} />
+          )}
+        </DocumentPageContent>
       ) : (
         <Heading tag="h2" class="text-center">
           Component {name} does not exist
