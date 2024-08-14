@@ -69,7 +69,7 @@ export const DocumentPage = component$(() => {
         </div>
         <DocFooter class="mt-16 border-t bg-white px-0 dark:border-gray-700 dark:bg-gray-900" />
       </div>
-      <div class="right-0 hidden w-64 flex-none p-4 pt-8 xl:block xl:text-sm">
+      <div class="right-0 hidden w-64 flex-none py-8 xl:block xl:text-sm">
         {sections.length > 0 && <TableOfContents items={sections} activeElement={activeElement.value} />}
       </div>
     </div>
