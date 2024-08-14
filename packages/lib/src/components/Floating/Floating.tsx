@@ -11,7 +11,7 @@ export const RenderFloatingElement = component$<RenderFloatingElementProps>(({ r
       ref={ref}
       class={[
         'absolute z-10 inline-block transition-opacity duration-300',
-        isVisible ? 'visible opacity-100' : 'pointer-events-none invisible opacity-0',
+        isVisible ? 'block opacity-100' : 'pointer-events-none hidden opacity-0',
         classList,
       ]}
       {...props}
