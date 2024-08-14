@@ -5,6 +5,7 @@ import { TableOfContents } from '../TableOfContents/TableOfContents'
 import { useDebounce, useFlowbiteThemable } from 'flowbite-qwik'
 import { scrollTo } from '~/utils/scroll-to'
 import { DocFooter } from '~/components/Footer/Footer'
+import { DocumentPageContent } from '~/components/DocumentPageContent/DocumentPageContent'
 
 export const DocumentPage = component$(() => {
   useStyles$(styles)
@@ -62,16 +63,14 @@ export const DocumentPage = component$(() => {
   useOnDocument('scroll', debounceHandleScroll$)
 
   return (
-    <div class="flex">
-      <div class="mx-auto flex min-w-0 max-w-4xl flex-col px-4 pb-12 pt-6 lg:px-8 lg:pb-16 lg:pt-8 xl:pb-24">
+    <DocumentPageContent>
+      <div q:slot="top">
         <div ref={page} class="doc-page">
           <Slot />
         </div>
         <DocFooter class="mt-16 border-t bg-white px-0 dark:border-gray-700 dark:bg-gray-900" />
       </div>
-      <div class="right-0 hidden w-64 flex-none py-8 xl:block xl:text-sm">
-        {sections.length > 0 && <TableOfContents items={sections} activeElement={activeElement.value} />}
-      </div>
-    </div>
+      {sections.length > 0 && <TableOfContents q:slot="bottom" items={sections} activeElement={activeElement.value} />}
+    </DocumentPageContent>
   )
 })
