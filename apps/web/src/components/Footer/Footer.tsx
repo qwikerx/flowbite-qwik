@@ -26,16 +26,16 @@ export const DocFooter = component$<PropsOf<'footer'>>(({ class: className }) =>
             <div>
               <Footer.Title title="Resources" class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white" />
               <Footer.LinkGroup col class="text-gray-600 dark:text-gray-400">
-                <Footer.Link href="https://github.com/qwikerx/flowbite-qwik" class="text-base">
+                <Footer.Link href="https://github.com/qwikerx/flowbite-qwik" class="text-base" rel="noopener" target="_blank">
                   GitHub
                 </Footer.Link>
-                <Footer.Link href="https://flowbite.com/" class="text-base">
+                <Footer.Link href="https://flowbite.com/" class="text-base" rel="noopener" target="_blank">
                   Flowbite
                 </Footer.Link>
-                <Footer.Link href="https://tailwindcss.com/" class="text-base">
+                <Footer.Link href="https://tailwindcss.com/" class="text-base" rel="nofollow noopener noreferrer" target="_blank">
                   Tailwind CSS
                 </Footer.Link>
-                <Footer.Link href="https://flowbite.com/figma/" class="text-base">
+                <Footer.Link href="https://flowbite.com/figma/" class="text-base" rel="noopener" target="_blank">
                   Figma
                 </Footer.Link>
               </Footer.LinkGroup>
@@ -43,10 +43,10 @@ export const DocFooter = component$<PropsOf<'footer'>>(({ class: className }) =>
             <div>
               <Footer.Title title="Help & Support" class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white" />
               <Footer.LinkGroup col class="text-gray-600 dark:text-gray-400">
-                <Footer.Link href="https://discord.gg/4eeurUVvTy" class="text-base">
+                <Footer.Link href="https://discord.gg/4eeurUVvTy" class="text-base" rel="nofollow noopener noreferrer" target="_blank">
                   Discord
                 </Footer.Link>
-                <Footer.Link href="https://github.com/qwikerx/flowbite-qwik/discussions" class="text-base">
+                <Footer.Link href="https://github.com/qwikerx/flowbite-qwik/discussions" class="text-base" rel="noopener" target="_blank">
                   Github Discussions
                 </Footer.Link>
               </Footer.LinkGroup>
@@ -54,10 +54,10 @@ export const DocFooter = component$<PropsOf<'footer'>>(({ class: className }) =>
             <div>
               <Footer.Title title="Legal" class="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white" />
               <Footer.LinkGroup col class="text-gray-600 dark:text-gray-400">
-                <Footer.Link href="https://flowbite.com/license/" class="text-base">
+                <Footer.Link href="https://flowbite.com/license/" class="text-base" rel="noopener" target="_blank">
                   License
                 </Footer.Link>
-                <Footer.Link href="https://flowbite.com/brand/" class="text-base">
+                <Footer.Link href="https://flowbite.com/brand/" class="text-base" rel="noopener" target="_blank">
                   Brand guideline
                 </Footer.Link>
               </Footer.LinkGroup>
