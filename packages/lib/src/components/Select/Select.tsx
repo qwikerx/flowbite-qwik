@@ -57,8 +57,8 @@ export const Select = component$<SelectProps>(({ label, options, sizing = 'md', 
         </select>
       </label>
 
-      {!!props.validationMessage && <p class={validationWrapperClasses.value}>{props.validationMessage}</p>}
-      {!!props.helper && <p class="mt-2 text-sm">{props.helper}</p>}
+      {!!props.validationMessage && <div class={validationWrapperClasses.value}>{props.validationMessage}</div>}
+      {!!props.helper && <div class="mt-2 text-sm">{props.helper}</div>}
     </>
   )
 })

@@ -73,9 +73,9 @@ export const Input = component$<InputProps>(
           />
           {Boolean(suffix) && <div class="absolute right-2.5 top-1/2 -translate-y-1/2">{suffix}</div>}
         </div>
-        {Boolean(validationMessage) && <p class={validationWrapperClasses}>{validationMessage}</p>}
+        {Boolean(validationMessage) && <div class={validationWrapperClasses}>{validationMessage}</div>}
 
-        {Boolean(helper) && <p class="mt-2 text-sm text-gray-500 dark:text-gray-400">{helper}</p>}
+        {Boolean(helper) && <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{helper}</div>}
       </div>
     )
   },
