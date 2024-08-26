@@ -776,7 +776,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use this default example of a checkbox element in a checked and unchecked state.',
       url: '/examples/[theme-rtl]/checkbox/01-default',
       content:
-        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox bind:checked={val}>Checkbox</Checkbox>\n      </div>\n    </>\n  )\n})",
+        "import { component$ } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox>Checkbox</Checkbox>\n      </div>\n    </>\n  )\n})",
       height: '100',
     },
     {
@@ -785,7 +785,7 @@ export const examples: Record<string, Example[]> = {
         'This example can be used for the disabled state of the checkbox component by applying the disabled attribute to the input element.',
       url: '/examples/[theme-rtl]/checkbox/02-disabled',
       content:
-        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox bind:checked={val} disabled>\n          Disable\n        </Checkbox>\n      </div>\n    </>\n  )\n})",
+        "import { component$ } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox disabled>Disable</Checkbox>\n      </div>\n    </>\n  )\n})",
       height: '100',
     },
     {
@@ -793,7 +793,7 @@ export const examples: Record<string, Example[]> = {
       description: 'This example can be used for the checked state of the checkbox component.',
       url: '/examples/[theme-rtl]/checkbox/03-checked',
       content:
-        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(true)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox bind:checked={val}>Checked</Checkbox>\n      </div>\n    </>\n  )\n})",
+        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(true)\n\n  return (\n    <div class=\"flex flex-col gap-3\">\n      Reactive checked value : {String(val.value)}\n      <Checkbox bind:checked={val}>Checked</Checkbox>\n    </div>\n  )\n})",
       height: '100',
     },
     {
@@ -809,7 +809,7 @@ export const examples: Record<string, Example[]> = {
       description: 'This example can be used for the onchange event of the checkbox component.',
       url: '/examples/[theme-rtl]/checkbox/05-on-change-event',
       content:
-        "import { component$, useSignal } from '@builder.io/qwik'\nimport { Checkbox } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <>\n      <div class=\"p-3\">\n        <Checkbox\n          bind:checked={val}\n          onChange$={(val: boolean) => {\n            alert(`Checkbox state changed to ${val}`)\n          }}\n        >\n          Change state\n        </Checkbox>\n      </div>\n    </>\n  )\n})",
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Checkbox } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(false)\n\n  return (\n    <div class="flex flex-row gap-6">\n      <div class="flex flex-col gap-3">\n        With no reactive checked value\n        <Checkbox\n          value="case1"\n          onChange$={(state: boolean, value: string) => {\n            alert(`Checkbox state changed to ${state} with value ${value}`)\n          }}\n        >\n          Checkbox\n        </Checkbox>\n      </div>\n      <div class="flex flex-col gap-3">\n        With reactive checked value : {String(val.value)}\n        <Checkbox\n          value="case2"\n          bind:checked={val}\n          onChange$={(state: boolean, value: string) => {\n            alert(`Checkbox state changed to ${state} with value ${value}`)\n          }}\n        >\n          Change state\n        </Checkbox>\n      </div>\n    </div>\n  )\n})',
       height: '100',
     },
     {
@@ -1670,7 +1670,7 @@ export const examples: Record<string, Example[]> = {
       description: 'Use the default example of a radio component with the checked and unchecked state.',
       url: '/examples/[theme-rtl]/radio/01-default',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Radio } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const pick = useSignal<string>(\'\')\n\n  return (\n    <>\n      <div class="flex flex-col gap-3 p-3">\n        <Radio name="radio" value="one" bind:option={pick}>\n          First option\n        </Radio>\n        <Radio name="radio" value="two" bind:option={pick}>\n          Second option\n        </Radio>\n      </div>\n    </>\n  )\n})',
+        'import { component$ } from \'@builder.io/qwik\'\nimport { Radio } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  return (\n    <>\n      <div class="flex flex-col gap-3 p-3">\n        <Radio name="radio" value="one">\n          First option\n        </Radio>\n        <Radio name="radio" value="two">\n          Second option\n        </Radio>\n      </div>\n    </>\n  )\n})',
       height: '200',
     },
     {
@@ -1678,7 +1678,7 @@ export const examples: Record<string, Example[]> = {
       description: 'This example can be used for the color of the radio component by applying the color attribute to the input element.',
       url: '/examples/[theme-rtl]/radio/02-colors',
       content:
-        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Heading, Radio } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const pick = useSignal<string>(\'blue\')\n\n  return (\n    <>\n      <Heading tag="h5">Picked color : {pick.value}</Heading>\n      <div class="flex flex-col gap-3 p-3">\n        <Radio name="radio" value="blue" bind:option={pick}>\n          Blue\n        </Radio>\n        <Radio name="radio" value="purple" color="purple" bind:option={pick}>\n          Purple\n        </Radio>\n        <Radio name="radio" value="red" color="red" bind:option={pick}>\n          Red\n        </Radio>\n        <Radio name="radio" value="green" color="green" bind:option={pick}>\n          Green\n        </Radio>\n        <Radio name="radio" value="pink" color="pink" bind:option={pick}>\n          Pink\n        </Radio>\n      </div>\n    </>\n  )\n})',
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Heading, Radio } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const pick = useSignal(\'blue\')\n\n  return (\n    <>\n      <Heading tag="h5">Picked color : {pick.value}</Heading>\n      <div class="flex flex-col gap-3 p-3">\n        <Radio name="radio" value="blue" bind:option={pick}>\n          Blue\n        </Radio>\n        <Radio name="radio" value="purple" color="purple" bind:option={pick}>\n          Purple\n        </Radio>\n        <Radio name="radio" value="red" color="red" bind:option={pick}>\n          Red\n        </Radio>\n        <Radio name="radio" value="green" color="green" bind:option={pick}>\n          Green\n        </Radio>\n        <Radio name="radio" value="pink" color="pink" bind:option={pick}>\n          Pink\n        </Radio>\n      </div>\n    </>\n  )\n})',
       height: '300',
     },
     {
@@ -1687,6 +1687,14 @@ export const examples: Record<string, Example[]> = {
       url: '/examples/[theme-rtl]/radio/03-disabled',
       content:
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Radio } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const pick = useSignal<string>(\'\')\n\n  return (\n    <>\n      <div class="flex flex-col gap-3 p-3">\n        <Radio name="radio" value="one" disabled bind:option={pick}>\n          First option\n        </Radio>\n        <Radio name="radio" value="two" disabled bind:option={pick}>\n          Second option\n        </Radio>\n      </div>\n    </>\n  )\n})',
+      height: '200',
+    },
+    {
+      title: 'On change event',
+      description: 'This example can be used for the onchange event of the radio component.',
+      url: '/examples/[theme-rtl]/radio/04-on-change-event',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Radio } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const pick = useSignal(\'\')\n\n  return (\n    <div class="flex flex-col gap-3">\n      Reactivity choice : {pick.value}\n      <div class="flex flex-col gap-3">\n        <Radio\n          onChange$={(checked: boolean, value: string) => {\n            alert(`Checkbox state changed to ${checked} with value ${value}`)\n          }}\n          name="radio"\n          value="one"\n          bind:option={pick}\n        >\n          First option\n        </Radio>\n        <Radio\n          onChange$={(checked: boolean, value: string) => {\n            alert(`Checkbox state changed to ${checked} with value ${value}`)\n          }}\n          name="radio"\n          value="two"\n          bind:option={pick}\n        >\n          Second option\n        </Radio>\n      </div>\n    </div>\n  )\n})',
       height: '200',
     },
   ],

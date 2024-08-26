@@ -13,18 +13,31 @@ export default component$(() => {
   const val = useSignal(false)
 
   return (
-    <>
-      <div class="p-3">
+    <div class="flex flex-row gap-6">
+      <div class="flex flex-col gap-3">
+        With no reactive checked value
         <Checkbox
+          value="case1"
+          onChange$={(state: boolean, value: string) => {
+            alert(`Checkbox state changed to ${state} with value ${value}`)
+          }}
+        >
+          Checkbox
+        </Checkbox>
+      </div>
+      <div class="flex flex-col gap-3">
+        With reactive checked value : {String(val.value)}
+        <Checkbox
+          value="case2"
           bind:checked={val}
-          onChange$={(val: boolean) => {
-            alert(`Checkbox state changed to ${val}`)
+          onChange$={(state: boolean, value: string) => {
+            alert(`Checkbox state changed to ${state} with value ${value}`)
           }}
         >
           Change state
         </Checkbox>
       </div>
-    </>
+    </div>
   )
 })
 

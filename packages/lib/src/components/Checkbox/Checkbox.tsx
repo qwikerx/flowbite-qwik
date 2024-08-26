@@ -1,36 +1,36 @@
-import { ClassList, QRL, Signal, Slot, component$, useComputed$ } from '@builder.io/qwik'
+import { QRL, Slot, component$, useComputed$, PropsOf, Signal, JSXChildren } from '@builder.io/qwik'
 import clsx from 'clsx'
 import { useCheckboxClasses } from './composables/use-checkbox-classes'
 import { twMerge } from 'tailwind-merge'
 import { FlowbiteTheme } from '../FlowbiteThemable'
 
-type CheckboxProps = {
-  name?: string
-  value?: string | number
-  disabled?: boolean
+type CheckboxProps = Omit<PropsOf<'input'>, 'children'> & {
   color?: FlowbiteTheme
-  'bind:checked': Signal<boolean>
-  class?: ClassList
-  onChange$?: QRL<(value: boolean) => void>
+  'bind:checked'?: Signal<boolean | undefined>
+  onChange$?: QRL<(checked: boolean, value: string) => void>
+  children?: JSXChildren
 }
 
-export const Checkbox = component$<CheckboxProps>(({ disabled = false, color, value, name, class: classNames, onChange$, ...props }) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const Checkbox = component$<CheckboxProps>(({ color, class: classNames, onChange$, children, ...props }) => {
   const internalColor = useComputed$(() => color)
   const { checkboxClasses, labelClasses } = useCheckboxClasses(internalColor)
 
   return (
-    <label class={['flex gap-3 items-center justify-start', labelClasses.value]}>
+    <label class={['flex items-center justify-start gap-3', labelClasses.value]}>
       <input
-        bind:checked={props['bind:checked']}
+        {...props}
         type="checkbox"
-        name={name}
-        value={value}
-        disabled={disabled}
-        class={twMerge(clsx(classNames), checkboxClasses.value)}
-        onChange$={() => {
-          if (onChange$) {
-            onChange$(props['bind:checked'].value)
+        bind:checked={props['bind:checked']}
+        class={twMerge(checkboxClasses.value, clsx(classNames))}
+        // FIXME : qwik issue, error if onInput$ is not redefined with the "if"
+        onInput$={(_, elm) => {
+          if (props['bind:checked']) {
+            props['bind:checked'].value = elm.checked
           }
+        }}
+        onChange$={(_, elm) => {
+          onChange$?.(elm.checked, elm.value)
         }}
       />
       <Slot />
