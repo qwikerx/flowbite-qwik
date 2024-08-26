@@ -13,11 +13,10 @@ export default component$(() => {
   const val = useSignal(true)
 
   return (
-    <>
-      <div class="p-3">
-        <Checkbox bind:checked={val}>Checked</Checkbox>
-      </div>
-    </>
+    <div class="flex flex-col gap-3">
+      Reactive checked value : {String(val.value)}
+      <Checkbox bind:checked={val}>Checked</Checkbox>
+    </div>
   )
 })
 

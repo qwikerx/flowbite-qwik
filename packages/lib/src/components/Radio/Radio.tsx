@@ -1,37 +1,33 @@
-import { ClassList, QRL, Slot, component$, useComputed$, Signal } from '@builder.io/qwik'
+import { QRL, Slot, component$, useComputed$, PropsOf, Signal, JSXChildren } from '@builder.io/qwik'
 import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { FlowbiteTheme } from '../FlowbiteThemable'
 import { useRadioClasses } from './composables/use-radio-classes'
 
-type CheckboxProps = {
-  disabled?: boolean
-  name: string
+type RadioProps = Omit<PropsOf<'input'>, 'children'> & {
   color?: FlowbiteTheme
-  value: string
-  class?: ClassList
-  'bind:option': Signal<string | undefined>
-  onChange$?: QRL<(value: string) => void>
+  'bind:option'?: Signal<PropsOf<'input'>['value']>
+  onChange$?: QRL<(checked: boolean, value: string) => void>
+  children?: JSXChildren
 }
 
-export const Radio = component$<CheckboxProps>(({ disabled = false, color, name, class: classNames, onChange$, ...props }) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const Radio = component$<RadioProps>(({ color, children, class: classNames, onChange$, ...props }) => {
   const internalColor = useComputed$(() => color)
   const { radioClasses, labelClasses } = useRadioClasses(internalColor)
 
   return (
-    <label class={['flex gap-3 items-center justify-start', labelClasses.value]}>
+    <label class={['flex items-center justify-start gap-3', labelClasses.value]}>
       <input
+        {...props}
         type="radio"
-        value={props.value}
-        checked={props['bind:option'].value === props.value}
-        name={name}
-        disabled={disabled}
-        class={twMerge(clsx(classNames), radioClasses.value)}
-        onChange$={() => {
-          props['bind:option'].value = props.value
-          if (onChange$) {
-            onChange$(props.value)
+        checked={props['bind:option']?.value === props.value}
+        class={twMerge(radioClasses.value, clsx(classNames))}
+        onChange$={(_, elm) => {
+          if (props['bind:option']) {
+            props['bind:option'].value = props.value
           }
+          onChange$?.(elm.checked, elm.value)
         }}
       />
       <Slot />
