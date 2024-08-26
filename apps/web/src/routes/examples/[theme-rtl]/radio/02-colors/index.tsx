@@ -10,7 +10,7 @@ import { StaticGenerateHandler } from '@builder.io/qwik-city'
 import { Heading, Radio } from 'flowbite-qwik'
 
 export default component$(() => {
-  const pick = useSignal<string>('blue')
+  const pick = useSignal('blue')
 
   return (
     <>
