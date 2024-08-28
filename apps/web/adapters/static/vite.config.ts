@@ -13,7 +13,8 @@ export default extendConfig(baseConfig, () => {
     plugins: [
       staticAdapter({
         origin: 'https://flowbite-qwik.com',
-        // sitemapOutFile: 'sitemap.xml',
+        sitemapOutFile: 'sitemap.xml',
+        exclude: ['/examples/*', '/docs'],
       }),
     ],
   }
