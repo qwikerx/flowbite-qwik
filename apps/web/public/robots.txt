@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /examples/
+
+Sitemap: https://flowbite-qwik.com/sitemap.xml
