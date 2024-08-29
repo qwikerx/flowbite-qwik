@@ -1,4 +1,4 @@
-import { QRL, Slot, component$, useComputed$, PropsOf, Signal, JSXChildren } from '@builder.io/qwik'
+import { QRL, Slot, component$, useComputed$, PropsOf, JSXChildren } from '@builder.io/qwik'
 import clsx from 'clsx'
 import { useCheckboxClasses } from './composables/use-checkbox-classes'
 import { twMerge } from 'tailwind-merge'
@@ -6,7 +6,6 @@ import { FlowbiteTheme } from '../FlowbiteThemable'
 
 type CheckboxProps = Omit<PropsOf<'input'>, 'children'> & {
   color?: FlowbiteTheme
-  'bind:checked'?: Signal<boolean | undefined>
   onChange$?: QRL<(checked: boolean, value: string) => void>
   children?: JSXChildren
 }
