@@ -131,6 +131,18 @@ window.gtag('config', 'G-78YXL53K0Y');
             },
           ]
         : []),
+      ...(import.meta.env.PROD
+        ? [
+            {
+              props: {
+                defer: true,
+                type: 'text/partytown',
+                src: 'https://cdn.usefathom.com/script.js',
+                ['data-site']: 'ICKPULKH',
+              },
+            },
+          ]
+        : []),
     ],
   }
 }

@@ -41,4 +41,40 @@ export default component$(() => {
 export const head = () => ({
   title: 'Flowbite Qwik - UI Component Library',
   meta: [{ name: 'description', content: '⚡ Flowbite Qwik, component library based on Tailwind CSS' }],
+  scripts: [
+    ...(import.meta.env.PROD
+      ? [
+          {
+            props: {
+              async: true,
+              type: 'text/partytown',
+              src: 'https://www.googletagmanager.com/gtag/js?id=G-78YXL53K0Y',
+            },
+          },
+          {
+            props: {
+              type: 'text/partytown',
+            },
+            script: `
+window.dataLayer = window.dataLayer || [];
+window.gtag = function (){dataLayer.push(arguments);}
+window.gtag('js', new Date());
+window.gtag('config', 'G-78YXL53K0Y');
+`,
+          },
+        ]
+      : []),
+    ...(import.meta.env.PROD
+      ? [
+          {
+            props: {
+              defer: true,
+              type: 'text/partytown',
+              src: 'https://cdn.usefathom.com/script.js',
+              ['data-site']: 'ICKPULKH',
+            },
+          },
+        ]
+      : []),
+  ],
 })

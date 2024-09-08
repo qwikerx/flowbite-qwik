@@ -260,7 +260,7 @@ export function useButtonClasses(props: UseButtonClassesProps) {
       (props.prefix || props.suffix || props.loading.value) && 'inline-flex items-center',
       clsx(props.class?.value),
       props.target?.value,
-      props.full.value && 'w-full',
+      props.full.value ? 'w-full' : 'w-fit',
       'justify-center',
     ])
   })
