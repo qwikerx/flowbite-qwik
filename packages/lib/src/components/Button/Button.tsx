@@ -85,7 +85,6 @@ export const Button = component$<ButtonProps>(
         target={href ? attrs.target : undefined}
         //@ts-expect-error does not exist on other elements
         disabled={!href && ButtonComponent === 'button' ? disabled : undefined}
-        onClick$={attrs.onClick$}
         {...attrs}
       >
         {!isOutlineGradient.value && (Prefix || loadingPrefix.value) && (

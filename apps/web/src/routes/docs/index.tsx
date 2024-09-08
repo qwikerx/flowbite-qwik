@@ -1,5 +1,5 @@
-import { component$ } from '@builder.io/qwik'
+import { RequestHandler } from '@builder.io/qwik-city'
 
-export default component$(() => {
-  return <p>Docs</p>
-})
+export const onRequest: RequestHandler = (event) => {
+  throw event.redirect(301, '/docs/getting-started/introduction')
+}
