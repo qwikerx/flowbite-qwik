@@ -15,7 +15,7 @@ export const ToastList = component$<ToastListProps>(({ position = 'top-right' })
       {list.value.length > 0 && (
         <ul
           class={[
-            'fixed z-[60] flex flex-col space-y-2',
+            'fixed z-[70] flex flex-col space-y-2',
             {
               'left-4 top-4': position === 'top-left',
               'right-4 top-4': position === 'top-right',
