@@ -9,12 +9,26 @@ type InputProps = Omit<PropsOf<'input'>, 'size'> & {
   validationStatus?: ValidationStatus
   suffix?: JSXOutput
   prefix?: JSXOutput
+  onClickPrefix$?: () => void
+  onClickSuffix$?: () => void
   validationMessage?: JSXOutput
   helper?: JSXOutput
 }
 
 export const Input = component$<InputProps>(
-  ({ label, suffix, prefix, size = 'md' as InputSize, validationStatus, class: classNames, validationMessage, helper, ...props }) => {
+  ({
+    label,
+    suffix,
+    prefix,
+    size = 'md' as InputSize,
+    validationStatus,
+    class: classNames,
+    validationMessage,
+    helper,
+    onClickPrefix$,
+    onClickSuffix$,
+    ...props
+  }) => {
     const id = useId()
     const validationWrapperClasses = useComputed$(() =>
       twMerge(
@@ -44,14 +58,22 @@ export const Input = component$<InputProps>(
           </label>
         )}
         <div class="relative flex">
-          {Boolean(prefix) && <div class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center overflow-hidden pl-3">{prefix}</div>}
+          {Boolean(prefix) && (
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center overflow-hidden pl-3" onClick$={onClickPrefix$}>
+              {prefix}
+            </div>
+          )}
           <input
             {...props}
             id={id}
             bind:value={props['bind:value'] || input}
             class={twMerge(inputClasses.value, prefix && 'pl-10', suffix && 'pr-11')}
           />
-          {Boolean(suffix) && <div class="absolute right-2.5 top-1/2 -translate-y-1/2">{suffix}</div>}
+          {Boolean(suffix) && (
+            <div class="absolute right-2.5 top-1/2 -translate-y-1/2" onClick$={onClickSuffix$}>
+              {suffix}
+            </div>
+          )}
         </div>
         {Boolean(validationMessage) && <div class={validationWrapperClasses}>{validationMessage}</div>}
 
