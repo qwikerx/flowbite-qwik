@@ -1,6 +1,6 @@
 /**
  * title: Styling accordion
- * description: You can style accordion content and headers by passing tailwind classes into them.
+ * description: You can style accordion content and headers by passing tailwind classes into them or use a theme.
  * height: 300
  */
 
@@ -11,7 +11,7 @@ import { staticGenerateHandler } from '~/routes/examples/layout'
 
 export default component$(() => {
   return (
-    <Accordion>
+    <Accordion theme={{ header: { button: 'py-2' } }}>
       <Accordion.Panel>
         <Accordion.Header>Accordion 1</Accordion.Header>
         <Accordion.Content>
