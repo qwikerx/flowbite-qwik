@@ -1,6 +1,5 @@
-import { JSXChildren, PropsOf, component$ } from '@builder.io/qwik'
+import { JSXChildren, PropsOf, component$, useContextProvider, useStore } from '@builder.io/qwik'
 import { AccordionHeaderProps, AccordionProps } from './accordion-types'
-
 import { FunctionComponent } from '@builder.io/qwik/jsx-runtime'
 import { AccordionPanel } from './AccordionPanel'
 import uuid from '~/utils/uuid'
@@ -8,6 +7,7 @@ import { AccordionHeader } from './AccordionHeader'
 import { AccordionContent } from './AccordionContent'
 import { useAccordionState } from './composables/use-accordion-state'
 import { getChild } from '~/utils/children-inspector'
+import { AccordionContext } from '~/components/Accordion/composables/use-accordion-context'
 
 type ChildrenType = {
   header: {
@@ -86,38 +86,42 @@ type InnerAccordionProps = AccordionProps & {
   components: ComponentType[]
 }
 
-export const InnerAccordion = component$<InnerAccordionProps>(({ components, alwaysOpen = false, openFirstItem = true, flush = false, ...attrs }) => {
-  const { toggle$, openedPanels } = useAccordionState(
-    {
-      alwaysOpen,
-      openFirstItem,
-      flush,
-    },
-    components,
-  )
+export const InnerAccordion = component$<InnerAccordionProps>(
+  ({ components, alwaysOpen = false, openFirstItem = true, flush = false, theme, ...attrs }) => {
+    useContextProvider(AccordionContext, useStore({ theme }))
 
-  return (
-    <div {...attrs}>
-      {components.map((component, i) => {
-        return (
-          <AccordionPanel>
-            <AccordionHeader
-              {...component.header.attrs}
-              id={component.id}
-              flush={flush}
-              isFirst={i === 0}
-              openedPanels={openedPanels.value}
-              isLast={i === components.length - 1}
-              onClick$={toggle$}
-            >
-              {component.header.children}
-            </AccordionHeader>
-            <AccordionContent id={component.id} isLast={i === components.length - 1} openedPanels={openedPanels.value} flush={flush}>
-              {component.content.children}
-            </AccordionContent>
-          </AccordionPanel>
-        )
-      })}
-    </div>
-  )
-})
+    const { toggle$, openedPanels } = useAccordionState(
+      {
+        alwaysOpen,
+        openFirstItem,
+        flush,
+      },
+      components,
+    )
+
+    return (
+      <div {...attrs}>
+        {components.map((component, i) => {
+          return (
+            <AccordionPanel>
+              <AccordionHeader
+                {...component.header.attrs}
+                id={component.id}
+                flush={flush}
+                isFirst={i === 0}
+                openedPanels={openedPanels.value}
+                isLast={i === components.length - 1}
+                onClick$={toggle$}
+              >
+                {component.header.children}
+              </AccordionHeader>
+              <AccordionContent id={component.id} isLast={i === components.length - 1} openedPanels={openedPanels.value} flush={flush}>
+                {component.content.children}
+              </AccordionContent>
+            </AccordionPanel>
+          )
+        })}
+      </div>
+    )
+  },
+)

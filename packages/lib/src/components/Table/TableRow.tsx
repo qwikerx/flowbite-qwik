@@ -6,7 +6,7 @@ import { useTableContext } from '~/components/Table/composables/use-table-contex
 type TableRowProps = PropsOf<'tr'>
 
 export const TableRow = component$<TableRowProps>(({ class: className, ...attrs }) => {
-  const { hoverable, striped } = useTableContext()
+  const { hoverable, striped, theme } = useTableContext()
 
   return (
     <tr
@@ -14,6 +14,7 @@ export const TableRow = component$<TableRowProps>(({ class: className, ...attrs 
         'group/row',
         striped.value && 'odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700',
         hoverable.value && 'hover:bg-gray-50 dark:hover:bg-gray-600',
+        clsx(theme.value?.row),
         clsx(className),
       )}
       {...attrs}

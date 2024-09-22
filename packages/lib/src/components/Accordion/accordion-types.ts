@@ -1,9 +1,16 @@
-import { PropsOf, QRL } from '@builder.io/qwik'
+import { ClassList, PropsOf, QRL } from '@builder.io/qwik'
+
+export type AccordionTheme = {
+  header?: {
+    button?: ClassList
+  }
+}
 
 export type AccordionProps = {
   alwaysOpen?: boolean
   openFirstItem?: boolean
   flush?: boolean
+  theme?: AccordionTheme
 }
 
 export type AccordionHeaderProps = {
