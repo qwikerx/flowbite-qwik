@@ -18,7 +18,7 @@ export const AccordionHeader = component$<AccordionHeaderProps>(
     const { arrowClasses, headerClasses } = useAccordionHeaderClasses(internalVisible, internalFlush, internalIsFirst, internalIsLast)
 
     return (
-      <div class={attrs.class}>
+      <div {...attrs}>
         <button type="button" class={twMerge(headerClasses.value, clsx(theme.value?.header?.button))} onClick$={() => id && onClick$?.(id)}>
           <span>
             <Slot />
