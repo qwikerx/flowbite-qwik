@@ -32,7 +32,7 @@ export default component$(() => {
         <div>
           <Heading tag="h3">Install Flowbite Qwik</Heading>
           <p>Install Flowbite Qwik by running the following command in your project directory:</p>
-          <CodeBlock language="bash" expandable={false} content="npm install flowbite-qwik" />
+          <CodeBlock language="bash" expandable={false} content="npm install flowbite-qwik flowbite-qwik-icons" />
           <p>
             Add the Flowbite Qwik flowbite configuration in your <em>tailwind.config.js</em>
           </p>
