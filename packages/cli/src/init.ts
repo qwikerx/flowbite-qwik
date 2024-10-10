@@ -231,7 +231,7 @@ async function installFlowbiteQwik(): Promise<void> {
   const loader = spinner()
 
   loader.start('Installing flowbite-qwik...')
-  await installDependency(packageManager, 'flowbite-qwik flowbite')
+  await installDependency(packageManager, 'flowbite-qwik flowbite flowbite-qwik-icons')
   loader.stop('Flowbite Qwik installed! 🎉')
 
   const hasTailwindInstalled = await detectTailwindCSS()
