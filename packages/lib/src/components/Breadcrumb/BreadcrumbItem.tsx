@@ -20,10 +20,15 @@ export const BreadcrumbItem = component$<BreadcrumbItemProps>(({ href, tag = 'a'
 
   return (
     <li class="inline-flex items-center">
-      {!home && (!!ArrowIcon ? <ArrowIcon class="w-3 h-3 text-gray-400 mx-1" /> : <IconArrowRightOutline class="w-3 h-3 text-gray-400 ml-1 mr-2" />)}
+      {!home &&
+        (!!ArrowIcon ? (
+          <ArrowIcon class="mx-1 h-3 w-3 text-gray-400 rtl:rotate-180" />
+        ) : (
+          <IconArrowRightOutline class="ml-1 mr-2 h-3 w-3 text-gray-400 rtl:rotate-180" />
+        ))}
       <TagComponent href={href} class={breadcrumbItemClasses.value}>
-        {!!HomeIcon && <HomeIcon class="w-3 h-3 text-gray-400 me-2.5" />}
-        {home && !Boolean(HomeIcon) && <IconHomeOutline class="w-3 h-3 me-2.5" />}
+        {!!HomeIcon && <HomeIcon class="me-2.5 h-3 w-3 text-gray-400" />}
+        {home && !Boolean(HomeIcon) && <IconHomeOutline class="me-2.5 h-3 w-3" />}
         <Slot />
       </TagComponent>
     </li>

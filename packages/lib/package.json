@@ -1,7 +1,7 @@
 {
   "name": "flowbite-qwik",
-  "version": "0.37.4",
-  "description": "Unofficial Qwik components built for Flowbite and Tailwind CSS",
+  "version": "0.37.5",
+  "description": "Official Qwik components built for Flowbite and Tailwind CSS",
   "keywords": [
     "design-system",
     "component-library",
