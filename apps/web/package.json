@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik-web",
-  "description": "Unofficial Qwik components built for Flowbite and Tailwind CSS",
+  "description": "Official Qwik components built for Flowbite and Tailwind CSS",
   "engines": {
     "node": "^20.3.0 || >=21.0.0"
   },
