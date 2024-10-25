@@ -3,7 +3,7 @@
 
   <div>
     <a href="https://flowbite-qwik.com">
-      <img alt="Flowbite Qwik - Tailwind CSS components" width="500"  src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/gjiop0re7dy2gkikpf6c.jpg" />
+      <img alt="Flowbite Qwik - Tailwind CSS components" width="500"  src="https://res.cloudinary.com/dkht4mwqi/image/upload/f_auto,q_auto/v1718462567/flowbite-qwik/logo_readme_a2qemq.svg" />
       </a>
   </div>
   <p>
