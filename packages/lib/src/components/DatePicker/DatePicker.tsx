@@ -152,6 +152,13 @@ export const DatePicker = component$<DatePickerProps>(
       }),
     )
 
+    const onFocus$ = $(()=>{
+      if (!isDateEqual(viewDate.value, selectedDate.value)) {
+        viewDate.value = selectedDate.value
+      }
+      isOpen.value = true
+    })
+
     return (
       <div class={twMerge('relative', clsx(className))}>
         {!inline && (
@@ -159,12 +166,7 @@ export const DatePicker = component$<DatePickerProps>(
           <Input
             prefix={<IconCalendarMonthOutline />}
             ref={inputRef}
-            onFocus$={() => {
-              if (!isDateEqual(viewDate.value, selectedDate.value)) {
-                viewDate.value = selectedDate.value
-              }
-              isOpen.value = true
-            }}
+            onFocus$={onFocus$}
             value={selectedDate.value && getFormattedDate(language, selectedDate.value)}
             readOnly
             {...attrs}
