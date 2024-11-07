@@ -1,5 +1,7 @@
-import { JSXOutput, PropsOf, component$, useComputed$, useId, useSignal, useTask$ } from '@builder.io/qwik'
-import { InputSize, ValidationStatus, validationStatusMap } from './input-types'
+import { JSXOutput, PropsOf, QRL, QRLEventHandlerMulti, Signal } from '@builder.io/qwik'
+import { component$, useComputed$, useId, useSignal, useTask$ } from '@builder.io/qwik'
+import type { InputSize, ValidationStatus } from './input-types'
+import { validationStatusMap } from './input-types'
 import { twMerge } from 'tailwind-merge'
 import { useInputClasses } from './composables/use-input-classes'
 
@@ -9,45 +11,60 @@ type InputProps = Omit<PropsOf<'input'>, 'size'> & {
   validationStatus?: ValidationStatus
   suffix?: JSXOutput
   prefix?: JSXOutput
-  onClickPrefix$?: () => void
-  onClickSuffix$?: () => void
+  onClickPrefix$?: QRL<() => void>
+  onClickSuffix$?: QRL<() => void>
+  onChange$?: QRL<(event: FocusEvent, element: HTMLInputElement) => never> | QRLEventHandlerMulti<FocusEvent, HTMLInputElement>[] | null
+  onBlur$?: QRL<(event: FocusEvent, element: HTMLInputElement) => never> | QRLEventHandlerMulti<FocusEvent, HTMLInputElement>[] | null
+  onFocus$?: QRL<(event: FocusEvent, element: HTMLInputElement) => never> | QRLEventHandlerMulti<FocusEvent, HTMLInputElement>[] | null
+  onInput$?: QRL<(event: FocusEvent, element: HTMLInputElement) => never> | QRLEventHandlerMulti<FocusEvent, HTMLInputElement>[] | null
   validationMessage?: JSXOutput
   helper?: JSXOutput
+  value?: string | ReadonlyArray<string> | number | undefined | null | FormDataEntryValue
+  'bind:value'?: Signal<string | undefined>;
 }
 
 export const Input = component$<InputProps>(
   ({
-    label,
-    suffix,
-    prefix,
-    size = 'md' as InputSize,
-    validationStatus,
-    class: classNames,
-    validationMessage,
-    helper,
-    onClickPrefix$,
-    onClickSuffix$,
-    ...props
-  }) => {
+     label,
+     suffix,
+     prefix,
+     size = 'md' as InputSize,
+     validationStatus,
+     class: classNames,
+     validationMessage,
+     helper,
+     onClickPrefix$,
+     onClickSuffix$,
+     onChange$,
+     onBlur$,
+     onFocus$,
+     onInput$,
+     disabled,
+     value,
+    'bind:value': bindValue,
+     ...props
+   }) => {
     const id = useId()
     const validationWrapperClasses = useComputed$(() =>
       twMerge(
         'mt-2 text-sm',
-        validationStatus === validationStatusMap.Success ? 'text-green-600 dark:text-green-500' : '',
+        validationStatus === validationStatusMap.Success
+          ? 'text-green-600 dark:text-green-500'
+          : '',
         validationStatus === validationStatusMap.Error ? 'text-red-600 dark:text-red-500' : '',
       ),
     )
 
     const { inputClasses, labelClasses } = useInputClasses(
       useComputed$(() => size),
-      useComputed$(() => Boolean(props.disabled)),
+      useComputed$(() => Boolean(disabled)),
       useComputed$(() => validationStatus),
     )
 
-    const input = useSignal(props.value ? String(props.value) : undefined)
+    const input = useSignal(value ? String(value) : undefined)
     useTask$(({ track }) => {
-      const innerValue = track(() => props.value)
-      input.value = props.value ? String(innerValue) : undefined
+      const innerValue = track(() => value)
+      input.value = value ? String(innerValue) : undefined
     })
 
     return (
@@ -59,14 +76,20 @@ export const Input = component$<InputProps>(
         )}
         <div class="relative flex">
           {Boolean(prefix) && (
-            <div class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center overflow-hidden pl-3" onClick$={onClickPrefix$}>
+            <div
+              class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center overflow-hidden pl-3"
+              onClick$={onClickPrefix$}>
               {prefix}
             </div>
           )}
           <input
             {...props}
             id={id}
-            bind:value={props['bind:value'] || input}
+            bind:value={bindValue || input}
+            onInput$={onInput$}
+            onChange$={onChange$}
+            onBlur$={onBlur$}
+            onFocus$={onFocus$}
             class={twMerge(inputClasses.value, prefix && 'pl-10', suffix && 'pr-11')}
           />
           {Boolean(suffix) && (
@@ -75,9 +98,13 @@ export const Input = component$<InputProps>(
             </div>
           )}
         </div>
-        {Boolean(validationMessage) && <div class={validationWrapperClasses}>{validationMessage}</div>}
+        {Boolean(validationMessage) && (
+          <div class={validationWrapperClasses}>{validationMessage}</div>
+        )}
 
-        {Boolean(helper) && <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{helper}</div>}
+        {Boolean(helper) && (
+          <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{helper}</div>
+        )}
       </div>
     )
   },
