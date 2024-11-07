@@ -9,26 +9,37 @@ type InputProps = Omit<PropsOf<'input'>, 'size'> & {
   validationStatus?: ValidationStatus
   suffix?: JSXOutput
   prefix?: JSXOutput
-  onClickPrefix$?: () => void
-  onClickSuffix$?: () => void
+  onClickPrefix$?: QRL<() => void>
+  onClickSuffix$?: QRL<() => void>
+  onChange$?: QRL<() => void>
+  onBlur$?: QRL<() => void>
+  onFocus$?: QRL<() => void>
+  onInput$?: QRL<() => void>
   validationMessage?: JSXOutput
   helper?: JSXOutput
+  value?: string | number | null
 }
 
 export const Input = component$<InputProps>(
   ({
-    label,
-    suffix,
-    prefix,
-    size = 'md' as InputSize,
-    validationStatus,
-    class: classNames,
-    validationMessage,
-    helper,
-    onClickPrefix$,
-    onClickSuffix$,
-    ...props
-  }) => {
+     label,
+     suffix,
+     prefix,
+     size = 'md' as InputSize,
+     validationStatus,
+     class: classNames,
+     validationMessage,
+     helper,
+     onClickPrefix$,
+     onClickSuffix$,
+     onChange$,
+     onBlur$,
+     onFocus$,
+     onInput$,
+     disabled,
+     value,
+     ...props
+   }) => {
     const id = useId()
     const validationWrapperClasses = useComputed$(() =>
       twMerge(
@@ -40,14 +51,14 @@ export const Input = component$<InputProps>(
 
     const { inputClasses, labelClasses } = useInputClasses(
       useComputed$(() => size),
-      useComputed$(() => Boolean(props.disabled)),
+      useComputed$(() => Boolean(disabled)),
       useComputed$(() => validationStatus),
     )
 
-    const input = useSignal(props.value ? String(props.value) : undefined)
+    const input = useSignal(value ? String(value) : undefined)
     useTask$(({ track }) => {
-      const innerValue = track(() => props.value)
-      input.value = props.value ? String(innerValue) : undefined
+      const innerValue = track(() => value)
+      input.value = value ? String(innerValue) : undefined
     })
 
     return (
@@ -67,6 +78,10 @@ export const Input = component$<InputProps>(
             {...props}
             id={id}
             bind:value={props['bind:value'] || input}
+            onInput$={onInput$}
+            onChange$={onChange$}
+            onBlur$={onBlur$}
+            onFocus$={onFocus$}
             class={twMerge(inputClasses.value, prefix && 'pl-10', suffix && 'pr-11')}
           />
           {Boolean(suffix) && (
