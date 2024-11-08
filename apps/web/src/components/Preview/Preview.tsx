@@ -29,7 +29,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
 
   const iframe = useSignal<HTMLIFrameElement>()
 
-  const fileUrl = useComputed$(() => `${liveDir}${url}`)
+  const fileUrl = useComputed$(() => `${liveDir}${encodeURIComponent(url)}`)
   const iframeSrc = useComputed$(() => {
     return url.replace('[theme-rtl]', `${themeName.value}-${rtl.value ? 'rtl' : 'ltr'}`)
   })
