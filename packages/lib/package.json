@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik",
-  "version": "0.37.7",
+  "version": "0.37.8",
   "description": "Official Qwik components built for Flowbite and Tailwind CSS",
   "keywords": [
     "design-system",
@@ -62,8 +62,8 @@
     "test": "vitest run --coverage --passWithNoTests"
   },
   "dependencies": {
-    "flowbite": "^2.3.0",
-    "flowbite-qwik-icons": "^0.1.6"
+    "flowbite": "^2.5.2",
+    "flowbite-qwik-icons": "^0.1.7"
   },
   "devDependencies": {
     "@builder.io/qwik": "1.5.7",
