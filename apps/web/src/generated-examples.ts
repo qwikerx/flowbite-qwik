@@ -1232,6 +1232,14 @@ export const examples: Record<string, Example[]> = {
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Input } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const val = useSignal(\'\')\n  return (\n    <div class="p-3">\n      <Input bind:value={val} label="First name" placeholder="First name" validationStatus="success" />\n      <hr class="mt-4 border-0"></hr>\n      <Input bind:value={val} label="First name" placeholder="First name" validationStatus="error" validationMessage="This field is not valid" />\n    </div>\n  )\n})',
       height: '300',
     },
+    {
+      title: 'Modular Forms',
+      description: 'Use this example to use it with Modula Forms lib.',
+      url: '/examples/[theme-rtl]/input/09-modular-forms',
+      content:
+        "import { $, component$, QRL } from '@builder.io/qwik'\nimport { Button, Input } from 'flowbite-qwik'\nimport { routeLoader$, StaticGenerateHandler, z } from '@builder.io/qwik-city'\nimport { formAction$, type InitialValues, SubmitHandler, useForm, zodForm$ } from '@modular-forms/qwik'\n\ntype LoginForm = {\n  email: string\n  password: string\n}\n\nconst LoginSchema = z.object({\n  email: z.string().email(),\n  password: z.string().min(1),\n})\n\nexport const useFormLoader = routeLoader$<InitialValues<LoginForm>>(() => {\n  return {\n    email: '',\n    password: '',\n  }\n})\n\nexport const useFormAction = formAction$<LoginForm>((values) => {\n  console.log('server side', { values })\n}, zodForm$(LoginSchema))\n\nexport default component$(() => {\n  const [, { Form, Field }] = useForm<LoginForm>({\n    loader: useFormLoader(),\n    action: useFormAction(),\n    validate: zodForm$(LoginSchema),\n  })\n\n  const handleSubmit: QRL<SubmitHandler<LoginForm>> = $((values) => {\n    console.log('client side', { values })\n  })\n\n  return (\n    <Form onSubmit$={handleSubmit}>\n      <Field name=\"email\">\n        {(field, props) => (\n          <div>\n            <label for={field.name}>Email</label>\n            <Input {...props} id={field.name} value={field.value} type=\"email\" required />\n            {field.error && <div>{field.error}</div>}\n          </div>\n        )}\n      </Field>\n      <Field name=\"password\">\n        {(field, props) => (\n          <div>\n            <label for={field.name}>Password</label>\n            <Input {...props} id={field.name} value={field.value} type=\"password\" required />\n            {field.error && <div>{field.error}</div>}\n          </div>\n        )}\n      </Field>\n      <Button class=\"mt-2\" type=\"submit\">\n        Login\n      </Button>\n    </Form>\n  )\n})",
+      height: '300',
+    },
   ],
   jumbotron: [
     {

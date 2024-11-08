@@ -1,4 +1,4 @@
-import { JSXOutput, PropsOf, QRL, QRLEventHandlerMulti, Signal } from '@builder.io/qwik'
+import { JSXOutput, PropsOf, QRL } from '@builder.io/qwik'
 import { component$, useComputed$, useId, useSignal, useTask$ } from '@builder.io/qwik'
 import type { InputSize, ValidationStatus } from './input-types'
 import { validationStatusMap } from './input-types'
@@ -13,14 +13,9 @@ type InputProps = Omit<PropsOf<'input'>, 'size'> & {
   prefix?: JSXOutput
   onClickPrefix$?: QRL<() => void>
   onClickSuffix$?: QRL<() => void>
-  onChange$?: QRL<(event: FocusEvent, element: HTMLInputElement) => never> | QRLEventHandlerMulti<FocusEvent, HTMLInputElement>[] | null
-  onBlur$?: QRL<(event: FocusEvent, element: HTMLInputElement) => never> | QRLEventHandlerMulti<FocusEvent, HTMLInputElement>[] | null
-  onFocus$?: QRL<(event: FocusEvent, element: HTMLInputElement) => never> | QRLEventHandlerMulti<FocusEvent, HTMLInputElement>[] | null
-  onInput$?: QRL<(event: FocusEvent, element: HTMLInputElement) => never> | QRLEventHandlerMulti<FocusEvent, HTMLInputElement>[] | null
   validationMessage?: JSXOutput
   helper?: JSXOutput
   value?: string | ReadonlyArray<string> | number | undefined | null | FormDataEntryValue
-  'bind:value'?: Signal<string | undefined>
 }
 
 export const Input = component$<InputProps>(
@@ -35,13 +30,8 @@ export const Input = component$<InputProps>(
     helper,
     onClickPrefix$,
     onClickSuffix$,
-    onChange$,
-    onBlur$,
-    onFocus$,
-    onInput$,
     disabled,
     value,
-    'bind:value': bindValue,
     ...props
   }) => {
     const id = useId()
@@ -81,11 +71,7 @@ export const Input = component$<InputProps>(
           <input
             {...props}
             id={id}
-            bind:value={bindValue || input}
-            onInput$={onInput$}
-            onChange$={onChange$}
-            onBlur$={onBlur$}
-            onFocus$={onFocus$}
+            bind:value={props['bind:value'] || input}
             class={twMerge(inputClasses.value, prefix && 'pl-10', suffix && 'pr-11')}
           />
           {Boolean(suffix) && (
