@@ -20,37 +20,35 @@ type InputProps = Omit<PropsOf<'input'>, 'size'> & {
   validationMessage?: JSXOutput
   helper?: JSXOutput
   value?: string | ReadonlyArray<string> | number | undefined | null | FormDataEntryValue
-  'bind:value'?: Signal<string | undefined>;
+  'bind:value'?: Signal<string | undefined>
 }
 
 export const Input = component$<InputProps>(
   ({
-     label,
-     suffix,
-     prefix,
-     size = 'md' as InputSize,
-     validationStatus,
-     class: classNames,
-     validationMessage,
-     helper,
-     onClickPrefix$,
-     onClickSuffix$,
-     onChange$,
-     onBlur$,
-     onFocus$,
-     onInput$,
-     disabled,
-     value,
+    label,
+    suffix,
+    prefix,
+    size = 'md' as InputSize,
+    validationStatus,
+    class: classNames,
+    validationMessage,
+    helper,
+    onClickPrefix$,
+    onClickSuffix$,
+    onChange$,
+    onBlur$,
+    onFocus$,
+    onInput$,
+    disabled,
+    value,
     'bind:value': bindValue,
-     ...props
-   }) => {
+    ...props
+  }) => {
     const id = useId()
     const validationWrapperClasses = useComputed$(() =>
       twMerge(
         'mt-2 text-sm',
-        validationStatus === validationStatusMap.Success
-          ? 'text-green-600 dark:text-green-500'
-          : '',
+        validationStatus === validationStatusMap.Success ? 'text-green-600 dark:text-green-500' : '',
         validationStatus === validationStatusMap.Error ? 'text-red-600 dark:text-red-500' : '',
       ),
     )
@@ -76,9 +74,7 @@ export const Input = component$<InputProps>(
         )}
         <div class="relative flex">
           {Boolean(prefix) && (
-            <div
-              class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center overflow-hidden pl-3"
-              onClick$={onClickPrefix$}>
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center overflow-hidden pl-3" onClick$={onClickPrefix$}>
               {prefix}
             </div>
           )}
@@ -98,13 +94,9 @@ export const Input = component$<InputProps>(
             </div>
           )}
         </div>
-        {Boolean(validationMessage) && (
-          <div class={validationWrapperClasses}>{validationMessage}</div>
-        )}
+        {Boolean(validationMessage) && <div class={validationWrapperClasses}>{validationMessage}</div>}
 
-        {Boolean(helper) && (
-          <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{helper}</div>
-        )}
+        {Boolean(helper) && <div class="mt-2 text-sm text-gray-500 dark:text-gray-400">{helper}</div>}
       </div>
     )
   },
