@@ -255,7 +255,7 @@ export function useButtonClasses(props: UseButtonClassesProps) {
       hoverClass,
       shadowClass,
       props.pill.value && '!rounded-full',
-      props.disabled.value && 'cursor-not-allowed opacity-50',
+      props.disabled.value ? 'cursor-not-allowed opacity-50' : 'cursor-pointer',
       isGradient && isOutline ? 'p-0.5' : sizeClasses.value,
       (props.prefix || props.suffix || props.loading.value) && 'inline-flex items-center',
       clsx(props.class?.value),
