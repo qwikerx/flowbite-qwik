@@ -31,7 +31,7 @@
   "dependencies": {
     "@docsearch/css": "^3.6.1",
     "@docsearch/js": "^3.6.1",
-    "flowbite": "^2.4.1",
+    "flowbite": "^2.5.2",
     "rehype-highlight": "^7.0.0",
     "rehype-parse": "^9.0.0",
     "rehype-sanitize": "^6.0.0",
@@ -43,6 +43,7 @@
     "@builder.io/partytown": "^0.10.2",
     "@builder.io/qwik": "1.5.7",
     "@builder.io/qwik-city": "1.5.7",
+    "@modular-forms/qwik": "^0.28.2",
     "@types/compression": "^1.7.5",
     "@types/eslint": "^9.6.0",
     "@types/node": "^20.14.13",

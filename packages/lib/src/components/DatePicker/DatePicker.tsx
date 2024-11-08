@@ -19,6 +19,7 @@ import { DatePickerViewsDays } from '~/components/DatePicker/views/Days'
 import { IconArrowLeftOutline, IconArrowRightOutline, IconCalendarMonthOutline } from 'flowbite-qwik-icons'
 import { Input } from '~/components/Input'
 import { useFlowbiteThemable } from '~/components/FlowbiteThemable'
+import { useDocumentOuterClick } from '~/composables'
 
 export type DatePickerProps = Omit<PropsOf<'input'>, 'ref' | 'color'> & {
   open?: boolean
@@ -59,7 +60,7 @@ export const DatePicker = component$<DatePickerProps>(
 
     const internalDefaultDate = getFirstDateInRange(defaultDate, minDate, maxDate)
 
-    const isOpen = useSignal(open)
+    const isOpen = useSignal(open ?? false)
     const view = useSignal(Views.Days)
     const selectedDate = useSignal(internalDefaultDate)
     const viewDate = useSignal(internalDefaultDate)
@@ -152,12 +153,20 @@ export const DatePicker = component$<DatePickerProps>(
       }),
     )
 
-    const onFocus$ = $(()=>{
+    const onFocus$ = $(() => {
       if (!isDateEqual(viewDate.value, selectedDate.value)) {
         viewDate.value = selectedDate.value
       }
       isOpen.value = true
     })
+
+    useDocumentOuterClick(
+      [datePickerRef, inputRef],
+      $(() => {
+        isOpen.value = false
+      }),
+      isOpen,
+    )
 
     return (
       <div class={twMerge('relative', clsx(className))}>
