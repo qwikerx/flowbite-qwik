@@ -42,7 +42,7 @@ export default component$(() => {
           Home
         </Navbar.Link>
         <Navbar.Link href="/navbars">About</Navbar.Link>
-        <Navbar.Link href="/navbars" tag="div">
+        <Navbar.Link tag="div">
           <Dropdown label="Services" inline>
             <Dropdown.Item>Dashboard</Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>

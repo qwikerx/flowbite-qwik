@@ -34,7 +34,7 @@ export const NavbarLink = component$<NavbarLinkProps>(({ active = false, tag: Co
   const { themeName } = useFlowbiteThemable()
 
   const handleClick = $(() => {
-    setIsOpen(false)
+    if (props.href) setIsOpen(false)
   })
 
   return (

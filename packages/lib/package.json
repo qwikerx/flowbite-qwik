@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik",
-  "version": "0.37.9",
+  "version": "0.37.10",
   "description": "Official Qwik components built for Flowbite and Tailwind CSS",
   "keywords": [
     "design-system",
@@ -16,9 +16,9 @@
   "repository": "https://github.com/qwikerx/flowbite-qwik.git",
   "license": "MIT",
   "module": "./lib/flowbite.qwik.mjs",
+  "qwik": "./lib/flowbite.qwik.mjs",
   "main": "./lib/flowbite.qwik.cjs",
   "types": "./lib-types/index.d.ts",
-  "qwik": "./lib/flowbite.qwik.mjs",
   "type": "module",
   "style": "./lib/style.css",
   "exports": {
