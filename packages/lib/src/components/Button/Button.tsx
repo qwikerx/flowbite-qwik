@@ -88,7 +88,7 @@ export const Button = component$<ButtonProps>(
         {...attrs}
       >
         {!isOutlineGradient.value && (Prefix || loadingPrefix.value) && (
-          <div class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Prefix && <Prefix />}</div>
+          <span class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Prefix && <Prefix />}</span>
         )}
 
         <span class={spanClasses.value}>
@@ -104,7 +104,7 @@ export const Button = component$<ButtonProps>(
         </span>
 
         {!isOutlineGradient.value && (Suffix || loadingSuffix.value) && (
-          <div class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Suffix && <Suffix />}</div>
+          <span class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Suffix && <Suffix />}</span>
         )}
       </ButtonComponent>
     )
