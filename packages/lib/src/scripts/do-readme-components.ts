@@ -43,6 +43,7 @@ const componentsNaming: Record<string, { folder: string; img: string; doc: strin
   Tabs: { folder: 'components', img: 'tabs', doc: 'tabs' },
   Textarea: { folder: 'forms', img: 'textarea', doc: 'textarea' },
   Timeline: { folder: 'components', img: 'timeline', doc: 'timeline' },
+  TimePicker: { folder: 'components', img: 'timepicker', doc: 'time-picker' },
   ToastList: { folder: 'components', img: 'toasts', doc: 'toast' },
   Toggle: { folder: 'forms', img: 'toggle', doc: 'toggle' },
   Tooltip: { folder: 'components', img: 'tooltips', doc: 'tooltip' },

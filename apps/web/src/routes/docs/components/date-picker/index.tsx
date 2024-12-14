@@ -20,7 +20,7 @@ export default component$(() => {
           Follow the examples below to see how you can use the Datepicker component by importing it from the Flowbite Qwik library, customize the
           colors and behaviour of the component by overriding the default theme variables and using the props from Qwik.
         </p>
-        <p>To start using the alert box you need to import it from the flowbite-qwik package :</p>
+        <p>To start using the datepicker component you need to import it from the flowbite-qwik package :</p>
         <CodeBlock minimalist content='import { DatePicker } from "flowbite-qwik"' language="tsx" />
       </div>
     </ComponentDocPage>

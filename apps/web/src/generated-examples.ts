@@ -2067,6 +2067,32 @@ export const examples: Record<string, Example[]> = {
       height: '200',
     },
   ],
+  'time-picker': [
+    {
+      title: 'Default Timepicker',
+      description: 'Use this example to show a simple timepicker component.',
+      url: '/examples/[theme-rtl]/time-picker/01-default-timepicker',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { TimePicker } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const time = useSignal<string>()\n\n  return (\n    <>\n      <p class="mb-2">Reactive time : {time.value}</p>\n      <div class="w-[110px]">\n        <TimePicker bind:value={time} />\n      </div>\n    </>\n  )\n})',
+      height: '120',
+    },
+    {
+      title: 'Timepicker with a suffix icon',
+      description: 'Use this example to show a simple timepicker component with suffix and default value.',
+      url: '/examples/[theme-rtl]/time-picker/02-timepicker-with-suffix',
+      content:
+        'import { component$ } from \'@builder.io/qwik\'\nimport { TimePicker } from \'flowbite-qwik\'\nimport { IconClockOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  return (\n    <div class="w-[110px]">\n      <TimePicker\n        label="Time picker"\n        onTimeChange$={(timeAsString, timeAsChunk) => {\n          console.log({ timeAsString, timeAsChunk })\n        }}\n        suffix={<IconClockOutline class="h-4 w-4" />}\n        value="13:30"\n      />\n    </div>\n  )\n})',
+      height: '120',
+    },
+    {
+      title: 'Timepicker with pattern hh:mm:ss',
+      description: 'Use this example to show a simple timepicker component with pattern hh:mm:ss and default value.',
+      url: '/examples/[theme-rtl]/time-picker/03-timepicker-with-hh-mm-ss',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { TimePicker } from \'flowbite-qwik\'\nimport { IconClockOutline } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  const chunks = useSignal<string[]>()\n\n  return (\n    <div class="flex w-[150px] flex-col gap-3">\n      <label>Chunks : {JSON.stringify(chunks.value)}</label>\n      <TimePicker\n        onTimeChange$={(timeAsString, timeAsChunk) => {\n          console.log({ timeAsString, timeAsChunk })\n          chunks.value = timeAsChunk\n        }}\n        suffix={<IconClockOutline class="h-4 w-4" />}\n        value="13:30:15"\n      />\n    </div>\n  )\n})',
+      height: '120',
+    },
+  ],
   timeline: [
     {
       title: 'Default timeline',

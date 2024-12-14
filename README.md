@@ -353,12 +353,17 @@ export default component$(() => {
         </a>
       </td>
       <td>
-        <a href="https://flowbite-qwik.com/docs/components/timeline">
-          <img alt="Qwik Timeline" src="https://flowbite-qwik.com/thumbnails/website/timeline-light.svg" />
+        <a href="https://flowbite-qwik.com/docs/components/time-picker">
+          <img alt="Qwik TimePicker" src="https://flowbite-qwik.com/thumbnails/website/timepicker-light.svg" />
         </a>
       </td>
     </tr>
     <tr>
+      <td>
+        <a href="https://flowbite-qwik.com/docs/components/timeline">
+          <img alt="Qwik Timeline" src="https://flowbite-qwik.com/thumbnails/website/timeline-light.svg" />
+        </a>
+      </td>
       <td>
         <a href="https://flowbite-qwik.com/docs/components/toast">
           <img alt="Qwik ToastList" src="https://flowbite-qwik.com/thumbnails/website/toasts-light.svg" />
@@ -369,11 +374,15 @@ export default component$(() => {
           <img alt="Qwik Toggle" src="https://flowbite-qwik.com/thumbnails/website/toggle-light.svg" />
         </a>
       </td>
+    </tr>
+    <tr>
       <td>
         <a href="https://flowbite-qwik.com/docs/components/tooltip">
           <img alt="Qwik Tooltip" src="https://flowbite-qwik.com/thumbnails/website/tooltips-light.svg" />
         </a>
       </td>
+      <td></td>
+      <td></td>
     </tr>
   </table>
 </div>

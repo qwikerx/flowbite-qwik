@@ -31,6 +31,7 @@ export const allDocs = {
     'spinner',
     'table',
     'tabs',
+    'time-picker',
     'timeline',
     'toast',
     'tooltip',
