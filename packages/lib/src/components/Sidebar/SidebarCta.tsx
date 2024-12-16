@@ -1,17 +1,25 @@
 import { QRL, Slot, component$ } from '@builder.io/qwik'
+import { useSidebarContext } from '~/components/Sidebar/composables/use-sidebar-context'
+import clsx from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 type SidebarCtaProps = {
   onClose$?: QRL<() => void>
 }
 
 export const SidebarCta = component$<SidebarCtaProps>(({ onClose$ }) => {
+  const { theme } = useSidebarContext()
+
   return (
     <div class="mt-6 rounded-lg bg-blue-50 p-4 dark:bg-blue-900" role="alert">
       <div class="mb-3 flex items-center">
         <Slot name="badge" />
         <button
           type="button"
-          class="-mx-1.5 -my-1.5 ml-auto inline-flex size-6 items-center justify-center rounded-lg bg-blue-50 p-1 text-blue-900 hover:bg-blue-200 focus:ring-2 focus:ring-blue-400 dark:bg-blue-900 dark:text-blue-400 dark:hover:bg-blue-800"
+          class={twMerge(
+            '-mx-1.5 -my-1.5 ml-auto inline-flex size-6 items-center justify-center rounded-lg bg-blue-50 p-1 text-blue-900 hover:bg-blue-200 focus:ring-2 focus:ring-blue-400 dark:bg-blue-900 dark:text-blue-400 dark:hover:bg-blue-800',
+            clsx(theme.value?.cta?.close),
+          )}
           aria-label="Close"
           onClick$={() => onClose$?.()}
         >
