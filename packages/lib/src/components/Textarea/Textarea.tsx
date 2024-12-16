@@ -1,13 +1,14 @@
-import { PropsOf, Signal, component$, useId, JSXOutput, useComputed$ } from '@builder.io/qwik'
+import { $, component$, JSXOutput, PropsOf, QRL, Signal, useComputed$, useId } from '@builder.io/qwik'
 import { useTextareaClasses } from './composables/use-textarea-classes'
 
 type TextareaProps = PropsOf<'textarea'> & {
-  'bind:value': Signal<string>
+  'bind:value'?: Signal<string>
+  onInput$?: QRL<(value: string) => void>
   label?: string
   footer?: JSXOutput
 }
 
-export const Textarea = component$<TextareaProps>(({ footer, label, required, rows = 4, placeholder, class: classNames, ...props }) => {
+export const Textarea = component$<TextareaProps>(({ ['bind:value']: bindTo, onInput$, footer, label, required, rows = 4, placeholder, class: classNames, ...props }) => {
   const hasFooter = useComputed$(() => !!footer)
   const { textareaClasses, labelClasses, wrapperClasses, footerClasses } = useTextareaClasses(hasFooter)
   const id = useId()
@@ -23,8 +24,19 @@ export const Textarea = component$<TextareaProps>(({ footer, label, required, ro
       </span>
 
       <span class={wrapperClasses.value}>
-        <textarea id={id} class={textareaClasses.value} rows={rows} placeholder={placeholder} {...props} bind:value={props['bind:value']} />
-        {hasFooter.value && <span class={footerClasses.value}>{footer}</span>}
+        <textarea
+          id={id}
+          class={textareaClasses.value}
+          rows={rows}
+          placeholder={placeholder}
+          value={bindTo?.value}
+          onInput$={
+            onInput$ ||
+            (bindTo && $((_, el) => (bindTo.value = el.value)))
+          }
+          {...props}
+        />
+        {hasFooter.value && (<span class={footerClasses.value}>{footer}</span>)}
       </span>
     </label>
   )
