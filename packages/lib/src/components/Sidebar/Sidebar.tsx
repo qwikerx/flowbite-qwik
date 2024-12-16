@@ -19,6 +19,9 @@ export type SidebarTheme = {
     main?: ClassList
     active?: ClassList
   }
+  cta?: {
+    close?: ClassList
+  }
 }
 
 type SidebarProps = PropsOf<'aside'> & {
