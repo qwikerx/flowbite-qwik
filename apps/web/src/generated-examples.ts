@@ -1355,7 +1355,7 @@ export const examples: Record<string, Example[]> = {
       description: 'This example can be used to set a custom icon inside the hyperlink element.',
       url: '/examples/[theme-rtl]/link/04-link-icon',
       content:
-        "import { component$ } from '@builder.io/qwik'\nimport { Link } from 'flowbite-qwik'\nimport { IconAngleRightOutline } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <p class=\"text-gray-500 dark:text-gray-400\">\n      500,000 people & companies have made over a million apps with Glide.{' '}\n      <Link href=\"#\" iconRight={IconAngleRightOutline}>\n        Read their stories\n      </Link>\n    </p>\n  )\n})",
+        "import { component$ } from '@builder.io/qwik'\nimport { Link } from 'flowbite-qwik'\nimport { IconAngleLeftOutline, IconAngleRightOutline } from 'flowbite-qwik-icons'\n\nexport default component$(() => {\n  return (\n    <>\n      <p class=\"text-gray-500 dark:text-gray-400\">\n        500,000 people & companies have made over a million apps with Glide.{' '}\n        <Link href=\"#\" iconRight={IconAngleRightOutline}>\n          Read their stories\n        </Link>\n      </p>\n      <p>\n        <Link href=\"#\" iconLeft={IconAngleLeftOutline}>\n          Back to the future\n        </Link>\n      </p>\n    </>\n  )\n})",
       height: '100',
     },
     {
