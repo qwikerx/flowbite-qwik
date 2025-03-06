@@ -1514,6 +1514,14 @@ export const examples: Record<string, Example[]> = {
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Button, Modal } from \'flowbite-qwik\'\nimport { IconBullhornSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  const popupModalVisible = useSignal(false)\n\n  return (\n    <div>\n      <Button\n        onClick$={() => {\n          popupModalVisible.value = true\n        }}\n      >\n        Open Modal\n      </Button>\n      <Modal bind:show={popupModalVisible} size="md" popup>\n        <div class="text-center">\n          <IconBullhornSolid class="mx-auto mb-4 h-12 w-12 text-gray-400 dark:text-gray-200" />\n\n          <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>\n          <div class="flex justify-center gap-2">\n            <Button color="red">Yes, I\'m sure</Button>\n            <Button outline>No, cancel</Button>\n          </div>\n        </div>\n      </Modal>\n    </div>\n  )\n})',
       height: '600',
     },
+    {
+      title: 'Theming modal',
+      description: 'You can use this modal example to customize using theme property.',
+      url: '/examples/[theme-rtl]/modal/06-modal-theme',
+      content:
+        'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Button, Modal } from \'flowbite-qwik\'\nimport { IconBullhornSolid } from \'flowbite-qwik-icons\'\n\nexport default component$(() => {\n  const popupModalVisible = useSignal(false)\n\n  return (\n    <div>\n      <Button\n        onClick$={() => {\n          popupModalVisible.value = true\n        }}\n      >\n        Open Modal\n      </Button>\n      <Modal bind:show={popupModalVisible} size="md" popup theme={{ content: \'h-[calc(200px-2rem)] overflow-y-auto\', header: \'bg-gray-100\' }}>\n        <div class="text-center">\n          <IconBullhornSolid class="mx-auto mb-4 h-12 w-12 text-gray-400 dark:text-gray-200" />\n\n          <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>\n          <div class="flex justify-center gap-2">\n            <Button color="red">Yes, I\'m sure</Button>\n            <Button outline>No, cancel</Button>\n          </div>\n        </div>\n      </Modal>\n    </div>\n  )\n})',
+      height: '600',
+    },
   ],
   navbar: [
     {
