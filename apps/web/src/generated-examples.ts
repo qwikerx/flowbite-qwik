@@ -1027,6 +1027,15 @@ export const examples: Record<string, Example[]> = {
         'import { component$, useSignal } from \'@builder.io/qwik\'\nimport { Dropdown, Toggle } from \'flowbite-qwik\'\n\nexport default component$(() => {\n  const enableNotifications = useSignal(false)\n  const enable2faAuthentication = useSignal(true)\n  const subscribeToNewsletter = useSignal(false)\n\n  return (\n    <div class="flex gap-4">\n      <Dropdown label="Dropdown toggle" closeWhenSelect={false}>\n        <Dropdown.Item>\n          <Toggle label="Enable notifications" bind:checked={enableNotifications} />\n        </Dropdown.Item>\n        <Dropdown.Item>\n          <Toggle label="Enable 2FA authentication" bind:checked={enable2faAuthentication} />\n        </Dropdown.Item>\n        <Dropdown.Item>\n          <Toggle label="Subscribe to newsletter" bind:checked={subscribeToNewsletter} />\n        </Dropdown.Item>\n      </Dropdown>\n\n      <Dropdown label="Dropdown toggle" closeWhenSelect={false}>\n        <Dropdown.Item>\n          <Toggle label="Enable notifications" bind:checked={enableNotifications} />\n        </Dropdown.Item>\n        <Dropdown.Item>\n          <Toggle label="Enable 2FA authentication" bind:checked={enable2faAuthentication} />\n        </Dropdown.Item>\n        <Dropdown.Item>\n          <Toggle label="Subscribe to newsletter" bind:checked={subscribeToNewsletter} />\n        </Dropdown.Item>\n      </Dropdown>\n    </div>\n  )\n})',
       height: '200',
     },
+    {
+      title: 'Dropdown with search',
+      description:
+        'Use this example if you want to add a search bar inside the dropdown menu to be able to filter through a long list of menu items with scrolling behaviour.',
+      url: '/examples/[theme-rtl]/dropdown/12-dropdown-with-search',
+      content:
+        "import { component$, useComputed$, useSignal, useTask$ } from '@builder.io/qwik'\nimport { Checkbox, Dropdown, Input } from 'flowbite-qwik'\n\nexport default component$(() => {\n  const checkboxes = [\n    {\n      label: 'Default checkbox',\n      value: 'item-1',\n    },\n    {\n      label: 'Second checkbox',\n      value: 'item-2',\n    },\n    {\n      label: 'Third checkbox',\n      value: 'item-3',\n    },\n  ]\n\n  const searchValue = useSignal('')\n  const inputRef = useSignal<HTMLInputElement>()\n  const filteredCheckboxes = useComputed$(() =>\n    checkboxes.filter((checkbox) => checkbox.label.toLowerCase().includes(searchValue.value.toLowerCase())),\n  )\n\n  useTask$(({ track }) => {\n    track(() => inputRef.value)\n    inputRef.value?.focus()\n  })\n\n  return (\n    <Dropdown label=\"Dropdown checkbox\" closeWhenSelect={false}>\n      <Dropdown.Item header>\n        <Input ref={inputRef} placeholder=\"Search...\" bind:value={searchValue} />\n      </Dropdown.Item>\n\n      {filteredCheckboxes.value.map((checkbox) => (\n        <Dropdown.Item key={checkbox.value}>\n          <Checkbox value={checkbox.value}>{checkbox.label}</Checkbox>\n        </Dropdown.Item>\n      ))}\n    </Dropdown>\n  )\n})",
+      height: '200',
+    },
   ],
   footer: [
     {
