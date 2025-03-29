@@ -4,6 +4,8 @@ import pkg from './package.json'
 import { qwikVite } from '@builder.io/qwik/optimizer'
 import * as path from 'path'
 import tsconfigPaths from 'vite-tsconfig-paths'
+// @ts-ignore
+import tailwindcss from '@tailwindcss/vite'
 
 const { dependencies = {}, peerDependencies = {} } = pkg as any
 const makeRegex = (dep) => new RegExp(`^${dep}(/.*)?$`)
@@ -34,6 +36,6 @@ export default defineConfig(() => {
         '~': path.resolve(__dirname, './src/'),
       },
     },
-    plugins: [qwikVite(), tsconfigPaths()],
+    plugins: [tailwindcss(), qwikVite(), tsconfigPaths()],
   }
 })
