@@ -130,7 +130,7 @@ const InnerDropdown = component$<InnerDropdownProps>(
           tabIndex={0}
           isVisible={visible.value}
           ref={floatingRef}
-          class={['py-1 focus:outline-none', dropdownModalClasses.value]}
+          class={['py-1 focus:outline-hidden', dropdownModalClasses.value]}
         >
           <ul>
             {components.map((comp) => (

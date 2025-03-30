@@ -10,7 +10,7 @@ export function useDrawerClasses(
   position: Signal<DrawerPosition>,
   theme: Signal<DrawerTheme | undefined>,
 ) {
-  const defaultClasses = 'fixed z-[60] overflow-y-auto bg-white transition-transform dark:bg-gray-800'
+  const defaultClasses = 'fixed z-60 overflow-y-auto bg-white transition-transform dark:bg-gray-800'
   const edgeClasses = 'rounded-t-lg border-t border-gray-200 rounded-t-lg dark:border-gray-700'
   const backdropClasses = 'fixed inset-0 z-50 bg-gray-900/50 dark:bg-gray-900/80'
   const edgeHandleClasses = 'absolute w-8 h-1 -translate-x-1/2 bg-gray-300 rounded-lg top-3 left-1/2 dark:bg-gray-600'

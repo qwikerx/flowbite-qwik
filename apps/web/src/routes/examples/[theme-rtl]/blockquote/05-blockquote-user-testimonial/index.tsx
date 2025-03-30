@@ -11,7 +11,7 @@ import { staticGenerateHandler } from '~/routes/examples/layout'
 
 export default component$(() => {
   return (
-    <figure class="mx-auto max-w-screen-md text-center">
+    <figure class="mx-auto max-w-(--breakpoint-md) text-center">
       <svg
         class="mx-auto mb-3 h-10 w-10 text-gray-400 dark:text-gray-600"
         aria-hidden="true"

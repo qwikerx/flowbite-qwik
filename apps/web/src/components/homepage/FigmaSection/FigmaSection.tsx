@@ -18,7 +18,7 @@ export const FigmaSection = component$(() => {
               <div class="isolate flex flex-col items-start gap-4 self-stretch">
                 <a
                   href="https://www.figma.com/file/xYaJr6UvThCW2LM2RjLeJf/flowbite-pro-figma-2.6.0?type=design&node-id=18-0&t=jKFrn2Dz5D8jhk7d-0"
-                  class="inline-flex max-w-lg items-center justify-start gap-5 self-stretch rounded-lg border border-gray-300 bg-white px-4 py-3.5 text-center text-base font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700 sm:gap-7"
+                  class="inline-flex max-w-lg items-center justify-start gap-5 self-stretch rounded-lg border border-gray-300 bg-white px-4 py-3.5 text-center text-base font-medium text-gray-900 hover:bg-gray-100 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700 sm:gap-7"
                 >
                   <svg width="18" height="25" viewBox="0 0 18 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_18_290731)">
@@ -63,7 +63,7 @@ export const FigmaSection = component$(() => {
                 </a>
                 <a
                   href="https://flowbite.com/figma/"
-                  class="inline-flex max-w-lg items-center justify-start gap-4 self-stretch rounded-lg border border-gray-300 bg-white px-4 py-3.5 text-center text-base font-medium text-gray-900 placeholder:py-3.5 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700 sm:gap-6"
+                  class="inline-flex max-w-lg items-center justify-start gap-4 self-stretch rounded-lg border border-gray-300 bg-white px-4 py-3.5 text-center text-base font-medium text-gray-900 placeholder:py-3.5 hover:bg-gray-100 focus:outline-hidden focus:ring-4 focus:ring-gray-200 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-700 sm:gap-6"
                 >
                   <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path

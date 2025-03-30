@@ -6,7 +6,7 @@ import { FlowbiteTheme, useFlowbiteThemable } from '~/components/FlowbiteThemabl
 const defaultLabelClasses = 'block text-sm font-medium text-gray-900 dark:text-gray-300'
 
 // CHECKBOX
-const defaultCheckboxClasses = 'w-4 h-4 rounded focus:ring-2'
+const defaultCheckboxClasses = 'w-4 h-4 rounded-sm focus:ring-2'
 
 const checkboxClassesByTheme: Record<FlowbiteTheme, string> = {
   blue: 'text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600',

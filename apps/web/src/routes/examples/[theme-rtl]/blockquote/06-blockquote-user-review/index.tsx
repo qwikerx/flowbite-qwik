@@ -11,7 +11,7 @@ import { staticGenerateHandler } from '~/routes/examples/layout'
 
 export default component$(() => {
   return (
-    <figure class="max-w-screen-md">
+    <figure class="max-w-(--breakpoint-md)">
       <div class="mb-4 flex items-center">
         <Rating size="md" rating={4} />
       </div>

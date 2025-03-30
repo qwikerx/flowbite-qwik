@@ -49,7 +49,7 @@ export const Navbar = component$<NavbarProps>(
           class={twMerge(
             'h-16 border-gray-200 bg-white md:h-16 dark:bg-gray-900',
             border && 'border',
-            rounded && 'rounded',
+            rounded && 'rounded-sm',
             sticky && 'fixed top-0 z-50 w-full',
             separator && 'border-b border-gray-200 dark:border-gray-600',
             clsx(theme?.nav?.main),
@@ -61,7 +61,7 @@ export const Navbar = component$<NavbarProps>(
             class={twMerge(
               'mx-auto flex flex-wrap items-center justify-between px-4 py-3',
               !fluid && 'container',
-              !fullWidth && 'max-w-screen-xl',
+              !fullWidth && 'max-w-(--breakpoint-xl)',
               clsx(theme?.nav?.wrapper),
             )}
           >

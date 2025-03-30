@@ -40,7 +40,7 @@ export const PaginationButton = component$<PaginationButtonProps>(({ active, cla
     <button
       type="button"
       class={twMerge(
-        'h-10 w-12 border border-gray-300 bg-white py-2 leading-tight text-gray-500 enabled:hover:bg-gray-100 enabled:hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 enabled:dark:hover:bg-gray-700 enabled:dark:hover:text-white',
+        'h-10 w-12 border border-gray-300 bg-white py-2 leading-tight text-gray-500 enabled:hover:bg-gray-100 enabled:hover:text-gray-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:enabled:hover:bg-gray-700 dark:enabled:hover:text-white',
         active && activeClasses.value,
         clsx(className),
       )}

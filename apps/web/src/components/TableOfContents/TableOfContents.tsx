@@ -29,7 +29,7 @@ export const TableOfContents = component$<TableOfContentsProps>((props) => {
                 class={[
                   "inline-block border-l-2 border-white pl-3 font-medium text-gray-600 transition-none duration-75 after:ml-2 after:text-purple-600 hover:border-gray-200 hover:text-gray-900 hover:after:content-['#'] dark:border-[#111827] dark:text-gray-400 dark:hover:border-gray-400 dark:hover:text-purple-600",
                   {
-                    "!border-gray-200 text-purple-600 after:content-['#'] hover:text-purple-600 dark:border-gray-400 dark:text-purple-600":
+                    "border-gray-200! text-purple-600 after:content-['#'] hover:text-purple-600 dark:border-gray-400 dark:text-purple-600":
                       content.active,
                   },
                 ]}

@@ -140,7 +140,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
       </div>
       <div
         data-el="preview__viewer"
-        class="code-preview flex border-x border-gray-200 bg-white bg-gradient-to-r p-0 dark:border-gray-600 dark:bg-gray-900"
+        class="code-preview flex border-x border-gray-200 bg-white bg-linear-to-r p-0 dark:border-gray-600 dark:bg-gray-900"
       >
         <div
           class={[

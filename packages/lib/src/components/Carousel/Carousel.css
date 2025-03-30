@@ -2,26 +2,26 @@
 .carousel-scrollable {
   scrollbar-width: none;
   &::-webkit-scrollbar {
-    @apply hidden;
+    @reference hidden;
   }
 }
 
 /* width */
 .carousel-scrollable::-webkit-scrollbar {
-  @apply h-1 w-1;
+  @reference h-1 w-1;
 }
 
 /* Track */
 .carousel-scrollable::-webkit-scrollbar-track {
-  @apply bg-gray-400;
+  @reference bg-gray-400;
 }
 
 /* Handle */
 .carousel-scrollable::-webkit-scrollbar-thumb {
-  @apply rounded-s bg-gray-600;
+  @reference rounded-s bg-gray-600;
 }
 
 /* Handle on hover */
 .carousel-scrollable::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-800;
+  @reference bg-gray-800;
 }

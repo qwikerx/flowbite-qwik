@@ -80,7 +80,7 @@ export const Avatar = component$<AvatarProps>(
   }) => {
     const imgClassName = useComputed$(() =>
       twMerge(
-        'rounded',
+        'rounded-sm',
         bordered && 'p-1 ring-2',
         bordered && AvatarImgColorsClasses[color],
         rounded && 'rounded-full',
@@ -90,7 +90,7 @@ export const Avatar = component$<AvatarProps>(
     )
 
     return (
-      <div class={twMerge('flex items-center justify-center space-x-4 rounded', clsx(className))} {...attrs}>
+      <div class={twMerge('flex items-center justify-center space-x-4 rounded-sm', clsx(className))} {...attrs}>
         <div class="relative">
           {img ? (
             typeof img === 'string' ? (

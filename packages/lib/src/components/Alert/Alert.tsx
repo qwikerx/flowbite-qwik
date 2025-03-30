@@ -92,7 +92,7 @@ export const Alert = component$<AlertProps>(
         {...attrs}
       >
         <div class="flex items-center">
-          {Icon && <Icon class="mr-3 inline h-5 w-5 flex-shrink-0" />}
+          {Icon && <Icon class="mr-3 inline h-5 w-5 shrink-0" />}
           <div>
             <Slot />
           </div>

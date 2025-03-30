@@ -4,6 +4,7 @@ import { Badge, Navbar, Tooltip, useDarkMode } from 'flowbite-qwik'
 import { IconDiscordSolid, IconGithubSolid, IconMoonSolid, IconSunSolid } from 'flowbite-qwik-icons'
 import pkg from 'flowbite-qwik/package.json'
 import './NavbarPage.css'
+import '@docsearch/css'
 import docsearch from '@docsearch/js'
 
 export const NavbarPage = component$(() => {
@@ -40,14 +41,14 @@ export const NavbarPage = component$(() => {
         <Navbar.Toggle />
         <Navbar.Brand tag={Link} href="/">
           <img src="/logo.svg" alt="Flowbite qwik small logo" width="36" height="36" class="h-8 w-auto" />
-          <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
+          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite Qwik</span>
         </Navbar.Brand>
       </div>
 
       <div class="flex items-center justify-between lg:ml-8 lg:flex-1">
         <div id="docsearch" />
         <div class="flex items-center gap-1 lg:gap-2">
-          <Navbar.Collapse class="absolute left-0 top-12 md:relative md:top-0">
+          <Navbar.Collapse class="absolute top-12 left-0 md:relative md:top-0">
             <Navbar.Link href="/docs/getting-started/introduction" tag={Link} active={location.url.pathname === '/docs/getting-started/introduction'}>
               Docs
             </Navbar.Link>
@@ -71,7 +72,7 @@ export const NavbarPage = component$(() => {
               target="_blank"
               href="https://discord.gg/4eeurUVvTy"
               aria-label="Join Discord Community"
-              class="hidden rounded-lg p-2.5 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700 lg:block"
+              class="hidden rounded-lg p-2.5 text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-hidden lg:block dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
             >
               <IconDiscordSolid aria-hidden class="size-5" />
             </a>
@@ -89,7 +90,7 @@ export const NavbarPage = component$(() => {
               target="_blank"
               href="https://github.com/qwikerx/flowbite-qwik"
               aria-label="View on GitHub"
-              class="hidden rounded-lg p-2.5 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700 lg:block"
+              class="hidden rounded-lg p-2.5 text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-hidden lg:block dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
             >
               <IconGithubSolid aria-hidden class="size-5" />
             </a>
@@ -102,7 +103,7 @@ export const NavbarPage = component$(() => {
           >
             <button
               q:slot="trigger"
-              class="rounded-lg p-2.5 text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+              class="rounded-lg p-2.5 text-gray-500 hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 focus:outline-hidden dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
               onClick$={() => {
                 setDarkModeValue(isDark.value ? 'light' : 'dark')
               }}
