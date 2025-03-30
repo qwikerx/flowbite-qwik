@@ -1,13 +1,15 @@
-import { component$, Slot, useComputed$, useVisibleTask$ } from '@builder.io/qwik'
+import { component$, Slot, useComputed$, useStyles$, useVisibleTask$ } from '@builder.io/qwik'
 import { Link, useLocation } from '@builder.io/qwik-city'
 import { Badge, Navbar, Tooltip, useDarkMode } from 'flowbite-qwik'
 import { IconDiscordSolid, IconGithubSolid, IconMoonSolid, IconSunSolid } from 'flowbite-qwik-icons'
 import pkg from 'flowbite-qwik/package.json'
-import './NavbarPage.css'
+import styles from './NavbarPage.css?inline'
 import '@docsearch/css'
 import docsearch from '@docsearch/js'
 
 export const NavbarPage = component$(() => {
+  useStyles$(styles)
+
   const { isDark, setDarkModeValue } = useDarkMode()
   const location = useLocation()
 

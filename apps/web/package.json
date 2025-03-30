@@ -50,7 +50,6 @@
     "@types/eslint": "^9.6.1",
     "@types/node": "^20.17.28",
     "@vitest/ui": "^3.0.9",
-    "autoprefixer": "^10.4.21",
     "chokidar": "^4.0.3",
     "compression": "^1.8.0",
     "dotenv": "^16.4.7",
