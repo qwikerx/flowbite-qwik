@@ -145,6 +145,8 @@ async function addFlowbiteToGlobalCss() {
     return
   }
 
+  if (globalCssContent.includes('flowbite/plugin')) return
+
   const content = await prettier.format(
     `
 ${globalCssContent}
