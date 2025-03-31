@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik-cli",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "description": "This is a CLI tool to setup flowbite qwik into your project",
   "main": "bin/init.cjs",
   "bin": {
@@ -15,7 +15,7 @@
     "fmt": "prettier --write .",
     "fmt.check": "prettier --check ."
   },
- "keywords": [
+  "keywords": [
     "design-system",
     "component-library",
     "flowbite",
