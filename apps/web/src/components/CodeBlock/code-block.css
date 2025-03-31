@@ -1,49 +1,51 @@
+@reference "../../global.css";
+
 pre code.hljs {
-  @reference block overflow-x-auto p-4 text-sm;
+  @apply block overflow-x-auto p-4 text-sm;
   font-family: Menlo, ui-monospace, SFMono-Regular, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
 .code-hljs {
-  @reference block overflow-x-auto p-4;
+  @apply block overflow-x-auto p-4;
 }
 
 .hljs {
-  @reference text-gray-500;
+  @apply text-gray-500;
 }
 
 code.hljs {
-  @reference px-2 py-1;
+  @apply px-2 py-1;
 }
 
 .pre-hljs {
-  @reference bg-gray-900;
+  @apply bg-gray-900;
 }
 
 .dark .hljs {
-  @reference text-gray-100 bg-gray-900;
+  @apply bg-gray-900 text-gray-100;
 }
 
 .hljs::selection,
 .hljs ::selection {
-  @reference bg-blue-600 text-gray-100;
+  @apply bg-blue-600 text-gray-100;
 }
 
 .hljs-comment {
-  @reference text-green-500;
+  @apply text-green-500;
 }
 
 .hljs-tag {
-  @reference text-gray-400;
+  @apply text-gray-400;
 }
 
 .hljs-operator,
 .hljs-punctuation,
 .hljs-subst {
-  @reference text-gray-100;
+  @apply text-gray-100;
 }
 
 .hljs-operator {
-  @reference opacity-70;
+  @apply opacity-70;
 }
 
 .hljs-bullet,
@@ -52,7 +54,7 @@ code.hljs {
 .hljs-selector-tag,
 .hljs-template-variable,
 .hljs-variable {
-  @reference text-fuchsia-400;
+  @apply text-fuchsia-400;
 }
 
 .hljs-attr,
@@ -61,24 +63,24 @@ code.hljs {
 .hljs-number,
 .hljs-symbol,
 .hljs-variable.constant_ {
-  @reference text-green-400;
+  @apply text-green-400;
 }
 
 .hljs-class .hljs-title,
 .hljs-title,
 .hljs-title.class_ {
-  @reference text-fuchsia-400;
+  @apply text-fuchsia-400;
 }
 
 .hljs-strong {
-  @reference font-bold text-fuchsia-400;
+  @apply font-bold text-fuchsia-400;
 }
 
 .hljs-addition,
 .hljs-code,
 .hljs-string,
 .hljs-title.class_.inherited__ {
-  @reference text-blue-400;
+  @apply text-blue-400;
 }
 
 .hljs-built_in,
@@ -86,7 +88,7 @@ code.hljs {
 .hljs-keyword.hljs-atrule,
 .hljs-quote,
 .hljs-regexp {
-  @reference text-cyan-300;
+  @apply text-cyan-300;
 }
 
 .hljs-attribute,
@@ -94,27 +96,27 @@ code.hljs {
 .hljs-section,
 .hljs-title.function_,
 .ruby .hljs-property {
-  @reference text-fuchsia-400;
+  @apply text-fuchsia-400;
 }
 
 .diff .hljs-meta,
 .hljs-keyword,
 .hljs-template-tag,
 .hljs-type {
-  @reference text-green-400;
+  @apply text-green-400;
 }
 
 .hljs-emphasis {
-  @reference text-green-400 italic;
+  @apply text-green-400 italic;
 }
 
 .hljs-meta,
 .hljs-meta .hljs-keyword,
 .hljs-meta .hljs-string {
-  @reference text-green-400;
+  @apply text-green-400;
 }
 
 .hljs-meta .hljs-keyword,
 .hljs-meta-keyword {
-  @reference font-bold;
+  @apply font-bold;
 }

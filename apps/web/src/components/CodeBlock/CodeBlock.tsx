@@ -52,7 +52,7 @@ export const CodeBlock = component$<CodeBlockProps>(({ content, language, expand
     <div class={['border-x border-y border-gray-200 dark:border-gray-600', !minimalist && 'rounded-b-lg']}>
       {!minimalist && (
         <div class="flex justify-between border-b border-gray-200 bg-gray-50 dark:border-gray-600 dark:bg-gray-700">
-          <div class="flex items-center border-r border-gray-200 bg-gray-100 p-1 px-3 text-xs font-medium uppercase text-gray-700 dark:border-gray-600 dark:bg-gray-800 dark:text-white">
+          <div class="flex items-center border-r border-gray-200 bg-gray-100 p-1 px-3 text-xs font-medium text-gray-700 uppercase dark:border-gray-600 dark:bg-gray-800 dark:text-white">
             {language}
           </div>
           <Tooltip
@@ -67,7 +67,7 @@ export const CodeBlock = component$<CodeBlockProps>(({ content, language, expand
               q:slot="trigger"
               onClick$={copy$}
               color="light"
-              class="rounded-l-none rounded-r-none border-b-0 border-r-0 border-t-0 bg-gray-100 text-gray-700 hover:text-purple-600"
+              class="rounded-l-none rounded-r-none border-t-0 border-r-0 border-b-0 bg-gray-100 text-gray-700 hover:text-purple-600"
               prefix={IconCopySolid}
             >
               {copyLabel}

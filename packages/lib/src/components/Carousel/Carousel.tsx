@@ -204,7 +204,7 @@ const InnerCarousel = component$<InnerCarouselProps>(
             state.mouseLeave()
           }}
           class={[
-            'flex h-full snap-x snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg',
+            'flex h-full snap-x snap-mandatory overflow-x-scroll overflow-y-hidden scroll-smooth rounded-lg',
             {
               'overflow-hidden overflow-x-hidden! [scrollbar-width:none]': !scrollable,
               '[&::-webkit-scrollbar]:[-webkit-appearance:none !important] [&::-webkit-scrollbar]:hidden! [&::-webkit-scrollbar]:h-0! [&::-webkit-scrollbar]:w-0! [&::-webkit-scrollbar]:bg-transparent!':
@@ -241,25 +241,25 @@ const InnerCarousel = component$<InnerCarouselProps>(
         {!noControls && !scrollable && (
           <>
             <button
-              class="group absolute left-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-hidden"
+              class="group absolute top-0 left-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-hidden"
               type="button"
               onClick$={() => {
                 state.previousPicture()
               }}
             >
-              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-hidden group-focus:ring-4 group-focus:ring-white sm:h-10 sm:w-10 dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-hidden sm:h-10 sm:w-10 dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
                 <IconAngleLeftSolid class="h-4 w-4 text-white sm:h-5 sm:w-5 dark:text-gray-800" />
                 <span class="sr-only">Previous</span>
               </span>
             </button>
             <button
-              class="group absolute right-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-hidden"
+              class="group absolute top-0 right-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-hidden"
               type="button"
               onClick$={() => {
                 state.nextPicture()
               }}
             >
-              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-hidden group-focus:ring-4 group-focus:ring-white sm:h-10 sm:w-10 dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-hidden sm:h-10 sm:w-10 dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
                 <IconAngleRightOutline class="h-4 w-4 text-white sm:h-5 sm:w-5 dark:text-gray-800" />
                 <span class="sr-only">Next</span>
               </span>

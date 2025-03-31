@@ -63,7 +63,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
           Edit on GitHub
         </Button>
 
-        <ul class="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 justify-center gap-3 lg:flex">
+        <ul class="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 justify-center gap-3 lg:flex">
           <li>
             <Tooltip
               placement="top"

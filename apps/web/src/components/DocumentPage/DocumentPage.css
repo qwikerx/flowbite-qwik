@@ -1,35 +1,37 @@
+@reference "../../global.css";
+
 .doc-page h1 {
-  @reference mb-2 text-3xl font-extrabold;
+  @apply mb-2 text-3xl font-extrabold;
 }
 
 .doc-page h2 {
-  @reference mb-2 mt-8 scroll-m-16 text-2xl font-bold;
+  @apply mt-8 mb-2 scroll-m-16 text-2xl font-bold;
 }
 
 .doc-page h3 {
-  @reference mb-2 mt-8 text-xl;
+  @apply mt-8 mb-2 text-xl;
 }
 
 .doc-page h4 {
-  @reference mb-2 mt-8 text-lg;
+  @apply mt-8 mb-2 text-lg;
 }
 
 .doc-page p {
-  @reference my-4 text-base text-gray-600 dark:text-gray-400;
+  @apply my-4 text-base text-gray-600 dark:text-gray-400;
 }
 
 .doc-page ul {
-  @reference mt-4 list-inside list-disc;
+  @apply mt-4 list-inside list-disc;
 }
 
 .doc-page ol {
-  @reference mt-4 list-inside list-decimal;
+  @apply mt-4 list-inside list-decimal;
 }
 
 .doc-page hr {
-  @reference my-8 border-t border-gray-200 dark:border-gray-800;
+  @apply my-8 border-t border-gray-200 dark:border-gray-800;
 }
 
 .doc-page em {
-  @reference not-italic text-purple-700 dark:text-purple-300;
+  @apply text-purple-700 not-italic dark:text-purple-300;
 }
