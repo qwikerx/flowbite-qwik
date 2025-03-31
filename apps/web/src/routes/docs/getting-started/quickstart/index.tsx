@@ -34,36 +34,41 @@ export default component$(() => {
           <p>Install Flowbite Qwik by running the following command in your project directory:</p>
           <CodeBlock language="bash" expandable={false} content="npm install flowbite-qwik flowbite-qwik-icons" />
           <p>
-            Add the Flowbite Qwik flowbite configuration in your <em>tailwind.config.js</em>
+            Update you root CSS file (global.css) adding this configuration
           </p>
 
           <CodeBlock
-            language="javascript"
+            language="css"
             expandable={false}
             content={`
-import flowbitePlugin from 'flowbite/plugin'
+@plugin 'flowbite/plugin';
 
-export default {
-  theme: {
-    extend: {
-      animation: {
-        'from-left': 'slideFromLeft 0.2s 1',
-        'from-right': 'slideFromRight 0.2s 1',
-      },
-      keyframes: {
-        slideFromLeft: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(0)' },
-        },
-        slideFromRight: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0)' },
-        },
-      },
-    },
-  },
-  content: ['node_modules/flowbite-qwik/**/*.{cjs,mjs}', './src/**/*.{html,js,jsx,ts,tsx,mdx}'],
-  plugins: [flowbitePlugin],
+@source "../node_modules/flowbite-qwik";
+
+@theme {
+  --animate-from-left: slideFromLeft 0.2s 1;
+  --animate-from-right: slideFromRight 0.2s 1;
+
+  --min-width-screen-lg: 1024px;
+
+  --container-8xl: 90rem;
+
+  @keyframes slideFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 }
               `}
           />
