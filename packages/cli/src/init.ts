@@ -181,7 +181,7 @@ ${globalCssContent}
 }`,
     {
       singleQuote: true,
-      parser: 'babel',
+      parser: "css",
     },
   )
 
@@ -232,8 +232,12 @@ async function installFlowbiteQwik(): Promise<void> {
   })
 
   loader.start('Setup flowbite-qwik...')
-  await addFlowbiteToGlobalCss()
-  await addFlowbiteWrapper(colorTheme as string, toastPosition as string, useDarkTheme as boolean)
+  try {
+    await addFlowbiteToGlobalCss()
+    await addFlowbiteWrapper(colorTheme as string, toastPosition as string, useDarkTheme as boolean)
+  } catch (error) {
+    console.log(error)
+  }
   loader.stop('Flowbite Qwik configured! 🎉')
 }
 
