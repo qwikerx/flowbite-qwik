@@ -41,7 +41,7 @@ export const NavbarLink = component$<NavbarLinkProps>(({ active = false, tag: Co
     <li>
       <Component
         class={twMerge(
-          'block rounded py-2 pl-3 pr-4 md:p-0',
+          'block rounded-sm py-2 pl-3 pr-4 md:p-0',
           active && activeClasses[themeName.value],
           !active && !disabled && inactiveClasses[themeName.value],
           disabled && 'text-gray-400 hover:cursor-not-allowed dark:text-gray-600',

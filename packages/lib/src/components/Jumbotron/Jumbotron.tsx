@@ -21,7 +21,7 @@ export const Jumbotron = ({ children, class: classNames, align = 'center', ...at
     <div
       {...attrs}
       class={twMerge(
-        'bg-white dark:bg-gray-900 py-8 lg:py-16 px-4 mx-auto max-w-screen-xl',
+        'bg-white dark:bg-gray-900 py-8 lg:py-16 px-4 mx-auto max-w-(--breakpoint-xl)',
         clsx(classNames),
         align === 'center' && 'text-center',
         align === 'left' && 'text-left',

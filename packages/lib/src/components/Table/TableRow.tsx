@@ -12,7 +12,7 @@ export const TableRow = component$<TableRowProps>(({ class: className, ...attrs 
     <tr
       class={twMerge(
         'group/row',
-        striped.value && 'odd:bg-white even:bg-gray-50 odd:dark:bg-gray-800 even:dark:bg-gray-700',
+        striped.value && 'odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-700',
         hoverable.value && 'hover:bg-gray-50 dark:hover:bg-gray-600',
         clsx(theme.value?.row),
         clsx(className),

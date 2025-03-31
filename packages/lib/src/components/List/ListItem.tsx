@@ -10,7 +10,7 @@ type ListItemProps = PropsOf<'li'> & {
 export const ListItem = component$<ListItemProps>(({ class: className, icon: Icon, ...attrs }) => {
   return (
     <li class={twMerge(Icon ? 'flex items-center' : '', clsx(className))} {...attrs}>
-      {Icon && <Icon class="me-2 h-3.5 w-3.5 flex-shrink-0" />}
+      {Icon && <Icon class="me-2 h-3.5 w-3.5 shrink-0" />}
       <Slot />
     </li>
   )

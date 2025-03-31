@@ -6,10 +6,13 @@ import { defineConfig, type UserConfig } from 'vite'
 import { qwikVite } from '@builder.io/qwik/optimizer'
 import { qwikCity } from '@builder.io/qwik-city/vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
+// @ts-ignore
 import pkg from './package.json'
 import { watchExamplesRoutes, watchDocsRoutes } from './vite-plugin'
 import { partytownVite } from '@builder.io/partytown/utils'
 import { join } from 'path'
+// @ts-ignore
+import tailwindcss from '@tailwindcss/vite'
 
 type PkgDep = Record<string, string>
 const { dependencies = {}, devDependencies = {} } = pkg as any as {
@@ -26,6 +29,7 @@ const isDuringVercelDeployment = Boolean(process.env.VERCEL)
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
     plugins: [
+      tailwindcss(),
       qwikCity({ trailingSlash: false }),
       qwikVite({
         devTools: {

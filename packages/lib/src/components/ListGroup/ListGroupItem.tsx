@@ -23,7 +23,7 @@ export const ListGroupItem = component$<ListGroupItemProps>(
     const Component = href ? LinkComponent : 'button'
 
     return (
-      <li class={twMerge('[&>*]:first:rounded-t-lg [&>*]:last:rounded-b-lg [&>*]:last:border-b-0', clsx(className))}>
+      <li class={twMerge('first:*:rounded-t-lg last:*:rounded-b-lg last:*:border-b-0', clsx(className))}>
         <Component
           href={href}
           onClick$={onClick$}
@@ -33,7 +33,7 @@ export const ListGroupItem = component$<ListGroupItemProps>(
           class={twMerge(
             active
               ? `${backgroundClasses.value} text-white dark:bg-gray-800`
-              : `${hoverClasses.value} ${focusClasses.value} hover:bg-gray-100 focus:outline-none focus:ring-2 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:text-white dark:focus:ring-gray-500`,
+              : `${hoverClasses.value} ${focusClasses.value} hover:bg-gray-100 focus:outline-hidden focus:ring-2 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:text-white dark:focus:ring-gray-500`,
             disabled
               ? 'cursor-not-allowed bg-gray-100 dark:bg-gray-600 text-gray-400 dark:text-gray-400 hover:bg-gray-100 focus:text-gray-400 dark:hover:text-gray-400'
               : '',

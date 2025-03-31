@@ -79,7 +79,7 @@ export const CustomButton = component$(() => {
           You can also pass theme={} directly to any component, which will override the theme for that component, but not its children. This is useful
           if you want to create a reusable component with a custom theme.
         </p>
-        <Alert color="warning" rounded class="mb-4">
+        <Alert color="warning" rounded-sm class="mb-4">
           This feature is highly experimental. Few components can be overloaded by a theme.
         </Alert>
         <CodeBlock

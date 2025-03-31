@@ -24,19 +24,19 @@ export default component$(() => {
             <div class="flex space-x-1 ps-0 sm:ps-2 rtl:space-x-reverse">
               <button
                 type="button"
-                class="inline-flex cursor-pointer items-center justify-center rounded p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="inline-flex cursor-pointer items-center justify-center rounded-sm p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 <IconFileImportOutline class="h-4 w-4" />
               </button>
               <button
                 type="button"
-                class="inline-flex cursor-pointer items-center justify-center rounded p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="inline-flex cursor-pointer items-center justify-center rounded-sm p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 <IconMapLocationOutline class="h-4 w-4" />
               </button>
               <button
                 type="button"
-                class="inline-flex cursor-pointer items-center justify-center rounded p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
+                class="inline-flex cursor-pointer items-center justify-center rounded-sm p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 <IconImageOutline class="h-4 w-4" />
               </button>

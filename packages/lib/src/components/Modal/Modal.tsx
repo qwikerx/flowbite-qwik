@@ -74,7 +74,7 @@ export const Modal = component$<ModalProps>(
             <div
               class={[
                 rootClasses.value,
-                'h-modal fixed left-0 right-0 top-0 z-[60] m-auto flex w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0 md:h-full',
+                'h-modal fixed left-0 right-0 top-0 z-60 m-auto flex w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0 md:h-full',
               ]}
             >
               <div
@@ -85,14 +85,14 @@ export const Modal = component$<ModalProps>(
                   }
                 }}
                 tabIndex={0}
-                class={['relative w-full p-4 focus:outline-none focus-visible:outline-none']}
+                class={['relative w-full p-4 focus:outline-hidden focus-visible:outline-hidden']}
               >
-                <div class="relative rounded-lg bg-white shadow dark:bg-gray-700">
+                <div class="relative rounded-lg bg-white shadow-sm dark:bg-gray-700">
                   <div
                     class={twMerge(
                       'flex items-center justify-between rounded-t p-4',
                       !!header ? 'border-b border-gray-200 dark:border-gray-600' : '',
-                      popup ? 'border-b-0 !p-2' : '',
+                      popup ? 'border-b-0 p-2!' : '',
                       clsx(theme?.header),
                     )}
                   >

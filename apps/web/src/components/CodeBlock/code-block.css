@@ -1,3 +1,5 @@
+@reference "../../global.css";
+
 pre code.hljs {
   @apply block overflow-x-auto p-4 text-sm;
   font-family: Menlo, ui-monospace, SFMono-Regular, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
@@ -20,7 +22,7 @@ code.hljs {
 }
 
 .dark .hljs {
-  @apply text-gray-100 bg-gray-900;
+  @apply bg-gray-900 text-gray-100;
 }
 
 .hljs::selection,

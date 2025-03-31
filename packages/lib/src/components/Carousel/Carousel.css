@@ -1,3 +1,5 @@
+@reference "../../global.css";
+
 /* hidden */
 .carousel-scrollable {
   scrollbar-width: none;

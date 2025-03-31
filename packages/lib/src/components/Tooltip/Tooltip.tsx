@@ -45,7 +45,7 @@ export const Tooltip = component$<TooltipProps>(
           ref={floatingRef}
           isVisible={isVisible.value}
           class={twMerge([
-            'inline-block min-w-max rounded-lg px-3 py-2 text-sm font-medium shadow-sm transition-opacity duration-300',
+            'inline-block min-w-max rounded-lg px-3 py-2 text-sm font-medium shadow-xs transition-opacity duration-300',
             style === 'dark' && 'bg-gray-900 text-white dark:bg-gray-700',
             style === 'light' && 'border border-gray-200 bg-white text-gray-900',
             style === 'auto' && 'border border-gray-200 bg-white text-gray-900 dark:border-none dark:bg-gray-700 dark:text-white',

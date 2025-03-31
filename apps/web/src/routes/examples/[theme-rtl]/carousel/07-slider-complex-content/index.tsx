@@ -11,7 +11,7 @@ import { staticGenerateHandler } from '~/routes/examples/layout'
 
 export default component$(() => {
   return (
-    <Carousel class="!h-96">
+    <Carousel class="h-96!">
       <Carousel.Slide>
         <div class="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
           <Card href="#" class="max-w-sm">

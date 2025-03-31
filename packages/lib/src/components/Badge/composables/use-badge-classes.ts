@@ -6,7 +6,7 @@ import type { IconProps } from 'flowbite-qwik-icons'
 import { useFlowbiteThemable } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
 import { LinkProps } from '@builder.io/qwik-city'
 
-const defaultBadgeClasses = 'mr-2 px-2.5 py-0.5 rounded flex items-center justify-center gap-1'
+const defaultBadgeClasses = 'mr-2 px-2.5 py-0.5 rounded-sm flex items-center justify-center gap-1'
 const badgeLinkClasses = 'bg-blue-100 hover:bg-blue-200 text-blue-800 dark:text-blue-800 dark:hover:bg-blue-300'
 const onlyIconClasses = 'p-2 rounded-full mr-2'
 
@@ -98,7 +98,7 @@ export function useBadgeClasses({ content, size = 'xs', href, type = 'default', 
   })
 
   const badgeChipsClasses = useComputed$(() =>
-    twMerge(badgeHoverChipsClasses[internalType.value], 'inline-flex items-center p-1 ms-2 text-sm bg-transparent rounded-sm'),
+    twMerge(badgeHoverChipsClasses[internalType.value], 'inline-flex items-center p-1 ms-2 text-sm bg-transparent rounded-xs'),
   )
 
   return {

@@ -11,7 +11,7 @@ export const TableCell = component$<TableCellProps>(({ class: className, ...attr
   return (
     <td
       class={twMerge(
-        'px-6 py-4 group-first/body:group-first/row:first:rounded-tl-lg group-first/body:group-first/row:last:rounded-tr-lg group-last/body:group-last/row:first:rounded-bl-lg group-last/body:group-last/row:last:rounded-br-lg',
+        'px-6 py-4 first:group-first/row:group-first/body:rounded-tl-lg last:group-first/row:group-first/body:rounded-tr-lg first:group-last/row:group-last/body:rounded-bl-lg last:group-last/row:group-last/body:rounded-br-lg',
         clsx(theme.value?.cell),
         clsx(className),
       )}

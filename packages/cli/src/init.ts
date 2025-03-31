@@ -6,7 +6,6 @@ import { readFile } from 'fs/promises'
 import { spawn } from 'child_process'
 import * as prettier from 'prettier'
 import * as path from 'path'
-import { pathToFileURL } from 'url'
 import { identifyMonorepoRoot } from 'identify-monorepo-root'
 
 async function readJsonFile(path: string) {
@@ -27,15 +26,6 @@ function detectPackageManager(): string {
   }
 }
 
-function hasTailwindConfig(): boolean {
-  return (
-    fs.existsSync('tailwind.config.js') ||
-    fs.existsSync('tailwind.config.cjs') ||
-    fs.existsSync('tailwind.config.mjs') ||
-    fs.existsSync('tailwind.config.ts')
-  )
-}
-
 async function tailwindInstalledInProject(): Promise<boolean> {
   const packageJsonPath = path.resolve(process.cwd(), 'package.json')
 
@@ -50,15 +40,6 @@ async function tailwindInstalledInProject(): Promise<boolean> {
   return dependencies?.['tailwindcss'] || devDependencies?.['tailwindcss']
 }
 
-function hasPostCSSConfig(): boolean {
-  return (
-    fs.existsSync('postcss.config.js') ||
-    fs.existsSync('postcss.config.cjs') ||
-    fs.existsSync('postcss.config.mjs') ||
-    fs.existsSync('postcss.config.ts')
-  )
-}
-
 function hasCssUtilities(): boolean {
   const globalCssPath = path.resolve(process.cwd(), './src/global.css')
   if (!fs.existsSync(globalCssPath)) {
@@ -67,11 +48,11 @@ function hasCssUtilities(): boolean {
   }
 
   const content = fs.readFileSync(globalCssPath, 'utf8')
-  return content.includes('@tailwind')
+  return content.includes('tailwindcss')
 }
 
 async function detectTailwindCSS(): Promise<boolean> {
-  return hasTailwindConfig() && (await tailwindInstalledInProject()) && hasPostCSSConfig() && hasCssUtilities()
+  return (await tailwindInstalledInProject()) && hasCssUtilities()
 }
 
 async function executeCommand(command: string, printMessages = true): Promise<string> {
@@ -115,10 +96,6 @@ async function installDependency(packageManager: string, packageName: string): P
   await executeCommand(command, false)
 }
 
-function getTailwindConfig(): string | undefined {
-  return fs.readdirSync('.').find((file) => file.includes('tailwind.config'))
-}
-
 async function addFlowbiteWrapper(theme: string, toastPosition: string, useDarkTheme: boolean): Promise<void> {
   const rootPath = path.resolve(process.cwd(), './src/root.tsx')
   if (!fs.existsSync(rootPath)) {
@@ -159,71 +136,56 @@ import { FlowbiteProvider ${useDarkTheme ? ', FlowbiteProviderHeader' : ''} } fr
   fs.writeFileSync(rootPath, prettified)
 }
 
-async function addFlowbiteToTailwind(): Promise<void> {
-  const tailwindConfigName = getTailwindConfig()
-  const tailwindConfigPath = path.resolve(process.cwd(), tailwindConfigName || 'tailwind.config.js')
+async function addFlowbiteToGlobalCss() {
+  const globalCssPath = './src/global.css'
+  const globalCssContent = fs.readFileSync(globalCssPath, 'utf8')
 
-  if (!fs.existsSync(tailwindConfigPath)) {
-    console.error('tailwind.config not found at:', tailwindConfigPath)
+  if (!globalCssContent) {
+    log.error('global.css file not found')
     return
   }
 
-  const configFileContent = fs.readFileSync(tailwindConfigPath, 'utf8')
-  if (configFileContent.includes('flowbitePlugin')) return
-
-  let tailwindConfig: any = {}
-  try {
-    tailwindConfig = await import(pathToFileURL(tailwindConfigPath).href).then((m) => m.default)
-  } catch (e) {
-    console.error('fail to load tailwind config file, generating a default one ...')
-  }
-
-  tailwindConfig.content = ['node_modules/flowbite-qwik/**/*.{cjs,mjs}', './src/**/*.{js,ts,jsx,tsx,mdx}']
-
-  if (!tailwindConfig.plugins) tailwindConfig.plugins = []
-
-  tailwindConfig.plugins.push('flowbitePlugin')
-
-  if (!tailwindConfig.theme)
-    tailwindConfig.theme = {
-      extend: {},
-    }
-
-  if (!tailwindConfig.theme.extend) tailwindConfig.theme.extend = {}
-
-  if (!tailwindConfig.theme.extend.animation) tailwindConfig.theme.extend.animation = {}
-
-  if (!tailwindConfig.theme.extend.keyframes) tailwindConfig.theme.extend.keyframes = {}
-
-  Object.assign(tailwindConfig.theme.extend.animation ?? {}, {
-    'from-left': 'slideFromLeft 0.2s 1',
-    'from-right': 'slideFromRight 0.2s 1',
-  })
-
-  Object.assign(tailwindConfig.theme.extend.keyframes ?? {}, {
-    slideFromLeft: {
-      '0%': { transform: 'translateX(-100%)' },
-      '100%': { transform: 'translateX(0)' },
-    },
-    slideFromRight: {
-      '0%': { transform: 'translateX(100%)' },
-      '100%': { transform: 'translateX(0)' },
-    },
-  })
+  if (globalCssContent.includes('flowbite/plugin')) return
 
   const content = await prettier.format(
     `
-  import flowbitePlugin from 'flowbite/plugin'
+${globalCssContent}
+@plugin 'flowbite/plugin';
 
-  /** @type {import('tailwindcss').Config} */
-  export default ${JSON.stringify(tailwindConfig, null, 2).replace('"flowbitePlugin"', 'flowbitePlugin')}`,
+@source "../node_modules/flowbite-qwik";
+
+@theme {
+  --animate-from-left: slideFromLeft 0.2s 1;
+  --animate-from-right: slideFromRight 0.2s 1;
+
+  --min-width-screen-lg: 1024px;
+
+  --container-8xl: 90rem;
+
+  @keyframes slideFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}`,
     {
       singleQuote: true,
       parser: 'babel',
     },
   )
 
-  fs.writeFileSync(tailwindConfigPath, content)
+  fs.writeFileSync(globalCssPath, content)
 }
 
 async function installFlowbiteQwik(): Promise<void> {
@@ -270,7 +232,7 @@ async function installFlowbiteQwik(): Promise<void> {
   })
 
   loader.start('Setup flowbite-qwik...')
-  await addFlowbiteToTailwind()
+  await addFlowbiteToGlobalCss()
   await addFlowbiteWrapper(colorTheme as string, toastPosition as string, useDarkTheme as boolean)
   loader.stop('Flowbite Qwik configured! 🎉')
 }

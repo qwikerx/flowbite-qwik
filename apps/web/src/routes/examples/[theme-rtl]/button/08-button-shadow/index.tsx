@@ -36,13 +36,13 @@ export default component$(() => {
       <Button gradient="teal" shadow>
         Teal with teal
       </Button>
-      <Button gradient="blue" shadow="red">
+      <Button gradient="blue" shadow-sm="red">
         Blue with red
       </Button>
-      <Button gradient="cyan" shadow="teal">
+      <Button gradient="cyan" shadow-sm="teal">
         Cyan with teal
       </Button>
-      <Button gradient="teal" shadow="purple">
+      <Button gradient="teal" shadow-sm="purple">
         Teal with purple
       </Button>
     </div>

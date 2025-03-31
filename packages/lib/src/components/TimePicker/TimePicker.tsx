@@ -18,7 +18,7 @@ export const TimePicker = component$<TimePickerProps>(({ class: className, label
         </label>
       )}
       <div class="relative">
-        {attrs.suffix && <div class="pointer-events-none absolute inset-y-0 end-0 top-0 z-[1] flex items-center pe-3.5">{attrs.suffix}</div>}
+        {attrs.suffix && <div class="pointer-events-none absolute inset-y-0 end-0 top-0 z-1 flex items-center pe-3.5">{attrs.suffix}</div>}
 
         <Input
           type="time"
