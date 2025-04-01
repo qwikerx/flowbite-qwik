@@ -53,6 +53,7 @@ export function useSelectClasses(props: UseSelectClassesProps): {
       props.underline.value && underlineByStatus,
       focusClasses.value,
       focusInputClasses.value,
+      'pr-10'
     )
   })
 
