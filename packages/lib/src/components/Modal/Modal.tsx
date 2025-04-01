@@ -70,7 +70,7 @@ export const Modal = component$<ModalProps>(
       <>
         {props['bind:show'].value && (
           <div>
-            <div class={twMerge('fixed inset-0 z-50 bg-gray-900 bg-opacity-50 dark:bg-opacity-80', clsx(theme?.backdrop))} />
+            <div class={twMerge('fixed inset-0 z-50 bg-gray-900/50 dark:bg-gray-900/80', clsx(theme?.backdrop))} />
             <div
               class={[
                 rootClasses.value,
