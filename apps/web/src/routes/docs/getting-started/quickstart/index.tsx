@@ -32,7 +32,7 @@ export default component$(() => {
         <div>
           <Heading tag="h3">Install Flowbite Qwik</Heading>
           <p>Install Flowbite Qwik by running the following command in your project directory:</p>
-          <CodeBlock language="bash" expandable={false} content="npm install flowbite-qwik flowbite-qwik-icons" />
+          <CodeBlock language="bash" expandable={false} content="npm install flowbite flowbite-qwik flowbite-qwik-icons" />
           <p>
             Update you root CSS file (global.css) adding this configuration
           </p>
