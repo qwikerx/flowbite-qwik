@@ -62,42 +62,47 @@ Click [here](https://github.com/qwikerx/flowbite-qwik/blob/main/packages/cli/REA
 
 ### 🐓 Manual way via `npm`
 
-Make sure that you have <a href="https://nodejs.org/en/" rel="nofollow" >Node.js</a> and <a href="https://tailwindcss.com/" rel="nofollow" >Tailwind CSS</a> installed.
+Make sure that you have <a href="https://nodejs.org/en/" rel="nofollow" >Node.js</a> and <a href="https://tailwindcss.com/docs/installation" rel="nofollow" >Tailwind CSS</a> installed.
 
-1. Install `flowbite` as a dependency using `npm` by running the following command:
+1. Install `flowbite-qwik` as a dependency using `npm` by running the following command:
 
 ```bash
-yarn add -D flowbite flowbite-qwik
-pnpm add -D flowbite flowbite-qwik
-npm i --save-dev flowbite flowbite-qwik
+yarn add -D flowbite flowbite-qwik flowbite-qwik-icons
+pnpm add -D flowbite flowbite-qwik flowbite-qwik-icons
+npm i --save-dev flowbite flowbite-qwik flowbite-qwik-icons
 ```
 
-2. Require `flowbite` as a plugin inside the `tailwind.config.js` file:
+2. Update you root CSS file (global.css) adding this configuration :
 
-```javascript
-import flowbitePlugin from 'flowbite/plugin'
+```css
+@plugin 'flowbite/plugin';
 
-export default {
-  theme: {
-    extend: {
-      animation: {
-        'from-left': 'slideFromLeft 0.2s 1',
-        'from-right': 'slideFromRight 0.2s 1',
-      },
-      keyframes: {
-        slideFromLeft: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(0)' },
-        },
-        slideFromRight: {
-          '0%': { transform: 'translateX(100%)' },
-          '100%': { transform: 'translateX(0)' },
-        },
-      },
-    },
-  },
-  content: ['node_modules/flowbite-qwik/**/*.{cjs,mjs}', './src/**/*.{html,js,jsx,ts,tsx,mdx}'],
-  plugins: [flowbitePlugin],
+@source "../node_modules/flowbite-qwik";
+
+@theme {
+  --animate-from-left: slideFromLeft 0.2s 1;
+  --animate-from-right: slideFromRight 0.2s 1;
+
+  --min-width-screen-lg: 1024px;
+
+  --container-8xl: 90rem;
+
+  @keyframes slideFromLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideFromRight {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
 }
 ```
 
