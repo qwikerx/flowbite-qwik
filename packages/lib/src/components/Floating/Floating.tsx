@@ -13,8 +13,8 @@ export const RenderFloatingElement = component$<RenderFloatingElementProps>(({ r
       ref={ref}
       class={twMerge(
         'absolute z-10 inline-block transition-opacity duration-300',
-        isVisible ? 'block opacity-100' : 'pointer-events-none hidden opacity-0',
         clsx(classList),
+        isVisible ? 'block opacity-100' : 'pointer-events-none hidden opacity-0',
       )}
       {...props}
     >
