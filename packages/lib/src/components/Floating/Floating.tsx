@@ -1,4 +1,6 @@
 import { PropsOf, Signal, Slot, component$ } from '@builder.io/qwik'
+import {twMerge} from "tailwind-merge";
+import clsx from "clsx";
 
 type RenderFloatingElementProps = PropsOf<'div'> & {
   ref: Signal<HTMLDivElement | undefined>
@@ -9,11 +11,11 @@ export const RenderFloatingElement = component$<RenderFloatingElementProps>(({ r
   return (
     <div
       ref={ref}
-      class={[
+      class={twMerge(
         'absolute z-10 inline-block transition-opacity duration-300',
         isVisible ? 'block opacity-100' : 'pointer-events-none hidden opacity-0',
-        classList,
-      ]}
+        clsx(classList),
+      )}
       {...props}
     >
       <Slot />
