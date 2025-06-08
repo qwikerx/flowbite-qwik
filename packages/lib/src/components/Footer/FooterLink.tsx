@@ -1,5 +1,5 @@
 import { Component, PropsOf, Slot, component$ } from '@builder.io/qwik'
-import { LinkProps } from '@builder.io/qwik-city'
+import type { LinkProps } from '@builder.io/qwik-city'
 import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
 

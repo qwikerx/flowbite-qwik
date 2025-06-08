@@ -32,13 +32,29 @@ export function getChild(children: JSXChildren, components: FoundComponent[]) {
 
 /**
  * Icons part
+ *
+ * HACK: this messes with internal props of the child, but it's the only way to change the fill of the icon. Need to check if this works in v2
  */
 function processChild(child: JSXNode, fill: string) {
-  if (child.immutableProps?.fill && child.immutableProps.fill !== 'none') {
-    child.immutableProps.fill = fill
+  let currentFill: string | undefined
+  const immutableProps = (child as unknown as { immutableProps: Record<string, unknown> } | undefined)?.immutableProps
+  // v1
+  if (immutableProps?.fill) {
+    currentFill = immutableProps.fill as string
+  } else {
+    currentFill = child.props.fill as string
   }
-  if (child.immutableProps?.stroke && child.immutableProps.stroke !== 'none') {
-    child.immutableProps.stroke = fill
+  if (currentFill && currentFill !== 'none') {
+    child.props.fill = fill
+    if (immutableProps) {
+      delete immutableProps.fill
+    }
+  }
+  if (immutableProps?.stroke && immutableProps.stroke !== 'none') {
+    child.props.stroke = fill
+    if (immutableProps) {
+      delete immutableProps.stroke
+    }
   }
 }
 

@@ -2,7 +2,7 @@ import { Component, PropsOf, component$ } from '@builder.io/qwik'
 import type { IconProps } from 'flowbite-qwik-icons'
 import clsx from 'clsx'
 import { twMerge } from 'tailwind-merge'
-import { LinkProps } from '@builder.io/qwik-city'
+import type { LinkProps } from '@builder.io/qwik-city'
 
 type FooterIconProps = PropsOf<'a'> &
   IconProps & {

@@ -9,7 +9,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 // @ts-ignore
 import pkg from './package.json'
 import { watchExamplesRoutes, watchDocsRoutes } from './vite-plugin'
-import { partytownVite } from '@builder.io/partytown/utils'
+import { partytownVite } from '@qwik.dev/partytown/utils'
 import { join } from 'path'
 // @ts-ignore
 import tailwindcss from '@tailwindcss/vite'
@@ -29,8 +29,17 @@ const isDuringVercelDeployment = Boolean(process.env.VERCEL)
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
     plugins: [
-      tailwindcss(),
+      {
+        name: 'spy',
+        resolveId: {
+          order: 'pre',
+          handler: (...args) => {
+            console.log('resolveId', ...args)
+          },
+        },
+      },
       qwikCity({ trailingSlash: false }),
+      tailwindcss(),
       qwikVite({
         devTools: {
           clickToSource: false,

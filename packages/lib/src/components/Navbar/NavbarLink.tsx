@@ -1,7 +1,7 @@
 import { $, Component, component$, PropsOf, Slot } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
-import { LinkProps } from '@builder.io/qwik-city'
+import type { LinkProps } from '@builder.io/qwik-city'
 import { useNavbarContext } from '~/components/Navbar/composables/use-navbar-context'
 import { FlowbiteTheme, useFlowbiteThemable } from '~/components/FlowbiteThemable/composables/use-flowbite-themable'
 
@@ -41,7 +41,7 @@ export const NavbarLink = component$<NavbarLinkProps>(({ active = false, tag: Co
     <li>
       <Component
         class={twMerge(
-          'block rounded-sm py-2 pl-3 pr-4 md:p-0',
+          'block rounded-sm py-2 pr-4 pl-3 md:p-0',
           active && activeClasses[themeName.value],
           !active && !disabled && inactiveClasses[themeName.value],
           disabled && 'text-gray-400 hover:cursor-not-allowed dark:text-gray-600',

@@ -33,9 +33,9 @@ export const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({ children, ...
         if (props.outline) {
           child.props['outline'] = true
         }
-        child.props['class'] = child.immutableProps?.['class']
-          ? child.immutableProps['class'] + ' ' + positionClass[position]
-          : positionClass[position]
+        // hack for qwik v1, check if this works in v2
+        const immutableProps = (child as unknown as { immutableProps: Record<string, unknown> } | undefined)?.immutableProps
+        child.props.class = immutableProps?.class ? immutableProps.class + ' ' + positionClass[position] : positionClass[position]
 
         components.push({
           id: index,

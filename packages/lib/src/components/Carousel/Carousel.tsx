@@ -47,13 +47,16 @@ export const Carousel: FunctionComponent<CarouselProps> = ({ children, ...props 
         if (childrenIsArray) {
           computedChildren = createElement('div', { key: uuid(), class: classesToAdd }, child.children)
         } else {
-          const cc = child.children as JSXNode
+          // immutableProps is a hack to get the class prop from the child. Check if this works in qwik v2
+          const cc = child.children as JSXNode & { immutableProps?: Record<string, unknown> }
+          const classProp = cc.immutableProps?.class || cc.props.class
 
           computedChildren = createElement(
             cc.type as string,
             {
+              ...cc.props,
               ...cc.immutableProps,
-              class: cc.immutableProps?.['class'] ? twMerge(cc.immutableProps['class'] as string, classesToAdd) : classesToAdd,
+              class: classProp ? twMerge(classProp as string, classesToAdd) : classesToAdd,
               key: cc.key,
             },
             cc.children,
