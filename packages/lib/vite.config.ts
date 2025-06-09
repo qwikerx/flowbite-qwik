@@ -28,7 +28,13 @@ export default defineConfig(() => {
           },
         },
         // externalize deps that shouldn't be bundled into the library
-        external: [/^node:.*/, ...excludeAll(dependencies), ...excludeAll(peerDependencies)],
+        external: [
+          /^node:.*/,
+          ...excludeAll(dependencies),
+          ...excludeAll(peerDependencies),
+          // used in Button to determine if it's passed a Link component
+          '@builder.io/qwik-city',
+        ],
       },
     },
     resolve: {

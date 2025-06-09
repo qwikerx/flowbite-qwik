@@ -2,7 +2,7 @@ import { Component, component$, PropsOf, Slot } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
 import type { IconProps } from 'flowbite-qwik-icons'
-import { LinkProps } from '@builder.io/qwik-city'
+import type { LinkProps } from '@builder.io/qwik-city'
 import { useFlowbiteThemable } from '~/components/FlowbiteThemable'
 
 type ListGroupItemProps = PropsOf<'a'> &
@@ -33,9 +33,9 @@ export const ListGroupItem = component$<ListGroupItemProps>(
           class={twMerge(
             active
               ? `${backgroundClasses.value} text-white dark:bg-gray-800`
-              : `${hoverClasses.value} ${focusClasses.value} hover:bg-gray-100 focus:outline-hidden focus:ring-2 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:text-white dark:focus:ring-gray-500`,
+              : `${hoverClasses.value} ${focusClasses.value} hover:bg-gray-100 focus:ring-2 focus:outline-hidden dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:text-white dark:focus:ring-gray-500`,
             disabled
-              ? 'cursor-not-allowed bg-gray-100 dark:bg-gray-600 text-gray-400 dark:text-gray-400 hover:bg-gray-100 focus:text-gray-400 dark:hover:text-gray-400'
+              ? 'cursor-not-allowed bg-gray-100 text-gray-400 hover:bg-gray-100 focus:text-gray-400 dark:bg-gray-600 dark:text-gray-400 dark:hover:text-gray-400'
               : '',
             'flex w-full items-center border-b border-gray-200 px-4 py-2 dark:border-gray-600',
           )}

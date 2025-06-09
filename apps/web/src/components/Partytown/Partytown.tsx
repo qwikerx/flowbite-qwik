@@ -1,4 +1,3 @@
-// @ts-expect-error strange behaviour
-import { partytownSnippet, PartytownConfig } from '@builder.io/partytown/integration'
+import { partytownSnippet, PartytownConfig } from '@qwik.dev/partytown/integration'
 
 export const QwikPartytown = (props: PartytownConfig) => <script dangerouslySetInnerHTML={partytownSnippet(props)} />

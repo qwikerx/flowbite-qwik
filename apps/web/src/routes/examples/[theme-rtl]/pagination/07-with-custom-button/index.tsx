@@ -9,7 +9,7 @@ import { staticGenerateHandler } from '~/routes/examples/layout'
 import { StaticGenerateHandler } from '@builder.io/qwik-city'
 import { Pagination, PaginationButtonProps } from 'flowbite-qwik'
 
-const CustomButton = component$<PaginationButtonProps>(({ active, ...props }) => {
+const CustomButton = component$<PaginationButtonProps>(({ active, ...rest }) => {
   return (
     <button
       type="button"
@@ -20,7 +20,7 @@ const CustomButton = component$<PaginationButtonProps>(({ active, ...props }) =>
             active,
         },
       ]}
-      {...props}
+      {...rest}
     >
       <Slot />
     </button>

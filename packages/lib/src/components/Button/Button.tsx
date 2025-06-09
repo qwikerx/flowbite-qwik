@@ -3,7 +3,7 @@ import { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } f
 import { useButtonClasses } from '~/components/Button/composables/use-button-classes'
 import { useButtonSpinner } from '~/components/Button/composables/use-button-spinner'
 import { Spinner } from '~/components/Spinner/Spinner'
-import { Link, LinkProps } from '@builder.io/qwik-city'
+import { Link, type LinkProps } from '@builder.io/qwik-city'
 import type { IconProps } from 'flowbite-qwik-icons'
 
 export type ButtonProps = PropsOf<'button'> &

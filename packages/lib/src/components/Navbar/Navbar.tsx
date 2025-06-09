@@ -39,7 +39,7 @@ export const Navbar = component$<NavbarProps>(
     fullWidth = false,
     class: classNames,
     theme,
-    ...props
+    ...rest
   }) => {
     useContextProvider(navbarContext, useStore({ isOpen: menuOpen, theme }))
 
@@ -55,7 +55,7 @@ export const Navbar = component$<NavbarProps>(
             clsx(theme?.nav?.main),
             clsx(classNames),
           )}
-          {...props}
+          {...rest}
         >
           <div
             class={twMerge(

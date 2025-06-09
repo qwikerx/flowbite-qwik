@@ -1,7 +1,7 @@
 import { ClassList, Component, component$, JSXOutput, PropsOf, Slot } from '@builder.io/qwik'
 import { twMerge } from 'tailwind-merge'
 import clsx from 'clsx'
-import { LinkProps } from '@builder.io/qwik-city'
+import type { LinkProps } from '@builder.io/qwik-city'
 
 type CardTheme = {
   root?: ClassList

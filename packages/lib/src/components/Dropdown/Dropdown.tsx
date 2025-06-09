@@ -193,11 +193,11 @@ type InnerDropdownItemProps = PropsOf<'button'> & {
   icon?: Component<IconProps>
   onClick$?: () => void
 }
-const InnerDropdownItem = component$<InnerDropdownItemProps>(({ icon: Icon, onClick$, ...props }) => {
+const InnerDropdownItem = component$<InnerDropdownItemProps>(({ icon: Icon, onClick$, ...rest }) => {
   const { dropdownItemClasses } = useDropdownClasses()
 
   return (
-    <button type="button" class={dropdownItemClasses.value} onClick$={onClick$} disabled={props.disabled}>
+    <button type="button" class={dropdownItemClasses.value} onClick$={onClick$} disabled={rest.disabled}>
       {Icon && <Icon class="mr-2 h-4 w-4" />}
       <Slot />
     </button>
