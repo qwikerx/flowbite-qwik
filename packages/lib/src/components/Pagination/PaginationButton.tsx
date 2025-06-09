@@ -7,7 +7,7 @@ export type PaginationButtonProps = PropsOf<'button'> & {
   active?: boolean
 }
 
-export const PaginationButton = component$<PaginationButtonProps>(({ active, class: className, ...props }) => {
+export const PaginationButton = component$<PaginationButtonProps>(({ active, class: className, ...rest }) => {
   const { themeName } = useFlowbiteThemable()
 
   const activeClasses = useComputed$(() => {
@@ -44,7 +44,7 @@ export const PaginationButton = component$<PaginationButtonProps>(({ active, cla
         active && activeClasses.value,
         clsx(className),
       )}
-      {...props}
+      {...rest}
     >
       <Slot />
     </button>

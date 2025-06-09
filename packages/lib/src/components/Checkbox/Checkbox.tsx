@@ -11,22 +11,22 @@ type CheckboxProps = Omit<PropsOf<'input'>, 'children'> & {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const Checkbox = component$<CheckboxProps>(({ color, class: classNames, onChange$, children, ...props }) => {
+export const Checkbox = component$<CheckboxProps>(({ color, class: classNames, onChange$, children, ...rest }) => {
   const internalColor = useComputed$(() => color)
   const { checkboxClasses, labelClasses } = useCheckboxClasses(internalColor)
 
-  const checked = useSignal(Boolean(props.checked))
+  const checked = useSignal(Boolean(rest.checked))
   useTask$(({ track }) => {
-    const innerChecked = track(() => props.checked)
+    const innerChecked = track(() => rest.checked)
     checked.value = Boolean(innerChecked)
   })
 
   return (
     <label class={['flex items-center justify-start gap-3', labelClasses.value]}>
       <input
-        {...props}
+        {...rest}
         type="checkbox"
-        bind:checked={props['bind:checked'] || checked}
+        bind:checked={rest['bind:checked'] || checked}
         class={twMerge(checkboxClasses.value, clsx(classNames))}
         onChange$={(_, elm) => {
           onChange$?.(elm.checked, elm.value)

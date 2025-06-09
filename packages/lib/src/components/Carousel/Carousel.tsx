@@ -33,7 +33,7 @@ type CarouselProps = PropsOf<'div'> & {
   pauseOnHover?: boolean
   onSlideChanged$?: () => void
 }
-export const Carousel: FunctionComponent<CarouselProps> = ({ children, ...props }) => {
+export const Carousel: FunctionComponent<CarouselProps> = ({ children, ...rest }) => {
   const components: ComponentType[] = []
   const classesToAdd = 'absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2'
 
@@ -71,7 +71,7 @@ export const Carousel: FunctionComponent<CarouselProps> = ({ children, ...props 
     },
   ])
 
-  return <InnerCarousel components={components} {...props} />
+  return <InnerCarousel components={components} {...rest} />
 }
 
 type CarouselSlideProps = PropsOf<'div'>

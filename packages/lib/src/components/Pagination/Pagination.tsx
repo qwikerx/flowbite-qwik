@@ -29,7 +29,7 @@ export const Pagination = component$<PaginationProps>(
     paginationButton: RenderPaginationButton = PaginationButton,
     showIcons: showIcon = false,
     totalPages,
-    ...props
+    ...rest
   }) => {
     const lastPage = useComputed$(() => Math.min(Math.max(layout === 'pagination' ? currentPage.value + 2 : currentPage.value + 4, 5), totalPages))
     const firstPage = useComputed$(() => Math.max(1, lastPage.value - 4))
@@ -58,7 +58,7 @@ export const Pagination = component$<PaginationProps>(
     const { tableSpanClasses, previousNavigationClasses, nextNavigationClasses, iconClasses } = usePaginationClasses(useComputed$(() => showIcon))
 
     return (
-      <nav class={[className]} {...props}>
+      <nav class={[className]} {...rest}>
         {layout === 'table' && (
           <div class="text-sm text-gray-700 dark:text-gray-400">
             Showing <span class={tableSpanClasses.value}>{firstPage}</span> to&nbsp;

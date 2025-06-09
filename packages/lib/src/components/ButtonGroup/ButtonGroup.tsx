@@ -19,7 +19,7 @@ type ButtonGroupProps = PropsOf<'div'> & {
   outline?: boolean
 }
 
-export const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({ children, ...props }) => {
+export const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({ children, ...rest }) => {
   const childrenToProcess = Array.isArray(children) ? [...children] : [children]
 
   const components: ComponentType[] = []
@@ -30,7 +30,7 @@ export const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({ children, ...
       foundComponentCallback: (child, index) => {
         const position = index === 0 ? 'start' : index === childrenToProcess.length - 1 ? 'end' : 'middle'
 
-        if (props.outline) {
+        if (rest.outline) {
           child.props['outline'] = true
         }
         // hack for qwik v1, check if this works in v2
@@ -45,7 +45,7 @@ export const ButtonGroup: FunctionComponent<ButtonGroupProps> = ({ children, ...
     },
   ])
 
-  return <InnerButtonGroup components={components} {...props} />
+  return <InnerButtonGroup components={components} {...rest} />
 }
 
 /**
@@ -56,9 +56,9 @@ type InnerButtonGroupProps = ButtonGroupProps & {
   components: ComponentType[]
 }
 
-const InnerButtonGroup = component$<InnerButtonGroupProps>(({ components, class: className, ...props }) => {
+const InnerButtonGroup = component$<InnerButtonGroupProps>(({ components, class: className, ...rest }) => {
   return (
-    <div class={twMerge('inline-flex', clsx(className))} role="group" {...props}>
+    <div class={twMerge('inline-flex', clsx(className))} role="group" {...rest}>
       {components.map((comp) => (
         <Fragment key={comp.id}>{comp.button}</Fragment>
       ))}

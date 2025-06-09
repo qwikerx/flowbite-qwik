@@ -18,11 +18,11 @@ type SelectProps = PropsOf<'select'> & {
   onChange$?: () => void
 }
 
-export const Select = component$<SelectProps>(({ label, options, sizing = 'md', onChange$, ...props }) => {
-  const validationStatus = useComputed$(() => props.validationStatus)
+export const Select = component$<SelectProps>(({ label, options, sizing = 'md', onChange$, ...rest }) => {
+  const validationStatus = useComputed$(() => rest.validationStatus)
   const sizingComputed = useComputed$(() => sizing as InputSize)
-  const disabled = useComputed$(() => props.disabled ?? false)
-  const underline = useComputed$(() => props.underline ?? false)
+  const disabled = useComputed$(() => rest.disabled ?? false)
+  const underline = useComputed$(() => rest.underline ?? false)
 
   const { labelClasses, selectClasses, validationWrapperClasses } = useSelectClasses({
     sizing: sizingComputed,
@@ -37,28 +37,28 @@ export const Select = component$<SelectProps>(({ label, options, sizing = 'md', 
         {label && <span class={labelClasses.value}>{label}</span>}
         <select
           class={selectClasses.value}
-          {...props}
+          {...rest}
           onChange$={(e) => {
             // FIXME : should be managed by Qwik
-            props['bind:value'].value = (e.target as HTMLSelectElement).value
+            rest['bind:value'].value = (e.target as HTMLSelectElement).value
             onChange$?.()
           }}
         >
-          {props.placeholder && (
+          {rest.placeholder && (
             <option value="" disabled>
-              {props.placeholder}
+              {rest.placeholder}
             </option>
           )}
           {options.map((option) => (
-            <option key={option.value} value={option.value} selected={option.value === props['bind:value'].value}>
+            <option key={option.value} value={option.value} selected={option.value === rest['bind:value'].value}>
               {option.name}
             </option>
           ))}
         </select>
       </label>
 
-      {!!props.validationMessage && <div class={validationWrapperClasses.value}>{props.validationMessage}</div>}
-      {!!props.helper && <div class="mt-2 text-sm">{props.helper}</div>}
+      {!!rest.validationMessage && <div class={validationWrapperClasses.value}>{rest.validationMessage}</div>}
+      {!!rest.helper && <div class="mt-2 text-sm">{rest.helper}</div>}
     </>
   )
 })

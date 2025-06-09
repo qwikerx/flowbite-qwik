@@ -2,20 +2,20 @@ import { component$ } from '@builder.io/qwik'
 import { BadgeClassesProps, useBadgeClasses } from './composables/use-badge-classes'
 import { IconCloseOutline } from 'flowbite-qwik-icons'
 
-export const Badge = component$<BadgeClassesProps>(({ icon: Icon, tag = 'a', onClose$, ...props }) => {
-  const { badgeClasses, badgeChipsClasses } = useBadgeClasses(props)
+export const Badge = component$<BadgeClassesProps>(({ icon: Icon, tag = 'a', onClose$, ...rest }) => {
+  const { badgeClasses, badgeChipsClasses } = useBadgeClasses(rest)
 
   const LinkComponent = tag !== 'a' ? tag : 'a'
-  const BadgeComponent = props.href ? LinkComponent : 'span'
+  const BadgeComponent = rest.href ? LinkComponent : 'span'
 
   return (
-    <BadgeComponent {...props} class={badgeClasses.value}>
+    <BadgeComponent {...rest} class={badgeClasses.value}>
       {!!Icon && <Icon />}
-      {props.content}
+      {rest.content}
 
-      {props.chips && (
+      {rest.chips && (
         <button onClick$={onClose$} type="button" class={badgeChipsClasses.value} aria-label="Remove">
-          <IconCloseOutline class="w-2 h-2" />
+          <IconCloseOutline class="h-2 w-2" />
           <span class="sr-only">Remove badge</span>
         </button>
       )}

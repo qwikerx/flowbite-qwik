@@ -17,7 +17,7 @@ type PreviewDisplaySize = 'mobile' | 'tablet' | 'desktop'
 
 const liveDir = 'https://github.com/qwikerx/flowbite-qwik/tree/main/apps/web/src/routes'
 
-export const Preview = component$<PreviewProps>(({ url, class: classNames, height = 200, title, codeContent, ...props }) => {
+export const Preview = component$<PreviewProps>(({ url, class: classNames, height = 200, title, codeContent, ...rest }) => {
   useStyles$(styles)
 
   const { isDark } = useDarkMode()
@@ -49,7 +49,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
           #
         </Link>
       </Heading>
-      {props.description && <p class="mb-8 text-gray-600 dark:text-gray-400">{props.description}</p>}
+      {rest.description && <p class="mb-8 text-gray-600 dark:text-gray-400">{rest.description}</p>}
       <div class="relative flex w-full justify-between rounded-t-xl border border-gray-200 bg-gray-50 p-4 dark:border-gray-600 dark:bg-gray-700">
         <Button
           color="light"
@@ -151,7 +151,7 @@ export const Preview = component$<PreviewProps>(({ url, class: classNames, heigh
             },
           ]}
         >
-          <iframe loading="lazy" ref={iframe} src={iframeSrc.value} height={height} {...props} title={title} class={['w-full', classNames]} />
+          <iframe loading="lazy" ref={iframe} src={iframeSrc.value} height={height} {...rest} title={title} class={['w-full', classNames]} />
         </div>
       </div>
 

@@ -29,15 +29,6 @@ const isDuringVercelDeployment = Boolean(process.env.VERCEL)
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
     plugins: [
-      {
-        name: 'spy',
-        resolveId: {
-          order: 'pre',
-          handler: (...args) => {
-            console.log('resolveId', ...args)
-          },
-        },
-      },
       qwikCity({ trailingSlash: false }),
       tailwindcss(),
       qwikVite({

@@ -29,12 +29,12 @@ const inactiveClasses: Record<FlowbiteTheme, string> = {
   pink: 'text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-pink-700 md:dark:hover:text-pink-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700',
 }
 
-export const NavbarLink = component$<NavbarLinkProps>(({ active = false, tag: Component = 'a', disabled, class: classNames, ...props }) => {
+export const NavbarLink = component$<NavbarLinkProps>(({ active = false, tag: Component = 'a', disabled, class: classNames, ...rest }) => {
   const { setIsOpen, theme } = useNavbarContext()
   const { themeName } = useFlowbiteThemable()
 
   const handleClick = $(() => {
-    if (props.href) setIsOpen(false)
+    if (rest.href) setIsOpen(false)
   })
 
   return (
@@ -52,7 +52,7 @@ export const NavbarLink = component$<NavbarLinkProps>(({ active = false, tag: Co
           clsx(classNames),
         )}
         onClick$={handleClick}
-        {...props}
+        {...rest}
       >
         <Slot />
       </Component>
