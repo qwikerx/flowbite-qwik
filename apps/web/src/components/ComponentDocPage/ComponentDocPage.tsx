@@ -56,7 +56,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
 
   return (
     <>
-      {previewItems.value ? (
+      {previewItems.value.length ? (
         <DocumentPageContent ref={previewElements}>
           <section class="flex flex-col" q:slot="top">
             <Heading tag="h1" class="mb-2 text-3xl font-extrabold capitalize">
@@ -91,6 +91,7 @@ export const ComponentDocPage = component$<Item>(({ name }) => {
       ) : (
         <Heading tag="h2" class="text-center">
           Component {name} does not exist
+          <blockquote>${JSON.stringify(examples)}</blockquote>
         </Heading>
       )}
     </>

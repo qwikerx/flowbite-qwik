@@ -1,4 +1,4 @@
-import { Component, component$, PropsOf, Slot, useComputed$ } from '@builder.io/qwik'
+import { Component, component$, PropsOf, Signal, Slot, useComputed$ } from '@builder.io/qwik'
 import { ButtonGradient, ButtonMonochromeGradient, ButtonSize, ButtonVariant } from '~/components/Button/button-types'
 import { useButtonClasses } from '~/components/Button/composables/use-button-classes'
 import { useButtonSpinner } from '~/components/Button/composables/use-button-spinner'
@@ -61,6 +61,73 @@ export const Button = component$<ButtonProps>(
       full: useComputed$(() => full),
     })
 
+    const isLinkTag = ['a', Link].includes(tag)
+    const LinkComponent = isLinkTag ? tag : 'a'
+    const staticComponent = isLinkTag ? 'button' : tag
+    const ButtonComponent = href ? LinkComponent : staticComponent
+
+    return (
+      <>
+        {ButtonComponent === 'button' ? (
+          <button class={bindClasses.value} disabled={!href ? disabled : undefined} {...attrs}>
+            <ButtonInnerComponent
+              spanClasses={spanClasses}
+              color={color}
+              gradient={gradient}
+              size={size}
+              outline={outline}
+              loading={loading}
+              loadingPosition={loadingPosition}
+              prefix={Prefix}
+              suffix={Suffix}
+            >
+              <Slot />
+            </ButtonInnerComponent>
+          </button>
+        ) : (
+          <ButtonComponent
+            class={bindClasses.value}
+            href={href}
+            target={href ? attrs.target : undefined}
+            //@ts-expect-error does not exist on other elements
+            disabled={undefined}
+            {...attrs}
+          >
+            <ButtonInnerComponent
+              spanClasses={spanClasses}
+              color={color}
+              gradient={gradient}
+              size={size}
+              outline={outline}
+              loading={loading}
+              loadingPosition={loadingPosition}
+              prefix={Prefix}
+              suffix={Suffix}
+            >
+              <Slot />
+            </ButtonInnerComponent>
+          </ButtonComponent>
+        )}
+      </>
+    )
+  },
+)
+
+type ButtonInnerProps = ButtonProps & {
+  spanClasses: Signal<string>
+}
+const ButtonInnerComponent = component$<ButtonInnerProps>(
+  ({
+    spanClasses,
+    color = 'default',
+    gradient,
+    size = 'md',
+    outline = false,
+    loading = false,
+    loadingPosition = 'prefix',
+    prefix: Prefix,
+    suffix: Suffix,
+  }) => {
     const isOutlineGradient = useComputed$(() => outline && gradient)
 
     const loadingPrefix = useComputed$(() => loading && loadingPosition === 'prefix')
@@ -73,20 +140,8 @@ export const Button = component$<ButtonProps>(
       outline,
     })
 
-    const isLinkTag = ['a', Link].includes(tag)
-    const LinkComponent = isLinkTag ? tag : 'a'
-    const staticComponent = isLinkTag ? 'button' : tag
-    const ButtonComponent = href ? LinkComponent : staticComponent
-
     return (
-      <ButtonComponent
-        class={bindClasses.value}
-        href={href}
-        target={href ? attrs.target : undefined}
-        //@ts-expect-error does not exist on other elements
-        disabled={!href && ButtonComponent === 'button' ? disabled : undefined}
-        {...attrs}
-      >
+      <>
         {!isOutlineGradient.value && (Prefix || loadingPrefix.value) && (
           <span class="mr-2">{loadingPrefix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Prefix && <Prefix />}</span>
         )}
@@ -106,7 +161,7 @@ export const Button = component$<ButtonProps>(
         {!isOutlineGradient.value && (Suffix || loadingSuffix.value) && (
           <span class="ml-2">{loadingSuffix.value ? <Spinner color={spinnerColor.value} size={spinnerSize.value} /> : Suffix && <Suffix />}</span>
         )}
-      </ButtonComponent>
+      </>
     )
   },
 )
