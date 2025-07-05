@@ -13,8 +13,8 @@ export default component$(() => {
   return (
     <Navbar fluid rounded separator>
       <Navbar.Brand tag={Link} href="https://flowbite-qwik.com/">
-        <img src="/small-logo.png" alt="Flowbite qwik logo" width="215" height="195" class="h-8 w-auto" />
-        <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
+        <img src="/logo.svg" alt="Flowbite qwik logo" width="306" height="306" class="h-8 w-auto" />
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite Qwik</span>
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>

@@ -15,11 +15,11 @@ export default component$(() => {
   return (
     <Navbar fluid rounded>
       <Navbar.Brand tag={Link} href="https://flowbite-qwik.com/">
-        <img src="/small-logo.png" alt="Flowbite qwik logo" width="215" height="195" class="h-8 w-auto" />
-        <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite Qwik</span>
+        <img src="/logo.svg" alt="Flowbite qwik logo" width="306" height="306" class="h-8 w-auto" />
+        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite Qwik</span>
       </Navbar.Brand>
       <div class="flex items-center md:order-2">
-        <IconSearchOutline class="me-1 h-5 w-5 text-gray-500 dark:text-gray-400 md:hidden" />
+        <IconSearchOutline class="me-1 h-5 w-5 text-gray-500 md:hidden dark:text-gray-400" />
         <Input
           bind:value={searchValue}
           placeholder="Search ..."

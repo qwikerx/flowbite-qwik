@@ -1,6 +1,6 @@
 {
   "name": "flowbite-qwik-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This is a CLI tool to setup flowbite qwik into your project",
   "main": "bin/init.cjs",
   "bin": {
