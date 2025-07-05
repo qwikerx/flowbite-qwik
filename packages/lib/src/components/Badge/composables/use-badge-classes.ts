@@ -74,7 +74,7 @@ export type BadgeClassesProps = {
   icon?: Component<IconProps>
   chips?: boolean
   tag?: Component<LinkProps> | string
-  onClose$?: () => void
+  onClose$?: QRL<() => void>
 } & PropsOf<'span'> &
   PropsOf<'a'>
 
